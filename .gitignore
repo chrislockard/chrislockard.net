@@ -1,2 +1,4 @@
 .vscode
 deploy.sh
+.hugo_build
+.hugo_build.lock
