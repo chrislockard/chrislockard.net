@@ -4,6 +4,7 @@
 title: "Using Local Fonts - Hugo Academic Theme"
 subtitle: "Improve your visitors' privacy"
 summary: ""
+url: "/posts/using-local-fonts-hugo-academic-theme"
 authors: []
 categories: 
 - privacy

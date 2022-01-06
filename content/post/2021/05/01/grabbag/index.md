@@ -4,6 +4,7 @@
 title: "Grabbag"
 subtitle: ""
 summary: "RMS, Dan Kaminsky, FLoCS, Fedora"
+url: "/posts/grabbag"
 authors: []
 categories:
 - infosec

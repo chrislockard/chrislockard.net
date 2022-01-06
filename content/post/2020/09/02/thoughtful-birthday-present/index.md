@@ -4,6 +4,7 @@
 title: "Thoughtful Birthday Present"
 subtitle: "Something nice for someone special"
 summary: ""
+url: "/posts/thoughtful-birthday-present"
 authors: []
 categories:
 - family

@@ -4,6 +4,7 @@
 title: "Aws S3 Cloudfront Cloudflare Https"
 subtitle: "Upgrading security to allow for HSTS and full(strict) cloudflare TLS"
 summary: "This post covers increasing security for a static site hosted on s3 using cloudfront and cloudflare"
+url: "/posts/aws-s3-cloudfront-cloudflare-https"
 authors: []
 categories:
 - infosec

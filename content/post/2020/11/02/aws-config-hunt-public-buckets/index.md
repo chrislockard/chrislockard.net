@@ -4,6 +4,7 @@
 title: "Use AWS Config To Hunt Public S3 Buckets"
 subtitle: ""
 summary: "This post covers using AWS Config as a starting point to find public s3 buckets in your organization."
+url: "/posts/use-aws-config-to-hunt-public-s3-buckets"
 authors: []
 categories:
 - infosec

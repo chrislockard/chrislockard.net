@@ -4,6 +4,7 @@
 title: "Add MFA to Fedora with Yubikey"
 subtitle: ""
 summary: "Add MFA to sudo and gnome in Fedora using a Yubikey and authselect"
+url: "/posts/yubikey-mfa-fedora"
 authors: []
 categories:
 - infosec

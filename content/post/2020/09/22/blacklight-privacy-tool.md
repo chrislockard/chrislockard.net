@@ -4,6 +4,7 @@
 title: "Blacklight Privacy Tool"
 subtitle: "Shine light on website tracking practices"
 summary: ""
+url: "/posts/blacklight-privacy-tool"
 authors: []
 categories: 
 - privacy

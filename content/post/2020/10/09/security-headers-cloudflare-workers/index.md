@@ -4,6 +4,7 @@
 title: "Set Security Headers using Cloudflare Workers"
 subtitle: ""
 summary: "This article covers previous work and introduces a warning"
+url: "/posts/set-security-headers-using-cloudflare-workers"
 authors: []
 categories:
 - infosec
