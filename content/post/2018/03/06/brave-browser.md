@@ -24,7 +24,7 @@ Badger](https://www.eff.org/privacybadger) for adblocking and
 anti-fingerprinting. The same ads and trackers are blocked using Brave, but what
 I really enjoy is the metric that Brave presents on each new tab:
 
-![Brave Stats]({{site.url}}/images/2018/03-06-1.png)
+![Brave Stats](/images/2018/03-06-1.png)
 
 I think Brave is set to disrupt the browser landscape the same way Firefox did
 back in 2004. It aims to solve similar web woes much in the same way Firefox
