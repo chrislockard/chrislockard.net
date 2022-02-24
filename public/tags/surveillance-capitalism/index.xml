@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>surveillance capitalism on Unl0ckd</title>
+    <link>https://www.chrislockard.net/tags/surveillance-capitalism/</link>
+    <description>Recent content in surveillance capitalism on Unl0ckd</description>
+    <image>
+      <url>https://www.chrislockard.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://www.chrislockard.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Tue, 22 Sep 2020 16:45:00 -0400</lastBuildDate><atom:link href="https://www.chrislockard.net/tags/surveillance-capitalism/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Blacklight Privacy Tool</title>
+      <link>https://www.chrislockard.net/posts/blacklight-privacy-tool/</link>
+      <pubDate>Tue, 22 Sep 2020 16:45:00 -0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/blacklight-privacy-tool/</guid>
+      <description>Today on my Mastodon feed, several folks were discussing a new tool by TheMarkup called Blacklight. This tool is billed as a &amp;ldquo;real-time website privacy inspector&amp;rdquo; that showcases the ad and tracking tech deployed by a website.
+I shared this tool with several colleagues and it engendered a stimulating conversation surrounding company commitment to privacy. I argued during this conversation that it would be worse for a company to claim to value customer privacy and then have Blacklight reveal otherwise, than to have made no such claim in the first place.</description>
+    </item>
+    
+  </channel>
+</rss>

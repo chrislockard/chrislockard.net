@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>powershell on Unl0ckd</title>
+    <link>https://www.chrislockard.net/tags/powershell/</link>
+    <description>Recent content in powershell on Unl0ckd</description>
+    <image>
+      <url>https://www.chrislockard.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://www.chrislockard.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 22 Dec 2014 12:00:00 -0400</lastBuildDate><atom:link href="https://www.chrislockard.net/tags/powershell/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>RubberDucky Powershell Payload</title>
+      <link>https://www.chrislockard.net/posts/rubber-ducky-powershell-payload/</link>
+      <pubDate>Mon, 22 Dec 2014 12:00:00 -0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/rubber-ducky-powershell-payload/</guid>
+      <description>On a recent engagement I supported the lead by developing a PowerShell payload for a RubberDucky. The gist is that it will run a handful of standard Windows commands and then e-mail the results to a specified address. It proved to be very helpful and I&amp;rsquo;ve included it below with comments:
+	# Set execution policy to allow unrestricted script scope Set-ExecutionPolicy &#39;Unrestricted&#39; -Scope CurrentUser -Confirm:$false #Create results file in current user&#39;s temp directory $results = $env:temp + &#39;\results.</description>
+    </item>
+    
+    <item>
+      <title>Powershell Environment Variables</title>
+      <link>https://www.chrislockard.net/posts/powershell-environment-variables/</link>
+      <pubDate>Tue, 13 Mar 2012 12:00:00 -0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/powershell-environment-variables/</guid>
+      <description>How to determine Powershell environment variables</description>
+    </item>
+    
+  </channel>
+</rss>

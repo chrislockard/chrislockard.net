@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Categories on Unl0ckd</title>
+    <link>https://www.chrislockard.net/categories/</link>
+    <description>Recent content in Categories on Unl0ckd</description>
+    <image>
+      <url>https://www.chrislockard.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://www.chrislockard.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 21 Feb 2022 21:00:00 -0400</lastBuildDate><atom:link href="https://www.chrislockard.net/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>efficiency-organization</title>
+      <link>https://www.chrislockard.net/categories/efficiency-organization/</link>
+      <pubDate>Mon, 21 Feb 2022 21:00:00 -0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/categories/efficiency-organization/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>infosec</title>
+      <link>https://www.chrislockard.net/categories/infosec/</link>
+      <pubDate>Mon, 03 May 2021 20:14:35 -0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/categories/infosec/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>privacy</title>
+      <link>https://www.chrislockard.net/categories/privacy/</link>
+      <pubDate>Tue, 22 Sep 2020 16:45:00 -0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/categories/privacy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>family</title>
+      <link>https://www.chrislockard.net/categories/family/</link>
+      <pubDate>Wed, 02 Sep 2020 10:18:14 -0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/categories/family/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>foss</title>
+      <link>https://www.chrislockard.net/categories/foss/</link>
+      <pubDate>Wed, 17 Jun 2020 13:13:00 -0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/categories/foss/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>introspection-meditation</title>
+      <link>https://www.chrislockard.net/categories/introspection-meditation/</link>
+      <pubDate>Fri, 17 Jan 2020 14:41:12 -0500</pubDate>
+      
+      <guid>https://www.chrislockard.net/categories/introspection-meditation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>coding</title>
+      <link>https://www.chrislockard.net/categories/coding/</link>
+      <pubDate>Fri, 15 Feb 2019 10:00:00 -0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/categories/coding/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>l0pht on Unl0ckd</title>
+    <link>https://www.chrislockard.net/tags/l0pht/</link>
+    <description>Recent content in l0pht on Unl0ckd</description>
+    <image>
+      <url>https://www.chrislockard.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://www.chrislockard.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 18 Sep 2015 12:00:00 -0400</lastBuildDate><atom:link href="https://www.chrislockard.net/tags/l0pht/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Make a connection</title>
+      <link>https://www.chrislockard.net/posts/make-a-connection/</link>
+      <pubDate>Fri, 18 Sep 2015 12:00:00 -0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/make-a-connection/</guid>
+      <description>This post was inspired by a client who came to me and said &amp;ldquo;I do not understand all of these findings, can you explain them to me?&amp;rdquo;, referring to my web application penetration test deliverable. We spoke for an hour, as I described the findings to him. I corrected him when his understanding was shaky, and I confirmed where his understanding was solid. He had a development background, and was studying for a security certification, but he was managing a large security project for a well-known company and I was surprised to learn he was a security newbie.</description>
+    </item>
+    
+  </channel>
+</rss>

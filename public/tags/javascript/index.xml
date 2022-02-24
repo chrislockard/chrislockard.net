@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>javascript on Unl0ckd</title>
+    <link>https://www.chrislockard.net/tags/javascript/</link>
+    <description>Recent content in javascript on Unl0ckd</description>
+    <image>
+      <url>https://www.chrislockard.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://www.chrislockard.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 15 Feb 2019 10:00:00 -0400</lastBuildDate><atom:link href="https://www.chrislockard.net/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>JavaScript: Methods for sending and receiving network data</title>
+      <link>https://www.chrislockard.net/posts/javascript-network-data/</link>
+      <pubDate>Fri, 15 Feb 2019 10:00:00 -0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/javascript-network-data/</guid>
+      <description>Methods for sending and receiving data across a network with JavaScript</description>
+    </item>
+    
+  </channel>
+</rss>

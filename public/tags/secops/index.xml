@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>secops on Unl0ckd</title>
+    <link>https://www.chrislockard.net/tags/secops/</link>
+    <description>Recent content in secops on Unl0ckd</description>
+    <image>
+      <url>https://www.chrislockard.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://www.chrislockard.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 02 Nov 2020 13:53:04 -0500</lastBuildDate><atom:link href="https://www.chrislockard.net/tags/secops/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Use AWS Config To Hunt Public S3 Buckets</title>
+      <link>https://www.chrislockard.net/posts/use-aws-config-to-hunt-public-s3-buckets/</link>
+      <pubDate>Mon, 02 Nov 2020 13:53:04 -0500</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/use-aws-config-to-hunt-public-s3-buckets/</guid>
+      <description>This post covers using AWS Config as a starting point to find public s3 buckets in your organization.</description>
+    </item>
+    
+    <item>
+      <title>Find Resources With AWS Config</title>
+      <link>https://www.chrislockard.net/posts/find-resources-with-aws-config/</link>
+      <pubDate>Wed, 12 Aug 2020 10:00:00 -0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/find-resources-with-aws-config/</guid>
+      <description>Use AWS Config to locate AWS resources</description>
+    </item>
+    
+    <item>
+      <title>AWS Cloudwatch</title>
+      <link>https://www.chrislockard.net/posts/aws-cloudwatch/</link>
+      <pubDate>Fri, 03 Apr 2020 09:30:00 -0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/aws-cloudwatch/</guid>
+      <description>AWS CloudWatch enables monitoring and alerting on cloud events.</description>
+    </item>
+    
+    <item>
+      <title>AWS Security Hub</title>
+      <link>https://www.chrislockard.net/posts/aws-securityhub/</link>
+      <pubDate>Fri, 21 Feb 2020 00:00:00 -0500</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/aws-securityhub/</guid>
+      <description>AWS Security Hub eases the pain of cloud monitoring</description>
+    </item>
+    
+    <item>
+      <title>Protect AWS API Gateway with AWS WAF</title>
+      <link>https://www.chrislockard.net/posts/aws-waf-and-apigw/</link>
+      <pubDate>Fri, 31 Jan 2020 17:00:00 -0500</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/aws-waf-and-apigw/</guid>
+      <description>Help protect APIGW from attackers with AWS WAF</description>
+    </item>
+    
+    <item>
+      <title>AWS CloudTrail</title>
+      <link>https://www.chrislockard.net/posts/aws-cloudtrail/</link>
+      <pubDate>Thu, 30 Jan 2020 14:15:06 -0500</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/aws-cloudtrail/</guid>
+      <description>AWS CloudTrail is the cornerstone of cloud SECOPS</description>
+    </item>
+    
+    <item>
+      <title>Changing Direction</title>
+      <link>https://www.chrislockard.net/posts/changing-direction/</link>
+      <pubDate>Fri, 17 Jan 2020 14:41:12 -0500</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/changing-direction/</guid>
+      <description>How my career is changing.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>PHP, MySql, and Injection | Unl0ckd</title>
+<meta name="keywords" content="appsec, php, mysql, injection, coding" />
+<meta name="description" content="Inspired by Jack Daniel&rsquo;s &ldquo;Shoulders of InfoSec Project&rdquo;, this post will be focused on the people and technologies behind one of the most prevalent attacks on web sites: SQL injection.
+According to OWASP, injection is the number one attack vector for web applications. Injection attacks can target many different contexts in a web application: HTML, PHP, ASP, Javascript, SQL, etc. Any context in which an interpreter parses input to execute instructions is potentially vulnerable to an injection attack.">
+<meta name="author" content="Me">
+<link rel="canonical" href="https://www.chrislockard.net/posts/php-mysql-injection/" />
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.c88963fe2d79462000fd0fb1b3737783c32855d340583e4523343f8735c787f0.css" integrity="sha256-yIlj/i15RiAA/Q&#43;xs3N3g8MoVdNAWD5FIzQ/hzXHh/A=" rel="preload stylesheet" as="style">
+<link rel="preload" href="/apple-touch-icon.png" as="image">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js" integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5&#43;kdJvBz5iKbt6B5PJI="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://www.chrislockard.net/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://www.chrislockard.net/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://www.chrislockard.net/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://www.chrislockard.net/apple-touch-icon.png">
+<link rel="mask-icon" href="https://www.chrislockard.net/favicon-32x32.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<meta name="generator" content="Hugo 0.91.2" />
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="PHP, MySql, and Injection" />
+<meta property="og:description" content="Inspired by Jack Daniel&rsquo;s &ldquo;Shoulders of InfoSec Project&rdquo;, this post will be focused on the people and technologies behind one of the most prevalent attacks on web sites: SQL injection.
+According to OWASP, injection is the number one attack vector for web applications. Injection attacks can target many different contexts in a web application: HTML, PHP, ASP, Javascript, SQL, etc. Any context in which an interpreter parses input to execute instructions is potentially vulnerable to an injection attack." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.chrislockard.net/posts/php-mysql-injection/" /><meta property="og:image" content="https://www.chrislockard.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"/><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2014-11-26T12:00:00-04:00" />
+<meta property="article:modified_time" content="2014-11-26T12:00:00-04:00" /><meta property="og:site_name" content="Unl0ckd" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://www.chrislockard.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"/>
+
+<meta name="twitter:title" content="PHP, MySql, and Injection"/>
+<meta name="twitter:description" content="Inspired by Jack Daniel&rsquo;s &ldquo;Shoulders of InfoSec Project&rdquo;, this post will be focused on the people and technologies behind one of the most prevalent attacks on web sites: SQL injection.
+According to OWASP, injection is the number one attack vector for web applications. Injection attacks can target many different contexts in a web application: HTML, PHP, ASP, Javascript, SQL, etc. Any context in which an interpreter parses input to execute instructions is potentially vulnerable to an injection attack."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://www.chrislockard.net/post/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "PHP, MySql, and Injection",
+      "item": "https://www.chrislockard.net/posts/php-mysql-injection/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "PHP, MySql, and Injection",
+  "name": "PHP, MySql, and Injection",
+  "description": "Inspired by Jack Daniel\u0026rsquo;s \u0026ldquo;Shoulders of InfoSec Project\u0026rdquo;, this post will be focused on the people and technologies behind one of the most prevalent attacks on web sites: SQL injection.\nAccording to OWASP, injection is the number one attack vector for web applications. Injection attacks can target many different contexts in a web application: HTML, PHP, ASP, Javascript, SQL, etc. Any context in which an interpreter parses input to execute instructions is potentially vulnerable to an injection attack.",
+  "keywords": [
+    "appsec", "php", "mysql", "injection", "coding"
+  ],
+  "articleBody": "Inspired by Jack Daniel’s “Shoulders of InfoSec Project”, this post will be focused on the people and technologies behind one of the most prevalent attacks on web sites: SQL injection.\nAccording to OWASP, injection is the number one attack vector for web applications. Injection attacks can target many different contexts in a web application: HTML, PHP, ASP, Javascript, SQL, etc. Any context in which an interpreter parses input to execute instructions is potentially vulnerable to an injection attack. There are several - many, rather - excellent tutorials on Injection attacks available on the web. Here’s a brief selection of SQL injection attacks for reference:\n Mavituna’s SQLi Cheat Sheet Pentest Monkey’s SQLi Cheat Sheet OWASP - SQL Injection  I will describe the background of the technologies that came together to make SQL Injection attacks so prevalent on the web, since I believe context is important. I will focus primarily on PHP and its connectivity to MySQL as a database back-end due to the ubiquity with which this technology stack drives the current web.\nBackground The early World Wide Web served static content. This content was served in the form of text and images glued together using Tim Berners-Lee’s Hyper Text Markup Language (HTML).\n  Sir Tim Berners-Lee\n  He and his friends Dave Raggett, Roy Fielding, et. al created the HyperText Transfer Protocol (HTTP) that we all rely upon so much today.\nA typical early web browsing session looked like this, logically:\nClient-side| User (Browser) HTTP  Static Content (HTML, JPG, etc) | Server-side  Clients (web browsers) make requests to web servers for HTML files and images using HTTP as the communication protocol.\n This is fundamentally how the web works today.\nDuring the early web, most user sessions with a web site were non-interactive. Users would browse to a website, read its content and view its images, then move on to the next. Any interaction with the site consisted of e-mailing the “webmaster” - an archaic term for the site’s owner or operator. This worked well for small sites owned and operated by individuals and hosted for free (cough GeoCities, cough Angelfire).\nOwners of large sites, companies, and visionaries soon realized the need for a website to be interactive. Companies wanted their customers to make purchases directly from an online catalog rather than staffing a phone center to handle customer calls. Large sites wanted their users to interact with each other directly, rather than via e-mail or newsgroups, so that the owners could reap advertising revenues.\nThese types of dynamic interaction with a website just weren’t prevalent in the days of the early web because of the static nature of a user’s session with a website.\nWhat Changed? So, how did the gap between static content and dynamic interaction get bridged?\nCGI.\nNot the imagery effects in movies, but the Common Gateway Interface. The Common Gateway Interface allows an HTTP server and a CGI script to share the responsibility of responding to client requests. These client requests are made up of:\n A Uniform Resource Identifier (URI) - typically a Uniform Resource Locator (URL) A request method as outlined in the HTTP specification - typically GET, or POST, but there also exist HEAD, PUT, DELETE, TRACE, and CONNECT, and Various ancillary information about the request provided by the Transport Protocol.  Let’s look at an example client request to a webserver:\nGET /index.php HTTP/1.1 Host: penetrate.io User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.2.0 Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8 Accept-Language: en-US,en;q=0.5 Accept-Encoding: gzip, deflate Connection: keep-alive  On the first line, GET indicates the request method The /index.php on the first line, along with the second line define the URL, or resource being requested from the web server (http://penetrate.io/index.php) Lines 3-7 include the ancillary information making up the rest of the request  Web server software receives requests like these and returns the corresponding resource to the user’s web browser. Together with a programmatic interface, such as PHP, CGI allows programmers to use requests like these to return custom tailored responses to the user’s web browser.\nCGI is the “glue” that allows a web server to return dynamic content to the user’s web browser instead of static content.\nRFC 3875 outlines these rules which allow systems programmers to implement the CGI.\nToday, Apache and other web servers have implemented their own, more efficient, modules to perform the duties of CGI. You can configure these parameters in your apache httpd.conf files.\nNow, what about the “Programmatic Interface” I mentioned? This is where PHP comes into play.\nPHP: Better, Faster, Stronger…. not harder The basis of PHP was created by Rasmus Lerdorf in 1995. He wrote a CGI binary in the C programming language for use with the Apache web server with the intent of displaying his resume on his personal web site (PHP used to stand for “Personal Home Page”, but no longer). The major advantage of Lerdorf’s Personal Home Page application was that his code could be embedded directly in the HTML file calling it, reducing complexity for the programmer and overhead for the web server.\nIn 1997, Zeev Suraski and Andi Gutmans re-wrote and extended the capability of the PHP parser, and this became the basis of php3, and modern PHP running on the so-called “Zend engine.” This is the name of the guts of the PHP binary that interprets PHP code and tells the web server how to process it - aka. the interface. Very quickly, the maintainers of the Apache Server Foundation (including Mr. Fielding) realized the importance of this rising language.\nThis was HUGE. Ease of development of web applications was tremendously helped by the advent of PHP on the Zend engine. LAMP and WAMP (Windows, Apache, MySQL, and PHP) servers began shooting up with the Zend library included. Developers no longer had to worry about configuration and compiling the correct PHP binary against the proper Apache binary, they could just work on coding the application.\nNote that:\n PHP was not the only language rising in popularity at the time for web: MSFT was developing ASP running on their IIS web server. The Apache Server software began incorporating the functionality of CGI and its successors into modules for the server Today, instead of a CGI application handling requests for files in the /cgi-bin/ directory, Apache itself parses PHP requests using “libphp5.so” found in /etc/httpd/modules Many major sites are built upon PHP, including Wordpress, Wikipedia, and Facebook.  Popularity Problems But what does all of this have to do with SQL Injection attacks? A lot!\nThe ease with which PHP allowed developers to build dynamic web sites was unprecedented. More and more dynamic sites were popping up on the web As I mentioned earlier, the major difference between a static site and a dynamic site is user interaction. The results of this interaction were often stored in a relational database, and, in PHP’s case, the database of choice was (and is) MySQL.\nMySQL’s combination of performance, feature set, and open source ideology (not to mention the price: free) made it the leading database of choice to group with Linux, PHP, and Apache. These technologies are also free and mostly open-source (except PHP). Site owners and developers took to using this technology stack en masse. Sites running PHP and MySQL began shooting up as more and more site owners were learning to deploy PHP to create sites with dynamic content. PHP.net keeps a rough estimate of the number of sites running PHP technology - note the chart is logarithmic.\nWhat can go wrong with a technology that allows users to interact with web servers through their web browser over the Internet?\nPHP and MySQL: Injection Heaven (potentially…) Let’s take a look at how PHP communicates with MySQL from the standpoint of a web site owner, Paul, who knows enough to be dangerous and has Google. Paul wants to create a member login for his web site’s visitors. After searching Google for “php mysql user login” he’s found a nice tutorial on one of the top search results.\nThis tutorial includes reassuring information for Paul, such as\n Why we are using POST not GET method? We are using POST method because it is secure…\n Reassured, Paul begins to implement his new user login. After getting MySQL and Apache set up, Paul sets about writing his login page. Here’s the code Paul’s managed to get working:\nphp define('DB_HOST', 'localhost'); define('DB_NAME', 'test'); define('DB_USER','root'); define('DB_PASSWORD',''); $connection = mysql_connect(DB_HOST,DB_USER,DB_PASSWORD) or die(\"Error connecting to MySQL:\" . mysql_error()); $databse = mysql_select_db(DB_NAME, $connection) or die(\"Error connecting to MySQL:\" . mysql_error()); /* $ID = $_POST['user']; $Password = $_POST['pass']; */ function SignIn() { session_start(); if(!empty($_POST['user'])) { $query = mysql_query(\"SELECT * FROM UserName where userName = '$_POST[user]' AND pass = '$_POST[pass]'\") or die(mysql_error()); $row = mysql_fetch_array($query) or die(mysql_error()); if(!empty($row['userName']) \u0026\u0026 !empty($row['pass'])) { $_SESSION['userName'] = $row['pass']; echo \"SUCCESSFUL LOGIN!\"; } else { echo \"ERROR LOGGING IN!\"; } } } if(isset($_POST['submit'])) { SignIn(); } ?Everything seems to be working well, as Paul can enter his username and password here:\n  sqli-login\n  And is successfully logged in here: successful-login\n  successful login\n  PHP’s ease of use and widespread popularity has lead to countless websites being developed in a similar fashion: slapdash and without much thought with security in mind. (My colleagues and I refer to them as “StackOverflow” sites) Besides the “POST is a secure method” chestnut from this site, what else is wrong with this code?\n The PHP file connects to MySQL using the “root” or superuser login. There is no sanitization of the data being passed into the “$query” variable - we’ll see how to exploit, then fix, this vulnerability shortly. The deprecated mysql_connect() function is being used - this is systemic of these slapdash tutorials: the easiest method to get things working is used, and even when the listed functionality has been deprecated, tutorials are often not revised.  How can this be exploited?\nInjection Exploitation Let’s focus on the core functionality of this code, this line here:\n$query = mysql_query(\"SELECT * FROM UserName where userName = '$_POST[user]' AND pass = '$_POST[pass]'\") or die(mysql_error()); This PHP code is telling the PHP CGI to take the value submitted by the user’s browser, stored in $_POST[user] and pass it to the MySQL context using the mysql_query() function. The MySQL context executes an instruction and returns the result to $query At the start of this post, I said “Any context in which an interpreter parses input to execute instructions is potentially vulnerable to an injection attack.” This code fits the bill.\nThis code presents the user with the opportunity to inject valid SQL commands into the login page instead of a username or password, though Paul doesn’t realize this. We want to bypass the username requirement altogether. The application expects us to enter a username and password here:\n  sqli login\n  Instead, let’s enter ' or 1=1; –:\n  sqli login bypass\n    sqli-login-bypass-success\n  What we’ve done is injected a valid SQL command into the MySQL context, through the PHP CGI. The PHP CGI sent the MySQL backend our injection through the ancillary information stored in $_POST[user]. Paul only expected users to enter valid usernames and passwords like “admin” and “supersecret” in the login page. The PHP CGI stores these in the $_POST[user] and $_POST[pass] variables, so Paul expected his application to send the MySQL server this query:\n$query = mysql_query(\"SELECT * FROM UserName where userName = 'admin' AND pass = 'supersecret\") or die(mysql_error()); Instead, our injection has sent the MySQL server this query:\n$query = mysql_query(\"SELECT * FROM UserName where userName = '' or 1=1; -- AND pass = '') or die(mysql_error()); This is a valid query, so the MySQL context doesn’t throw an error up. The condition or 1=1 always evaluates to true and the ; -- characters tell the MySQL context that the query ends after 1=1 and the rest of the command is commented out, invalidating it.\nThis is a classic, old-as-dust example of a SQL injection attack against PHP and MySQL, but it still works based on a tutorial written about one month ago. In 2014. These types of attacks are far too common!\nLet’s Remediate This Injection Following in the “easiest solution gets implemented” mindset I criticized this vulnerable code of, Paul could add the addslashes() function to his code like this:\n$query = mysql_query(\"SELECT * FROM UserName where userName = . addslashes('$_POST[user]') . AND pass = . addslashes('$_POST[pass]')\") or die(mysql_error()); Now, when we attempt to enter ' or 1=1; -- as the username, we are greeted with the following error:\n  sqli addslashes\n  The easiest method isn’t the most complete, and I’ve already spent several paragraphs pointing this out.\nA More Robust Solution: Prepared Statements using PDO PHP Data Objects (PDO) is a robust database driver allowing PHP to communicate with several database backends, including MySQL. One of the key security features offered by PDO is the ability to create Prepared Statements. Prepared statements separate SQL code from data by building a valid SQL query (the code) and inserting data only into parameters specified by the developer. PDO takes a little more effort to construct, but Paul could just as easily use the following code to better implement his login:\nphp $dbh = new PDO('mysql:host=localhost;dbname=test','root',''); $dbh-setAttribute(PDO::ATTR_EMULATE_PREPARES, false); $dbh-setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); $query = $dbh-prepare( \"SELECT * FROM UserName WHERE userName = :username AND pass = :password\"); $query-bindValue( ':username', $_POST['user'] ); $query-bindValue( ':password', $_POST['pass'] ); if( $query-execute() ) { $num_rows = $query-fetchAll( PDO::FETCH_ASSOC ); } echo ''; print_r( $num_rows ); echo ''; ?Paul uses PDO to construct the SQL query and parameterizes the data he expects, using the bindValue method. PDO thus constructs the executable portion of the query as:\n\"SELECT * FROM UserName WHERE userName = :username AND pass = :password\" bindValue tells PDO that the values substituted for :username and :password are the data portion of the query and are not to be treated as valid SQL commands. As a bonus, PDO escapes the input it binds to :username and :password, so even if we tried entering valid SQL commands, PDO would tell the PHP CGI it has encountered an error and the attempted SQL injection will not work.\nAdditional solutions for remediating this vulnerability in PHP include:\n [Using stored procedures][StoredProcedures] [Sanitizing user input][Sanitize User Input] [Database connectivity using “least privilege” principle][Least Priv] [White listing user input][Whitelist]  Combining several of these options would provide for the ideal defense-in-depth characteristic that would successfully help keep Paul’s site secure. However, no defense is perfect, and critical functionality - such as user login and authorization - should be reviewed periodically to ensure that the current best practices for defense are being applied. Implementing these defenses take time and expertise, two things Paul may or may not have, which is why so many vulnerable sites exist on the web.\nSummary I’ve discussed the history of several technologies that have brought the web to its current state, and the SQL Injection vulnerabilities present in one of the most influential. I hope this post has been educational to you, not just in the technique of SQL injection, but in providing some situational awareness so you can better understand how this rose to be the top attack against websites today.\n[StoredProcedures]: https://www.owasp.org/index.php/SQL_Injection_Prevention_Cheat_Sheet#Defense_Option_2:_Stored_Procedures [Sanitize User Input]: http://codex.wordpress.org/Validating_Sanitizing_and_Escaping_User_Data [Least Priv]: https://www.owasp.org/index.php/SQL_Injection_Prevention_Cheat_Sheet#Least_Privilege [Whitelist]: https://www.owasp.org/index.php/SQL_Injection_Prevention_Cheat_Sheet#White_List_Input_Validation\n",
+  "wordCount" : "2521",
+  "inLanguage": "en",
+  "datePublished": "2014-11-26T12:00:00-04:00",
+  "dateModified": "2014-11-26T12:00:00-04:00",
+  "author":{
+    "@type": "Person",
+    "name": "Me"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.chrislockard.net/posts/php-mysql-injection/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Unl0ckd",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.chrislockard.net/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://www.chrislockard.net/" accesskey="h" title="Home (Alt + H)">
+                <img src="/apple-touch-icon.png" alt="logo" aria-label="logo"
+                    height="35">Home</a>
+            <span class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </span>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://www.chrislockard.net/categories/" title="categories">
+                    <span>categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.chrislockard.net/tags/" title="tags">
+                    <span>tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.chrislockard.net/post/" title="posts">
+                    <span>posts</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://www.chrislockard.net/">Home</a>&nbsp;»&nbsp;<a href="https://www.chrislockard.net/post/">Posts</a></div>
+    <h1 class="post-title">
+      PHP, MySql, and Injection
+    </h1>
+    <div class="post-meta"><span title='2014-11-26 12:00:00 -0400 -0400'>November 26, 2014</span>&nbsp;·&nbsp;12 min&nbsp;·&nbsp;Me&nbsp;|&nbsp;<a href="https://github.com/chrislockard/chrislockard.net" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
+
+</div>
+  </header> <div class="toc">
+    <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#background" aria-label="Background">Background</a></li>
+                <li>
+                    <a href="#what-changed" aria-label="What Changed?">What Changed?</a></li>
+                <li>
+                    <a href="#php-better-faster-stronger-not-harder" aria-label="PHP: Better, Faster, Stronger&amp;hellip;. not harder">PHP: Better, Faster, Stronger&hellip;. not harder</a></li>
+                <li>
+                    <a href="#popularity-problems" aria-label="Popularity Problems">Popularity Problems</a></li>
+                <li>
+                    <a href="#php-and-mysql-injection-heaven-potentially" aria-label="PHP and MySQL: Injection Heaven (potentially&amp;hellip;)">PHP and MySQL: Injection Heaven (potentially&hellip;)</a></li>
+                <li>
+                    <a href="#injection-exploitation" aria-label="Injection Exploitation">Injection Exploitation</a></li>
+                <li>
+                    <a href="#lets-remediate-this-injection" aria-label="Let&amp;rsquo;s Remediate This Injection">Let&rsquo;s Remediate This Injection</a></li>
+                <li>
+                    <a href="#a-more-robust-solution-prepared-statements-using-pdo" aria-label="A More Robust Solution: Prepared Statements using PDO">A More Robust Solution: Prepared Statements using PDO</a></li>
+                <li>
+                    <a href="#summary" aria-label="Summary">Summary</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><p>Inspired by Jack Daniel&rsquo;s <a href="http://blog.uncommonsensesecurity.com/2014/10/introducing-shoulders-of-infosec-project.html">&ldquo;Shoulders of InfoSec Project&rdquo;</a>, this post
+will be focused on the people and technologies behind one of the most prevalent
+attacks on web sites: SQL injection.</p>
+<p>According to OWASP, injection is the number one attack vector for web
+applications. Injection attacks can target many different contexts in a web
+application: HTML, PHP, ASP, Javascript, SQL, etc. Any context in which an
+interpreter parses input to execute instructions is potentially vulnerable to an
+injection attack. There are several - many, rather - excellent tutorials on
+<a href="https://www.owasp.org/index.php/Top_10_2013-A1-Injection">Injection attacks</a> available on the web. Here&rsquo;s a brief
+selection of SQL injection attacks for reference:</p>
+<ul>
+<li><a href="http://ferruh.mavituna.com/sql-injection-cheatsheet-oku/">Mavituna&rsquo;s SQLi Cheat Sheet</a></li>
+<li><a href="http://pentestmonkey.net/cheat-sheet/sql-injection/mysql-sql-injection-cheat-sheet">Pentest Monkey&rsquo;s SQLi Cheat Sheet</a></li>
+<li><a href="https://www.owasp.org/index.php/SQL_Injection">OWASP - SQL Injection</a></li>
+</ul>
+<p>I will describe the background of the technologies that came together to make
+SQL Injection attacks so prevalent on the web, since I believe <a href="http://tinypic.com/view.php?pic=j8k0mp&amp;s=5">context is
+important</a>. I will focus primarily on PHP and its connectivity to MySQL
+as a database back-end <a href="http://php.net/usage.php">due to the ubiquity with which this technology stack
+drives the current web</a>.</p>
+<h1 id="background">Background<a hidden class="anchor" aria-hidden="true" href="#background">#</a></h1>
+<p>The early World Wide Web served static content. This content was served in the
+form of text and images glued together using <a href="http://www.w3.org/People/Berners-Lee/">Tim Berners-Lee&rsquo;s</a> Hyper
+Text Markup Language (HTML).</p>
+<figure>
+    <img loading="lazy" src="/images/2014/11-26-1.jpg"
+         alt="Sir Tim Berners-Lee"/> <figcaption>
+            <p>Sir Tim Berners-Lee</p>
+        </figcaption>
+</figure>
+
+<p>He and his friends <a href="http://www.w3.org/People/Raggett/">Dave Raggett</a>, <a href="http://en.wikipedia.org/wiki/Roy_Fielding">Roy Fielding</a>, <a href="http://tools.ietf.org/html/rfc2616">et.
+al</a> created the HyperText Transfer Protocol (HTTP) that we all rely
+upon so much today.</p>
+<p>A typical early web browsing session looked like this, logically:</p>
+<pre tabindex="0"><code>Client-side|    User (Browser)&lt;===&gt; HTTP &lt;===&gt; Static Content (HTML, JPG, etc) | Server-side
+</code></pre><blockquote>
+<p>Clients (web browsers) make requests to web servers for HTML files and images
+using HTTP as the communication protocol.</p>
+</blockquote>
+<p>This is fundamentally how the web works today.</p>
+<p>During the early web, most user sessions with a web site were non-interactive.
+Users would browse to a website, read its content and view its images, then move
+on to the next. Any interaction with the site consisted of e-mailing the
+&ldquo;webmaster&rdquo; - an archaic term for the site&rsquo;s owner or operator. This worked well
+for small sites owned and operated by individuals and hosted for free (<em>cough</em>
+<a href="http://en.wikipedia.org/wiki/GeoCities">GeoCities</a>, <em>cough</em> <a href="http://en.wikipedia.org/wiki/Angelfire">Angelfire</a>).</p>
+<p>Owners of large sites, companies, and visionaries soon realized the need for a
+website to be interactive. Companies wanted their customers to make purchases
+directly from an online catalog rather than staffing a phone center to handle
+customer calls. Large sites wanted their users to interact with each other
+directly, rather than via e-mail or newsgroups, so that the owners could reap
+advertising revenues.</p>
+<p>These types of dynamic interaction with a website just weren&rsquo;t prevalent in the
+days of the early web because of the static nature of a user&rsquo;s session with a
+website.</p>
+<h1 id="what-changed">What Changed?<a hidden class="anchor" aria-hidden="true" href="#what-changed">#</a></h1>
+<p>So, how did the gap between static content and dynamic interaction get bridged?</p>
+<p>CGI.</p>
+<p>Not the imagery effects in movies, but the <a href="http://www.w3.org/CGI/">Common Gateway Interface</a>.
+The Common Gateway Interface allows an HTTP server and a CGI script to share the
+responsibility of responding to client requests. These client requests are made
+up of:</p>
+<ul>
+<li>A <a href="http://en.wikipedia.org/wiki/Uniform_resource_identifier">Uniform Resource Identifier (URI)</a> - typically a Uniform Resource
+Locator (URL)</li>
+<li>A request method as outlined in the <a href="http://tools.ietf.org/html/rfc2616">HTTP specification</a> - typically
+GET, or POST, but there also exist HEAD, PUT, DELETE, TRACE, and CONNECT, and</li>
+<li>Various ancillary information about the request provided by the Transport
+Protocol.</li>
+</ul>
+<p>Let&rsquo;s look at an example client request to a webserver:</p>
+<pre tabindex="0"><code>GET /index.php HTTP/1.1
+Host: penetrate.io
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.2.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+</code></pre><ul>
+<li>On the first line, <code>GET</code> indicates the request method</li>
+<li>The <code>/index.php</code> on the first line, along with the second line define the URL,
+or resource being requested from the web server
+(<a href="http://penetrate.io/index.php">http://penetrate.io/index.php</a>)</li>
+<li>Lines 3-7 include the ancillary information making up the rest of the request</li>
+</ul>
+<p>Web server software receives requests like these and returns the corresponding
+resource to the user&rsquo;s web browser. Together with a programmatic interface, such
+as PHP, CGI allows programmers to use requests like these to return custom
+tailored responses to the user&rsquo;s web browser.</p>
+<p>CGI is the &ldquo;glue&rdquo; that allows a web server to return dynamic content to the
+user&rsquo;s web browser instead of static content.</p>
+<p><a href="http://www.ietf.org/rfc/rfc3875">RFC 3875</a> outlines these rules which allow
+systems programmers to implement the CGI.</p>
+<p>Today, Apache and other web servers have implemented their own, more efficient,
+modules to perform the duties of CGI. You can configure these parameters in your
+apache <code>httpd.conf</code> files.</p>
+<p>Now, what about the &ldquo;Programmatic Interface&rdquo; I mentioned? This is where PHP
+comes into play.</p>
+<h1 id="php-better-faster-stronger-not-harder">PHP: Better, Faster, Stronger&hellip;. not harder<a hidden class="anchor" aria-hidden="true" href="#php-better-faster-stronger-not-harder">#</a></h1>
+<p>The basis of PHP was created by Rasmus Lerdorf in 1995. He wrote a CGI binary in
+the C programming language for use with the Apache web server with the intent of
+displaying his resume on his personal web site (PHP used to stand for &ldquo;Personal
+Home Page&rdquo;, <a href="http://php.net/manual/en/faq.general.php#faq.general.acronym">but no longer</a>). The major advantage of Lerdorf&rsquo;s
+Personal Home Page application was that his code could be embedded directly in
+the HTML file calling it, reducing complexity for the programmer and overhead
+for the web server.</p>
+<p>In 1997, Zeev Suraski and Andi Gutmans re-wrote and extended the capability of
+the PHP parser, and this became the basis of php3, and modern PHP running on the
+so-called &ldquo;Zend engine.&rdquo; This is the name of the guts of the PHP binary that
+interprets PHP code and tells the web server how to process it - aka. the
+interface. Very quickly, the maintainers of the Apache Server Foundation
+(including Mr. Fielding) realized the importance of this rising language.</p>
+<p>This was HUGE. Ease of development of web applications was tremendously helped
+by the advent of PHP on the Zend engine. LAMP and WAMP (Windows, Apache, MySQL,
+and PHP) servers began shooting up with the Zend library included. Developers no
+longer had to worry about configuration and compiling the correct PHP binary
+against the proper Apache binary, they could just work on coding the
+application.</p>
+<p>Note that:</p>
+<ul>
+<li>PHP was not the only language rising in popularity at the time
+for web: MSFT was developing ASP running on their IIS web server.</li>
+<li>The Apache Server software began incorporating the functionality of CGI and its
+successors into modules for the server</li>
+<li>Today, instead of a CGI application handling requests for files in the
+/cgi-bin/ directory, Apache itself parses
+PHP requests using &ldquo;libphp5.so&rdquo; found in /etc/httpd/modules</li>
+<li>Many major sites are built upon PHP, including
+<a href="https://www.wordpress.org">Wordpress</a>, <a href="https://www.wikipedia.org">Wikipedia</a>,
+and <a href="https://salimvirani.com/facebook/">Facebook</a>.</li>
+</ul>
+<h1 id="popularity-problems">Popularity Problems<a hidden class="anchor" aria-hidden="true" href="#popularity-problems">#</a></h1>
+<p>But what does all of this have to do with SQL Injection attacks? A lot!</p>
+<p>The ease with which PHP allowed developers to build dynamic web sites was
+unprecedented. More and more dynamic sites were popping up on the web As I
+mentioned earlier, the major difference between a static site and a dynamic site
+is user interaction. The results of this interaction were often stored in a
+relational database, and, in PHP&rsquo;s case, the database of choice was (and is)
+<a href="http://www.mysql.com">MySQL</a>.</p>
+<p>MySQL&rsquo;s combination of performance, feature set, and open source ideology (not
+to mention the price: free) made it the leading database of choice to group with
+Linux, PHP, and Apache. These technologies are also free and mostly open-source
+(except PHP). Site owners and developers took to using this technology stack en
+masse. Sites running PHP and MySQL began shooting up as more and more site
+owners were learning to deploy PHP to create sites with dynamic content.
+<a href="http://php.net/usage.php">PHP.net keeps a rough estimate</a> of the number of sites running PHP
+technology - note the chart is logarithmic.</p>
+<p>What can go wrong with a technology that allows users to interact with web
+servers through their web browser over the Internet?</p>
+<h1 id="php-and-mysql-injection-heaven-potentially">PHP and MySQL: Injection Heaven (potentially&hellip;)<a hidden class="anchor" aria-hidden="true" href="#php-and-mysql-injection-heaven-potentially">#</a></h1>
+<p>Let&rsquo;s take a look at how PHP communicates with MySQL from the standpoint of a
+web site owner, Paul, who knows enough to be dangerous and has Google. Paul
+wants to create a member login for his web site&rsquo;s visitors. After searching
+Google for &ldquo;php mysql user login&rdquo; he&rsquo;s found a nice tutorial on <a href="http://mrbool.com/how-to-create-a-login-page-with-php-and-mysql/28656">one of the top
+search results</a>.</p>
+<p>This tutorial includes reassuring information for Paul, such as</p>
+<blockquote>
+<p>Why we are using POST not GET method?  We are using POST method because it is
+secure&hellip;</p>
+</blockquote>
+<p>Reassured, Paul begins to implement his new user login. After getting MySQL and
+Apache set up, Paul sets about writing his login page. Here&rsquo;s the code Paul&rsquo;s
+managed to get working:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#f92672">&lt;?</span><span style="color:#a6e22e">php</span>
+<span style="color:#a6e22e">define</span>(<span style="color:#e6db74">&#39;DB_HOST&#39;</span>, <span style="color:#e6db74">&#39;localhost&#39;</span>);
+<span style="color:#a6e22e">define</span>(<span style="color:#e6db74">&#39;DB_NAME&#39;</span>, <span style="color:#e6db74">&#39;test&#39;</span>);
+<span style="color:#a6e22e">define</span>(<span style="color:#e6db74">&#39;DB_USER&#39;</span>,<span style="color:#e6db74">&#39;root&#39;</span>);
+<span style="color:#a6e22e">define</span>(<span style="color:#e6db74">&#39;DB_PASSWORD&#39;</span>,<span style="color:#e6db74">&#39;&#39;</span>);
+
+$connection <span style="color:#f92672">=</span> <span style="color:#a6e22e">mysql_connect</span>(<span style="color:#a6e22e">DB_HOST</span>,<span style="color:#a6e22e">DB_USER</span>,<span style="color:#a6e22e">DB_PASSWORD</span>) <span style="color:#66d9ef">or</span> <span style="color:#66d9ef">die</span>(<span style="color:#e6db74">&#34;Error connecting to MySQL:&#34;</span> <span style="color:#f92672">.</span>  <span style="color:#a6e22e">mysql_error</span>());
+$databse <span style="color:#f92672">=</span> <span style="color:#a6e22e">mysql_select_db</span>(<span style="color:#a6e22e">DB_NAME</span>, $connection) <span style="color:#66d9ef">or</span> <span style="color:#66d9ef">die</span>(<span style="color:#e6db74">&#34;Error connecting to MySQL:&#34;</span> <span style="color:#f92672">.</span>  <span style="color:#a6e22e">mysql_error</span>());
+
+<span style="color:#75715e">/*
+</span><span style="color:#75715e">$ID = $_POST[&#39;user&#39;];
+</span><span style="color:#75715e">$Password = $_POST[&#39;pass&#39;];
+</span><span style="color:#75715e">*/</span>
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">SignIn</span>()
+{
+<span style="color:#a6e22e">session_start</span>();
+<span style="color:#66d9ef">if</span>(<span style="color:#f92672">!</span><span style="color:#66d9ef">empty</span>($_POST[<span style="color:#e6db74">&#39;user&#39;</span>]))
+{
+    $query <span style="color:#f92672">=</span> <span style="color:#a6e22e">mysql_query</span>(<span style="color:#e6db74">&#34;SELECT * FROM UserName where userName = &#39;</span><span style="color:#e6db74">$_POST[user]</span><span style="color:#e6db74">&#39; AND pass =     &#39;</span><span style="color:#e6db74">$_POST[pass]</span><span style="color:#e6db74">&#39;&#34;</span>) <span style="color:#66d9ef">or</span> <span style="color:#66d9ef">die</span>(<span style="color:#a6e22e">mysql_error</span>());
+    $row <span style="color:#f92672">=</span> <span style="color:#a6e22e">mysql_fetch_array</span>($query) <span style="color:#66d9ef">or</span> <span style="color:#66d9ef">die</span>(<span style="color:#a6e22e">mysql_error</span>());
+
+    <span style="color:#66d9ef">if</span>(<span style="color:#f92672">!</span><span style="color:#66d9ef">empty</span>($row[<span style="color:#e6db74">&#39;userName&#39;</span>]) <span style="color:#f92672">&amp;&amp;</span> <span style="color:#f92672">!</span><span style="color:#66d9ef">empty</span>($row[<span style="color:#e6db74">&#39;pass&#39;</span>]))
+    {
+        $_SESSION[<span style="color:#e6db74">&#39;userName&#39;</span>] <span style="color:#f92672">=</span> $row[<span style="color:#e6db74">&#39;pass&#39;</span>];
+        <span style="color:#66d9ef">echo</span> <span style="color:#e6db74">&#34;SUCCESSFUL LOGIN!&#34;</span>;
+    }
+    <span style="color:#66d9ef">else</span>
+    {
+        <span style="color:#66d9ef">echo</span> <span style="color:#e6db74">&#34;ERROR LOGGING IN!&#34;</span>;
+    }
+}
+}
+<span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">isset</span>($_POST[<span style="color:#e6db74">&#39;submit&#39;</span>]))
+{
+    <span style="color:#a6e22e">SignIn</span>();
+}
+<span style="color:#75715e">?&gt;</span><span style="color:#960050;background-color:#1e0010">
+</span></code></pre></div><p>Everything seems to be working well, as Paul can enter his username and password
+here:</p>
+<figure>
+    <img loading="lazy" src="/images/2014/11-26-2.png"
+         alt="sqli-login"/> <figcaption>
+            <p>sqli-login</p>
+        </figcaption>
+</figure>
+
+<p>And is successfully logged in here: successful-login</p>
+<figure>
+    <img loading="lazy" src="/images/2014/11-26-3.png"
+         alt="successful login"/> <figcaption>
+            <p>successful login</p>
+        </figcaption>
+</figure>
+
+<p>PHP&rsquo;s ease of use and widespread popularity has lead to countless websites being
+developed in a similar fashion: slapdash and without much thought with security
+in mind. (My colleagues and I refer to them as &ldquo;StackOverflow&rdquo; sites) Besides
+the &ldquo;POST is a secure method&rdquo; chestnut from this site, what else is wrong with
+this code?</p>
+<ul>
+<li>The PHP file connects to MySQL using the &ldquo;root&rdquo; or superuser login.</li>
+<li>There is no sanitization of the data being passed into the &ldquo;$query&rdquo; variable -
+we&rsquo;ll see how to exploit, then fix, this vulnerability shortly.</li>
+<li>The deprecated mysql_connect() function is being used - this is systemic of
+these slapdash tutorials: the easiest method to get things working is used,
+and even when the listed functionality <a href="http://php.net/manual/en/function.mysql-connect.php">has been deprecated</a>,
+tutorials are often not revised.</li>
+</ul>
+<p>How can this be exploited?</p>
+<h1 id="injection-exploitation">Injection Exploitation<a hidden class="anchor" aria-hidden="true" href="#injection-exploitation">#</a></h1>
+<p>Let&rsquo;s focus on the core functionality of this code, this line here:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#960050;background-color:#1e0010">$</span>query <span style="color:#f92672">=</span> mysql_query(<span style="color:#e6db74">&#34;SELECT * FROM UserName where userName = &#39;$_POST[user]&#39; AND pass =     &#39;$_POST[pass]&#39;&#34;</span>) <span style="color:#66d9ef">or</span> die(mysql_error());
+</code></pre></div><p>This PHP code is telling the PHP CGI to take the value submitted by the user&rsquo;s
+browser, stored in <code>$_POST[user]</code> and pass it to the MySQL context using the
+<code>mysql_query()</code> function. The MySQL context executes an instruction and returns
+the result to <code>$query</code> At the start of this post, I said &ldquo;Any context in which
+an interpreter parses input to execute instructions is potentially vulnerable to
+an injection attack.&rdquo; This code fits the bill.</p>
+<p>This code presents the user with the opportunity to inject valid SQL commands
+into the login page instead of a username or password, though Paul doesn&rsquo;t
+realize this. We want to bypass the username requirement altogether. The
+application expects us to enter a username and password here:</p>
+<figure>
+    <img loading="lazy" src="/images/2014/11-26-4.png"
+         alt="sqli login"/> <figcaption>
+            <p>sqli login</p>
+        </figcaption>
+</figure>
+
+<p>Instead, let&rsquo;s enter ' or 1=1; &ndash;:</p>
+<figure>
+    <img loading="lazy" src="/images/2014/11-26-5.png"
+         alt="sqli login bypass"/> <figcaption>
+            <p>sqli login bypass</p>
+        </figcaption>
+</figure>
+
+<figure>
+    <img loading="lazy" src="/images/2014/11-26-6.png"
+         alt="sqli-login-bypass-success"/> <figcaption>
+            <p>sqli-login-bypass-success</p>
+        </figcaption>
+</figure>
+
+<p>What we&rsquo;ve done is <em>injected</em> a valid SQL command into the MySQL context,
+through the PHP CGI. The PHP CGI sent the MySQL backend our injection through
+the ancillary information stored in <code>$_POST[user]</code>. Paul only expected users to
+enter valid usernames and passwords like &ldquo;admin&rdquo; and &ldquo;supersecret&rdquo; in the login
+page. The PHP CGI stores these in the <code>$_POST[user]</code> and <code>$_POST[pass]</code>
+variables, so Paul expected his application to send the MySQL server this query:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php">$query <span style="color:#f92672">=</span> <span style="color:#a6e22e">mysql_query</span>(<span style="color:#e6db74">&#34;SELECT * FROM UserName where userName = &#39;admin&#39; AND pass = &#39;supersecret&#34;</span>) <span style="color:#66d9ef">or</span> <span style="color:#66d9ef">die</span>(<span style="color:#a6e22e">mysql_error</span>());
+</code></pre></div><p>Instead, our injection has sent the MySQL server this query:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php">$query <span style="color:#f92672">=</span> <span style="color:#a6e22e">mysql_query</span>(<span style="color:#e6db74">&#34;SELECT * FROM UserName where userName = &#39;&#39; or 1=1; -- AND pass = &#39;&#39;) or die(mysql_error());
+</span></code></pre></div><p>This is a valid query, so the MySQL context doesn&rsquo;t throw an error up. The
+condition <code>or 1=1</code> always evaluates to <code>true</code> and the <code>; --</code> characters tell the
+MySQL context that the query ends after <code>1=1</code> and the rest of the command is
+commented out, invalidating it.</p>
+<p>This is a classic, old-as-dust example of a SQL injection attack against PHP and
+MySQL, but it still works based on a tutorial written <em>about one month ago</em>.
+In 2014. These types of attacks are far too common!</p>
+<h1 id="lets-remediate-this-injection">Let&rsquo;s Remediate This Injection<a hidden class="anchor" aria-hidden="true" href="#lets-remediate-this-injection">#</a></h1>
+<p>Following in the &ldquo;easiest solution gets implemented&rdquo; mindset I criticized this
+vulnerable code of, Paul could add the <code>addslashes()</code> function to his code like
+this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php">$query <span style="color:#f92672">=</span> <span style="color:#a6e22e">mysql_query</span>(<span style="color:#e6db74">&#34;SELECT * FROM UserName where userName = . addslashes(&#39;</span><span style="color:#e6db74">$_POST[user]</span><span style="color:#e6db74">&#39;) . AND pass = . addslashes(&#39;</span><span style="color:#e6db74">$_POST[pass]</span><span style="color:#e6db74">&#39;)&#34;</span>) <span style="color:#66d9ef">or</span> <span style="color:#66d9ef">die</span>(<span style="color:#a6e22e">mysql_error</span>());
+</code></pre></div><p>Now, when we attempt to enter <code>' or 1=1; --</code> as the username, we are greeted
+with the following error:</p>
+<figure>
+    <img loading="lazy" src="/images/2014/11-26-7.png"
+         alt="sqli addslashes"/> <figcaption>
+            <p>sqli addslashes</p>
+        </figcaption>
+</figure>
+
+<p>The easiest method isn&rsquo;t the most complete, and I&rsquo;ve already spent several
+paragraphs pointing this out.</p>
+<h1 id="a-more-robust-solution-prepared-statements-using-pdo">A More Robust Solution: Prepared Statements using PDO<a hidden class="anchor" aria-hidden="true" href="#a-more-robust-solution-prepared-statements-using-pdo">#</a></h1>
+<p><a href="http://php.net/manual/en/class.pdo.php">PHP Data Objects (PDO)</a> is a robust database driver allowing PHP to
+communicate with several database backends, including MySQL. One of the key
+security features offered by PDO is the ability to create Prepared Statements.
+Prepared statements separate SQL code from data by building a valid SQL query
+(the code) and inserting data only into parameters specified by the developer.
+PDO takes a little more effort to construct, but Paul could just as easily use
+the following code to better implement his login:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#f92672">&lt;?</span><span style="color:#a6e22e">php</span>
+    $dbh <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">PDO</span>(<span style="color:#e6db74">&#39;mysql:host=localhost;dbname=test&#39;</span>,<span style="color:#e6db74">&#39;root&#39;</span>,<span style="color:#e6db74">&#39;&#39;</span>);
+    $dbh<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">setAttribute</span>(<span style="color:#a6e22e">PDO</span><span style="color:#f92672">::</span><span style="color:#a6e22e">ATTR_EMULATE_PREPARES</span>, <span style="color:#66d9ef">false</span>);
+    $dbh<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">setAttribute</span>(<span style="color:#a6e22e">PDO</span><span style="color:#f92672">::</span><span style="color:#a6e22e">ATTR_ERRMODE</span>, <span style="color:#a6e22e">PDO</span><span style="color:#f92672">::</span><span style="color:#a6e22e">ERRMODE_EXCEPTION</span>);
+
+    $query <span style="color:#f92672">=</span> $dbh<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">prepare</span>( <span style="color:#e6db74">&#34;SELECT * FROM UserName WHERE userName = :username AND pass = :password&#34;</span>);
+    $query<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">bindValue</span>( <span style="color:#e6db74">&#39;:username&#39;</span>, $_POST[<span style="color:#e6db74">&#39;user&#39;</span>] );
+    $query<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">bindValue</span>( <span style="color:#e6db74">&#39;:password&#39;</span>, $_POST[<span style="color:#e6db74">&#39;pass&#39;</span>] );
+
+    <span style="color:#66d9ef">if</span>( $query<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">execute</span>() ) {
+        $num_rows <span style="color:#f92672">=</span> $query<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">fetchAll</span>( <span style="color:#a6e22e">PDO</span><span style="color:#f92672">::</span><span style="color:#a6e22e">FETCH_ASSOC</span> );
+    }
+
+    <span style="color:#66d9ef">echo</span> <span style="color:#e6db74">&#39;&lt;pre&gt;&#39;</span>;
+    <span style="color:#a6e22e">print_r</span>( $num_rows );
+    <span style="color:#66d9ef">echo</span> <span style="color:#e6db74">&#39;&lt;/pre&gt;&#39;</span>;
+<span style="color:#75715e">?&gt;</span><span style="color:#960050;background-color:#1e0010"> 
+</span></code></pre></div><p>Paul uses PDO to construct the SQL query and parameterizes the data he expects,
+using the <code>bindValue</code> method. PDO thus constructs the executable portion of the
+query as:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#e6db74">&#34;SELECT * FROM UserName WHERE userName = :username AND pass = :password&#34;</span>
+</code></pre></div><p><code>bindValue</code> tells PDO that the values substituted for <code>:username</code> and
+<code>:password</code> are the data portion of the query and are not to be treated as valid
+SQL commands. As a bonus, PDO escapes the input it binds to <code>:username</code> and
+<code>:password</code>, so even if we tried entering valid SQL commands, PDO would tell the
+PHP CGI it has encountered an error and the attempted SQL injection will not
+work.</p>
+<p>Additional solutions for remediating this vulnerability in PHP include:</p>
+<ul>
+<li>[Using stored procedures][StoredProcedures]</li>
+<li>[Sanitizing user input][Sanitize User Input]</li>
+<li>[Database connectivity using &ldquo;least privilege&rdquo; principle][Least Priv]</li>
+<li>[White listing user input][Whitelist]</li>
+</ul>
+<p>Combining several of these options would provide for the ideal defense-in-depth
+characteristic that would successfully help keep Paul&rsquo;s site secure. However, no
+defense is perfect, and critical functionality - such as user login and
+authorization - should be reviewed periodically to ensure that the current best
+practices for defense are being applied. Implementing these defenses take time
+and expertise, two things Paul may or may not have, which is why so many
+vulnerable sites exist on the web.</p>
+<h1 id="summary">Summary<a hidden class="anchor" aria-hidden="true" href="#summary">#</a></h1>
+<p>I&rsquo;ve discussed the history of several technologies that have brought the web to
+its current state, and the SQL Injection vulnerabilities present in one of the
+most influential. I hope this post has been educational to you, not just in the
+technique of SQL injection, but in providing some situational awareness so you
+can better understand how this rose to be the top attack against websites today.</p>
+<p>[StoredProcedures]: <a href="https://www.owasp.org/index.php/SQL_Injection_Prevention_Cheat_Sheet#Defense_Option_2:_Stored_Procedures">https://www.owasp.org/index.php/SQL_Injection_Prevention_Cheat_Sheet#Defense_Option_2:_Stored_Procedures</a> [Sanitize User Input]: <a href="http://codex.wordpress.org/Validating_Sanitizing_and_Escaping_User_Data">http://codex.wordpress.org/Validating_Sanitizing_and_Escaping_User_Data</a> [Least Priv]: <a href="https://www.owasp.org/index.php/SQL_Injection_Prevention_Cheat_Sheet#Least_Privilege">https://www.owasp.org/index.php/SQL_Injection_Prevention_Cheat_Sheet#Least_Privilege</a>
+[Whitelist]: <a href="https://www.owasp.org/index.php/SQL_Injection_Prevention_Cheat_Sheet#White_List_Input_Validation">https://www.owasp.org/index.php/SQL_Injection_Prevention_Cheat_Sheet#White_List_Input_Validation</a></p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://www.chrislockard.net/tags/appsec/">appsec</a></li>
+      <li><a href="https://www.chrislockard.net/tags/php/">php</a></li>
+      <li><a href="https://www.chrislockard.net/tags/mysql/">mysql</a></li>
+      <li><a href="https://www.chrislockard.net/tags/injection/">injection</a></li>
+      <li><a href="https://www.chrislockard.net/tags/coding/">coding</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://www.chrislockard.net/posts/rubber-ducky-powershell-payload/">
+    <span class="title">« Prev Page</span>
+    <br>
+    <span>RubberDucky Powershell Payload</span>
+  </a>
+  <a class="next" href="https://www.chrislockard.net/posts/url-encoding/">
+    <span class="title">Next Page »</span>
+    <br>
+    <span>URL Encoding</span>
+  </a>
+</nav>
+
+
+<div class="share-buttons">
+    <a target="_blank" rel="noopener noreferrer" aria-label="share PHP, MySql, and Injection on twitter"
+        href="https://twitter.com/intent/tweet/?text=PHP%2c%20MySql%2c%20and%20Injection&amp;url=https%3a%2f%2fwww.chrislockard.net%2fposts%2fphp-mysql-injection%2f&amp;hashtags=appsec%2cphp%2cmysql%2cinjection%2ccoding">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-253.927,424.544c135.939,0 210.268,-112.643 210.268,-210.268c0,-3.218 0,-6.437 -0.153,-9.502c14.406,-10.421 26.973,-23.448 36.935,-38.314c-13.18,5.824 -27.433,9.809 -42.452,11.648c15.326,-9.196 26.973,-23.602 32.49,-40.92c-14.252,8.429 -30.038,14.56 -46.896,17.931c-13.487,-14.406 -32.644,-23.295 -53.946,-23.295c-40.767,0 -73.87,33.104 -73.87,73.87c0,5.824 0.613,11.494 1.992,16.858c-61.456,-3.065 -115.862,-32.49 -152.337,-77.241c-6.284,10.881 -9.962,23.601 -9.962,37.088c0,25.594 13.027,48.276 32.95,61.456c-12.107,-0.307 -23.448,-3.678 -33.41,-9.196l0,0.92c0,35.862 25.441,65.594 59.311,72.49c-6.13,1.686 -12.72,2.606 -19.464,2.606c-4.751,0 -9.348,-0.46 -13.946,-1.38c9.349,29.426 36.628,50.728 68.965,51.341c-25.287,19.771 -57.164,31.571 -91.8,31.571c-5.977,0 -11.801,-0.306 -17.625,-1.073c32.337,21.15 71.264,33.41 112.95,33.41Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share PHP, MySql, and Injection on linkedin"
+        href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwww.chrislockard.net%2fposts%2fphp-mysql-injection%2f&amp;title=PHP%2c%20MySql%2c%20and%20Injection&amp;summary=PHP%2c%20MySql%2c%20and%20Injection&amp;source=https%3a%2f%2fwww.chrislockard.net%2fposts%2fphp-mysql-injection%2f">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-288.985,423.278l0,-225.717l-75.04,0l0,225.717l75.04,0Zm270.539,0l0,-129.439c0,-69.333 -37.018,-101.586 -86.381,-101.586c-39.804,0 -57.634,21.891 -67.617,37.266l0,-31.958l-75.021,0c0.995,21.181 0,225.717 0,225.717l75.02,0l0,-126.056c0,-6.748 0.486,-13.492 2.474,-18.315c5.414,-13.475 17.767,-27.434 38.494,-27.434c27.135,0 38.007,20.707 38.007,51.037l0,120.768l75.024,0Zm-307.552,-334.556c-25.674,0 -42.448,16.879 -42.448,39.002c0,21.658 16.264,39.002 41.455,39.002l0.484,0c26.165,0 42.452,-17.344 42.452,-39.002c-0.485,-22.092 -16.241,-38.954 -41.943,-39.002Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share PHP, MySql, and Injection on reddit"
+        href="https://reddit.com/submit?url=https%3a%2f%2fwww.chrislockard.net%2fposts%2fphp-mysql-injection%2f&title=PHP%2c%20MySql%2c%20and%20Injection">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-3.446,265.638c0,-22.964 -18.616,-41.58 -41.58,-41.58c-11.211,0 -21.361,4.457 -28.841,11.666c-28.424,-20.508 -67.586,-33.757 -111.204,-35.278l18.941,-89.121l61.884,13.157c0.756,15.734 13.642,28.29 29.56,28.29c16.407,0 29.706,-13.299 29.706,-29.701c0,-16.403 -13.299,-29.702 -29.706,-29.702c-11.666,0 -21.657,6.792 -26.515,16.578l-69.105,-14.69c-1.922,-0.418 -3.939,-0.042 -5.585,1.036c-1.658,1.073 -2.811,2.761 -3.224,4.686l-21.152,99.438c-44.258,1.228 -84.046,14.494 -112.837,35.232c-7.468,-7.164 -17.589,-11.591 -28.757,-11.591c-22.965,0 -41.585,18.616 -41.585,41.58c0,16.896 10.095,31.41 24.568,37.918c-0.639,4.135 -0.99,8.328 -0.99,12.576c0,63.977 74.469,115.836 166.33,115.836c91.861,0 166.334,-51.859 166.334,-115.836c0,-4.218 -0.347,-8.387 -0.977,-12.493c14.564,-6.47 24.735,-21.034 24.735,-38.001Zm-119.474,108.193c-20.27,20.241 -59.115,21.816 -70.534,21.816c-11.428,0 -50.277,-1.575 -70.522,-21.82c-3.007,-3.008 -3.007,-7.882 0,-10.889c3.003,-2.999 7.882,-3.003 10.885,0c12.777,12.781 40.11,17.317 59.637,17.317c19.522,0 46.86,-4.536 59.657,-17.321c3.016,-2.999 7.886,-2.995 10.885,0.008c3.008,3.011 3.003,7.882 -0.008,10.889Zm-5.23,-48.781c-16.373,0 -29.701,-13.324 -29.701,-29.698c0,-16.381 13.328,-29.714 29.701,-29.714c16.378,0 29.706,13.333 29.706,29.714c0,16.374 -13.328,29.698 -29.706,29.698Zm-160.386,-29.702c0,-16.381 13.328,-29.71 29.714,-29.71c16.369,0 29.689,13.329 29.689,29.71c0,16.373 -13.32,29.693 -29.689,29.693c-16.386,0 -29.714,-13.32 -29.714,-29.693Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share PHP, MySql, and Injection on facebook"
+        href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fwww.chrislockard.net%2fposts%2fphp-mysql-injection%2f">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-106.468,0l0,-192.915l66.6,0l12.672,-82.621l-79.272,0l0,-53.617c0,-22.603 11.073,-44.636 46.58,-44.636l36.042,0l0,-70.34c0,0 -32.71,-5.582 -63.982,-5.582c-65.288,0 -107.96,39.569 -107.96,111.204l0,62.971l-72.573,0l0,82.621l72.573,0l0,192.915l-191.104,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share PHP, MySql, and Injection on whatsapp"
+        href="https://api.whatsapp.com/send?text=PHP%2c%20MySql%2c%20and%20Injection%20-%20https%3a%2f%2fwww.chrislockard.net%2fposts%2fphp-mysql-injection%2f">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-58.673,127.703c-33.842,-33.881 -78.847,-52.548 -126.798,-52.568c-98.799,0 -179.21,80.405 -179.249,179.234c-0.013,31.593 8.241,62.428 23.927,89.612l-25.429,92.884l95.021,-24.925c26.181,14.28 55.659,21.807 85.658,21.816l0.074,0c98.789,0 179.206,-80.413 179.247,-179.243c0.018,-47.895 -18.61,-92.93 -52.451,-126.81Zm-126.797,275.782l-0.06,0c-26.734,-0.01 -52.954,-7.193 -75.828,-20.767l-5.441,-3.229l-56.386,14.792l15.05,-54.977l-3.542,-5.637c-14.913,-23.72 -22.791,-51.136 -22.779,-79.287c0.033,-82.142 66.867,-148.971 149.046,-148.971c39.793,0.014 77.199,15.531 105.329,43.692c28.128,28.16 43.609,65.592 43.594,105.4c-0.034,82.149 -66.866,148.983 -148.983,148.984Zm81.721,-111.581c-4.479,-2.242 -26.499,-13.075 -30.604,-14.571c-4.105,-1.495 -7.091,-2.241 -10.077,2.241c-2.986,4.483 -11.569,14.572 -14.182,17.562c-2.612,2.988 -5.225,3.364 -9.703,1.12c-4.479,-2.241 -18.91,-6.97 -36.017,-22.23c-13.314,-11.876 -22.304,-26.542 -24.916,-31.026c-2.612,-4.484 -0.279,-6.908 1.963,-9.14c2.016,-2.007 4.48,-5.232 6.719,-7.847c2.24,-2.615 2.986,-4.484 4.479,-7.472c1.493,-2.99 0.747,-5.604 -0.374,-7.846c-1.119,-2.241 -10.077,-24.288 -13.809,-33.256c-3.635,-8.733 -7.327,-7.55 -10.077,-7.688c-2.609,-0.13 -5.598,-0.158 -8.583,-0.158c-2.986,0 -7.839,1.121 -11.944,5.604c-4.105,4.484 -15.675,15.32 -15.675,37.364c0,22.046 16.048,43.342 18.287,46.332c2.24,2.99 31.582,48.227 76.511,67.627c10.685,4.615 19.028,7.371 25.533,9.434c10.728,3.41 20.492,2.929 28.209,1.775c8.605,-1.285 26.499,-10.833 30.231,-21.295c3.732,-10.464 3.732,-19.431 2.612,-21.298c-1.119,-1.869 -4.105,-2.99 -8.583,-5.232Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share PHP, MySql, and Injection on telegram"
+        href="https://telegram.me/share/url?text=PHP%2c%20MySql%2c%20and%20Injection&amp;url=https%3a%2f%2fwww.chrislockard.net%2fposts%2fphp-mysql-injection%2f">
+        <svg version="1.1" xml:space="preserve" viewBox="2 2 28 28">
+            <path
+                d="M26.49,29.86H5.5a3.37,3.37,0,0,1-2.47-1,3.35,3.35,0,0,1-1-2.47V5.48A3.36,3.36,0,0,1,3,3,3.37,3.37,0,0,1,5.5,2h21A3.38,3.38,0,0,1,29,3a3.36,3.36,0,0,1,1,2.46V26.37a3.35,3.35,0,0,1-1,2.47A3.38,3.38,0,0,1,26.49,29.86Zm-5.38-6.71a.79.79,0,0,0,.85-.66L24.73,9.24a.55.55,0,0,0-.18-.46.62.62,0,0,0-.41-.17q-.08,0-16.53,6.11a.59.59,0,0,0-.41.59.57.57,0,0,0,.43.52l4,1.24,1.61,4.83a.62.62,0,0,0,.63.43.56.56,0,0,0,.4-.17L16.54,20l4.09,3A.9.9,0,0,0,21.11,23.15ZM13.8,20.71l-1.21-4q8.72-5.55,8.78-5.55c.15,0,.23,0,.23.16a.18.18,0,0,1,0,.06s-2.51,2.3-7.52,6.8Z" />
+        </svg>
+    </a>
+</div>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2022 <a href="https://www.chrislockard.net/">Unl0ckd</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = 'copy';
+
+        function copyingDone() {
+            copybutton.innerText = 'copied!';
+            setTimeout(() => {
+                copybutton.innerText = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

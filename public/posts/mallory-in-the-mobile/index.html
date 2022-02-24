@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Mallory in the Mobile | Unl0ckd</title>
+<meta name="keywords" content="appsec, mobilesec, mitm" />
+<meta name="description" content="Use mallory proxy to view non-https encrypted mobile traffic">
+<meta name="author" content="Me">
+<link rel="canonical" href="https://www.chrislockard.net/posts/mallory-in-the-mobile/" />
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.c88963fe2d79462000fd0fb1b3737783c32855d340583e4523343f8735c787f0.css" integrity="sha256-yIlj/i15RiAA/Q&#43;xs3N3g8MoVdNAWD5FIzQ/hzXHh/A=" rel="preload stylesheet" as="style">
+<link rel="preload" href="/apple-touch-icon.png" as="image">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js" integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5&#43;kdJvBz5iKbt6B5PJI="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://www.chrislockard.net/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://www.chrislockard.net/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://www.chrislockard.net/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://www.chrislockard.net/apple-touch-icon.png">
+<link rel="mask-icon" href="https://www.chrislockard.net/favicon-32x32.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<meta name="generator" content="Hugo 0.91.2" />
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="Mallory in the Mobile" />
+<meta property="og:description" content="Use mallory proxy to view non-https encrypted mobile traffic" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.chrislockard.net/posts/mallory-in-the-mobile/" /><meta property="og:image" content="https://www.chrislockard.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"/><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2018-10-15T12:00:00-04:00" />
+<meta property="article:modified_time" content="2018-10-15T12:00:00-04:00" /><meta property="og:site_name" content="Unl0ckd" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://www.chrislockard.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"/>
+
+<meta name="twitter:title" content="Mallory in the Mobile"/>
+<meta name="twitter:description" content="Use mallory proxy to view non-https encrypted mobile traffic"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://www.chrislockard.net/post/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Mallory in the Mobile",
+      "item": "https://www.chrislockard.net/posts/mallory-in-the-mobile/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Mallory in the Mobile",
+  "name": "Mallory in the Mobile",
+  "description": "Use mallory proxy to view non-https encrypted mobile traffic",
+  "keywords": [
+    "appsec", "mobilesec", "mitm"
+  ],
+  "articleBody": "Update: October 15, 2018 Some quick notes for running mallory once the configuration steps below have been performed:\n Ensure the VM has two physical Internet connections from the host VM should be set to Bridged Run this wifi-ap creation script Shovel all traffic to mallory using this command Ensure the mallory CA in (/mallory/current/src/ca) is installed on the target device Start mallory (mallory/current/src/mallory.py) Start GUI (mallory/current/src/launchgui.py)  Update: July 10, 2017 I recently had to set up an environment like the one below for another app review. There are several updates to the way I performed this MitM since this article was originally written. One of the significant advantages to this new method is there is only one (Kali) VM required instead of two, which greatly simplifies the networking component of this.\n2017 Test Setup  MacOS running Parallels 12 (late 2016 mac with a dongle used for USB - I originally thought this was an issue preventing me from success, but it turns out it isn’t Note: I had to unplug/re-plug the TL-WN722N into the dongle if Kali didn’t register it. This happened fairly frequently, and required that I reboot my VM and re-start the process before I could successfully proxy) TP-Link TL-WN722N adapter (the same used in Dec 2015) Kali 2017.1 XFCE  Kali VM set to Bridged networking, so assigned a 192.168 address on my LAN. The WiFi AP will assign hosts to the 10.0.0.1/24 space  Install Mallory and Dependencies With Kali installed and patched in a vm, I followed the same instructions as below for installing Mallory:\n$ apt install -y python-pip python-m2crypto python-qt4 pyro-gui python-netfilter python-pyasn1 python-paramiko python-twisted-web python-qt4-sql sqlite3 build-essential libnetfilter-conntrack-dev libnetfilter-conntrack3 $ git clone https://github.com/intrepidusgroup/mallory.git $ cd mallory $ ./mallory_install.sh Configure Wireless Access Point   Set the Kali VM to Bridged Networking\n  Connect TL-WN722N adapter to Mac and assign it to the Kali VM\n  Bring up the wlan0 interface\n$ ifconfig wlan0 up 10.0.0.1 netmask 255.255.255.0   Install hostapd and dnsmasq\n$ apt install -y hostapd dnsmasq   Set up /root/Desktop/hostapd.conf\n  interface=wlan0 driver=nl80211 ssid=Wifi AP Name hw_mode=g channel=11 wpa=2 wpa_passphrase=Wifi AP Passphrase  Uncomment lines from /etc/dnsmasq.conf (create a file /etc/dnsmasq.conf if one isn’t present and add the following:)  interface=lo,wlan0 no-dhcp-interface=lo dhcp-range=10.0.0.2,10.0.0.20,12h   Start dnsmasq service as a daemon\n$ dnsmasq -C /etc/dnsmasq.conf -d \u0026    Set appropriate iptables rules and enable ip forwarding by the kernel to allow the AP to function in monitor mode\n  $ iptables --flush $ iptables --table nat --flush $ iptables --delete-chain $ iptables --table nat --delete-chain $ iptables --table nat --append POSTROUTING --out-interface eth0 -j MASQUERADE $ iptables --append FORWARD --in-interface wlan0 -j ACCEPT $ sysctl -w net.ipv4.ip_forward=1  Disable Wireless and check that the TL-WN722N isn’t blocked by the kernel  $ nmcli radio wifi off $ rfkill list (if the TL-WN722N is blocked by the kernel) $ rfkill unblock wifi   Start hostapd\n$ hostapd -B /root/Desktop/hostapd.conf   Bring up the TL-WN722N interface\n  $ ifconfig wlan0 up $ ifconfig wlan0 10.0.0.1/24   Your Access point should be running with Internet connectivity. To shovel traffic to Mallory (here MQTT), set another iptables rule:\n$ iptables -t nat -A PREROUTING -p tcp --dport 8883 -j REDIRECT --to-ports 20755   Add the protocol in Mallory’s GUI, by selecting the Protocols tab, entering the protocol in the Protocol Configuration input, and selecting Apply:\n  #ssh_2: ssh.SSHProtocol: 22 mqtt_traffic: sslproto.SSLProtocol:8883  In the Rules tab, create a rule following the instructions outlined below. In the Streams tab, select Intercept to trap traffic you want to tamper with.  Original Method No, I’m not trying to re-invent the MitM initialism. However, I do want to detail setting up the Mallory intercepting proxy for use in mobile application assessments. Mallory is a useful tool for intercepting non-HTTP traffic. On a recent engagement, I had a need to proxy IMAP/S traffic to determine how the mobile application I was testing handled messaging. Alas, trusty Burp suite couldn’t help me here, so I turned to Mallory, as Mallory can intercept and tamper with non-HTTP protocol traffic.\nOld Method Test Environment Setup My testing setup looked like this:\n  Mallory setup to MitM IMAP/S traffic\n  I was using a TP-LINK TL-WN722N connected to my kali 2 vm running hostapd to simulate the wireless access point.\nI initially created an Ubuntu 11.04 VM to use as a base for Mallory, but this didn’t work so I used 14.04 as a base. This fixed an error that I could never determine the root cause of.\nI’d like to walk you through the same configuration steps I took to successfully exploit the messaging application by revealing its IMAP/S communications.\nMallory installation Install Mallory from the instructions provided at https://bitbucket.org/IntrepidusGroup/mallory/wiki/Installation. However, use an Ubuntu 14.04 VM instead of Ubuntu 11.04 or you may encounter… issues. There will be broken dependencies; these can be resolved by observing the python error raised when you run python mallory.py Use either easy_install or pip to install the missing module raised.\nVMWare Custom Network Configure a custom network (vmnet) using the virtual network editor (VMWare Workstation) or the Network editor in VMWare Preferences - Network (VMWare Fusion). This will be referred to as the “custom vmnet” and you can see in the screenshot below that I’ve named mine “vmnet4”. Choose an RFC 1918 address, appropriate subnet mask, and enable DHCP on this interface. This interface should be host-only.\nBelow is a screenshot showing my configuration on VMWare Fusion:\n  VMWare Fusion Network Editor\n  Mallory VM Configure the Mallory VM to have two interfaces: one bridged interface that can reach the Internet, and one interface mapped to custom vmnet. Here’s my mallory vm ifconfig output (eth0 is the bridged interface, eth1 is the custom vmnet interface):\n  Mallory VM ifconfig output\n  The Mallory VM should now be able to resolve IP addresses and DNS names on the eth0 interface.\nKali / Rogue AP VM From your attacking VM, set the network interface to use the custom vmnet. In my case, this was vmnet4 as shown here:\n  Kali/Rogue AP VM network configuration in VMWare Fusion\n  In network-manager (Kali 1.X, 2.X and above), select your wired connection in network manager and then select “Add Profile…” Fill in the information as requested, similar to:\n  New network-manager profile for custom vmnet\n    Wired connection to Mallory VM settings (1/2)\n  Note, you should set the Mallory IP address as another DNS server here as well to shorten request times - name resolution will end up taking quite longer than usual.\n  Wired connection to Mallory VM settings (2/2)\n  Note: The routing address here should be set to 192.168.67.0\nApply changes and select this wired connection. Now, traffic from your Kali VM will be routable through the Mallory VM once Mallory is configured.\nSUMMARY OF NETWORK INTERFACE CONFIGURATION IN KALI / ROGUE AP VM:\nMy “vmnet4” custom network was configured to use the 192.168.67.0/24 range. My Mallory VM IP address is 192.168.67.128. Here are the network-manager changes I made:\nName: Mallory MAC Address: eth0 IPv4: On Addresses: Automatic (DHCP) DNS: 192.168.67.128, 8.8.8.8 Routes Automatic: On Address: 192.168.67.0 Netmask: 255.255.255.0 Gateway: 192.168.67.128 Launching Mallory This section assumes Mallory was installed as root to /root/mallory/ Open two terminals: A and B. A will be used to launch mallory.py which can be thought of as the Mallory “service.” B will be used to launch Mallory’s QT GUI. Note: do not background these processes, open two separate terminals or tabs to run each command.\nFrom Terminal A (Mallory service):\n$ sudo su - # cd /root/mallory/current/src # python mallory.py From Terminal B (Mallory GUI):\n$ sudo su - # cd /root/mallory/current/src # python launchgui.py The Mallory GUI should now be running.\nMallory - Interfaces Tab Your outbound interface is your Mallory VM’s bridged interface (typically eth0). Your MITM interface is the custom VMWare interface you created in the VM configuration phase (typically eth1).\nMallory - Protocols Tab The protocols Mallory will intercept can be defined in /root/mallory/current/src/protos.ini, and they can be defined in the textarea in the Protocols Tab. In the following example, Mallory is configured to intercept HTTP, HTTPS, and IMAP/S traffic. SSH traffic interception is commented out\n [protocols] http_traffic: http.HTTP:80 https_traffic: https.HTTPS:443 imaps_traffic: sslproto.SSLProtocol:993 ;ssh_traffic: sslproto.SSLProtocol:22 To add another SSL/TLS-wrapped non-HTTP protocol, for example LDAP/S, add another line as such:\nldaps_traffic: sslproto.SSLProtocol:636 For issues related to “Debuggable: No” appearing in this screen see https://groups.google.com/forum/#!topic/mallory-proxy/PF2MwXOpcEg\nNote that the protocols I was able to successfully MITM did not show up as “Debuggable: Yes” or “Debuggable: No” in this tab.\nMallory -Rules Tab Create a rule for the host you want to intercept traffic to/from and name it appropriately. These settings for IMAP/S traffic worked for me:\nTraffic direction: Both Port: * Type: Debug Payload: * Passthru: No Here's my IMAP/S rules tab:   Mallory Rules\n  Mallory - Streams Tab Here, “Intercept” should be enabled to have streams captured. Enabling “Auto Send” is similar to disabling Burpsuite Proxy’s intercept functionality. If everything is working correctly, you’ll see bi-directional traffic streams. Here’s an example of Mallory intercepting traffic between my messaging app and its IMAP/S server:\n  Mallory Streams tab\n  Startup Order  Power on Mallory VM Open Terminal A and Terminal B In Terminal A:  $ sudo su - # cd /root/mallory/current/src # python mallory.py In Terminal B:  $ sudo su - # cd /root/mallory/current/src # python launchgui.py From Mallory GUI - Interfaces tab, set your VM’s bridged interface to “Outbound”, set the custom vmnet interface to “MitM” and click “Apply settings.” From Mallory GUI - Streams tab, select “Interrupt” and, optionally, “Auto-send” Power on Kali / Rogue AP VM Select the “Mallory” network interface in network-manager Connect TP-LINK device Run hostapd Connect Mobile messaging app to the hostapd AP Observe traffic proxied by Mallory in the Streams tab  Troubleshooting Be sure that you’ve launched mallory.py and launchgui.py in your mallory vm! Sometimes, mallory.py will break “behind the scenes” and you need to inspect its terminal window.\nBe sure your VM interfaces are set accordingly!\nIf your Kali / Rogue AP VM has trouble reaching the Internet after launching hostapd, open a terminal and type:\n# route add default gw \nResources These resources were helpful during my endeavor to install and configure Mallory:\nhttps://bitbucket.org/IntrepidusGroup/mallory/wiki/Installation\nhttps://bitbucket.org/IntrepidusGroup/mallory/wiki/Virtual%20Machine%20Setup\nhttps://groups.google.com/forum/#!topic/mallory-proxy/PF2MwXOpcEg\nhttp://blog.opensecurityresearch.com/2012/05/mallory-mitm-fix-ssl-decryption.html\n",
+  "wordCount" : "1677",
+  "inLanguage": "en",
+  "datePublished": "2018-10-15T12:00:00-04:00",
+  "dateModified": "2018-10-15T12:00:00-04:00",
+  "author":{
+    "@type": "Person",
+    "name": "Me"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.chrislockard.net/posts/mallory-in-the-mobile/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Unl0ckd",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.chrislockard.net/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://www.chrislockard.net/" accesskey="h" title="Home (Alt + H)">
+                <img src="/apple-touch-icon.png" alt="logo" aria-label="logo"
+                    height="35">Home</a>
+            <span class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </span>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://www.chrislockard.net/categories/" title="categories">
+                    <span>categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.chrislockard.net/tags/" title="tags">
+                    <span>tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.chrislockard.net/post/" title="posts">
+                    <span>posts</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://www.chrislockard.net/">Home</a>&nbsp;»&nbsp;<a href="https://www.chrislockard.net/post/">Posts</a></div>
+    <h1 class="post-title">
+      Mallory in the Mobile
+    </h1>
+    <div class="post-meta"><span title='2018-10-15 12:00:00 -0400 EDT'>October 15, 2018</span>&nbsp;·&nbsp;8 min&nbsp;·&nbsp;Me&nbsp;|&nbsp;<a href="https://github.com/chrislockard/chrislockard.net" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
+
+</div>
+  </header> <div class="toc">
+    <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#update-october-15-2018" aria-label="Update: October 15, 2018">Update: October 15, 2018</a></li>
+                <li>
+                    <a href="#update-july-10-2017" aria-label="Update: July 10, 2017">Update: July 10, 2017</a><ul>
+                        
+                <li>
+                    <a href="#2017-test-setup" aria-label="2017 Test Setup">2017 Test Setup</a><ul>
+                        
+                <li>
+                    <a href="#install-mallory-and-dependencies" aria-label="Install Mallory and Dependencies">Install Mallory and Dependencies</a></li>
+                <li>
+                    <a href="#configure-wireless-access-point" aria-label="Configure Wireless Access Point">Configure Wireless Access Point</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#original-method" aria-label="Original Method">Original Method</a></li>
+                <li>
+                    <a href="#old-method" aria-label="Old Method">Old Method</a><ul>
+                        
+                <li>
+                    <a href="#test-environment-setup" aria-label="Test Environment Setup">Test Environment Setup</a></li>
+                <li>
+                    <a href="#mallory-installation" aria-label="Mallory installation">Mallory installation</a></li>
+                <li>
+                    <a href="#vmware-custom-network" aria-label="VMWare Custom Network">VMWare Custom Network</a></li>
+                <li>
+                    <a href="#mallory-vm" aria-label="Mallory VM">Mallory VM</a></li>
+                <li>
+                    <a href="#kali--rogue-ap-vm" aria-label="Kali / Rogue AP VM">Kali / Rogue AP VM</a></li>
+                <li>
+                    <a href="#launching-mallory" aria-label="Launching Mallory">Launching Mallory</a></li>
+                <li>
+                    <a href="#mallory---interfaces-tab" aria-label="Mallory - Interfaces Tab">Mallory - Interfaces Tab</a></li>
+                <li>
+                    <a href="#mallory---protocols-tab" aria-label="Mallory - Protocols Tab">Mallory - Protocols Tab</a></li>
+                <li>
+                    <a href="#mallory--rules-tab" aria-label="Mallory -Rules Tab">Mallory -Rules Tab</a></li>
+                <li>
+                    <a href="#mallory---streams-tab" aria-label="Mallory - Streams Tab">Mallory - Streams Tab</a></li>
+                <li>
+                    <a href="#startup-order" aria-label="Startup Order">Startup Order</a></li>
+                <li>
+                    <a href="#troubleshooting" aria-label="Troubleshooting">Troubleshooting</a></li>
+                <li>
+                    <a href="#resources" aria-label="Resources">Resources</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h1 id="update-october-15-2018">Update: October 15, 2018<a hidden class="anchor" aria-hidden="true" href="#update-october-15-2018">#</a></h1>
+<p>Some quick notes for running mallory once the configuration steps below have
+been performed:</p>
+<ol>
+<li>Ensure the VM has two physical Internet connections from the host</li>
+<li>VM should be set to Bridged</li>
+<li>Run <a href="https://github.com/chrislockard/mytools/blob/master/hostapd.sh">this wifi-ap creation
+script</a></li>
+<li>Shovel all traffic to mallory using <a href="https://github.com/chrislockard/mytools/blob/master/mallory-fw-config.sh">this
+command</a></li>
+<li>Ensure the mallory CA in (/mallory/current/src/ca) is installed on the target
+device</li>
+<li>Start mallory (mallory/current/src/mallory.py)</li>
+<li>Start GUI (mallory/current/src/launchgui.py)</li>
+</ol>
+<h1 id="update-july-10-2017">Update: July 10, 2017<a hidden class="anchor" aria-hidden="true" href="#update-july-10-2017">#</a></h1>
+<p>I recently had to set up an environment like the one below for another app
+review. There are several updates to the way I performed this MitM since this
+article was originally written. One of the significant advantages to this new
+method is there is only one (Kali) VM required instead of two, which greatly
+simplifies the networking component of this.</p>
+<h2 id="2017-test-setup">2017 Test Setup<a hidden class="anchor" aria-hidden="true" href="#2017-test-setup">#</a></h2>
+<ul>
+<li>MacOS running Parallels 12 (late 2016 mac with a dongle used for USB - I
+originally thought this was an issue preventing me from success, but it turns
+out it isn&rsquo;t <strong>Note: I had to unplug/re-plug the TL-WN722N into the dongle if
+Kali didn&rsquo;t register it. This happened fairly frequently, and required that I
+reboot my VM and re-start the process before I could successfully proxy</strong>)</li>
+<li>TP-Link TL-WN722N adapter (the same used in Dec 2015)</li>
+<li>Kali 2017.1 XFCE </li>
+<li>Kali VM set to Bridged networking, so assigned a 192.168 address on my LAN.
+The WiFi AP will assign hosts to the 10.0.0.1/24 space</li>
+</ul>
+<h3 id="install-mallory-and-dependencies">Install Mallory and Dependencies<a hidden class="anchor" aria-hidden="true" href="#install-mallory-and-dependencies">#</a></h3>
+<p>With Kali installed and patched in a vm, I followed the same instructions as
+below for installing Mallory:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ apt install -y python-pip python-m2crypto python-qt4 pyro-gui python-netfilter python-pyasn1 python-paramiko python-twisted-web python-qt4-sql sqlite3 build-essential libnetfilter-conntrack-dev libnetfilter-conntrack3 
+$ git clone https://github.com/intrepidusgroup/mallory.git
+$ cd mallory
+$ ./mallory_install.sh
+</code></pre></div><h3 id="configure-wireless-access-point">Configure Wireless Access Point<a hidden class="anchor" aria-hidden="true" href="#configure-wireless-access-point">#</a></h3>
+<ul>
+<li>
+<p>Set the Kali VM to Bridged Networking</p>
+</li>
+<li>
+<p>Connect TL-WN722N adapter to Mac and assign it to the Kali VM</p>
+</li>
+<li>
+<p>Bring up the wlan0 interface</p>
+<pre tabindex="0"><code>$ ifconfig wlan0 up 10.0.0.1 netmask 255.255.255.0
+</code></pre><pre tabindex="0"><code></code></pre></li>
+<li>
+<p>Install hostapd and dnsmasq</p>
+<pre tabindex="0"><code>$ apt install -y hostapd dnsmasq
+</code></pre><pre tabindex="0"><code></code></pre></li>
+<li>
+<p>Set up /root/Desktop/hostapd.conf</p>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">interface<span style="color:#f92672">=</span>wlan0    
+driver<span style="color:#f92672">=</span>nl80211   
+ssid<span style="color:#f92672">=</span>Wifi AP Name  
+hw_mode<span style="color:#f92672">=</span>g  
+channel<span style="color:#f92672">=</span><span style="color:#ae81ff">11</span>  
+wpa<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>  
+wpa_passphrase<span style="color:#f92672">=</span>Wifi AP Passphrase
+</code></pre></div><ul>
+<li>Uncomment lines from /etc/dnsmasq.conf (create a file /etc/dnsmasq.conf if one isn&rsquo;t present and add the following:)</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">interface<span style="color:#f92672">=</span>lo,wlan0 
+no-dhcp-interface<span style="color:#f92672">=</span>lo
+dhcp-range<span style="color:#f92672">=</span>10.0.0.2,10.0.0.20,12h
+</code></pre></div><ul>
+<li>
+<p>Start dnsmasq service as a daemon</p>
+<pre tabindex="0"><code>$ dnsmasq -C /etc/dnsmasq.conf -d &amp;
+</code></pre><pre tabindex="0"><code>
+</code></pre></li>
+<li>
+<p>Set appropriate iptables rules and enable ip forwarding by the kernel to allow the AP to function in monitor mode</p>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ iptables --flush
+$ iptables --table nat --flush
+$ iptables --delete-chain
+$ iptables --table nat --delete-chain
+$ iptables --table nat --append POSTROUTING --out-interface eth0 -j  MASQUERADE
+$ iptables --append FORWARD --in-interface wlan0 -j ACCEPT
+$ sysctl -w net.ipv4.ip_forward<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+</code></pre></div><ul>
+<li>Disable Wireless and check that the TL-WN722N isn&rsquo;t blocked by the kernel</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ nmcli radio wifi off
+$ rfkill list 
+<span style="color:#f92672">(</span><span style="color:#66d9ef">if</span> the TL-WN722N is blocked by the kernel<span style="color:#f92672">)</span>
+$ rfkill unblock wifi
+</code></pre></div><ul>
+<li>
+<p>Start hostapd</p>
+<pre tabindex="0"><code>$ hostapd -B /root/Desktop/hostapd.conf
+</code></pre><pre tabindex="0"><code></code></pre></li>
+<li>
+<p>Bring up the TL-WN722N interface</p>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ifconfig wlan0 up 
+$ ifconfig wlan0 10.0.0.1/24
+</code></pre></div><ul>
+<li>
+<p>Your Access point should be running with Internet connectivity. To shovel
+traffic to Mallory (here MQTT), set another iptables rule:</p>
+<pre tabindex="0"><code>$ iptables -t nat -A PREROUTING -p tcp --dport 8883 -j REDIRECT --to-ports 20755
+</code></pre><pre tabindex="0"><code></code></pre></li>
+<li>
+<p>Add the protocol in Mallory&rsquo;s GUI, by selecting the Protocols tab, entering the protocol in the Protocol Configuration input, and selecting Apply:</p>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#ssh_2: ssh.SSHProtocol: 22</span>
+mqtt_traffic: sslproto.SSLProtocol:8883
+</code></pre></div><ul>
+<li>In the Rules tab, create a rule following the instructions outlined below.</li>
+<li>In the Streams tab, select Intercept to trap traffic you want to tamper with.</li>
+</ul>
+<h1 id="original-method">Original Method<a hidden class="anchor" aria-hidden="true" href="#original-method">#</a></h1>
+<p>No, I&rsquo;m not trying to re-invent the MitM initialism. However, I do want to
+detail setting up the <a href="https://bitbucket.org/IntrepidusGroup/mallory/wiki/Installation">Mallory intercepting proxy</a> for use in
+mobile application assessments. Mallory is a useful tool for intercepting
+non-HTTP traffic. On a recent engagement, I had a need to proxy IMAP/S traffic
+to determine how the mobile application I was testing handled messaging. Alas,
+trusty Burp suite couldn&rsquo;t help me here, so I turned to Mallory, as Mallory can
+intercept and tamper with non-HTTP protocol traffic.</p>
+<h1 id="old-method">Old Method<a hidden class="anchor" aria-hidden="true" href="#old-method">#</a></h1>
+<h2 id="test-environment-setup">Test Environment Setup<a hidden class="anchor" aria-hidden="true" href="#test-environment-setup">#</a></h2>
+<p>My testing setup looked like this:</p>
+<figure>
+    <img loading="lazy" src="/images/2015/12-20-1.png"
+         alt="Mallory setup to MitM IMAP/S traffic"/> <figcaption>
+            <p>Mallory setup to MitM IMAP/S traffic</p>
+        </figcaption>
+</figure>
+
+<p>I was using a TP-LINK TL-WN722N connected to my kali 2 vm running hostapd to
+simulate the wireless access point.</p>
+<p>I initially created an Ubuntu 11.04 VM to use as a base for Mallory, but this
+didn&rsquo;t work so I used 14.04 as a base. This fixed an error that I could never
+determine the root cause of.</p>
+<p>I&rsquo;d like to walk you through the same configuration steps I took to successfully
+exploit the messaging application by revealing its IMAP/S communications.</p>
+<h2 id="mallory-installation">Mallory installation<a hidden class="anchor" aria-hidden="true" href="#mallory-installation">#</a></h2>
+<p>Install Mallory from the instructions provided at
+<a href="https://bitbucket.org/IntrepidusGroup/mallory/wiki/Installation">https://bitbucket.org/IntrepidusGroup/mallory/wiki/Installation</a>.
+However, use an Ubuntu 14.04 VM instead of Ubuntu 11.04 or you may encounter&hellip;
+issues. There will be broken dependencies; these can be resolved by observing
+the python error raised when you run <code>python mallory.py</code> Use either
+<code>easy_install</code> or <code>pip</code> to install the missing module raised.</p>
+<h2 id="vmware-custom-network">VMWare Custom Network<a hidden class="anchor" aria-hidden="true" href="#vmware-custom-network">#</a></h2>
+<p>Configure a custom network (vmnet) using the virtual network editor (VMWare
+Workstation) or the Network editor in VMWare Preferences -&gt; Network (VMWare
+Fusion). This will be referred to as the &ldquo;custom vmnet&rdquo; and you can see in the
+screenshot below that I&rsquo;ve named mine &ldquo;vmnet4&rdquo;. Choose an <a href="https://tools.ietf.org/html/rfc1918">RFC 1918</a>
+address, appropriate subnet mask, and enable DHCP on this interface. This
+interface should be host-only.</p>
+<p>Below is a screenshot showing my configuration on VMWare Fusion:</p>
+<figure>
+    <img loading="lazy" src="/images/2015/12-20-2.png"
+         alt="VMWare Fusion Network Editor"/> <figcaption>
+            <p>VMWare Fusion Network Editor</p>
+        </figcaption>
+</figure>
+
+<h2 id="mallory-vm">Mallory VM<a hidden class="anchor" aria-hidden="true" href="#mallory-vm">#</a></h2>
+<p>Configure the Mallory VM to have two interfaces: one bridged interface that can
+reach the Internet, and one interface mapped to custom vmnet. Here&rsquo;s my mallory
+vm ifconfig output (eth0 is the bridged interface, eth1 is the custom vmnet
+interface):</p>
+<figure>
+    <img loading="lazy" src="/images/2015/12-20-3.png"
+         alt="Mallory VM ifconfig output"/> <figcaption>
+            <p>Mallory VM ifconfig output</p>
+        </figcaption>
+</figure>
+
+<p>The Mallory VM should now be able to resolve IP addresses and DNS names on the
+eth0 interface.</p>
+<h2 id="kali--rogue-ap-vm">Kali / Rogue AP VM<a hidden class="anchor" aria-hidden="true" href="#kali--rogue-ap-vm">#</a></h2>
+<p>From your attacking VM, set the network interface to use the custom vmnet.  In
+my case, this was vmnet4 as shown here:</p>
+<figure>
+    <img loading="lazy" src="/images/2015/12-20-4.png"
+         alt="Kali/Rogue AP VM network configuration in VMWare Fusion"/> <figcaption>
+            <p>Kali/Rogue AP VM network configuration in VMWare Fusion</p>
+        </figcaption>
+</figure>
+
+<p>In network-manager (Kali 1.X, 2.X and above), select your wired connection in
+network manager and then select &ldquo;Add Profile…&rdquo; Fill in the information as
+requested, similar to:</p>
+<figure>
+    <img loading="lazy" src="/images/2015/12-20-5.png"
+         alt="New network-manager profile for custom vmnet"/> <figcaption>
+            <p>New network-manager profile for custom vmnet</p>
+        </figcaption>
+</figure>
+
+<figure>
+    <img loading="lazy" src="/images/2015/12-20-6.png"
+         alt="Wired connection to Mallory VM settings (1/2)"/> <figcaption>
+            <p>Wired connection to Mallory VM settings (1/2)</p>
+        </figcaption>
+</figure>
+
+<p>Note, you should set the Mallory IP address as another DNS server here as well
+to shorten request times - name resolution will end up taking quite longer than
+usual.</p>
+<figure>
+    <img loading="lazy" src="/images/2015/12-20-7.png"
+         alt="Wired connection to Mallory VM settings (2/2)"/> <figcaption>
+            <p>Wired connection to Mallory VM settings (2/2)</p>
+        </figcaption>
+</figure>
+
+<p>Note: The routing address here should be set to 192.168.67.0</p>
+<p>Apply changes and select this wired connection. Now, traffic from your Kali VM
+will be routable through the Mallory VM once Mallory is configured.</p>
+<p><strong>SUMMARY OF NETWORK INTERFACE CONFIGURATION IN KALI / ROGUE AP VM:</strong></p>
+<p>My &ldquo;vmnet4&rdquo; custom network was configured to use the 192.168.67.0/24 range. My
+Mallory VM IP address is 192.168.67.128. Here are the network-manager changes I
+made:</p>
+<pre tabindex="0"><code>Name: Mallory
+MAC Address: eth0
+IPv4: On
+Addresses: Automatic (DHCP)
+DNS: 192.168.67.128, 8.8.8.8
+Routes Automatic: On
+Address: 192.168.67.0
+Netmask: 255.255.255.0
+Gateway: 192.168.67.128
+</code></pre><h2 id="launching-mallory">Launching Mallory<a hidden class="anchor" aria-hidden="true" href="#launching-mallory">#</a></h2>
+<p>This section assumes Mallory was installed as root to /root/mallory/ Open two
+terminals: A and B. A will be used to launch mallory.py which can be thought of
+as the Mallory &ldquo;service.&rdquo; B will be used to launch Mallory&rsquo;s QT GUI. Note: do
+not background these processes, open two separate terminals or tabs to run each
+command.</p>
+<p>From Terminal A (Mallory service):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo su -
+<span style="color:#75715e"># cd /root/mallory/current/src</span>
+<span style="color:#75715e"># python mallory.py</span>
+</code></pre></div><p>From Terminal B (Mallory GUI):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo su -
+<span style="color:#75715e"># cd /root/mallory/current/src</span>
+<span style="color:#75715e"># python launchgui.py</span>
+</code></pre></div><p>The Mallory GUI should now be running.</p>
+<h2 id="mallory---interfaces-tab">Mallory - Interfaces Tab<a hidden class="anchor" aria-hidden="true" href="#mallory---interfaces-tab">#</a></h2>
+<p>Your outbound interface is your Mallory VM&rsquo;s bridged interface (typically eth0).
+Your MITM interface is the custom VMWare interface you created in the VM
+configuration phase (typically eth1).</p>
+<h2 id="mallory---protocols-tab">Mallory - Protocols Tab<a hidden class="anchor" aria-hidden="true" href="#mallory---protocols-tab">#</a></h2>
+<p>The protocols Mallory will intercept can be defined in
+/root/mallory/current/src/protos.ini, and they can be defined in the textarea in
+the Protocols Tab. In the following example, Mallory is configured to intercept
+HTTP, HTTPS, and IMAP/S traffic. SSH traffic interception is commented out</p>
+<pre tabindex="0"><code> [protocols]
+http_traffic: http.HTTP:80
+https_traffic: https.HTTPS:443
+imaps_traffic: sslproto.SSLProtocol:993
+;ssh_traffic: sslproto.SSLProtocol:22
+</code></pre><p>To add another SSL/TLS-wrapped non-HTTP protocol, for example LDAP/S, add
+another line as such:</p>
+<pre tabindex="0"><code>ldaps_traffic: sslproto.SSLProtocol:636
+</code></pre><p>For issues related to &ldquo;Debuggable: No&rdquo; appearing in this screen see
+<a href="https://groups.google.com/forum/#!topic/mallory-proxy/PF2MwXOpcEg">https://groups.google.com/forum/#!topic/mallory-proxy/PF2MwXOpcEg</a></p>
+<p>Note that the protocols I was able to successfully MITM did not show up as
+&ldquo;Debuggable: Yes&rdquo; or &ldquo;Debuggable: No&rdquo; in this tab.</p>
+<h2 id="mallory--rules-tab">Mallory -Rules Tab<a hidden class="anchor" aria-hidden="true" href="#mallory--rules-tab">#</a></h2>
+<p>Create a rule for the host you want to intercept traffic to/from and name it
+appropriately. These settings for IMAP/S traffic worked for me:</p>
+<pre tabindex="0"><code>Traffic direction: Both
+Port: *
+Type: Debug
+Payload: *
+Passthru: No
+Here's my IMAP/S rules tab:
+</code></pre><figure>
+    <img loading="lazy" src="/images/2015/12-20-8.png"
+         alt="Mallory Rules"/> <figcaption>
+            <p>Mallory Rules</p>
+        </figcaption>
+</figure>
+
+<h2 id="mallory---streams-tab">Mallory - Streams Tab<a hidden class="anchor" aria-hidden="true" href="#mallory---streams-tab">#</a></h2>
+<p>Here, &ldquo;Intercept&rdquo; should be enabled to have streams captured. Enabling &ldquo;Auto
+Send&rdquo; is similar to disabling Burpsuite Proxy&rsquo;s intercept functionality. If
+everything is working correctly, you&rsquo;ll see bi-directional traffic streams.
+Here&rsquo;s an example of Mallory intercepting traffic between my messaging app and
+its IMAP/S server:</p>
+<figure>
+    <img loading="lazy" src="/images/2015/12-20-9.png"
+         alt="Mallory Streams tab"/> <figcaption>
+            <p>Mallory Streams tab</p>
+        </figcaption>
+</figure>
+
+<h2 id="startup-order">Startup Order<a hidden class="anchor" aria-hidden="true" href="#startup-order">#</a></h2>
+<ol>
+<li>Power on Mallory VM</li>
+<li>Open Terminal A and Terminal B</li>
+<li>In Terminal A:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo su -
+<span style="color:#75715e"># cd /root/mallory/current/src</span>
+<span style="color:#75715e"># python mallory.py</span>
+</code></pre></div><ol start="4">
+<li>In Terminal B:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo su -
+<span style="color:#75715e"># cd /root/mallory/current/src</span>
+<span style="color:#75715e"># python launchgui.py</span>
+</code></pre></div><ol start="5">
+<li>From Mallory GUI - Interfaces tab, set your VM&rsquo;s bridged interface to
+&ldquo;Outbound&rdquo;, set the custom vmnet interface to &ldquo;MitM&rdquo; and click &ldquo;Apply
+settings.&rdquo;</li>
+<li>From Mallory GUI - Streams tab, select &ldquo;Interrupt&rdquo; and, optionally,
+&ldquo;Auto-send&rdquo;</li>
+<li>Power on Kali / Rogue AP VM</li>
+<li>Select the &ldquo;Mallory&rdquo; network interface in network-manager</li>
+<li>Connect TP-LINK device</li>
+<li>Run hostapd</li>
+<li>Connect Mobile messaging app to the hostapd AP</li>
+<li>Observe traffic proxied by Mallory in the Streams tab</li>
+</ol>
+<h2 id="troubleshooting">Troubleshooting<a hidden class="anchor" aria-hidden="true" href="#troubleshooting">#</a></h2>
+<p>Be sure that you&rsquo;ve launched mallory.py and launchgui.py in your mallory vm!
+Sometimes, mallory.py will break &ldquo;behind the scenes&rdquo; and you need to inspect its
+terminal window.</p>
+<p>Be sure your VM interfaces are set accordingly!</p>
+<p>If your Kali / Rogue AP VM has trouble reaching the Internet after launching
+hostapd, open a terminal and type:</p>
+<p><code># route add default gw &lt;mallory ip&gt;</code></p>
+<h2 id="resources">Resources<a hidden class="anchor" aria-hidden="true" href="#resources">#</a></h2>
+<p>These resources were helpful during my endeavor to install and configure
+Mallory:</p>
+<p><a href="https://bitbucket.org/IntrepidusGroup/mallory/wiki/Installation">https://bitbucket.org/IntrepidusGroup/mallory/wiki/Installation</a></p>
+<p><a href="https://bitbucket.org/IntrepidusGroup/mallory/wiki/Virtual%20Machine%20Setup">https://bitbucket.org/IntrepidusGroup/mallory/wiki/Virtual%20Machine%20Setup</a></p>
+<p><a href="https://groups.google.com/forum/#!topic/mallory-proxy/PF2MwXOpcEg">https://groups.google.com/forum/#!topic/mallory-proxy/PF2MwXOpcEg</a></p>
+<p><a href="http://blog.opensecurityresearch.com/2012/05/mallory-mitm-fix-ssl-decryption.html">http://blog.opensecurityresearch.com/2012/05/mallory-mitm-fix-ssl-decryption.html</a></p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://www.chrislockard.net/tags/appsec/">appsec</a></li>
+      <li><a href="https://www.chrislockard.net/tags/mobilesec/">mobilesec</a></li>
+      <li><a href="https://www.chrislockard.net/tags/mitm/">mitm</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://www.chrislockard.net/posts/decrypt-java-tls-view-wireshark/">
+    <span class="title">« Prev Page</span>
+    <br>
+    <span>Decrypting Java TLS to View in Wireshark</span>
+  </a>
+  <a class="next" href="https://www.chrislockard.net/posts/new-face-of-security-team-dos/">
+    <span class="title">Next Page »</span>
+    <br>
+    <span>The new face of the security team DoS</span>
+  </a>
+</nav>
+
+
+<div class="share-buttons">
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Mallory in the Mobile on twitter"
+        href="https://twitter.com/intent/tweet/?text=Mallory%20in%20the%20Mobile&amp;url=https%3a%2f%2fwww.chrislockard.net%2fposts%2fmallory-in-the-mobile%2f&amp;hashtags=appsec%2cmobilesec%2cmitm">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-253.927,424.544c135.939,0 210.268,-112.643 210.268,-210.268c0,-3.218 0,-6.437 -0.153,-9.502c14.406,-10.421 26.973,-23.448 36.935,-38.314c-13.18,5.824 -27.433,9.809 -42.452,11.648c15.326,-9.196 26.973,-23.602 32.49,-40.92c-14.252,8.429 -30.038,14.56 -46.896,17.931c-13.487,-14.406 -32.644,-23.295 -53.946,-23.295c-40.767,0 -73.87,33.104 -73.87,73.87c0,5.824 0.613,11.494 1.992,16.858c-61.456,-3.065 -115.862,-32.49 -152.337,-77.241c-6.284,10.881 -9.962,23.601 -9.962,37.088c0,25.594 13.027,48.276 32.95,61.456c-12.107,-0.307 -23.448,-3.678 -33.41,-9.196l0,0.92c0,35.862 25.441,65.594 59.311,72.49c-6.13,1.686 -12.72,2.606 -19.464,2.606c-4.751,0 -9.348,-0.46 -13.946,-1.38c9.349,29.426 36.628,50.728 68.965,51.341c-25.287,19.771 -57.164,31.571 -91.8,31.571c-5.977,0 -11.801,-0.306 -17.625,-1.073c32.337,21.15 71.264,33.41 112.95,33.41Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Mallory in the Mobile on linkedin"
+        href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwww.chrislockard.net%2fposts%2fmallory-in-the-mobile%2f&amp;title=Mallory%20in%20the%20Mobile&amp;summary=Mallory%20in%20the%20Mobile&amp;source=https%3a%2f%2fwww.chrislockard.net%2fposts%2fmallory-in-the-mobile%2f">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-288.985,423.278l0,-225.717l-75.04,0l0,225.717l75.04,0Zm270.539,0l0,-129.439c0,-69.333 -37.018,-101.586 -86.381,-101.586c-39.804,0 -57.634,21.891 -67.617,37.266l0,-31.958l-75.021,0c0.995,21.181 0,225.717 0,225.717l75.02,0l0,-126.056c0,-6.748 0.486,-13.492 2.474,-18.315c5.414,-13.475 17.767,-27.434 38.494,-27.434c27.135,0 38.007,20.707 38.007,51.037l0,120.768l75.024,0Zm-307.552,-334.556c-25.674,0 -42.448,16.879 -42.448,39.002c0,21.658 16.264,39.002 41.455,39.002l0.484,0c26.165,0 42.452,-17.344 42.452,-39.002c-0.485,-22.092 -16.241,-38.954 -41.943,-39.002Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Mallory in the Mobile on reddit"
+        href="https://reddit.com/submit?url=https%3a%2f%2fwww.chrislockard.net%2fposts%2fmallory-in-the-mobile%2f&title=Mallory%20in%20the%20Mobile">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-3.446,265.638c0,-22.964 -18.616,-41.58 -41.58,-41.58c-11.211,0 -21.361,4.457 -28.841,11.666c-28.424,-20.508 -67.586,-33.757 -111.204,-35.278l18.941,-89.121l61.884,13.157c0.756,15.734 13.642,28.29 29.56,28.29c16.407,0 29.706,-13.299 29.706,-29.701c0,-16.403 -13.299,-29.702 -29.706,-29.702c-11.666,0 -21.657,6.792 -26.515,16.578l-69.105,-14.69c-1.922,-0.418 -3.939,-0.042 -5.585,1.036c-1.658,1.073 -2.811,2.761 -3.224,4.686l-21.152,99.438c-44.258,1.228 -84.046,14.494 -112.837,35.232c-7.468,-7.164 -17.589,-11.591 -28.757,-11.591c-22.965,0 -41.585,18.616 -41.585,41.58c0,16.896 10.095,31.41 24.568,37.918c-0.639,4.135 -0.99,8.328 -0.99,12.576c0,63.977 74.469,115.836 166.33,115.836c91.861,0 166.334,-51.859 166.334,-115.836c0,-4.218 -0.347,-8.387 -0.977,-12.493c14.564,-6.47 24.735,-21.034 24.735,-38.001Zm-119.474,108.193c-20.27,20.241 -59.115,21.816 -70.534,21.816c-11.428,0 -50.277,-1.575 -70.522,-21.82c-3.007,-3.008 -3.007,-7.882 0,-10.889c3.003,-2.999 7.882,-3.003 10.885,0c12.777,12.781 40.11,17.317 59.637,17.317c19.522,0 46.86,-4.536 59.657,-17.321c3.016,-2.999 7.886,-2.995 10.885,0.008c3.008,3.011 3.003,7.882 -0.008,10.889Zm-5.23,-48.781c-16.373,0 -29.701,-13.324 -29.701,-29.698c0,-16.381 13.328,-29.714 29.701,-29.714c16.378,0 29.706,13.333 29.706,29.714c0,16.374 -13.328,29.698 -29.706,29.698Zm-160.386,-29.702c0,-16.381 13.328,-29.71 29.714,-29.71c16.369,0 29.689,13.329 29.689,29.71c0,16.373 -13.32,29.693 -29.689,29.693c-16.386,0 -29.714,-13.32 -29.714,-29.693Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Mallory in the Mobile on facebook"
+        href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fwww.chrislockard.net%2fposts%2fmallory-in-the-mobile%2f">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-106.468,0l0,-192.915l66.6,0l12.672,-82.621l-79.272,0l0,-53.617c0,-22.603 11.073,-44.636 46.58,-44.636l36.042,0l0,-70.34c0,0 -32.71,-5.582 -63.982,-5.582c-65.288,0 -107.96,39.569 -107.96,111.204l0,62.971l-72.573,0l0,82.621l72.573,0l0,192.915l-191.104,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Mallory in the Mobile on whatsapp"
+        href="https://api.whatsapp.com/send?text=Mallory%20in%20the%20Mobile%20-%20https%3a%2f%2fwww.chrislockard.net%2fposts%2fmallory-in-the-mobile%2f">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-58.673,127.703c-33.842,-33.881 -78.847,-52.548 -126.798,-52.568c-98.799,0 -179.21,80.405 -179.249,179.234c-0.013,31.593 8.241,62.428 23.927,89.612l-25.429,92.884l95.021,-24.925c26.181,14.28 55.659,21.807 85.658,21.816l0.074,0c98.789,0 179.206,-80.413 179.247,-179.243c0.018,-47.895 -18.61,-92.93 -52.451,-126.81Zm-126.797,275.782l-0.06,0c-26.734,-0.01 -52.954,-7.193 -75.828,-20.767l-5.441,-3.229l-56.386,14.792l15.05,-54.977l-3.542,-5.637c-14.913,-23.72 -22.791,-51.136 -22.779,-79.287c0.033,-82.142 66.867,-148.971 149.046,-148.971c39.793,0.014 77.199,15.531 105.329,43.692c28.128,28.16 43.609,65.592 43.594,105.4c-0.034,82.149 -66.866,148.983 -148.983,148.984Zm81.721,-111.581c-4.479,-2.242 -26.499,-13.075 -30.604,-14.571c-4.105,-1.495 -7.091,-2.241 -10.077,2.241c-2.986,4.483 -11.569,14.572 -14.182,17.562c-2.612,2.988 -5.225,3.364 -9.703,1.12c-4.479,-2.241 -18.91,-6.97 -36.017,-22.23c-13.314,-11.876 -22.304,-26.542 -24.916,-31.026c-2.612,-4.484 -0.279,-6.908 1.963,-9.14c2.016,-2.007 4.48,-5.232 6.719,-7.847c2.24,-2.615 2.986,-4.484 4.479,-7.472c1.493,-2.99 0.747,-5.604 -0.374,-7.846c-1.119,-2.241 -10.077,-24.288 -13.809,-33.256c-3.635,-8.733 -7.327,-7.55 -10.077,-7.688c-2.609,-0.13 -5.598,-0.158 -8.583,-0.158c-2.986,0 -7.839,1.121 -11.944,5.604c-4.105,4.484 -15.675,15.32 -15.675,37.364c0,22.046 16.048,43.342 18.287,46.332c2.24,2.99 31.582,48.227 76.511,67.627c10.685,4.615 19.028,7.371 25.533,9.434c10.728,3.41 20.492,2.929 28.209,1.775c8.605,-1.285 26.499,-10.833 30.231,-21.295c3.732,-10.464 3.732,-19.431 2.612,-21.298c-1.119,-1.869 -4.105,-2.99 -8.583,-5.232Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Mallory in the Mobile on telegram"
+        href="https://telegram.me/share/url?text=Mallory%20in%20the%20Mobile&amp;url=https%3a%2f%2fwww.chrislockard.net%2fposts%2fmallory-in-the-mobile%2f">
+        <svg version="1.1" xml:space="preserve" viewBox="2 2 28 28">
+            <path
+                d="M26.49,29.86H5.5a3.37,3.37,0,0,1-2.47-1,3.35,3.35,0,0,1-1-2.47V5.48A3.36,3.36,0,0,1,3,3,3.37,3.37,0,0,1,5.5,2h21A3.38,3.38,0,0,1,29,3a3.36,3.36,0,0,1,1,2.46V26.37a3.35,3.35,0,0,1-1,2.47A3.38,3.38,0,0,1,26.49,29.86Zm-5.38-6.71a.79.79,0,0,0,.85-.66L24.73,9.24a.55.55,0,0,0-.18-.46.62.62,0,0,0-.41-.17q-.08,0-16.53,6.11a.59.59,0,0,0-.41.59.57.57,0,0,0,.43.52l4,1.24,1.61,4.83a.62.62,0,0,0,.63.43.56.56,0,0,0,.4-.17L16.54,20l4.09,3A.9.9,0,0,0,21.11,23.15ZM13.8,20.71l-1.21-4q8.72-5.55,8.78-5.55c.15,0,.23,0,.23.16a.18.18,0,0,1,0,.06s-2.51,2.3-7.52,6.8Z" />
+        </svg>
+    </a>
+</div>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2022 <a href="https://www.chrislockard.net/">Unl0ckd</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = 'copy';
+
+        function copyingDone() {
+            copybutton.innerText = 'copied!';
+            setTimeout(() => {
+                copybutton.innerText = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

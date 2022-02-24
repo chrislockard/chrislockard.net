@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>OSX Terminal - List Processes | Unl0ckd</title>
+<meta name="keywords" content="unix, terminal, macOS" />
+<meta name="description" content="An exploration of the ps command">
+<meta name="author" content="Me">
+<link rel="canonical" href="https://www.chrislockard.net/posts/osx-terminal-list-processes/" />
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.c88963fe2d79462000fd0fb1b3737783c32855d340583e4523343f8735c787f0.css" integrity="sha256-yIlj/i15RiAA/Q&#43;xs3N3g8MoVdNAWD5FIzQ/hzXHh/A=" rel="preload stylesheet" as="style">
+<link rel="preload" href="/apple-touch-icon.png" as="image">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js" integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5&#43;kdJvBz5iKbt6B5PJI="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://www.chrislockard.net/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://www.chrislockard.net/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://www.chrislockard.net/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://www.chrislockard.net/apple-touch-icon.png">
+<link rel="mask-icon" href="https://www.chrislockard.net/favicon-32x32.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<meta name="generator" content="Hugo 0.91.2" />
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="OSX Terminal - List Processes" />
+<meta property="og:description" content="An exploration of the ps command" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.chrislockard.net/posts/osx-terminal-list-processes/" /><meta property="og:image" content="https://www.chrislockard.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"/><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2012-06-23T12:00:00-04:00" />
+<meta property="article:modified_time" content="2012-06-23T12:00:00-04:00" /><meta property="og:site_name" content="Unl0ckd" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://www.chrislockard.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"/>
+
+<meta name="twitter:title" content="OSX Terminal - List Processes"/>
+<meta name="twitter:description" content="An exploration of the ps command"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://www.chrislockard.net/post/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "OSX Terminal - List Processes",
+      "item": "https://www.chrislockard.net/posts/osx-terminal-list-processes/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "OSX Terminal - List Processes",
+  "name": "OSX Terminal - List Processes",
+  "description": "An exploration of the ps command",
+  "keywords": [
+    "unix", "terminal", "macOS"
+  ],
+  "articleBody": "The UNIX command for listing processes from the command line is:\nps “ps” stands for “process status” and by default it will print a list of processes identifiers, controlling terminals, CPU time (user and system), state, and the associated command. Here is the output I see when I type “ps” at the terminal:\n$ ps PID TTY TIME CMD 17559 ttys000 0:00.05 -bash 23627 ttys000 0:00.01 man ps 23630 ttys000 0:00.00 sh -c (cd '/usr/share/man' \u0026\u0026 /usr/bin/gunzip -c '/usr 23631 ttys000 0:00.00 sh -c (cd '/usr/share/man' \u0026\u0026 /usr/bin/gunzip -c '/usr 23635 ttys000 0:00.00 sh -c (cd '/usr/share/man' \u0026\u0026 /usr/bin/gunzip -c '/usr 23638 ttys000 0:00.01 /usr/bin/less -is 18015 ttys001 0:00.14 -bash 23120 ttys001 0:00.09 /Library/Frameworks/Python.framework/Versions/2.6/Reso 23124 ttys001 0:00.01 less 22686 ttys002 0:00.01 -bash 22689 ttys002 0:00.11 /Library/Frameworks/Python.framework/Versions/2.6/Reso 23643 ttys004 0:00.02 -bash This is neat, and it sort-of tells me what I want to know, but let’s see what else ps can be used for…\nDisplaying information about a user’s processes Perhaps the most useful argument for ps is -U. This will list the User ID, Process ID, Terminal, System TIme, and Command associated with each ’s processes:\n$ ps -U root UID PID TTY TIME CMD 0 1 ?? 8:27.52 /sbin/launchd 0 10 ?? 0:12.99 /usr/libexec/kextd 0 11 ?? 0:27.03 /usr/sbin/DirectoryService 0 12 ?? 0:05.74 /usr/sbin/notifyd 0 13 ?? 0:02.45 /usr/sbin/diskarbitrationd 0 14 ?? 0:34.34 /usr/libexec/configd 0 15 ?? 0:23.02 /usr/sbin/syslogd 0 21 ?? 0:02.53 /usr/sbin/securityd -i 0 23 ?? 0:01.38 /usr/sbin/blued 0 27 ?? 0:01.29 /usr/sbin/krb5kdc -n ... If working with User IDs is more convenient, I can use “ps -u \" to list the same information by user ID instead of user name.\nDisplaying detailed information about processes To obtain detailed information about processes, supply the “-v” argument. Note: this argument prints more columns of information than the terminal is capable of displaying if left at the typical 80x24 (80 columns, 24 rows) configuration. This argument can be supplied with other arguments, such as “-u.” The following will output detailed information about all of root’s processes:\n$ ps -vU root PID STAT TIME SL RE PAGEIN VSZ RSS LIM TSIZ %CPU %MEM COMMAND 17433 Ss 39:13.05 0 0 0 3226576 148012 - 0 0.6 1.8 / 35 Ss 2:20.87 0 0 0 2649356 74160 - 0 0.0 0.9 / 69 Ss 0:32.61 0 0 0 2507432 42324 - 0 0.0 0.5 / 10 Ss 0:12.99 0 0 0 2458608 13352 - 0 0.0 0.2 / 17432 Ss 0:15.13 0 0 0 2798580 10820 - 0 0.0 0.1 / 11 Ss 0:27.07 0 0 0 2452852 6076 - 0 0.0 0.1 / 23 Ss 0:01.38 0 0 0 2461316 4348 - 0 0.0 0.1 / 21 Ss 0:02.53 0 0 0 2459436 4116 - 0 0.0 0.0 / 68 Ss 1:08.24 0 0 0 2461216 3596 - 0 0.0 0.0 / 40 Ss 0:20.31 0 0 0 2453200 3440 - 0 0.0 0.0 / 14 Ss 0:34.36 0 0 0 2474800 3436 - 0 0.0 0.0 / 364 Ss 0:04.07 0 0 0 2450680 2468 - 0 0.0 0.0 / 51 Ss 37:06.24 0 0 0 101452 2228 - 0 0.2 0.0 / 27 Ss 0:01.30 0 0 0 2448456 1992 - 0 0.0 0.0 / 39 Ss 12:27.64 0 0 0 2447776 1592 - 0 0.0 0.0 / 13 Ss 0:02.45 0 0 0 2446968 1540 - 0 0.0 0.0 / 1 Ss 8:29.82 0 0 0 2456848 1528 - 0 0.0 0.0 / 93 Ss 0:04.38 0 0 0 2436424 1440 - 0 0.0 0.0 / 20523 Ss 0:05.39 0 0 0 2435292 1148 - 0 0.0 0.0 / 37 Ss 0:02.34 0 0 0 2445904 1076 - 0 0.0 0.0 / 48 Ss 0:00.98 0 0 0 2446832 988 - 0 0.0 0.0 a 77 Ss 0:00.04 0 0 0 2438260 924 - 0 0.0 0.0 / 11253 Ss 0:00.38 0 0 0 2436128 900 - 0 0.0 0.0 / 15 Ss 0:23.03 0 0 0 2457256 868 - 0 0.0 0.0 / 42 Ss 0:00.04 0 0 0 2434864 788 - 0 0.0 0.0 / 12 Ss 0:05.75 0 0 0 2444624 640 - 0 0.0 0.0 / 366 S 0:00.00 0 0 0 2439212 336 - 0 0.0 0.0 / It can be easier to deal with this much information by outputting it to a file and opening it with a text editor:\n$ ps -vU root  rootprocs.txt $ open rootprocs.txt The detailed information provided includes:\n Process ID - The identifier assigned to this process State - Indicated by a sequence of characters, the first character indicates the run state of the process:  I - Idle process (sleeping  20 seconds) R - Runnable process S - Sleeping process ( Any characters following these indicate additional state information:\n+ - Process is in foreground process group of its control terminal - Process has a specified soft limit on memory A - Process has asked for random page replacement E - Process is trying to exit L - Process has pages locked in core (raw Input/Output) N - Process has reduced CPU scheduling priority S - Process has asked for First In, First Out page replacements - Process is a session leader V - Process is suspended during a vfork(2) W - Process is swapped out X - Process is being traced or debugged  Time - Real time during which the process has been running VSZ - Virtual memory usage of of the process. RSS - The real memory (resident set) size of the process in 1024-byte units. LIM - The soft limit on memory used specified by the “setrlimit()” system call. The soft limit is the value enforced by the kernel for memory allocated to this process. %CPU - The CPU utilization of the process; this is a decaying average over up to a minute of previous (real) time. It is possible for the sum of all processes to exceed 100%. %MEM - The percentage of physical memory used by this process. COMMAND - The command that originated the process.  I am not sure what the SL, RE, PageIn, and TSIZ categories stand for. Any ideas?\nUsefulness After the research that went into writing this, I’ve determined that the most useful usage of ps for me is going to be to supply the “aux” arguments. These will display all processes belonging to all users including processes which do not have a controlling terminal. This means that typing\n$ ps -aux will display all processes running on the system including information about:\nUSER - The user account that originated the process PID - Process Identifier %CPU - See above - CPU utilization of the process %MEM - See above - Percentage of real memory used by the process VSZ - See above - Virtual memory usage by the process RSS - See above - Real memory usage of the process TT - Abbreviation for the pathname of the controlling terminal, if any. This consists of the three letters following /dev/tty. STAT - See above - the current state of the process STARTED - When the process was started, parsed for humans TIME - See above - how long the process has been running COMMAND - See above - the command that spawned the process\nAgain, it might be useful to output the results of ps -aux to a file for easier viewing than in the terminal window, or for reporting purposes.\nI can supply parameters to ps -aux to narrow my search, for instance, to retrieve information about the process with ID 1, I would type\n$ ps aux 1 USER PID %CPU %MEM VSZ RSS TT STAT STARTED TIME COMMAND root 1 0.4 0.0 2456852 1532 ?? Ss 9Jun12 8:38.87 /sbin/launch Since I cannot supply a username to ps -aux I’ve found the easiest way to find information relevant to a particular username would be to pipe the results to grep and then output the results to a file for reviewing.\n$ ps aux | grep root  rootprocs.txt To wrap this up, ps is a very flexible and powerful command.\n",
+  "wordCount" : "1376",
+  "inLanguage": "en",
+  "datePublished": "2012-06-23T12:00:00-04:00",
+  "dateModified": "2012-06-23T12:00:00-04:00",
+  "author":{
+    "@type": "Person",
+    "name": "Me"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.chrislockard.net/posts/osx-terminal-list-processes/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Unl0ckd",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.chrislockard.net/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://www.chrislockard.net/" accesskey="h" title="Home (Alt + H)">
+                <img src="/apple-touch-icon.png" alt="logo" aria-label="logo"
+                    height="35">Home</a>
+            <span class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </span>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://www.chrislockard.net/categories/" title="categories">
+                    <span>categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.chrislockard.net/tags/" title="tags">
+                    <span>tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.chrislockard.net/post/" title="posts">
+                    <span>posts</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://www.chrislockard.net/">Home</a>&nbsp;»&nbsp;<a href="https://www.chrislockard.net/post/">Posts</a></div>
+    <h1 class="post-title">
+      OSX Terminal - List Processes
+    </h1>
+    <div class="post-meta"><span title='2012-06-23 12:00:00 -0400 EDT'>June 23, 2012</span>&nbsp;·&nbsp;7 min&nbsp;·&nbsp;Me&nbsp;|&nbsp;<a href="https://github.com/chrislockard/chrislockard.net" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
+
+</div>
+  </header> <div class="toc">
+    <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#displaying-information-about-a-users-processes" aria-label="Displaying information about a user&amp;rsquo;s processes">Displaying information about a user&rsquo;s processes</a></li>
+                <li>
+                    <a href="#displaying-detailed-information-about-processes" aria-label="Displaying detailed information about processes">Displaying detailed information about processes</a></li>
+                <li>
+                    <a href="#usefulness" aria-label="Usefulness">Usefulness</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><p>The UNIX command for listing processes from the command line is:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ps
+</code></pre></div><p>&ldquo;ps&rdquo; stands for &ldquo;process status&rdquo; and by default it will print a list of
+processes identifiers, controlling terminals, CPU time (user and system), state,
+and the associated command.  Here is the output I see when I type &ldquo;ps&rdquo; at the
+terminal:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ps
+PID   TTY           TIME CMD
+<span style="color:#ae81ff">17559</span> ttys000    0:00.05 -bash
+<span style="color:#ae81ff">23627</span> ttys000    0:00.01 man ps
+<span style="color:#ae81ff">23630</span> ttys000    0:00.00 sh -c <span style="color:#f92672">(</span>cd <span style="color:#e6db74">&#39;/usr/share/man&#39;</span> <span style="color:#f92672">&amp;&amp;</span> /usr/bin/gunzip -c <span style="color:#e6db74">&#39;/usr
+</span><span style="color:#e6db74">23631 ttys000    0:00.00 sh -c (cd &#39;</span>/usr/share/man<span style="color:#e6db74">&#39; &amp;&amp; /usr/bin/gunzip -c &#39;</span>/usr
+<span style="color:#ae81ff">23635</span> ttys000    0:00.00 sh -c <span style="color:#f92672">(</span>cd <span style="color:#e6db74">&#39;/usr/share/man&#39;</span> <span style="color:#f92672">&amp;&amp;</span> /usr/bin/gunzip -c <span style="color:#960050;background-color:#1e0010">&#39;</span>/usr
+<span style="color:#ae81ff">23638</span> ttys000    0:00.01 /usr/bin/less -is
+<span style="color:#ae81ff">18015</span> ttys001    0:00.14 -bash
+<span style="color:#ae81ff">23120</span> ttys001    0:00.09 /Library/Frameworks/Python.framework/Versions/2.6/Reso
+<span style="color:#ae81ff">23124</span> ttys001    0:00.01 less
+<span style="color:#ae81ff">22686</span> ttys002    0:00.01 -bash
+<span style="color:#ae81ff">22689</span> ttys002    0:00.11 /Library/Frameworks/Python.framework/Versions/2.6/Reso
+<span style="color:#ae81ff">23643</span> ttys004    0:00.02 -bash
+</code></pre></div><p>This is neat, and it sort-of tells me what I want to know, but let&rsquo;s see what
+else <em>ps</em> can be used for&hellip;</p>
+<h1 id="displaying-information-about-a-users-processes">Displaying information about a user&rsquo;s processes<a hidden class="anchor" aria-hidden="true" href="#displaying-information-about-a-users-processes">#</a></h1>
+<p>Perhaps the most useful argument for <em>ps</em> is <em>-U</em>.  This will list the User ID,
+Process ID, Terminal, System TIme, and Command associated with each &rsquo;s
+processes:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ps -U root
+  UID   PID TTY           TIME CMD
+    <span style="color:#ae81ff">0</span>     <span style="color:#ae81ff">1</span> ??         8:27.52 /sbin/launchd
+    <span style="color:#ae81ff">0</span>    <span style="color:#ae81ff">10</span> ??         0:12.99 /usr/libexec/kextd
+    <span style="color:#ae81ff">0</span>    <span style="color:#ae81ff">11</span> ??         0:27.03 /usr/sbin/DirectoryService
+    <span style="color:#ae81ff">0</span>    <span style="color:#ae81ff">12</span> ??         0:05.74 /usr/sbin/notifyd
+    <span style="color:#ae81ff">0</span>    <span style="color:#ae81ff">13</span> ??         0:02.45 /usr/sbin/diskarbitrationd
+    <span style="color:#ae81ff">0</span>    <span style="color:#ae81ff">14</span> ??         0:34.34 /usr/libexec/configd
+    <span style="color:#ae81ff">0</span>    <span style="color:#ae81ff">15</span> ??         0:23.02 /usr/sbin/syslogd
+    <span style="color:#ae81ff">0</span>    <span style="color:#ae81ff">21</span> ??         0:02.53 /usr/sbin/securityd -i
+    <span style="color:#ae81ff">0</span>    <span style="color:#ae81ff">23</span> ??         0:01.38 /usr/sbin/blued
+    <span style="color:#ae81ff">0</span>    <span style="color:#ae81ff">27</span> ??         0:01.29 /usr/sbin/krb5kdc -n
+...
+</code></pre></div><p>If working with User IDs is more convenient, I can use &ldquo;ps -u &quot; to list the same
+information by user ID instead of user name.</p>
+<h1 id="displaying-detailed-information-about-processes">Displaying detailed information about processes<a hidden class="anchor" aria-hidden="true" href="#displaying-detailed-information-about-processes">#</a></h1>
+<p>To obtain detailed information about processes, supply the &ldquo;-v&rdquo; argument.  Note:
+this argument prints more columns of information than the terminal is capable of
+displaying if left at the typical 80x24 (80 columns, 24 rows) configuration.
+This argument can be supplied with other arguments, such as &ldquo;-u.&rdquo;  The following
+will output detailed information about all of root&rsquo;s processes:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ps -vU root
+  PID STAT      TIME  SL  RE PAGEIN      VSZ    RSS   LIM     TSIZ  %CPU %MEM COMMAND
+<span style="color:#ae81ff">17433</span> Ss    39:13.05   <span style="color:#ae81ff">0</span>   <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">3226576</span> <span style="color:#ae81ff">148012</span>     -        <span style="color:#ae81ff">0</span>   0.6  1.8 /
+   <span style="color:#ae81ff">35</span> Ss     2:20.87   <span style="color:#ae81ff">0</span>   <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">2649356</span>  <span style="color:#ae81ff">74160</span>     -        <span style="color:#ae81ff">0</span>   0.0  0.9 /
+   <span style="color:#ae81ff">69</span> Ss     0:32.61   <span style="color:#ae81ff">0</span>   <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">2507432</span>  <span style="color:#ae81ff">42324</span>     -        <span style="color:#ae81ff">0</span>   0.0  0.5 /
+   <span style="color:#ae81ff">10</span> Ss     0:12.99   <span style="color:#ae81ff">0</span>   <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">2458608</span>  <span style="color:#ae81ff">13352</span>     -        <span style="color:#ae81ff">0</span>   0.0  0.2 /
+<span style="color:#ae81ff">17432</span> Ss     0:15.13   <span style="color:#ae81ff">0</span>   <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">2798580</span>  <span style="color:#ae81ff">10820</span>     -        <span style="color:#ae81ff">0</span>   0.0  0.1 /
+   <span style="color:#ae81ff">11</span> Ss     0:27.07   <span style="color:#ae81ff">0</span>   <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">2452852</span>   <span style="color:#ae81ff">6076</span>     -        <span style="color:#ae81ff">0</span>   0.0  0.1 /
+   <span style="color:#ae81ff">23</span> Ss     0:01.38   <span style="color:#ae81ff">0</span>   <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">2461316</span>   <span style="color:#ae81ff">4348</span>     -        <span style="color:#ae81ff">0</span>   0.0  0.1 /
+   <span style="color:#ae81ff">21</span> Ss     0:02.53   <span style="color:#ae81ff">0</span>   <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">2459436</span>   <span style="color:#ae81ff">4116</span>     -        <span style="color:#ae81ff">0</span>   0.0  0.0 /
+   <span style="color:#ae81ff">68</span> Ss     1:08.24   <span style="color:#ae81ff">0</span>   <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">2461216</span>   <span style="color:#ae81ff">3596</span>     -        <span style="color:#ae81ff">0</span>   0.0  0.0 /
+   <span style="color:#ae81ff">40</span> Ss     0:20.31   <span style="color:#ae81ff">0</span>   <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">2453200</span>   <span style="color:#ae81ff">3440</span>     -        <span style="color:#ae81ff">0</span>   0.0  0.0 /
+   <span style="color:#ae81ff">14</span> Ss     0:34.36   <span style="color:#ae81ff">0</span>   <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">2474800</span>   <span style="color:#ae81ff">3436</span>     -        <span style="color:#ae81ff">0</span>   0.0  0.0 /
+  <span style="color:#ae81ff">364</span> Ss     0:04.07   <span style="color:#ae81ff">0</span>   <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">2450680</span>   <span style="color:#ae81ff">2468</span>     -        <span style="color:#ae81ff">0</span>   0.0  0.0 /
+   <span style="color:#ae81ff">51</span> Ss    37:06.24   <span style="color:#ae81ff">0</span>   <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">0</span>   <span style="color:#ae81ff">101452</span>   <span style="color:#ae81ff">2228</span>     -        <span style="color:#ae81ff">0</span>   0.2  0.0 /
+   <span style="color:#ae81ff">27</span> Ss     0:01.30   <span style="color:#ae81ff">0</span>   <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">2448456</span>   <span style="color:#ae81ff">1992</span>     -        <span style="color:#ae81ff">0</span>   0.0  0.0 /
+   <span style="color:#ae81ff">39</span> Ss    12:27.64   <span style="color:#ae81ff">0</span>   <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">2447776</span>   <span style="color:#ae81ff">1592</span>     -        <span style="color:#ae81ff">0</span>   0.0  0.0 /
+   <span style="color:#ae81ff">13</span> Ss     0:02.45   <span style="color:#ae81ff">0</span>   <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">2446968</span>   <span style="color:#ae81ff">1540</span>     -        <span style="color:#ae81ff">0</span>   0.0  0.0 /
+    <span style="color:#ae81ff">1</span> Ss     8:29.82   <span style="color:#ae81ff">0</span>   <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">2456848</span>   <span style="color:#ae81ff">1528</span>     -        <span style="color:#ae81ff">0</span>   0.0  0.0 /
+   <span style="color:#ae81ff">93</span> Ss     0:04.38   <span style="color:#ae81ff">0</span>   <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">2436424</span>   <span style="color:#ae81ff">1440</span>     -        <span style="color:#ae81ff">0</span>   0.0  0.0 /
+<span style="color:#ae81ff">20523</span> Ss     0:05.39   <span style="color:#ae81ff">0</span>   <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">2435292</span>   <span style="color:#ae81ff">1148</span>     -        <span style="color:#ae81ff">0</span>   0.0  0.0 /
+   <span style="color:#ae81ff">37</span> Ss     0:02.34   <span style="color:#ae81ff">0</span>   <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">2445904</span>   <span style="color:#ae81ff">1076</span>     -        <span style="color:#ae81ff">0</span>   0.0  0.0 /
+   <span style="color:#ae81ff">48</span> Ss     0:00.98   <span style="color:#ae81ff">0</span>   <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">2446832</span>    <span style="color:#ae81ff">988</span>     -        <span style="color:#ae81ff">0</span>   0.0  0.0 a
+   <span style="color:#ae81ff">77</span> Ss     0:00.04   <span style="color:#ae81ff">0</span>   <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">2438260</span>    <span style="color:#ae81ff">924</span>     -        <span style="color:#ae81ff">0</span>   0.0  0.0 /
+<span style="color:#ae81ff">11253</span> Ss     0:00.38   <span style="color:#ae81ff">0</span>   <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">2436128</span>    <span style="color:#ae81ff">900</span>     -        <span style="color:#ae81ff">0</span>   0.0  0.0 /
+   <span style="color:#ae81ff">15</span> Ss     0:23.03   <span style="color:#ae81ff">0</span>   <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">2457256</span>    <span style="color:#ae81ff">868</span>     -        <span style="color:#ae81ff">0</span>   0.0  0.0 /
+   <span style="color:#ae81ff">42</span> Ss     0:00.04   <span style="color:#ae81ff">0</span>   <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">2434864</span>    <span style="color:#ae81ff">788</span>     -        <span style="color:#ae81ff">0</span>   0.0  0.0 /
+   <span style="color:#ae81ff">12</span> Ss     0:05.75   <span style="color:#ae81ff">0</span>   <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">2444624</span>    <span style="color:#ae81ff">640</span>     -        <span style="color:#ae81ff">0</span>   0.0  0.0 /
+  <span style="color:#ae81ff">366</span> S      0:00.00   <span style="color:#ae81ff">0</span>   <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">2439212</span>    <span style="color:#ae81ff">336</span>     -        <span style="color:#ae81ff">0</span>   0.0  0.0 /
+</code></pre></div><p>It can be easier to deal with this much information by outputting it to a file
+and opening it with a text editor:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ps -vU root &gt; rootprocs.txt
+$ open rootprocs.txt
+</code></pre></div><p>The detailed information provided includes:</p>
+<ul>
+<li>Process ID - The identifier assigned to this process</li>
+<li>State - Indicated by a sequence of characters, the first character indicates
+the run state of the process:</li>
+</ul>
+<pre tabindex="0"><code>I - Idle process (sleeping &gt; 20 seconds)
+R - Runnable process
+S - Sleeping process ( &lt; 20 seconds )
+T - Stopped process
+U - Process in uninterruptible wait
+Z - Dead (or &quot;Zombie&quot;) process
+</code></pre><p>Any characters following these indicate additional state information:</p>
+<pre tabindex="0"><code>+ - Process is in foreground process group of its control terminal
+&lt; - Process has raised CPU scheduling priority
+&gt; - Process has a specified soft limit on memory
+A - Process has asked for random page replacement
+E - Process is trying to exit
+L - Process has pages locked in core (raw Input/Output)
+N - Process has reduced CPU scheduling priority
+S - Process has asked for First In, First Out page replacements - Process is a session leader
+V - Process is suspended during a vfork(2)
+W - Process is swapped out
+X - Process is being traced or debugged
+</code></pre><ul>
+<li>Time - Real time during which the process has been running</li>
+<li>VSZ - Virtual memory usage of of the process.</li>
+<li>RSS - The real memory (resident set) size of the process in 1024-byte units.</li>
+<li>LIM - The soft limit on memory used specified by the &ldquo;setrlimit()&rdquo; system
+call.  The soft limit is the value enforced by the kernel for memory allocated
+to this process.</li>
+<li>%CPU - The CPU utilization of the process; this is a decaying average over up
+to a minute of previous (real) time.  It is possible for the sum of all
+processes to exceed 100%.</li>
+<li>%MEM - The percentage of physical memory used by this process.</li>
+<li>COMMAND - The command that originated the process.</li>
+</ul>
+<p>I am not sure what the SL, RE, PageIn, and TSIZ categories stand for.  Any
+ideas?</p>
+<h1 id="usefulness">Usefulness<a hidden class="anchor" aria-hidden="true" href="#usefulness">#</a></h1>
+<p>After the research that went into writing this, I&rsquo;ve determined that the most
+useful usage of <em>ps</em> for me is going to be to supply the &ldquo;aux&rdquo; arguments.  These
+will display all processes belonging to all users including processes which do
+not have a controlling terminal.  This means that typing</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ps -aux
+</code></pre></div><p>will display all processes running on the system including information about:</p>
+<p>USER - The user account that originated the process PID - Process Identifier
+%CPU - See above - CPU utilization of the process %MEM - See above - Percentage
+of real memory used by the process VSZ - See above - Virtual memory usage by the
+process RSS - See above - Real memory usage of the process TT - Abbreviation for
+the pathname of the controlling terminal, if any.  This consists of the three
+letters following /dev/tty.  STAT - See above - the current state of the process
+STARTED - When the process was started, parsed for humans TIME - See above - how
+long the process has been running COMMAND - See above - the command that spawned
+the process</p>
+<p>Again, it might be useful to output the results of <code>ps -aux</code> to a file for
+easier viewing than in the terminal window, or for reporting purposes.</p>
+<p>I can supply parameters to <code>ps -aux</code> to narrow my search, for instance, to
+retrieve information about the process with ID 1, I would type</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ps aux <span style="color:#ae81ff">1</span>
+USER   PID  %CPU %MEM      VSZ    RSS   TT  STAT STARTED      TIME COMMAND
+root     <span style="color:#ae81ff">1</span>   0.4  0.0  <span style="color:#ae81ff">2456852</span>   <span style="color:#ae81ff">1532</span>   ??  Ss    9Jun12   8:38.87 /sbin/launch
+</code></pre></div><p>Since I cannot supply a username to <code>ps -aux</code> I&rsquo;ve found the easiest way to find
+information relevant to a particular username would be to pipe the results to
+grep and then output the results to a file for reviewing.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ps aux | grep root &gt; rootprocs.txt
+</code></pre></div><p>To wrap this up, <code>ps</code> is a very flexible and powerful command.</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://www.chrislockard.net/tags/unix/">unix</a></li>
+      <li><a href="https://www.chrislockard.net/tags/terminal/">terminal</a></li>
+      <li><a href="https://www.chrislockard.net/tags/macos/">macOS</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://www.chrislockard.net/posts/reverse-shell-methods/">
+    <span class="title">« Prev Page</span>
+    <br>
+    <span>Reverse shell methods</span>
+  </a>
+  <a class="next" href="https://www.chrislockard.net/posts/federal-conference-takeaways/">
+    <span class="title">Next Page »</span>
+    <br>
+    <span>Federal conference takeaways</span>
+  </a>
+</nav>
+
+
+<div class="share-buttons">
+    <a target="_blank" rel="noopener noreferrer" aria-label="share OSX Terminal - List Processes on twitter"
+        href="https://twitter.com/intent/tweet/?text=OSX%20Terminal%20-%20List%20Processes&amp;url=https%3a%2f%2fwww.chrislockard.net%2fposts%2fosx-terminal-list-processes%2f&amp;hashtags=unix%2cterminal%2cmacOS">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-253.927,424.544c135.939,0 210.268,-112.643 210.268,-210.268c0,-3.218 0,-6.437 -0.153,-9.502c14.406,-10.421 26.973,-23.448 36.935,-38.314c-13.18,5.824 -27.433,9.809 -42.452,11.648c15.326,-9.196 26.973,-23.602 32.49,-40.92c-14.252,8.429 -30.038,14.56 -46.896,17.931c-13.487,-14.406 -32.644,-23.295 -53.946,-23.295c-40.767,0 -73.87,33.104 -73.87,73.87c0,5.824 0.613,11.494 1.992,16.858c-61.456,-3.065 -115.862,-32.49 -152.337,-77.241c-6.284,10.881 -9.962,23.601 -9.962,37.088c0,25.594 13.027,48.276 32.95,61.456c-12.107,-0.307 -23.448,-3.678 -33.41,-9.196l0,0.92c0,35.862 25.441,65.594 59.311,72.49c-6.13,1.686 -12.72,2.606 -19.464,2.606c-4.751,0 -9.348,-0.46 -13.946,-1.38c9.349,29.426 36.628,50.728 68.965,51.341c-25.287,19.771 -57.164,31.571 -91.8,31.571c-5.977,0 -11.801,-0.306 -17.625,-1.073c32.337,21.15 71.264,33.41 112.95,33.41Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share OSX Terminal - List Processes on linkedin"
+        href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwww.chrislockard.net%2fposts%2fosx-terminal-list-processes%2f&amp;title=OSX%20Terminal%20-%20List%20Processes&amp;summary=OSX%20Terminal%20-%20List%20Processes&amp;source=https%3a%2f%2fwww.chrislockard.net%2fposts%2fosx-terminal-list-processes%2f">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-288.985,423.278l0,-225.717l-75.04,0l0,225.717l75.04,0Zm270.539,0l0,-129.439c0,-69.333 -37.018,-101.586 -86.381,-101.586c-39.804,0 -57.634,21.891 -67.617,37.266l0,-31.958l-75.021,0c0.995,21.181 0,225.717 0,225.717l75.02,0l0,-126.056c0,-6.748 0.486,-13.492 2.474,-18.315c5.414,-13.475 17.767,-27.434 38.494,-27.434c27.135,0 38.007,20.707 38.007,51.037l0,120.768l75.024,0Zm-307.552,-334.556c-25.674,0 -42.448,16.879 -42.448,39.002c0,21.658 16.264,39.002 41.455,39.002l0.484,0c26.165,0 42.452,-17.344 42.452,-39.002c-0.485,-22.092 -16.241,-38.954 -41.943,-39.002Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share OSX Terminal - List Processes on reddit"
+        href="https://reddit.com/submit?url=https%3a%2f%2fwww.chrislockard.net%2fposts%2fosx-terminal-list-processes%2f&title=OSX%20Terminal%20-%20List%20Processes">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-3.446,265.638c0,-22.964 -18.616,-41.58 -41.58,-41.58c-11.211,0 -21.361,4.457 -28.841,11.666c-28.424,-20.508 -67.586,-33.757 -111.204,-35.278l18.941,-89.121l61.884,13.157c0.756,15.734 13.642,28.29 29.56,28.29c16.407,0 29.706,-13.299 29.706,-29.701c0,-16.403 -13.299,-29.702 -29.706,-29.702c-11.666,0 -21.657,6.792 -26.515,16.578l-69.105,-14.69c-1.922,-0.418 -3.939,-0.042 -5.585,1.036c-1.658,1.073 -2.811,2.761 -3.224,4.686l-21.152,99.438c-44.258,1.228 -84.046,14.494 -112.837,35.232c-7.468,-7.164 -17.589,-11.591 -28.757,-11.591c-22.965,0 -41.585,18.616 -41.585,41.58c0,16.896 10.095,31.41 24.568,37.918c-0.639,4.135 -0.99,8.328 -0.99,12.576c0,63.977 74.469,115.836 166.33,115.836c91.861,0 166.334,-51.859 166.334,-115.836c0,-4.218 -0.347,-8.387 -0.977,-12.493c14.564,-6.47 24.735,-21.034 24.735,-38.001Zm-119.474,108.193c-20.27,20.241 -59.115,21.816 -70.534,21.816c-11.428,0 -50.277,-1.575 -70.522,-21.82c-3.007,-3.008 -3.007,-7.882 0,-10.889c3.003,-2.999 7.882,-3.003 10.885,0c12.777,12.781 40.11,17.317 59.637,17.317c19.522,0 46.86,-4.536 59.657,-17.321c3.016,-2.999 7.886,-2.995 10.885,0.008c3.008,3.011 3.003,7.882 -0.008,10.889Zm-5.23,-48.781c-16.373,0 -29.701,-13.324 -29.701,-29.698c0,-16.381 13.328,-29.714 29.701,-29.714c16.378,0 29.706,13.333 29.706,29.714c0,16.374 -13.328,29.698 -29.706,29.698Zm-160.386,-29.702c0,-16.381 13.328,-29.71 29.714,-29.71c16.369,0 29.689,13.329 29.689,29.71c0,16.373 -13.32,29.693 -29.689,29.693c-16.386,0 -29.714,-13.32 -29.714,-29.693Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share OSX Terminal - List Processes on facebook"
+        href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fwww.chrislockard.net%2fposts%2fosx-terminal-list-processes%2f">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-106.468,0l0,-192.915l66.6,0l12.672,-82.621l-79.272,0l0,-53.617c0,-22.603 11.073,-44.636 46.58,-44.636l36.042,0l0,-70.34c0,0 -32.71,-5.582 -63.982,-5.582c-65.288,0 -107.96,39.569 -107.96,111.204l0,62.971l-72.573,0l0,82.621l72.573,0l0,192.915l-191.104,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share OSX Terminal - List Processes on whatsapp"
+        href="https://api.whatsapp.com/send?text=OSX%20Terminal%20-%20List%20Processes%20-%20https%3a%2f%2fwww.chrislockard.net%2fposts%2fosx-terminal-list-processes%2f">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-58.673,127.703c-33.842,-33.881 -78.847,-52.548 -126.798,-52.568c-98.799,0 -179.21,80.405 -179.249,179.234c-0.013,31.593 8.241,62.428 23.927,89.612l-25.429,92.884l95.021,-24.925c26.181,14.28 55.659,21.807 85.658,21.816l0.074,0c98.789,0 179.206,-80.413 179.247,-179.243c0.018,-47.895 -18.61,-92.93 -52.451,-126.81Zm-126.797,275.782l-0.06,0c-26.734,-0.01 -52.954,-7.193 -75.828,-20.767l-5.441,-3.229l-56.386,14.792l15.05,-54.977l-3.542,-5.637c-14.913,-23.72 -22.791,-51.136 -22.779,-79.287c0.033,-82.142 66.867,-148.971 149.046,-148.971c39.793,0.014 77.199,15.531 105.329,43.692c28.128,28.16 43.609,65.592 43.594,105.4c-0.034,82.149 -66.866,148.983 -148.983,148.984Zm81.721,-111.581c-4.479,-2.242 -26.499,-13.075 -30.604,-14.571c-4.105,-1.495 -7.091,-2.241 -10.077,2.241c-2.986,4.483 -11.569,14.572 -14.182,17.562c-2.612,2.988 -5.225,3.364 -9.703,1.12c-4.479,-2.241 -18.91,-6.97 -36.017,-22.23c-13.314,-11.876 -22.304,-26.542 -24.916,-31.026c-2.612,-4.484 -0.279,-6.908 1.963,-9.14c2.016,-2.007 4.48,-5.232 6.719,-7.847c2.24,-2.615 2.986,-4.484 4.479,-7.472c1.493,-2.99 0.747,-5.604 -0.374,-7.846c-1.119,-2.241 -10.077,-24.288 -13.809,-33.256c-3.635,-8.733 -7.327,-7.55 -10.077,-7.688c-2.609,-0.13 -5.598,-0.158 -8.583,-0.158c-2.986,0 -7.839,1.121 -11.944,5.604c-4.105,4.484 -15.675,15.32 -15.675,37.364c0,22.046 16.048,43.342 18.287,46.332c2.24,2.99 31.582,48.227 76.511,67.627c10.685,4.615 19.028,7.371 25.533,9.434c10.728,3.41 20.492,2.929 28.209,1.775c8.605,-1.285 26.499,-10.833 30.231,-21.295c3.732,-10.464 3.732,-19.431 2.612,-21.298c-1.119,-1.869 -4.105,-2.99 -8.583,-5.232Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share OSX Terminal - List Processes on telegram"
+        href="https://telegram.me/share/url?text=OSX%20Terminal%20-%20List%20Processes&amp;url=https%3a%2f%2fwww.chrislockard.net%2fposts%2fosx-terminal-list-processes%2f">
+        <svg version="1.1" xml:space="preserve" viewBox="2 2 28 28">
+            <path
+                d="M26.49,29.86H5.5a3.37,3.37,0,0,1-2.47-1,3.35,3.35,0,0,1-1-2.47V5.48A3.36,3.36,0,0,1,3,3,3.37,3.37,0,0,1,5.5,2h21A3.38,3.38,0,0,1,29,3a3.36,3.36,0,0,1,1,2.46V26.37a3.35,3.35,0,0,1-1,2.47A3.38,3.38,0,0,1,26.49,29.86Zm-5.38-6.71a.79.79,0,0,0,.85-.66L24.73,9.24a.55.55,0,0,0-.18-.46.62.62,0,0,0-.41-.17q-.08,0-16.53,6.11a.59.59,0,0,0-.41.59.57.57,0,0,0,.43.52l4,1.24,1.61,4.83a.62.62,0,0,0,.63.43.56.56,0,0,0,.4-.17L16.54,20l4.09,3A.9.9,0,0,0,21.11,23.15ZM13.8,20.71l-1.21-4q8.72-5.55,8.78-5.55c.15,0,.23,0,.23.16a.18.18,0,0,1,0,.06s-2.51,2.3-7.52,6.8Z" />
+        </svg>
+    </a>
+</div>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2022 <a href="https://www.chrislockard.net/">Unl0ckd</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = 'copy';
+
+        function copyingDone() {
+            copybutton.innerText = 'copied!';
+            setTimeout(() => {
+                copybutton.innerText = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

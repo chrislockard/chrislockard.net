@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>organization on Unl0ckd</title>
+    <link>https://www.chrislockard.net/tags/organization/</link>
+    <description>Recent content in organization on Unl0ckd</description>
+    <image>
+      <url>https://www.chrislockard.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://www.chrislockard.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 06 Aug 2018 15:32:42 -0400</lastBuildDate><atom:link href="https://www.chrislockard.net/tags/organization/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Spacemacs Org Mode Introduction</title>
+      <link>https://www.chrislockard.net/posts/spacemacs-org-mode-intro/</link>
+      <pubDate>Mon, 06 Aug 2018 15:32:42 -0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/spacemacs-org-mode-intro/</guid>
+      <description>Update: 2018-08-10 Shortly after writing this post, I switched to Spacemacs develop branch - cd ~/.spacemacs &amp;amp;&amp;amp; git checkout develop This upgraded my Spacemacs to version 0.300@26.1. This had the unexpected side effect of changing several of the key bindings below.
+ Settinm schedules and deadlines - now require a prefix of SPC m d before entering your selection (d for deadlines, s for scheduling) Sparse trees - keybind moved to SPC m s s Archive tree - keybind moved to SPC m s A (I didn&amp;rsquo;t cover this in my original article, but this is how I archive DONE tasks) Show all TODO and deadlines - keybind moved to SPC m s s t and SPC m s s d  Introduction This is a basic overview of org-mode inside of Spacemacs.</description>
+    </item>
+    
+    <item>
+      <title>Professional Organization Habits</title>
+      <link>https://www.chrislockard.net/posts/professional-organization-habits/</link>
+      <pubDate>Fri, 06 Dec 2013 12:00:00 -0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/professional-organization-habits/</guid>
+      <description>This is a topic I&amp;rsquo;ve had a love/hate relationship with my entire life. I was once forced to go to a time management workshop on Saturdays in high school. My friend and I spent more time talking to the girls in front of us than actually listening to what the lecturer was saying, so I wonder if I missed out on something there&amp;hellip; I still struggle with time management and focusing on one task at a time until completion.</description>
+    </item>
+    
+  </channel>
+</rss>

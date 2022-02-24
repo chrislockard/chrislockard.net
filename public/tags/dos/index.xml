@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>dos on Unl0ckd</title>
+    <link>https://www.chrislockard.net/tags/dos/</link>
+    <description>Recent content in dos on Unl0ckd</description>
+    <image>
+      <url>https://www.chrislockard.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://www.chrislockard.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 14 Sep 2018 14:00:42 -0400</lastBuildDate><atom:link href="https://www.chrislockard.net/tags/dos/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The new face of the security team DoS</title>
+      <link>https://www.chrislockard.net/posts/new-face-of-security-team-dos/</link>
+      <pubDate>Fri, 14 Sep 2018 14:00:42 -0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/new-face-of-security-team-dos/</guid>
+      <description>Nearly a year ago, I wrote about an emerging trend I observed with some of the bounty researchers I was interacting with. This screed can be considered an extension of that article.
+There an emerging trend I&amp;rsquo;m noticing - I&amp;rsquo;ve been receiving more messages like the following:
+ Hey , I found Security Vulnerability in your web application ,which can damage site as well as users too.For security purpose can we report vulnerability here,then will i get bounty bounty reward in PayPal or Bitcoin for Security bug ?</description>
+    </item>
+    
+  </channel>
+</rss>

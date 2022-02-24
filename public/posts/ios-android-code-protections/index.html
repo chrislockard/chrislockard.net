@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>iOS and Android Native Code Protections | Unl0ckd</title>
+<meta name="keywords" content="appsec, mobile, android, iOS" />
+<meta name="description" content="iOS Secure Boot Chain Each step of the startup process contains components that are cryptographically signed by Apple to ensure integrity and that proceed only after verifying the chain of trust. This includes the bootloaders, kernel, kernel extensions, and baseband firmware. This secure boot chain helps ensure that the lowest levels of software aren’t tampered with.
+When an iOS device is turned on, its application processor immediately executes code from read-only memory known as the Boot ROM.">
+<meta name="author" content="Me">
+<link rel="canonical" href="https://www.chrislockard.net/posts/ios-android-code-protections/" />
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.c88963fe2d79462000fd0fb1b3737783c32855d340583e4523343f8735c787f0.css" integrity="sha256-yIlj/i15RiAA/Q&#43;xs3N3g8MoVdNAWD5FIzQ/hzXHh/A=" rel="preload stylesheet" as="style">
+<link rel="preload" href="/apple-touch-icon.png" as="image">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js" integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5&#43;kdJvBz5iKbt6B5PJI="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://www.chrislockard.net/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://www.chrislockard.net/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://www.chrislockard.net/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://www.chrislockard.net/apple-touch-icon.png">
+<link rel="mask-icon" href="https://www.chrislockard.net/favicon-32x32.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<meta name="generator" content="Hugo 0.91.2" />
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="iOS and Android Native Code Protections" />
+<meta property="og:description" content="iOS Secure Boot Chain Each step of the startup process contains components that are cryptographically signed by Apple to ensure integrity and that proceed only after verifying the chain of trust. This includes the bootloaders, kernel, kernel extensions, and baseband firmware. This secure boot chain helps ensure that the lowest levels of software aren’t tampered with.
+When an iOS device is turned on, its application processor immediately executes code from read-only memory known as the Boot ROM." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.chrislockard.net/posts/ios-android-code-protections/" /><meta property="og:image" content="https://www.chrislockard.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"/><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2017-06-19T12:00:00-04:00" />
+<meta property="article:modified_time" content="2017-06-19T12:00:00-04:00" /><meta property="og:site_name" content="Unl0ckd" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://www.chrislockard.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"/>
+
+<meta name="twitter:title" content="iOS and Android Native Code Protections"/>
+<meta name="twitter:description" content="iOS Secure Boot Chain Each step of the startup process contains components that are cryptographically signed by Apple to ensure integrity and that proceed only after verifying the chain of trust. This includes the bootloaders, kernel, kernel extensions, and baseband firmware. This secure boot chain helps ensure that the lowest levels of software aren’t tampered with.
+When an iOS device is turned on, its application processor immediately executes code from read-only memory known as the Boot ROM."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://www.chrislockard.net/post/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "iOS and Android Native Code Protections",
+      "item": "https://www.chrislockard.net/posts/ios-android-code-protections/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "iOS and Android Native Code Protections",
+  "name": "iOS and Android Native Code Protections",
+  "description": "iOS Secure Boot Chain Each step of the startup process contains components that are cryptographically signed by Apple to ensure integrity and that proceed only after verifying the chain of trust. This includes the bootloaders, kernel, kernel extensions, and baseband firmware. This secure boot chain helps ensure that the lowest levels of software aren’t tampered with.\nWhen an iOS device is turned on, its application processor immediately executes code from read-only memory known as the Boot ROM.",
+  "keywords": [
+    "appsec", "mobile", "android", "iOS"
+  ],
+  "articleBody": "iOS Secure Boot Chain Each step of the startup process contains components that are cryptographically signed by Apple to ensure integrity and that proceed only after verifying the chain of trust. This includes the bootloaders, kernel, kernel extensions, and baseband firmware. This secure boot chain helps ensure that the lowest levels of software aren’t tampered with.\nWhen an iOS device is turned on, its application processor immediately executes code from read-only memory known as the Boot ROM. This immutable code, known as the hardware root of trust, is laid down during chip fabrication, and is implicitly trusted. The Boot ROM code contains the Apple Root CA public key, which is used to verify that the iBoot bootloader is signed by Apple before allowing it to load. This is the first step in the chain of trust where each step ensures that the next is signed by Apple. When the iBoot finishes its tasks, it verifies and runs the iOS kernel. For devices with an S1, A9, or earlier A-series processor, an additional Low-Level Bootloader (LLB) stage is loaded and verified by the Boot ROM and in turn loads and verifies iBoot.\nIf one step of this boot process is unable to load or verify the next process, startup is stopped and the device displays the “Connect to iTunes” screen. This is called recovery mode. If the Boot ROM isn’t able to load or verify LLB, it enters DFU (Device Firmware Upgrade) mode. In both cases, the device must be connected to iTunes via USB and restored to factory default settings. For more information on manually entering recovery mode, go to https://support.apple.com/kb/HT1808.\nOn devices with cellular access, the baseband subsystem also utilizes its own similar process of secure booting with signed software and keys verified by the baseband processor.\nFor devices with a Secure Enclave, the Secure Enclave coprocessor also utilizes a secure boot process that ensures its separate software is verified and signed by Apple.\nSystem Software Authorization Apple regularly releases software updates to address emerging security concerns and also provide new features; these updates are provided for all supported devices simultaneously. Users receive iOS update notifications on the device and through iTunes, and updates are delivered wirelessly, encouraging rapid adoption of the latest security fixes.\nThe startup process described above helps ensure that only Apple-signed code can be installed on a device. To prevent devices from being downgraded to older versions that lack the latest security updates, iOS uses a process called System Software Authorization. If downgrades were possible, an attacker who gains possession of a device could install an older version of iOS and exploit a vulnerability that’s been fixed in the newer version.\nOn a device with Secure Enclave, the Secure Enclave coprocessor also utilizes System Software Authorization to ensure the integrity of its software and prevent downgrade installations. See “Secure Enclave” section that follows.\niOS software updates can be installed using iTunes or over the air (OTA) on the device. With iTunes, a full copy of iOS is downloaded and installed. OTA software updates download only the components required to complete an update, improving network efficiency, rather than downloading the entire OS. Additionally, software updates can be cached on a local network server running the caching service on macOS Server so that iOS devices don’t need to access Apple servers to obtain the necessary update data.\nDuring an iOS upgrade, iTunes (or the device itself, in the case of OTA software updates) connects to the Apple installation authorization server and sends it a list of cryptographic measurements for each part of the installation bundle to be installed (for example, iBoot, the kernel, and OS image), a random anti-replay value (nonce), and the device’s unique ID (ECID).\nThe authorization server checks the presented list of measurements against versions for which installation is permitted and, if it finds a match, adds the ECID to the measurement and signs the result. The server passes a complete set of signed data to the device as part of the upgrade process. Adding the ECID “personalizes” the authorization for the requesting device. By authorizing and signing only for known measurements, the server ensures that the update takes place exactly as provided by Apple.\nThe boot-time chain-of-trust evaluation verifies that the signature comes from Apple and that the measurement of the item loaded from disk, combined with the device’s ECID, matches what was covered by the signature.\nThese steps ensure that the authorization is for a specific device and that an old iOS version from one device can’t be copied to another. The nonce prevents an attacker from saving the server’s response and using it to tamper with a device or otherwise alter the system software.\nSecure Enclave The Secure Enclave is a coprocessor fabricated in the Apple S2, Apple A7, and later A-series processors. It uses encrypted memory and includes a hardware random number generator. The Secure Enclave provides all cryptographic operations for Data Protection key management and maintains the integrity of Data Protection even if the kernel has been compromised. Communication between the Secure Enclave and the application processor is isolated to an interrupt-driven mailbox and shared memory data buffers.\nThe Secure Enclave runs an Apple-customized version of the L4 microkernel family. The Secure Enclave utilizes its own secure boot and can be updated using a personalized software update process that is separate from the application processor. On A9 or later A-series processors, the chip securely generates the UID (Unique ID). This UID is still unknown to Apple and other parts of the system.\nWhen the device starts up, an ephemeral key is created, entangled with its UID, and used to encrypt the Secure Enclave’s portion of the device’s memory space. Except on the Apple A7, the Secure Enclave’s memory is also authenticated with the ephemeral key.\nAdditionally, data that is saved to the file system by the Secure Enclave is encrypted with a key entangled with the UID and an anti-replay counter.\nThe Secure Enclave is responsible for processing fingerprint data from the Touch ID sensor, determining if there is a match against registered fingerprints, and then enabling access or purchases on behalf of the user. Communication between the processor and the Touch ID sensor takes place over a serial peripheral interface bus. The processor forwards the data to the Secure Enclave but can’t read it. It’s encrypted and authenticated with a session key that is negotiated using the device’s shared key that is provisioned for the Touch ID sensor and the Secure Enclave. The session key exchange uses AES key wrapping with both sides providing a random key that establishes the session key and uses AES-CCM transport encryption.\nApp Code Signing Once the iOS kernel has started, it controls which user processes and apps can be run. To ensure that all apps come from a known and approved source and haven’t been tampered with, iOS requires that all executable code be signed using an Apple-issued certificate. Apps provided with the device, like Mail and Safari, are signed by Apple. Third-party apps must also be validated and signed using an Apple-issued certificate. Mandatory code signing extends the concept of chain of trust from the OS to apps, and prevents third-party apps from loading unsigned code resources or using self- modifying code.\nIn order to develop and install apps on iOS devices, developers must register with Apple and join the Apple Developer Program. The real-world identity of each developer, whether an individual or a business, is verified by Apple before their certificate is issued. This certificate enables developers to sign apps and submit them to the App Store for distribution. As a result, all apps in the App Store have been submitted by an identifiable person or organization, serving as a deterrent to the creation of malicious apps. They have also been reviewed by Apple to ensure they operate as described and don’t contain obvious bugs or other problems. In addition to the technology already discussed, this curation process gives customers confidence in the quality of the apps they buy.\niOS allows developers to embed frameworks inside of their apps, which can be used by the app itself or by extensions embedded within the app. To protect the system and other apps from loading third-party code inside of their address space, the system will perform a code signature validation of all the dynamic libraries that a process links against at launch time. This verification is accomplished through the team identifier (Team ID), which is extracted from an Apple-issued certificate. A team identifier is a 10-character alphanumeric string; for example, 1A2B3C4D5F. A program may link against any platform library that ships with the system or any library with the same team identifier in its code signature as the main executable. Since the executables shipping as part of the system don’t have a team identifier, they can only link against libraries that ship with the system itself.\nBusinesses also have the ability to write in-house apps for use within their organization and distribute them to their employees. Businesses and organizations can apply to the Apple Developer Enterprise Program (ADEP) with a D-U-N-S number. Apple approves applicants after verifying their identity and eligibility. Once an organization becomes a member of ADEP, it can register to obtain a Provisioning Profile that permits in-house apps to run on devices it authorizes. Users must have the Provisioning Profile installed in order to run the in-house apps. This ensures that only the organization’s intended users are able to load the apps onto their iOS devices. Apps installed via MDM are implicitly trusted because the relationship between the organization and the device is already established. Otherwise, users have to approve the app’s Provisioning Profile in Settings. Organizations can restrict users from approving apps from unknown developers. On first launch of any enterprise app, the device must receive positive confirmation from Apple that the app is allowed to run.\nUnlike other mobile platforms, iOS doesn’t allow users to install potentially malicious unsigned apps from websites, or run untrusted code. At runtime, code signature checks of all executable memory pages are made as they are loaded to ensure that an app has not been modified since it was installed or last updated.\nRuntime Process Security Once an app is verified to be from an approved source, iOS enforces security measures designed to prevent it from compromising other apps or the rest of the system.\nAll third-party apps are “sandboxed,” so they are restricted from accessing files stored by other apps or from making changes to the device. This prevents apps from gathering or modifying information stored by other apps. Each app has a unique home directory for its files, which is randomly assigned when the app is installed. If a third-party app needs to access information other than its own, it does so only by using services explicitly provided by iOS.\nSystem files and resources are also shielded from the user’s apps. The majority of iOS runs as the non-privileged user “mobile,” as do all third-party apps. The entire OS partition is mounted as read-only. Unnecessary tools, such as remote login services, aren’t included in the system software, and APIs don’t allow apps to escalate their own privileges to modify other apps or iOS itself.\nAccess by third-party apps to user information and features such as iCloud and extensibility is controlled using declared entitlements. Entitlements are key value pairs that are signed in to an app and allow authentication beyond runtime factors like unix user ID. Since entitlements are digitally signed, they can’t be changed. Entitlements are used extensively by system apps and daemons to perform specific privileged operations that would otherwise require the process to run as root. This greatly reduces the potential for privilege escalation by a compromised system application or daemon.\nIn addition, apps can only perform background processing through system-provided APIs. This enables apps to continue to function without degrading performance or dramatically impacting battery life.\nAddress space layout randomization (ASLR) protects against the exploitation of memory corruption bugs. Built-in apps use ASLR to ensure that all memory regions are randomized upon launch. Randomly arranging the memory addresses of executable code, system libraries, and related programming constructs reduces the likelihood of many sophisticated exploits. For example, a return-to-libc attack attempts to trick a device into executing malicious code by manipulating memory addresses of the stack and system libraries. Randomizing the placement of these makes the attack far more difficult to execute, especially across multiple devices. Xcode, the iOS development environment, automatically compiles third-party programs with ASLR support turned on.\nFurther protection is provided by iOS using ARM’s Execute Never (XN) feature, which marks memory pages as non-executable. Memory pages marked as both writable and executable can be used only by apps under tightly controlled conditions: The kernel checks for the presence of the Apple-only dynamic code-signing entitlement. Even then, only a single mmap call can be made to request an executable and writable page, which is given a randomized address. Safari uses this functionality for its JavaScript JIT compiler.\nExtensions iOS allows apps to provide functionality to other apps by providing extensions. Extensions are special-purpose signed executable binaries, packaged within an app. The system automatically detects extensions at install time and makes them available to other apps using a matching system.\nA system area that supports extensions is called an extension point. Each extension point provides APIs and enforces policies for that area. The system determines which extensions are available based on extension point–specific matching rules. The system automatically launches extension processes as needed and manages their lifetime. Entitlements can be used to restrict extension availability to particular system applications. For example, a Today view widget appears only in Notification Center, and a sharing extension is available only from the Sharing pane. The extension points are Today widgets, Share, Custom actions, Photo Editing, Document Provider, and Custom Keyboard.\nExtensions run in their own address space. Communication between the extension and the app from which it was activated uses interprocess communications mediated by the system framework. They don’t have access to each other’s files or memory spaces. Extensions are designed to be isolated from each other, from their containing apps, and from the apps that use them. They are sandboxed like any other third-party app and have a container separate from the containing app’s container. However, they share the same access to privacy controls as the container app. So if a user grants Contacts access to an app, this grant will be extended to the extensions that are embedded within the app, but not to the extensions activated by the app.\nCustom keyboards are a special type of extension since they are enabled by the user for the entire system. Once enabled, a keyboard extension will be used for any text field except the passcode input and any secure text view. To restrict the transfer of user data, custom keyboards run by default in a very restrictive sandbox that blocks access to the network, to services that perform network operations on behalf of a process, and to APIs that would allow the extension to exfiltrate typing data. Developers of custom keyboards can request that their extension have Open Access, which will let the system run the extension in the default sandbox after getting consent from the user.\nFor devices enrolled in mobile device management, document and keyboard extensions obey Managed Open In rules. For example, the MDM server can prevent a user from exporting a document from a managed app to an unmanaged Document Provider, or using an unmanaged keyboard with a managed app. Additionally, app developers can prevent the use of third-party keyboard extensions within their app.\nApp Groups Apps and extensions owned by a given developer account can share content when configured to be part of an App Group. It is up to the developer to create the appropriate groups on the Apple Developer Portal and include the desired set of apps and extensions. Once configured to be part of an App Group, apps have access to the following:\n A shared on-disk container for storage, which will stay on the device as long as at least one app from the group is installed Shared preferences Shared Keychain items  The Apple Developer Portal guarantees that App Group IDs are unique across the app ecosystem.\nReference: Apple iOS Security Guide - March 2017\nAndroid Application Sandbox The Android platform takes advantage of the Linux user-based protection as a means of identifying and isolating application resources. The Android system assigns a unique user ID (UID) to each Android application and runs it as that user in a separate process. This approach is different from other operating systems (including the traditional Linux configuration), where multiple applications run with the same user permissions.\nThis sets up a kernel-level Application Sandbox. The kernel enforces security between applications and the system at the process level through standard Linux facilities, such as user and group IDs that are assigned to applications. By default, applications cannot interact with each other and applications have limited access to the operating system. If application A tries to do something malicious like read application B’s data or dial the phone without permission (which is a separate application), then the operating system protects against this because application A does not have the appropriate user privileges. The sandbox is simple, auditable, and based on decades-old UNIX-style user separation of processes and file permissions.\nBecause the Application Sandbox is in the kernel, this security model extends to native code and to operating system applications. All of the software above the kernel, such as operating system libraries, application framework, application runtime, and all applications, run within the Application Sandbox. On some platforms, developers are constrained to a specific development framework, set of APIs, or language in order to enforce security. On Android, there are no restrictions on how an application can be written that are required to enforce security; in this respect, native code is just as secure as interpreted code.\nIn some operating systems, memory corruption errors in one application may lead to corruption in other applications housed in the same memory space, resulting in a complete compromise of the security of the device. Because all applications and their resources are sandboxed at the OS level, a memory corruption error will allow arbitrary code execution only in the context of that particular application, with the permissions established by the operating system.\nLike all security features, the Application Sandbox is not unbreakable. However, to break out of the Application Sandbox in a properly configured device, one must compromise the security of the Linux kernel.\nSystem Partition The system partition contains Android’s kernel as well as the operating system libraries, application runtime, application framework, and applications. This partition is set to read-only.\nSecurity-Enhanced Linux (SELinux) The Android security model is based in part on the concept of application sandboxes. Each application runs in its own sandbox. Prior to Android 4.3, these sandboxes were defined by the creation of a unique Linux UID for each application at time of installation. Starting with Android 4.3, Security-Enhanced Linux (SELinux) is used to further define the boundaries of the Android application sandbox.\nAs part of the Android security model, Android uses SELinux to enforce mandatory access control (MAC) over all processes, even processes running with root/superuser privileges (a.k.a. Linux capabilities). SELinux enhances Android security by confining privileged processes and automating security policy creation.\nContributions to it have been made by a number of companies and organizations; all Android code and contributors are publicly available for review on android.googlesource.com. With SELinux, Android can better protect and confine system services, control access to application data and system logs, reduce the effects of malicious software, and protect users from potential flaws in code on mobile devices.\nAndroid includes SELinux in enforcing mode and a corresponding security policy that works by default across the Android Open Source Project. In enforcing mode, illegitimate actions are prevented and all attempted violations are logged by the kernel to dmesg and logcat. Android device manufacturers should gather information about errors so they may refine their software and SELinux policies before enforcing them.\nMandatory Access Control Security Enhanced Linux (SELinux), is a mandatory access control (MAC) system for the Linux operating system. As a MAC system, it differs from Linux’s familiar discretionary access control (DAC) system. In a DAC system, a concept of ownership exists, whereby an owner of a particular resource controls access permissions associated with it. This is generally coarse-grained and subject to unintended privilege escalation. A MAC system, however, consults a central authority for a decision on all access attempts.\nSELinux has been implemented as part of the Linux Security Module (LSM) framework, which recognizes various kernel objects, and sensitive actions performed on them. At the point at which each of these actions would be performed, an LSM hook function is called to determine whether or not the action should be allowed based on the information for it stored in an opaque security object. SELinux provides an implementation for these hooks and management of these security objects, which combine with its own policy, to determine the access decisions.\nIn conjunction with other Android security measures, Android’s access control policy greatly limits the potential damage of compromised machines and accounts. Using tools like Android’s discretionary and mandatory access controls gives you a structure to ensure your software runs only at the minimum privilege level. This mitigates the effects of attacks and reduces the likelihood of errant processes overwriting or even transmitting data.\nStarting in Android 4.3, SELinux provides a mandatory access control (MAC) umbrella over traditional discretionary access control (DAC) environments. For instance, software must typically run as the root user account to write to raw block devices. In a traditional DAC-based Linux environment, if the root user becomes compromised that user can write to every raw block device. However, SELinux can be used to label these devices so the process assigned the root privilege can write to only those specified in the associated policy. In this way, the process cannot overwrite data and system settings outside of the specific raw block device.\nEnforcement Levels Become familiar with the following terms to understand how SELinux can be implemented to varying strengths.\nPermissive - SELinux security policy is not enforced, only logged.\nEnforcing - Security policy is enforced and logged. Failures appear as EPERM errors.\nThis choice is binary and determines whether your policy takes action or merely allows you to gather potential failures. Permissive is especially useful during implementation.\n  Unconfined - A very light policy that prohibits certain tasks and provides a temporary stop-gap during development. Should not be used for anything outside of the Android Open Source Project (AOSP).\n  Confined - A custom-written policy designed for the service. That policy should define precisely what is allowed.\n  Unconfined policies are available to help implement SELinux in Android quickly. They are suitable for most root-level applications. But they should be converted to confined policies wherever possible over time to restrict each application to precisely the resources it needs.\nIdeally, your policy is both in enforcing mode and confined. Unconfined policies in enforcement mode can mask potential violations that would have been logged in permissive mode with a confined policy. Therefore, we strongly recommend that device implementers implement true confined policies.\nLabels, Rules, and Domains SELinux depends upon labels to match actions and policies. Labels determine what is allowed. Sockets, files, and processes all have labels in SELinux. SELinux decisions are based fundamentally on labels assigned to these objects and the policy defining how they may interact. In SELinux, a label takes the form: user:role:type:mls_level, where the type is the primary component of the access decisions, which may be modified by the other sections components which make up the label. The objects are mapped to classes and the different types of access for each class are represented by permissions.\nThe policy rules come in the form: allow domains types:classes permissions;, where:\n Domain - A label for the process or set of processes. Also called a domain type as it is just a type for a process. Type - A label for the object (e.g. file, socket) or set of objects. Class - The kind of object (e.g. file, socket) being accessed. Permission - The operation (e.g. read, write) being performed.  And so an example use of this would follow the structure:\n```allow appdomain app_data_file:file rw_file_perms; ``\nThis says that all application domains are allowed to read and write files labeled app_data_file. Note that this rule relies upon macros defined in the global_macros file, and other helpful macros can also be found in the te_macros file, both of which can be found in the system/sepolicy directory in the AOSP source tree. Macros are provided for common groupings of classes, permissions and rules, and should be used whenever possible to help reduce the likelihood of failures due to denials on related permissions.\nIn addition to individually listing domains or types in a rule, one can also refer to a set of domains or types via an attribute. An attribute is simply a name for a set of domains or types. Each domain or type can be associated with any number of attributes. When a rule is written that specifies an attribute name, that name is automatically expanded to the list of domains or types associated with the attribute. For example, the domain attribute is associated with all process domains, and the file_type attribute is associated with all file types.\nUse the syntax above to create avc rules that comprise the essence of an SELinux policy. A rule takes the form:\n  :  \nThe rule indicates what should happen when a subject labeled with any of the source_types attempts an action corresponding to any of the permissions on an object with any of the class classes which has any of the target_typeslabel. The most common example of one of these rules is an allow rule, e.g.:\nallow domain null_device:chr_file { open };\nThis rule allows a process with any domain associated with the ‘domain’ attribute to take the action described by the permission ‘open’ on an object of class ‘chr_file’ (character device file) that has the target_type label of ‘null_device.’ In practice, this rule may be extended to include other permissions:\nallow domain null_device:chr_file { getattr open read ioctl lock append write};\nWhen combined with the knowledge that ‘domain’ is an attribute assigned to all process domains and that null_device is the label for the character device /dev/null, this rule basically permits reading and writing to /dev/null.\nA domain generally corresponds to a process and will have a label associated with it.\nFor example, a typical Android app is running in its own process and has the label of untrusted_app that grants it certain restricted permissions.\nPlatform apps built into the system run under a separate label and are granted a distinct set of permissions. System UID apps that are part of the core Android system run under the system_app label for yet another set of privileges.\nAccess to the following generic labels should never be directly allowed to domains; instead, a more specific type should be created for the object or objects:\n socket_device device block_device default_service system_data_file tmpfs  Accessing Protected APIs All applications on Android run in an Application Sandbox. By default, an Android application can only access a limited range of system resources. The system manages Android application access to resources that, if used incorrectly or maliciously, could adversely impact the user experience, the network, or data on the device.\nThese restrictions are implemented in a variety of different forms. Some capabilities are restricted by an intentional lack of APIs to the sensitive functionality (e.g. there is no Android API for directly manipulating the SIM card). In some instances, separation of roles provides a security measure, as with the per-application isolation of storage. In other instances, the sensitive APIs are intended for use by trusted applications and protected through a security mechanism known as Permissions.\nThese protected APIs include:\n Camera functions Location data (GPS) Bluetooth functions Telephony functions SMS/MMS functions Network/data connections  These resources are only accessible through the operating system. To make use of the protected APIs on the device, an application must define the capabilities it needs in its manifest. When preparing to install an application, the system displays a dialog to the user that indicates the permissions requested and asks whether to continue the installation. If the user continues with the installation, the system accepts that the user has granted all of the requested permissions. The user can not grant or deny individual permissions – the user must grant or deny all of the requested permissions as a block.\nOnce granted, the permissions are applied to the application as long as it is installed. To avoid user confusion, the system does not notify the user again of the permissions granted to the application, and applications that are included in the core operating system or bundled by an OEM do not request permissions from the user. Permissions are removed if an application is uninstalled, so a subsequent re-installation will again result in display of permissions.\nWithin the device settings, users are able to view permissions for applications they have previously installed. Users can also turn off some functionality globally when they choose, such as disabling GPS, radio, or wi-fi.\nIn the event that an application attempts to use a protected feature which has not been declared in the application’s manifest, the permission failure will typically result in a security exception being thrown back to the application. Protected API permission checks are enforced at the lowest possible level to prevent circumvention.\nThe system default permissions are described at https://developer.android.com/reference/android/Manifest.permission.html. Applications may declare their own permissions for other applications to use. Such permissions are not listed in the above location.\nWhen defining a permission a protectionLevel attribute tells the system how the user is to be informed of applications requiring the permission, or who is allowed to hold a permission. Details on creating and using application specific permissions are described at https://developer.android.com/guide/topics/security/security.html.\nThere are some device capabilities, such as the ability to send SMS broadcast intents, that are not available to third-party applications, but that may be used by applications pre-installed by the OEM. These permissions use the signatureOrSystem permission.\nInterprocess Communication Processes can communicate using any of the traditional UNIX-type mechanisms. Examples include the filesystem, local sockets, or signals. However, the Linux permissions still apply.\nAndroid also provides new IPC mechanisms:\n  Binder: A lightweight capability-based remote procedure call mechanism designed for high performance when performing in-process and cross-process calls. Binder is implemented using a custom Linux driver. See https://developer.android.com/reference/android/os/Binder.html.\n  Services: Services (discussed above) can provide interfaces directly accessible using binder.\n  Intents: An Intent is a simple message object that represents an “intention” to do something. For example, if your application wants to display a web page, it expresses its “Intent” to view the URL by creating an Intent instance and handing it off to the system. The system locates some other piece of code (in this case, the Browser) that knows how to handle that Intent, and runs it. Intents can also be used to broadcast interesting events (such as a notification) system-wide. See https://developer.android.com/reference/android/content/Intent.html.\n  ContentProviders: A ContentProvider is a data storehouse that provides access to data on the device; the classic example is the ContentProvider that is used to access the user’s list of contacts. An application can access data that other applications have exposed via a ContentProvider, and an application can also define its own ContentProviders to expose data of its own. See https://developer.android.com/reference/android/content/ContentProvider.html.\n  While it is possible to implement IPC using other mechanisms such as network sockets or world-writable files, these are the recommended Android IPC frameworks. Android developers will be encouraged to use best practices around securing users' data and avoiding the introduction of security vulnerabilities.\nApplication Signing Code signing allows developers to identify the author of the application and to update their application without creating complicated interfaces and permissions. Every application that is run on the Android platform must be signed by the developer. Applications that attempt to install without being signed will rejected by either Google Play or the package installer on the Android device.\nOn Google Play, application signing bridges the trust Google has with the developer and the trust the developer has with their application. Developers know their application is provided, unmodified to the Android device; and developers can be held accountable for behavior of their application.\nOn Android, application signing is the first step to placing an application in its Application Sandbox. The signed application certificate defines which user id is associated with which application; different applications run under different user IDs. Application signing ensures that one application cannot access any other application except through well-defined IPC.\nWhen an application (APK file) is installed onto an Android device, the Package Manager verifies that the APK has been properly signed with the certificate included in that APK. If the certificate (or, more accurately, the public key in the certificate) matches the key used to sign any other APK on the device, the new APK has the option to specify in the manifest that it will share a UID with the other similarly-signed APKs.\nApplications can be signed by a third-party (OEM, operator, alternative market) or self-signed. Android provides code signing using self-signed certificates that developers can generate without external assistance or permission. Applications do not have to be signed by a central authority. Android currently does not perform CA verification for application certificates.\nApplications are also able to declare security permissions at the Signature protection level, restricting access only to applications signed with the same key while maintaining distinct UIDs and Application Sandboxes. A closer relationship with a shared Application Sandbox is allowed via the shared UID feature where two or more applications signed with same developer key can declare a shared UID in their manifest.\nApplication Verification Android 4.2 and later support application verification. Users can choose to enable “Verify Apps\" and have applications evaluated by an application verifier prior to installation. App verification can alert the user if they try to install an app that might be harmful; if an application is especially bad, it can block installation.\nReference: https://source.android.com/security/\nhttps://source.android.com/security/overview/app-security\nhttps://source.android.com/security/selinux/\n",
+  "wordCount" : "5720",
+  "inLanguage": "en",
+  "datePublished": "2017-06-19T12:00:00-04:00",
+  "dateModified": "2017-06-19T12:00:00-04:00",
+  "author":{
+    "@type": "Person",
+    "name": "Me"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.chrislockard.net/posts/ios-android-code-protections/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Unl0ckd",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.chrislockard.net/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://www.chrislockard.net/" accesskey="h" title="Home (Alt + H)">
+                <img src="/apple-touch-icon.png" alt="logo" aria-label="logo"
+                    height="35">Home</a>
+            <span class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </span>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://www.chrislockard.net/categories/" title="categories">
+                    <span>categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.chrislockard.net/tags/" title="tags">
+                    <span>tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.chrislockard.net/post/" title="posts">
+                    <span>posts</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://www.chrislockard.net/">Home</a>&nbsp;»&nbsp;<a href="https://www.chrislockard.net/post/">Posts</a></div>
+    <h1 class="post-title">
+      iOS and Android Native Code Protections
+    </h1>
+    <div class="post-meta"><span title='2017-06-19 12:00:00 -0400 EDT'>June 19, 2017</span>&nbsp;·&nbsp;27 min&nbsp;·&nbsp;Me&nbsp;|&nbsp;<a href="https://github.com/chrislockard/chrislockard.net" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
+
+</div>
+  </header> <div class="toc">
+    <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#ios" aria-label="iOS">iOS</a><ul>
+                        
+                <li>
+                    <a href="#secure-boot-chain" aria-label="Secure Boot Chain">Secure Boot Chain</a></li>
+                <li>
+                    <a href="#system-software-authorization" aria-label="System Software Authorization">System Software Authorization</a></li>
+                <li>
+                    <a href="#secure-enclave" aria-label="Secure Enclave">Secure Enclave</a></li>
+                <li>
+                    <a href="#app-code-signing" aria-label="App Code Signing">App Code Signing</a><ul>
+                        
+                <li>
+                    <a href="#runtime-process-security" aria-label="Runtime Process Security">Runtime Process Security</a></li></ul>
+                </li>
+                <li>
+                    <a href="#extensions" aria-label="Extensions">Extensions</a></li>
+                <li>
+                    <a href="#app-groups" aria-label="App Groups">App Groups</a></li>
+                <li>
+                    <a href="#reference" aria-label="Reference:">Reference:</a></li></ul>
+                </li>
+                <li>
+                    <a href="#android" aria-label="Android">Android</a><ul>
+                        
+                <li>
+                    <a href="#application-sandbox" aria-label="Application Sandbox">Application Sandbox</a></li>
+                <li>
+                    <a href="#system-partition" aria-label="System Partition">System Partition</a></li>
+                <li>
+                    <a href="#security-enhanced-linux-selinux" aria-label="Security-Enhanced Linux (SELinux)">Security-Enhanced Linux (SELinux)</a><ul>
+                        
+                <li>
+                    <a href="#mandatory-access-control" aria-label="Mandatory Access Control">Mandatory Access Control</a></li>
+                <li>
+                    <a href="#enforcement-levels" aria-label="Enforcement Levels">Enforcement Levels</a></li>
+                <li>
+                    <a href="#labels-rules-and-domains" aria-label="Labels, Rules, and Domains">Labels, Rules, and Domains</a></li></ul>
+                </li>
+                <li>
+                    <a href="#accessing-protected-apis" aria-label="Accessing Protected APIs">Accessing Protected APIs</a></li>
+                <li>
+                    <a href="#interprocess-communication" aria-label="Interprocess Communication">Interprocess Communication</a></li>
+                <li>
+                    <a href="#application-signing" aria-label="Application Signing">Application Signing</a></li>
+                <li>
+                    <a href="#application-verification" aria-label="Application Verification">Application Verification</a></li>
+                <li>
+                    <a href="#reference-1" aria-label="Reference:">Reference:</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h1 id="ios">iOS<a hidden class="anchor" aria-hidden="true" href="#ios">#</a></h1>
+<h2 id="secure-boot-chain">Secure Boot Chain<a hidden class="anchor" aria-hidden="true" href="#secure-boot-chain">#</a></h2>
+<p>Each step of the startup process contains components that are cryptographically
+signed by Apple to ensure integrity and that proceed only after verifying the
+chain of trust. This includes the bootloaders, kernel, kernel extensions, and
+baseband firmware. This secure boot chain helps ensure that the lowest levels of
+software aren’t tampered with.</p>
+<p>When an iOS device is turned on, its application processor immediately executes
+code from read-only memory known as the Boot ROM. This immutable code, known as
+the hardware root of trust, is laid down during chip fabrication, and is
+implicitly trusted. The Boot ROM code contains the Apple Root CA public key,
+which is used to verify that the iBoot bootloader is signed by Apple before
+allowing it to load. This is the first step in the chain of trust where each
+step ensures that the next is signed by Apple. When the iBoot finishes its
+tasks, it verifies and runs the iOS kernel. For devices with an S1, A9, or
+earlier A-series processor, an additional Low-Level Bootloader (LLB) stage is
+loaded and verified by the Boot ROM and in turn loads and verifies iBoot.</p>
+<p>If one step of this boot process is unable to load or verify the next process,
+startup is stopped and the device displays the “Connect to iTunes” screen. This
+is called recovery mode. If the Boot ROM isn’t able to load or verify LLB, it
+enters DFU (Device Firmware Upgrade) mode. In both cases, the device must be
+connected to iTunes via USB and restored to factory default settings. For more
+information on manually entering recovery mode, go to
+<a href="https://support.apple.com/kb/HT1808">https://support.apple.com/kb/HT1808</a>.</p>
+<p>On devices with cellular access, the baseband subsystem also utilizes its own
+similar process of secure booting with signed software and keys verified by the
+baseband processor.</p>
+<p>For devices with a Secure Enclave, the Secure Enclave coprocessor also utilizes
+a secure boot process that ensures its separate software is verified and signed
+by Apple.</p>
+<h2 id="system-software-authorization">System Software Authorization<a hidden class="anchor" aria-hidden="true" href="#system-software-authorization">#</a></h2>
+<p>Apple regularly releases software updates to address emerging security concerns
+and also provide new features; these updates are provided for all supported
+devices simultaneously. Users receive iOS update notifications on the device and
+through  iTunes, and updates are delivered wirelessly, encouraging rapid
+adoption of the latest security fixes.</p>
+<p>The startup process described above helps ensure that only Apple-signed code can
+be installed on a device. To prevent devices from being downgraded to older
+versions that lack the latest security updates, iOS uses a process called System
+Software Authorization. If downgrades were possible, an attacker who gains
+possession of a device could install an older version of iOS and exploit a
+vulnerability that’s been fixed in the newer version.</p>
+<p>On a device with Secure Enclave, the Secure Enclave coprocessor also utilizes
+System Software Authorization to ensure the integrity of its software and
+prevent downgrade installations. See “Secure Enclave” section that follows.</p>
+<p>iOS software updates can be installed using iTunes or over the air (OTA) on the
+device. With iTunes, a full copy of iOS is downloaded and installed. OTA
+software updates download only the components required to complete an update,
+improving network efficiency, rather than downloading the entire OS.
+Additionally, software updates can be cached on a local network server running
+the caching service on macOS Server so that iOS devices don’t need to access
+Apple servers to obtain the necessary update data.</p>
+<p>During an iOS upgrade, iTunes (or the device itself, in the case of OTA software
+updates) connects to the Apple installation authorization server and sends it a
+list of cryptographic measurements for each part of the installation bundle to
+be installed (for example, iBoot, the kernel, and OS image), a random
+anti-replay value (nonce), and the device’s unique ID (ECID).</p>
+<p>The authorization server checks the presented list of measurements against
+versions for which installation is permitted and, if it finds a match, adds the
+ECID to the measurement and signs the result. The server passes a complete set
+of signed data  to the device as part of the upgrade process. Adding the ECID
+“personalizes” the authorization for the requesting device. By authorizing and
+signing only for known measurements, the server ensures that the update takes
+place exactly as provided  by Apple.</p>
+<p>The boot-time chain-of-trust evaluation verifies that the signature comes from
+Apple and that the measurement of the item loaded from disk, combined with the
+device’s ECID, matches what was covered by the signature.</p>
+<p>These steps ensure that the authorization is for a specific device and that an
+old iOS version from one device can’t be copied to another. The nonce prevents
+an attacker from saving the server’s response and using it to tamper with a
+device or otherwise  alter the system software.</p>
+<h2 id="secure-enclave">Secure Enclave<a hidden class="anchor" aria-hidden="true" href="#secure-enclave">#</a></h2>
+<p>The Secure Enclave is a coprocessor fabricated in the Apple S2, Apple A7, and
+later A-series processors. It uses encrypted memory and includes a hardware
+random number generator. The Secure Enclave provides all cryptographic
+operations for Data Protection key management and maintains the integrity of
+Data Protection even if the kernel has been compromised. Communication between
+the Secure Enclave and the application processor is isolated to an
+interrupt-driven mailbox and shared memory data buffers.</p>
+<p>The Secure Enclave runs an Apple-customized version of the L4 microkernel
+family. The Secure Enclave utilizes its own secure boot and can be updated using
+a personalized software update process that is separate from the application
+processor. On A9 or later A-series processors, the chip securely generates the
+UID (Unique ID). This UID is still unknown to Apple and other parts of the
+system.</p>
+<p>When the device starts up, an ephemeral key is created, entangled with its UID,
+and used to encrypt the Secure Enclave’s portion of the device’s memory space.
+Except on the Apple A7, the Secure Enclave’s memory is also authenticated with
+the ephemeral key.</p>
+<p>Additionally, data that is saved to the file system by the Secure Enclave is
+encrypted  with a key entangled with the UID and an anti-replay counter.</p>
+<p>The Secure Enclave is responsible for processing fingerprint data from the Touch
+ID sensor, determining if there is a match against registered fingerprints, and
+then enabling access or purchases on behalf of the user. Communication between
+the processor and the Touch ID sensor takes place over a serial peripheral
+interface bus. The processor forwards the data to the Secure Enclave but can’t
+read it. It’s encrypted and authenticated with a session key that is negotiated
+using the device’s shared key that is provisioned for the Touch ID sensor and
+the Secure Enclave. The session key exchange uses AES key wrapping with both
+sides providing a random  key that establishes the session key and uses AES-CCM
+transport encryption.</p>
+<h2 id="app-code-signing">App Code Signing<a hidden class="anchor" aria-hidden="true" href="#app-code-signing">#</a></h2>
+<p>Once the iOS kernel has started, it controls which user processes and apps can
+be run.  To ensure that all apps come from a known and approved source and
+haven’t been tampered with, iOS requires that all executable code be signed
+using an Apple-issued certificate. Apps provided with the device, like Mail and
+Safari, are signed by Apple. Third-party apps must also be validated and signed
+using an Apple-issued certificate. Mandatory code signing extends the concept of
+chain of trust from the OS to apps,  and prevents third-party apps from loading
+unsigned code resources or using self- modifying code.</p>
+<p>In order to develop and install apps on iOS devices, developers must register
+with Apple and join the Apple Developer Program. The real-world identity of each
+developer, whether an individual or a business, is verified by Apple before
+their certificate is issued. This certificate enables developers to sign apps
+and submit  them to the App Store for distribution. As a result, all apps in the
+App Store have  been submitted by an identifiable person or organization,
+serving as a deterrent to  the creation of malicious apps. They have also been
+reviewed by Apple to ensure they operate as described and don’t contain obvious
+bugs or other problems. In addition to the technology already discussed, this
+curation process gives customers confidence in the quality of the apps they buy.</p>
+<p>iOS allows developers to embed frameworks inside of their apps, which can be
+used  by the app itself or by extensions embedded within the app. To protect the
+system  and other apps from loading third-party code inside of their address
+space, the system will perform a code signature validation of all the dynamic
+libraries that a process links against at launch time. This verification is
+accomplished through the team identifier (Team ID), which is extracted from an
+Apple-issued certificate. A team identifier is a  10-character alphanumeric
+string; for example, 1A2B3C4D5F. A program may link against any platform library
+that ships with the system or any library with the same team identifier in its
+code signature as the main executable. Since the executables shipping as part of
+the system don’t have a team identifier, they can only link against libraries
+that ship with the system itself.</p>
+<p>Businesses also have the ability to write in-house apps for use within their
+organization and distribute them to their employees. Businesses and
+organizations can apply to the Apple Developer Enterprise Program (ADEP) with a
+D-U-N-S number. Apple approves applicants after verifying their identity and
+eligibility. Once an organization becomes a member of ADEP, it can register to
+obtain a Provisioning Profile that permits in-house apps to run on devices it
+authorizes. Users must have the Provisioning Profile installed in order to run
+the in-house apps. This ensures that only the organization’s intended users are
+able to load the apps onto their iOS devices. Apps installed via MDM are
+implicitly trusted because the relationship between the organization and the
+device is already established. Otherwise, users have to approve the app’s
+Provisioning Profile in Settings. Organizations can restrict users from
+approving apps from unknown developers. On first launch of any enterprise app,
+the device must receive positive confirmation from Apple that the app is allowed
+to run.</p>
+<p>Unlike other mobile platforms, iOS doesn’t allow users to install potentially
+malicious unsigned apps from websites, or run untrusted code. At runtime, code
+signature checks of all executable memory pages are made as they are loaded to
+ensure that an app has not been modified since it was installed or last updated.</p>
+<h3 id="runtime-process-security">Runtime Process Security<a hidden class="anchor" aria-hidden="true" href="#runtime-process-security">#</a></h3>
+<p>Once an app is verified to be from an approved source, iOS enforces security
+measures designed to prevent it from compromising other apps or the rest of the
+system.</p>
+<p>All third-party apps are “sandboxed,” so they are restricted from accessing
+files stored by other apps or from making changes to the device. This prevents
+apps from gathering or modifying information stored by other apps. Each app has
+a unique home directory for its files, which is randomly assigned when the app
+is installed. If a third-party app needs to access information other than its
+own, it does so only by using services explicitly provided by iOS.</p>
+<p>System files and resources are also shielded from the user’s apps. The majority
+of iOS runs as the non-privileged user “mobile,” as do all third-party apps. The
+entire OS partition is mounted as read-only. Unnecessary tools, such as remote
+login services, aren’t included in the system software, and APIs don’t allow
+apps to escalate their  own privileges to modify other apps or iOS itself.</p>
+<p>Access by third-party apps to user information and features such as iCloud and
+extensibility is controlled using declared entitlements. Entitlements are key
+value pairs that are signed in to an app and allow authentication beyond runtime
+factors like unix user ID. Since entitlements are digitally signed, they can’t
+be changed. Entitlements are used extensively by system apps and daemons to
+perform specific privileged operations that would otherwise require the process
+to run as root. This greatly reduces the potential for privilege escalation by a
+compromised system application or daemon.</p>
+<p>In addition, apps can only perform background processing through system-provided
+APIs. This enables apps to continue to function without degrading performance or
+dramatically impacting battery life.</p>
+<p>Address space layout randomization (ASLR) protects against the exploitation of
+memory corruption bugs. Built-in apps use ASLR to ensure that all memory regions
+are randomized upon launch. Randomly arranging the memory addresses of
+executable code, system libraries, and related programming constructs reduces
+the likelihood of many sophisticated exploits. For example, a return-to-libc
+attack attempts to trick a device into executing malicious code by manipulating
+memory addresses of the stack and system libraries. Randomizing the placement of
+these makes the attack far more difficult to execute, especially across multiple
+devices. Xcode, the iOS development environment, automatically compiles
+third-party programs with ASLR support turned on.</p>
+<p>Further protection is provided by iOS using ARM’s Execute Never (XN) feature,
+which marks memory pages as non-executable. Memory pages marked as both writable
+and executable can be used only by apps under tightly controlled conditions: The
+kernel checks for the presence of the Apple-only dynamic code-signing
+entitlement. Even  then, only a single mmap call can be made to request an
+executable and writable page,  which is given a randomized address. Safari uses
+this functionality for its JavaScript JIT compiler.</p>
+<h2 id="extensions">Extensions<a hidden class="anchor" aria-hidden="true" href="#extensions">#</a></h2>
+<p>iOS allows apps to provide functionality to other apps by providing extensions.
+Extensions are special-purpose signed executable binaries, packaged within an
+app.  The system automatically detects extensions at install time and makes them
+available  to other apps using a matching system.</p>
+<p>A system area that supports extensions is called an extension point. Each
+extension point provides APIs and enforces policies for that area. The system
+determines which extensions are available based on extension point–specific
+matching rules. The system automatically launches extension processes as needed
+and manages their lifetime. Entitlements can be used to restrict extension
+availability to particular system applications. For example, a Today view widget
+appears only in Notification Center,  and a sharing extension is available only
+from the Sharing pane. The extension points are Today widgets, Share, Custom
+actions, Photo Editing, Document Provider, and Custom Keyboard.</p>
+<p>Extensions run in their own address space. Communication between the extension
+and the app from which it was activated uses interprocess communications
+mediated by  the system framework. They don’t have access to each other’s files
+or memory spaces. Extensions are designed to be isolated from each other, from
+their containing apps, and from the apps that use them. They are sandboxed like
+any other third-party app and have a container separate from the containing
+app’s container. However, they share the same access to privacy controls as the
+container app. So if a user grants Contacts access to an app, this grant will be
+extended to the extensions that are embedded within the app, but not to the
+extensions activated by the app.</p>
+<p>Custom keyboards are a special type of extension since they are enabled by the
+user for the entire system. Once enabled, a keyboard extension will be used for
+any text field except the passcode input and any secure text view. To restrict
+the transfer of user data, custom keyboards run by default in a very restrictive
+sandbox that blocks access to the network, to services that perform network
+operations on behalf of a process, and to APIs that would allow the extension to
+exfiltrate typing data. Developers of custom keyboards can request that their
+extension have Open Access, which will let the system run the extension in the
+default sandbox after getting consent from the user.</p>
+<p>For devices enrolled in mobile device management, document and keyboard
+extensions obey Managed Open In rules. For example, the MDM server can prevent a
+user from exporting a document from a managed app to an unmanaged Document
+Provider, or using an unmanaged keyboard with a managed app. Additionally, app
+developers can prevent the use of third-party keyboard extensions within their
+app.</p>
+<h2 id="app-groups">App Groups<a hidden class="anchor" aria-hidden="true" href="#app-groups">#</a></h2>
+<p>Apps and extensions owned by a given developer account can share content  when
+configured to be part of an App Group. It is up to the developer to create  the
+appropriate groups on the Apple Developer Portal and include the desired set  of
+apps and extensions. Once configured to be part of an App Group, apps have
+access to the following:</p>
+<ul>
+<li>A shared on-disk container for storage, which will stay on the device as
+long as  at least one app from the group is installed</li>
+<li>Shared preferences</li>
+<li>Shared Keychain items</li>
+</ul>
+<p>The Apple Developer Portal guarantees that App Group IDs are unique across the
+app ecosystem.</p>
+<h2 id="reference">Reference:<a hidden class="anchor" aria-hidden="true" href="#reference">#</a></h2>
+<p><a href="https://www.apple.com/kr/business-docs/iOS_Security_Guide.pdf">Apple iOS Security Guide - March 2017</a></p>
+<h1 id="android">Android<a hidden class="anchor" aria-hidden="true" href="#android">#</a></h1>
+<h2 id="application-sandbox">Application Sandbox<a hidden class="anchor" aria-hidden="true" href="#application-sandbox">#</a></h2>
+<p>The Android platform takes advantage of the Linux user-based protection as a
+means of identifying and isolating application resources. The Android system
+assigns a unique user ID (UID) to each Android application and runs it as that
+user in a separate process. This approach is different from other operating
+systems (including the traditional Linux configuration), where multiple
+applications run with the same user permissions.</p>
+<p>This sets up a kernel-level Application Sandbox. The kernel enforces security
+between applications and the system at the process level through standard Linux
+facilities, such as user and group IDs that are assigned to applications. By
+default, applications cannot interact with each other and applications have
+limited access to the operating system. If application A tries to do something
+malicious like read application B&rsquo;s data or dial the phone without permission
+(which is a separate application), then the operating system protects against
+this because application A does not have the appropriate user privileges. The
+sandbox is simple, auditable, and based on decades-old UNIX-style user
+separation of processes and file permissions.</p>
+<p>Because the Application Sandbox is in the kernel, this security model extends to
+native code and to operating system applications. All of the software above the
+kernel, such as operating system libraries, application framework, application
+runtime, and all applications, run within the Application Sandbox. On some
+platforms, developers are constrained to a specific development framework, set
+of APIs, or language in order to enforce security. On Android, there are no
+restrictions on how an application can be written that are required to enforce
+security; in this respect, native code is just as secure as interpreted code.</p>
+<p>In some operating systems, memory corruption errors in one application may lead
+to corruption in other applications housed in the same memory space, resulting
+in a complete compromise of the security of the device. Because all applications
+and their resources are sandboxed at the OS level, a memory corruption error
+will allow arbitrary code execution only in the context of that particular
+application, with the permissions established by the operating system.</p>
+<p>Like all security features, the Application Sandbox is not unbreakable. However,
+to break out of the Application Sandbox in a properly configured device, one
+must compromise the security of the Linux kernel.</p>
+<h2 id="system-partition">System Partition<a hidden class="anchor" aria-hidden="true" href="#system-partition">#</a></h2>
+<p>The system partition contains Android&rsquo;s kernel as well as the operating system
+libraries, application runtime, application framework, and applications. This
+partition is set to read-only.</p>
+<h2 id="security-enhanced-linux-selinux">Security-Enhanced Linux (SELinux)<a hidden class="anchor" aria-hidden="true" href="#security-enhanced-linux-selinux">#</a></h2>
+<p>The Android security model is based in part on the concept of application
+sandboxes. Each application runs in its own sandbox. Prior to Android 4.3, these
+sandboxes were defined by the creation of a unique Linux UID for each
+application at time of installation. Starting with Android 4.3,
+Security-Enhanced Linux (SELinux) is used to further define the boundaries of
+the Android application sandbox.</p>
+<p>As part of the Android security model, Android uses SELinux to enforce mandatory
+access control (MAC) over all processes, even processes running with
+root/superuser privileges (a.k.a. Linux capabilities). SELinux enhances Android
+security by confining privileged processes and automating security policy
+creation.</p>
+<p>Contributions to it have been made by a number of companies and organizations;
+all Android code and contributors are publicly available for review on
+android.googlesource.com. With SELinux, Android can better protect and confine
+system services, control access to application data and system logs, reduce the
+effects of malicious software, and protect users from potential flaws in code on
+mobile devices.</p>
+<p>Android includes SELinux in enforcing mode and a corresponding security policy
+that works by default across the Android Open Source Project. In enforcing mode,
+illegitimate actions are prevented and all attempted violations are logged by
+the kernel to dmesg and logcat. Android device manufacturers should gather
+information about errors so they may refine their software and SELinux policies
+before enforcing them.</p>
+<h3 id="mandatory-access-control">Mandatory Access Control<a hidden class="anchor" aria-hidden="true" href="#mandatory-access-control">#</a></h3>
+<p>Security Enhanced Linux (SELinux), is a mandatory access control (MAC) system
+for the Linux operating system. As a MAC system, it differs from Linux’s
+familiar discretionary access control (DAC) system. In a DAC system, a concept
+of ownership exists, whereby an owner of a particular resource controls access
+permissions associated with it. This is generally coarse-grained and subject to
+unintended privilege escalation. A MAC system, however, consults a central
+authority for a decision on all access attempts.</p>
+<p>SELinux has been implemented as part of the Linux Security Module (LSM)
+framework, which recognizes various kernel objects, and sensitive actions
+performed on them. At the point at which each of these actions would be
+performed, an LSM hook function is called to determine whether or not the action
+should be allowed based on the information for it stored in an opaque security
+object. SELinux provides an implementation for these hooks and management of
+these security objects, which combine with its own policy, to determine the
+access decisions.</p>
+<p>In conjunction with other Android security measures, Android&rsquo;s access control
+policy greatly limits the potential damage of compromised machines and accounts.
+Using tools like Android&rsquo;s discretionary and mandatory access controls gives you
+a structure to ensure your software runs only at the minimum privilege level.
+This mitigates the effects of attacks and reduces the likelihood of errant
+processes overwriting or even transmitting data.</p>
+<p>Starting in Android 4.3, SELinux provides a mandatory access control (MAC)
+umbrella over traditional discretionary access control (DAC) environments. For
+instance, software must typically run as the root user account to write to raw
+block devices. In a traditional DAC-based Linux environment, if the root user
+becomes compromised that user can write to every raw block device. However,
+SELinux can be used to label these devices so the process assigned the root
+privilege can write to only those specified in the associated policy. In this
+way, the process cannot overwrite data and system settings outside of the
+specific raw block device.</p>
+<h3 id="enforcement-levels">Enforcement Levels<a hidden class="anchor" aria-hidden="true" href="#enforcement-levels">#</a></h3>
+<p>Become familiar with the following terms to understand how SELinux can be
+implemented to varying strengths.</p>
+<p><code>Permissive</code> - SELinux security policy is not enforced, only logged.</p>
+<p><code>Enforcing</code> - Security policy is enforced and logged. Failures appear as
+EPERM errors.</p>
+<p>This choice is binary and determines whether your policy takes action or merely
+allows you to gather potential failures. Permissive is especially useful during
+implementation.</p>
+<ul>
+<li>
+<p>Unconfined - A very light policy that prohibits certain tasks and provides a
+temporary stop-gap during development. Should not be used for anything outside
+of the Android Open Source Project (AOSP).</p>
+</li>
+<li>
+<p>Confined - A custom-written policy designed for the service. That policy
+should define precisely what is allowed.</p>
+</li>
+</ul>
+<p>Unconfined policies are available to help implement SELinux in Android quickly.
+They are suitable for most root-level applications. But they should be converted
+to confined policies wherever possible over time to restrict each application to
+precisely the resources it needs.</p>
+<p>Ideally, your policy is both in enforcing mode and confined. Unconfined policies
+in enforcement mode can mask potential violations that would have been logged in
+permissive mode with a confined policy. Therefore, we strongly recommend that
+device implementers implement true confined policies.</p>
+<h3 id="labels-rules-and-domains">Labels, Rules, and Domains<a hidden class="anchor" aria-hidden="true" href="#labels-rules-and-domains">#</a></h3>
+<p>SELinux depends upon labels to match actions and policies. Labels determine what
+is allowed. Sockets, files, and processes all have labels in SELinux. SELinux
+decisions are based fundamentally on labels assigned to these objects and the
+policy defining how they may interact. In SELinux, a label takes the form:
+user:role:type:mls_level, where the type is the primary component of the access
+decisions, which may be modified by the other sections components which make up
+the label. The objects are mapped to classes and the different types of access
+for each class are represented by permissions.</p>
+<p>The policy rules come in the form: allow domains types:classes permissions;,
+where:</p>
+<ul>
+<li>Domain - A label for the process or set of processes. Also called a domain
+type as it is just a type for a process.</li>
+<li>Type - A label for the object (e.g. file, socket) or set of objects.</li>
+<li>Class - The kind of object (e.g. file, socket) being accessed.</li>
+<li>Permission - The operation (e.g. read, write) being performed.</li>
+</ul>
+<p>And so an example use of this would follow the structure:</p>
+<p>```allow appdomain app_data_file:file rw_file_perms; ``</p>
+<p>This says that all application domains are allowed to read and write files
+labeled app_data_file. Note that this rule relies upon macros defined in the
+global_macros file, and other helpful macros can also be found in the te_macros
+file, both of which can be found in the system/sepolicy directory in the AOSP
+source tree. Macros are provided for common groupings of classes, permissions
+and rules, and should be used whenever possible to help reduce the likelihood of
+failures due to denials on related permissions.</p>
+<p>In addition to individually listing domains or types in a rule, one can also
+refer to a set of domains or types via an attribute. An attribute is simply a
+name for a set of domains or types. Each domain or type can be associated with
+any number of attributes. When a rule is written that specifies an attribute
+name, that name is automatically expanded to the list of domains or types
+associated with the attribute. For example, the domain attribute is associated
+with all process domains, and the file_type attribute is associated with all
+file types.</p>
+<p>Use the syntax above to create avc rules that comprise the essence of an SELinux
+policy. A rule takes the form:</p>
+<p><code>&lt;rule variant&gt; &lt;source_types&gt; &lt;target_types&gt; : &lt;classes&gt; &lt;permissions&gt;</code></p>
+<p>The rule indicates what should happen when a subject labeled with any of the
+source_types attempts an action corresponding to any of the permissions on an
+object with any of the class classes which has any of the target_typeslabel. The
+most common example of one of these rules is an allow rule, e.g.:</p>
+<p><code>allow domain null_device:chr_file { open };</code></p>
+<p>This rule allows a process with any domain associated with the ‘domain’
+attribute to take the action described by the permission ‘open’ on an object of
+class ‘chr_file’ (character device file) that has the target_type label of
+‘null_device.’ In practice, this rule may be extended to include other
+permissions:</p>
+<p><code>allow domain null_device:chr_file { getattr open read ioctl lock append write};</code></p>
+<p>When combined with the knowledge that ‘domain’ is an attribute assigned to all
+process domains and that null_device is the label for the character device
+<code>/dev/null</code>, this rule basically permits reading and writing to
+<code>/dev/null</code>.</p>
+<p>A domain generally corresponds to a process and will have a label associated
+with it.</p>
+<p>For example, a typical Android app is running in its own process and has the
+label of <code>untrusted_app</code> that grants it certain restricted permissions.</p>
+<p>Platform apps built into the system run under a separate label and are granted a
+distinct set of permissions. System UID apps that are part of the core Android
+system run under the system_app label for yet another set of privileges.</p>
+<p>Access to the following generic labels should never be directly allowed to
+domains; instead, a more specific type should be created for the object or
+objects:</p>
+<ul>
+<li><code>socket_device</code></li>
+<li><code>device</code></li>
+<li><code>block_device</code></li>
+<li><code>default_service</code></li>
+<li><code>system_data_file</code></li>
+<li><code>tmpfs</code></li>
+</ul>
+<h2 id="accessing-protected-apis">Accessing Protected APIs<a hidden class="anchor" aria-hidden="true" href="#accessing-protected-apis">#</a></h2>
+<p>All applications on Android run in an Application Sandbox. By default, an
+Android application can only access a limited range of system resources. The
+system manages Android application access to resources that, if used incorrectly
+or maliciously, could adversely impact the user experience, the network, or data
+on the device.</p>
+<p>These restrictions are implemented in a variety of different forms. Some
+capabilities are restricted by an intentional lack of APIs to the sensitive
+functionality (e.g. there is no Android API for directly manipulating the SIM
+card). In some instances, separation of roles provides a security measure, as
+with the per-application isolation of storage. In other instances, the sensitive
+APIs are intended for use by trusted applications and protected through a
+security mechanism known as Permissions.</p>
+<p>These protected APIs include:</p>
+<ul>
+<li>Camera functions</li>
+<li>Location data (GPS)</li>
+<li>Bluetooth functions</li>
+<li>Telephony functions</li>
+<li>SMS/MMS functions</li>
+<li>Network/data connections</li>
+</ul>
+<p>These resources are only accessible through the operating system. To make use of
+the protected APIs on the device, an application must define the capabilities it
+needs in its manifest. When preparing to install an application, the system
+displays a dialog to the user that indicates the permissions requested and asks
+whether to continue the installation. If the user continues with the
+installation, the system accepts that the user has granted all of the requested
+permissions. The user can not grant or deny individual permissions &ndash; the user
+must grant or deny all of the requested permissions as a block.</p>
+<p>Once granted, the permissions are applied to the application as long as it is
+installed. To avoid user confusion, the system does not notify the user again of
+the permissions granted to the application, and applications that are included
+in the core operating system or bundled by an OEM do not request permissions
+from the user. Permissions are removed if an application is uninstalled, so a
+subsequent re-installation will again result in display of permissions.</p>
+<p>Within the device settings, users are able to view permissions for applications
+they have previously installed. Users can also turn off some functionality
+globally when they choose, such as disabling GPS, radio, or wi-fi.</p>
+<p>In the event that an application attempts to use a protected feature which has
+not been declared in the application&rsquo;s manifest, the permission failure will
+typically result in a security exception being thrown back to the application.
+Protected API permission checks are enforced at the lowest possible level to
+prevent circumvention.</p>
+<p>The system default permissions are described at
+<a href="https://developer.android.com/reference/android/Manifest.permission.html">https://developer.android.com/reference/android/Manifest.permission.html</a>.
+Applications may declare their own permissions for other applications to use.
+Such permissions are not listed in the above location.</p>
+<p>When defining a permission a protectionLevel attribute tells the system how the
+user is to be informed of applications requiring the permission, or who is
+allowed to hold a permission. Details on creating and using application specific
+permissions are described at
+<a href="https://developer.android.com/guide/topics/security/security.html">https://developer.android.com/guide/topics/security/security.html</a>.</p>
+<p>There are some device capabilities, such as the ability to send SMS broadcast
+intents, that are not available to third-party applications, but that may be
+used by applications pre-installed by the OEM. These permissions use the
+signatureOrSystem permission.</p>
+<h2 id="interprocess-communication">Interprocess Communication<a hidden class="anchor" aria-hidden="true" href="#interprocess-communication">#</a></h2>
+<p>Processes can communicate using any of the traditional UNIX-type mechanisms.
+Examples include the filesystem, local sockets, or signals. However, the Linux
+permissions still apply.</p>
+<p>Android also provides new IPC mechanisms:</p>
+<ul>
+<li>
+<p>Binder: A lightweight capability-based remote procedure call mechanism
+designed for high performance when performing in-process and cross-process
+calls. Binder is implemented using a custom Linux driver. See
+<a href="https://developer.android.com/reference/android/os/Binder.html">https://developer.android.com/reference/android/os/Binder.html</a>.</p>
+</li>
+<li>
+<p>Services: Services (discussed above) can provide interfaces directly
+accessible using binder.</p>
+</li>
+<li>
+<p>Intents: An Intent is a simple message object that represents an &ldquo;intention&rdquo;
+to do something. For example, if your application wants to display a web page,
+it expresses its &ldquo;Intent&rdquo; to view the URL by creating an Intent instance and
+handing it off to the system. The system locates some other piece of code (in
+this case, the Browser) that knows how to handle that Intent, and runs it.
+Intents can also be used to broadcast interesting events (such as a
+notification) system-wide. See
+<a href="https://developer.android.com/reference/android/content/Intent.html">https://developer.android.com/reference/android/content/Intent.html</a>.</p>
+</li>
+<li>
+<p>ContentProviders: A ContentProvider is a data storehouse that provides access
+to data on the device; the classic example is the ContentProvider that is used
+to access the user&rsquo;s list of contacts. An application can access data that
+other applications have exposed via a ContentProvider, and an application can
+also define its own ContentProviders to expose data of its own. See
+<a href="https://developer.android.com/reference/android/content/ContentProvider.html">https://developer.android.com/reference/android/content/ContentProvider.html</a>.</p>
+</li>
+</ul>
+<p>While it is possible to implement IPC using other mechanisms such as network
+sockets or world-writable files, these are the recommended Android IPC
+frameworks. Android developers will be encouraged to use best practices around
+securing users' data and avoiding the introduction of security vulnerabilities.</p>
+<h2 id="application-signing">Application Signing<a hidden class="anchor" aria-hidden="true" href="#application-signing">#</a></h2>
+<p>Code signing allows developers to identify the author of the application and to
+update their application without creating complicated interfaces and
+permissions. Every application that is run on the Android platform must be
+signed by the developer. Applications that attempt to install without being
+signed will rejected by either Google Play or the package installer on the
+Android device.</p>
+<p>On Google Play, application signing bridges the trust Google has with the
+developer and the trust the developer has with their application. Developers
+know their application is provided, unmodified to the Android device; and
+developers can be held accountable for behavior of their application.</p>
+<p>On Android, application signing is the first step to placing an application in
+its Application Sandbox. The signed application certificate defines which user
+id is associated with which application; different applications run under
+different user IDs. Application signing ensures that one application cannot
+access any other application except through well-defined IPC.</p>
+<p>When an application (APK file) is installed onto an Android device, the Package
+Manager verifies that the APK has been properly signed with the certificate
+included in that APK. If the certificate (or, more accurately, the public key in
+the certificate) matches the key used to sign any other APK on the device, the
+new APK has the option to specify in the manifest that it will share a UID with
+the other similarly-signed APKs.</p>
+<p>Applications can be signed by a third-party (OEM, operator, alternative market)
+or self-signed. Android provides code signing using self-signed certificates
+that developers can generate without external assistance or permission.
+Applications do not have to be signed by a central authority. Android currently
+does not perform CA verification for application certificates.</p>
+<p>Applications are also able to declare security permissions at the Signature
+protection level, restricting access only to applications signed with the same
+key while maintaining distinct UIDs and Application Sandboxes. A closer
+relationship with a shared Application Sandbox is allowed via the shared UID
+feature where two or more applications signed with same developer key can
+declare a shared UID in their manifest.</p>
+<h2 id="application-verification">Application Verification<a hidden class="anchor" aria-hidden="true" href="#application-verification">#</a></h2>
+<p>Android 4.2 and later support application verification. Users can choose to
+enable “Verify Apps&quot; and have applications evaluated by an application verifier
+prior to installation. App verification can alert the user if they try to
+install an app that might be harmful; if an application is especially bad, it
+can block installation.</p>
+<h2 id="reference-1">Reference:<a hidden class="anchor" aria-hidden="true" href="#reference-1">#</a></h2>
+<p><a href="https://source.android.com/security/">https://source.android.com/security/</a></p>
+<p><a href="https://source.android.com/security/overview/app-security">https://source.android.com/security/overview/app-security</a></p>
+<p><a href="https://source.android.com/security/selinux/">https://source.android.com/security/selinux/</a></p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://www.chrislockard.net/tags/appsec/">appsec</a></li>
+      <li><a href="https://www.chrislockard.net/tags/mobile/">mobile</a></li>
+      <li><a href="https://www.chrislockard.net/tags/android/">android</a></li>
+      <li><a href="https://www.chrislockard.net/tags/ios/">iOS</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://www.chrislockard.net/posts/bug-bounty-researchers-doing-it-wrong/">
+    <span class="title">« Prev Page</span>
+    <br>
+    <span>A Lesson for Bug Bounty Researchers</span>
+  </a>
+  <a class="next" href="https://www.chrislockard.net/posts/self-evaluation/">
+    <span class="title">Next Page »</span>
+    <br>
+    <span>Self Evaluation</span>
+  </a>
+</nav>
+
+
+<div class="share-buttons">
+    <a target="_blank" rel="noopener noreferrer" aria-label="share iOS and Android Native Code Protections on twitter"
+        href="https://twitter.com/intent/tweet/?text=iOS%20and%20Android%20Native%20Code%20Protections&amp;url=https%3a%2f%2fwww.chrislockard.net%2fposts%2fios-android-code-protections%2f&amp;hashtags=appsec%2cmobile%2candroid%2ciOS">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-253.927,424.544c135.939,0 210.268,-112.643 210.268,-210.268c0,-3.218 0,-6.437 -0.153,-9.502c14.406,-10.421 26.973,-23.448 36.935,-38.314c-13.18,5.824 -27.433,9.809 -42.452,11.648c15.326,-9.196 26.973,-23.602 32.49,-40.92c-14.252,8.429 -30.038,14.56 -46.896,17.931c-13.487,-14.406 -32.644,-23.295 -53.946,-23.295c-40.767,0 -73.87,33.104 -73.87,73.87c0,5.824 0.613,11.494 1.992,16.858c-61.456,-3.065 -115.862,-32.49 -152.337,-77.241c-6.284,10.881 -9.962,23.601 -9.962,37.088c0,25.594 13.027,48.276 32.95,61.456c-12.107,-0.307 -23.448,-3.678 -33.41,-9.196l0,0.92c0,35.862 25.441,65.594 59.311,72.49c-6.13,1.686 -12.72,2.606 -19.464,2.606c-4.751,0 -9.348,-0.46 -13.946,-1.38c9.349,29.426 36.628,50.728 68.965,51.341c-25.287,19.771 -57.164,31.571 -91.8,31.571c-5.977,0 -11.801,-0.306 -17.625,-1.073c32.337,21.15 71.264,33.41 112.95,33.41Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share iOS and Android Native Code Protections on linkedin"
+        href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwww.chrislockard.net%2fposts%2fios-android-code-protections%2f&amp;title=iOS%20and%20Android%20Native%20Code%20Protections&amp;summary=iOS%20and%20Android%20Native%20Code%20Protections&amp;source=https%3a%2f%2fwww.chrislockard.net%2fposts%2fios-android-code-protections%2f">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-288.985,423.278l0,-225.717l-75.04,0l0,225.717l75.04,0Zm270.539,0l0,-129.439c0,-69.333 -37.018,-101.586 -86.381,-101.586c-39.804,0 -57.634,21.891 -67.617,37.266l0,-31.958l-75.021,0c0.995,21.181 0,225.717 0,225.717l75.02,0l0,-126.056c0,-6.748 0.486,-13.492 2.474,-18.315c5.414,-13.475 17.767,-27.434 38.494,-27.434c27.135,0 38.007,20.707 38.007,51.037l0,120.768l75.024,0Zm-307.552,-334.556c-25.674,0 -42.448,16.879 -42.448,39.002c0,21.658 16.264,39.002 41.455,39.002l0.484,0c26.165,0 42.452,-17.344 42.452,-39.002c-0.485,-22.092 -16.241,-38.954 -41.943,-39.002Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share iOS and Android Native Code Protections on reddit"
+        href="https://reddit.com/submit?url=https%3a%2f%2fwww.chrislockard.net%2fposts%2fios-android-code-protections%2f&title=iOS%20and%20Android%20Native%20Code%20Protections">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-3.446,265.638c0,-22.964 -18.616,-41.58 -41.58,-41.58c-11.211,0 -21.361,4.457 -28.841,11.666c-28.424,-20.508 -67.586,-33.757 -111.204,-35.278l18.941,-89.121l61.884,13.157c0.756,15.734 13.642,28.29 29.56,28.29c16.407,0 29.706,-13.299 29.706,-29.701c0,-16.403 -13.299,-29.702 -29.706,-29.702c-11.666,0 -21.657,6.792 -26.515,16.578l-69.105,-14.69c-1.922,-0.418 -3.939,-0.042 -5.585,1.036c-1.658,1.073 -2.811,2.761 -3.224,4.686l-21.152,99.438c-44.258,1.228 -84.046,14.494 -112.837,35.232c-7.468,-7.164 -17.589,-11.591 -28.757,-11.591c-22.965,0 -41.585,18.616 -41.585,41.58c0,16.896 10.095,31.41 24.568,37.918c-0.639,4.135 -0.99,8.328 -0.99,12.576c0,63.977 74.469,115.836 166.33,115.836c91.861,0 166.334,-51.859 166.334,-115.836c0,-4.218 -0.347,-8.387 -0.977,-12.493c14.564,-6.47 24.735,-21.034 24.735,-38.001Zm-119.474,108.193c-20.27,20.241 -59.115,21.816 -70.534,21.816c-11.428,0 -50.277,-1.575 -70.522,-21.82c-3.007,-3.008 -3.007,-7.882 0,-10.889c3.003,-2.999 7.882,-3.003 10.885,0c12.777,12.781 40.11,17.317 59.637,17.317c19.522,0 46.86,-4.536 59.657,-17.321c3.016,-2.999 7.886,-2.995 10.885,0.008c3.008,3.011 3.003,7.882 -0.008,10.889Zm-5.23,-48.781c-16.373,0 -29.701,-13.324 -29.701,-29.698c0,-16.381 13.328,-29.714 29.701,-29.714c16.378,0 29.706,13.333 29.706,29.714c0,16.374 -13.328,29.698 -29.706,29.698Zm-160.386,-29.702c0,-16.381 13.328,-29.71 29.714,-29.71c16.369,0 29.689,13.329 29.689,29.71c0,16.373 -13.32,29.693 -29.689,29.693c-16.386,0 -29.714,-13.32 -29.714,-29.693Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share iOS and Android Native Code Protections on facebook"
+        href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fwww.chrislockard.net%2fposts%2fios-android-code-protections%2f">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-106.468,0l0,-192.915l66.6,0l12.672,-82.621l-79.272,0l0,-53.617c0,-22.603 11.073,-44.636 46.58,-44.636l36.042,0l0,-70.34c0,0 -32.71,-5.582 -63.982,-5.582c-65.288,0 -107.96,39.569 -107.96,111.204l0,62.971l-72.573,0l0,82.621l72.573,0l0,192.915l-191.104,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share iOS and Android Native Code Protections on whatsapp"
+        href="https://api.whatsapp.com/send?text=iOS%20and%20Android%20Native%20Code%20Protections%20-%20https%3a%2f%2fwww.chrislockard.net%2fposts%2fios-android-code-protections%2f">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-58.673,127.703c-33.842,-33.881 -78.847,-52.548 -126.798,-52.568c-98.799,0 -179.21,80.405 -179.249,179.234c-0.013,31.593 8.241,62.428 23.927,89.612l-25.429,92.884l95.021,-24.925c26.181,14.28 55.659,21.807 85.658,21.816l0.074,0c98.789,0 179.206,-80.413 179.247,-179.243c0.018,-47.895 -18.61,-92.93 -52.451,-126.81Zm-126.797,275.782l-0.06,0c-26.734,-0.01 -52.954,-7.193 -75.828,-20.767l-5.441,-3.229l-56.386,14.792l15.05,-54.977l-3.542,-5.637c-14.913,-23.72 -22.791,-51.136 -22.779,-79.287c0.033,-82.142 66.867,-148.971 149.046,-148.971c39.793,0.014 77.199,15.531 105.329,43.692c28.128,28.16 43.609,65.592 43.594,105.4c-0.034,82.149 -66.866,148.983 -148.983,148.984Zm81.721,-111.581c-4.479,-2.242 -26.499,-13.075 -30.604,-14.571c-4.105,-1.495 -7.091,-2.241 -10.077,2.241c-2.986,4.483 -11.569,14.572 -14.182,17.562c-2.612,2.988 -5.225,3.364 -9.703,1.12c-4.479,-2.241 -18.91,-6.97 -36.017,-22.23c-13.314,-11.876 -22.304,-26.542 -24.916,-31.026c-2.612,-4.484 -0.279,-6.908 1.963,-9.14c2.016,-2.007 4.48,-5.232 6.719,-7.847c2.24,-2.615 2.986,-4.484 4.479,-7.472c1.493,-2.99 0.747,-5.604 -0.374,-7.846c-1.119,-2.241 -10.077,-24.288 -13.809,-33.256c-3.635,-8.733 -7.327,-7.55 -10.077,-7.688c-2.609,-0.13 -5.598,-0.158 -8.583,-0.158c-2.986,0 -7.839,1.121 -11.944,5.604c-4.105,4.484 -15.675,15.32 -15.675,37.364c0,22.046 16.048,43.342 18.287,46.332c2.24,2.99 31.582,48.227 76.511,67.627c10.685,4.615 19.028,7.371 25.533,9.434c10.728,3.41 20.492,2.929 28.209,1.775c8.605,-1.285 26.499,-10.833 30.231,-21.295c3.732,-10.464 3.732,-19.431 2.612,-21.298c-1.119,-1.869 -4.105,-2.99 -8.583,-5.232Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share iOS and Android Native Code Protections on telegram"
+        href="https://telegram.me/share/url?text=iOS%20and%20Android%20Native%20Code%20Protections&amp;url=https%3a%2f%2fwww.chrislockard.net%2fposts%2fios-android-code-protections%2f">
+        <svg version="1.1" xml:space="preserve" viewBox="2 2 28 28">
+            <path
+                d="M26.49,29.86H5.5a3.37,3.37,0,0,1-2.47-1,3.35,3.35,0,0,1-1-2.47V5.48A3.36,3.36,0,0,1,3,3,3.37,3.37,0,0,1,5.5,2h21A3.38,3.38,0,0,1,29,3a3.36,3.36,0,0,1,1,2.46V26.37a3.35,3.35,0,0,1-1,2.47A3.38,3.38,0,0,1,26.49,29.86Zm-5.38-6.71a.79.79,0,0,0,.85-.66L24.73,9.24a.55.55,0,0,0-.18-.46.62.62,0,0,0-.41-.17q-.08,0-16.53,6.11a.59.59,0,0,0-.41.59.57.57,0,0,0,.43.52l4,1.24,1.61,4.83a.62.62,0,0,0,.63.43.56.56,0,0,0,.4-.17L16.54,20l4.09,3A.9.9,0,0,0,21.11,23.15ZM13.8,20.71l-1.21-4q8.72-5.55,8.78-5.55c.15,0,.23,0,.23.16a.18.18,0,0,1,0,.06s-2.51,2.3-7.52,6.8Z" />
+        </svg>
+    </a>
+</div>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2022 <a href="https://www.chrislockard.net/">Unl0ckd</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = 'copy';
+
+        function copyingDone() {
+            copybutton.innerText = 'copied!';
+            setTimeout(() => {
+                copybutton.innerText = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

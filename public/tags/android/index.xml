@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>android on Unl0ckd</title>
+    <link>https://www.chrislockard.net/tags/android/</link>
+    <description>Recent content in android on Unl0ckd</description>
+    <image>
+      <url>https://www.chrislockard.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://www.chrislockard.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 19 Jun 2017 12:00:00 -0400</lastBuildDate><atom:link href="https://www.chrislockard.net/tags/android/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>iOS and Android Native Code Protections</title>
+      <link>https://www.chrislockard.net/posts/ios-android-code-protections/</link>
+      <pubDate>Mon, 19 Jun 2017 12:00:00 -0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/ios-android-code-protections/</guid>
+      <description>iOS Secure Boot Chain Each step of the startup process contains components that are cryptographically signed by Apple to ensure integrity and that proceed only after verifying the chain of trust. This includes the bootloaders, kernel, kernel extensions, and baseband firmware. This secure boot chain helps ensure that the lowest levels of software aren’t tampered with.
+When an iOS device is turned on, its application processor immediately executes code from read-only memory known as the Boot ROM.</description>
+    </item>
+    
+  </channel>
+</rss>

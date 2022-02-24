@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>ctf on Unl0ckd</title>
+    <link>https://www.chrislockard.net/tags/ctf/</link>
+    <description>Recent content in ctf on Unl0ckd</description>
+    <image>
+      <url>https://www.chrislockard.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://www.chrislockard.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 01 Oct 2014 12:00:00 -0400</lastBuildDate><atom:link href="https://www.chrislockard.net/tags/ctf/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>DerbyCon 4.0</title>
+      <link>https://www.chrislockard.net/posts/derbycon-4/</link>
+      <pubDate>Wed, 01 Oct 2014 12:00:00 -0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/derbycon-4/</guid>
+      <description>Unfortunately, I didn&amp;rsquo;t arrive at the ballroom early enough to get seats, or even standing room, to see this talk in-person:
+Ed Skoudis: How To Give The Best Pen Test Of Your Life
+If you&amp;rsquo;re a Pen Tester, this talk is a must-see. Once you&amp;rsquo;ve finished that talk, check out John Strand&amp;rsquo;s excellent follow-up talk!
+After competing for Friday night, most of Saturday, and Sunday morning, I emerged as the 30th position (solo) out of the 120 teams competing in the CTF.</description>
+    </item>
+    
+  </channel>
+</rss>

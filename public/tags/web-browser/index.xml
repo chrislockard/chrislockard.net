@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>web browser on Unl0ckd</title>
+    <link>https://www.chrislockard.net/tags/web-browser/</link>
+    <description>Recent content in web browser on Unl0ckd</description>
+    <image>
+      <url>https://www.chrislockard.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://www.chrislockard.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Thu, 20 Aug 2020 17:00:00 -0400</lastBuildDate><atom:link href="https://www.chrislockard.net/tags/web-browser/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Fingerprinting Privacy: Brave vs Firefox</title>
+      <link>https://www.chrislockard.net/posts/fingerprinting-privacy-brave-vs-firefox/</link>
+      <pubDate>Thu, 20 Aug 2020 17:00:00 -0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/fingerprinting-privacy-brave-vs-firefox/</guid>
+      <description>Brave and Firefox bill themselves as privacy champions. How do they fare at fingerprinting protection?</description>
+    </item>
+    
+    <item>
+      <title>Hands on with Brave Browser</title>
+      <link>https://www.chrislockard.net/posts/brave-browser/</link>
+      <pubDate>Tue, 06 Mar 2018 12:00:00 -0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/brave-browser/</guid>
+      <description>Brave, the new Firefox? I&amp;rsquo;ve been using the Brave browser as my full-time web browser for two weeks now, primarily version 0.21.18. It&amp;rsquo;s easy to tell the software is not yet at version 1.0, and although I&amp;rsquo;m not ready for this to replace Vivaldi, I really want it to.
+Brave is fast. Really fast. It has built-in adblocking and anti-fingerprinting technology. Previously, I&amp;rsquo;ve relied on uBlock Origin and Privacy Badger for adblocking and anti-fingerprinting.</description>
+    </item>
+    
+  </channel>
+</rss>

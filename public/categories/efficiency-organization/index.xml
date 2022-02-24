@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>efficiency-organization on Unl0ckd</title>
+    <link>https://www.chrislockard.net/categories/efficiency-organization/</link>
+    <description>Recent content in efficiency-organization on Unl0ckd</description>
+    <image>
+      <url>https://www.chrislockard.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://www.chrislockard.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 21 Feb 2022 21:00:00 -0400</lastBuildDate><atom:link href="https://www.chrislockard.net/categories/efficiency-organization/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Life Management System Comparison</title>
+      <link>https://www.chrislockard.net/posts/life-management-system-comparison-ppv-vs-para-notion-vs-evernote/</link>
+      <pubDate>Mon, 21 Feb 2022 21:00:00 -0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/life-management-system-comparison-ppv-vs-para-notion-vs-evernote/</guid>
+      <description>I describe how Pillars, Pipelines, and Vaults is the best Life Management system I&amp;rsquo;ve found</description>
+    </item>
+    
+    <item>
+      <title>Spacemacs Org Mode Introduction</title>
+      <link>https://www.chrislockard.net/posts/spacemacs-org-mode-intro/</link>
+      <pubDate>Mon, 06 Aug 2018 15:32:42 -0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/spacemacs-org-mode-intro/</guid>
+      <description>Update: 2018-08-10 Shortly after writing this post, I switched to Spacemacs develop branch - cd ~/.spacemacs &amp;amp;&amp;amp; git checkout develop This upgraded my Spacemacs to version 0.300@26.1. This had the unexpected side effect of changing several of the key bindings below.
+ Settinm schedules and deadlines - now require a prefix of SPC m d before entering your selection (d for deadlines, s for scheduling) Sparse trees - keybind moved to SPC m s s Archive tree - keybind moved to SPC m s A (I didn&amp;rsquo;t cover this in my original article, but this is how I archive DONE tasks) Show all TODO and deadlines - keybind moved to SPC m s s t and SPC m s s d  Introduction This is a basic overview of org-mode inside of Spacemacs.</description>
+    </item>
+    
+    <item>
+      <title>Metaworking</title>
+      <link>https://www.chrislockard.net/posts/metaworking/</link>
+      <pubDate>Mon, 15 May 2017 12:00:00 -0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/metaworking/</guid>
+      <description>Trello fascinated me upon its release in 2011. I&amp;rsquo;ve written before about my time management (lack of) skills, and Trello appeared to be my solution - it offered a sleek view of all of my outstanding tasks. Try as I might, I could not make Trello work for me. Over and over again, I would fail to use it. I just could not make myself stick with it. There was a captivating quality about Trello, however, because it was constantly mentioned in tweets, blogs, and articles.</description>
+    </item>
+    
+    <item>
+      <title>Static Sites in 2016 - Updated</title>
+      <link>https://www.chrislockard.net/posts/static-sites-in-2016-update/</link>
+      <pubDate>Mon, 03 Oct 2016 12:00:00 -0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/static-sites-in-2016-update/</guid>
+      <description>In a previous post I discussed the complicated process of configuring S3 to use Letsencrypt to obtain a TLS certificate. That post served as a reference for me to re-implement Letsencrypt every 90 days. Since then, my 90-day Letsencrypt certificate expired, and I was at a loss for how to re-instate it. Using my own post as a reference didn&amp;rsquo;t help me with the arcane letsencrypt errors I was encountering.</description>
+    </item>
+    
+    <item>
+      <title>The Management Feedback Cycle</title>
+      <link>https://www.chrislockard.net/posts/manager-feedback-cycle/</link>
+      <pubDate>Fri, 15 Apr 2016 12:00:00 -0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/manager-feedback-cycle/</guid>
+      <description>I planned a post covering the Manager Feedback Cycle, but this blog post at Effective Managers covers most of what I was going to communicate.
+One thing I would add to this resource, is that both managers and subordinates should strike a balance in communications frequency:
+ If communications are infrequent, important details can get overlooked, and it becomes harder to resolve conflicts. If communications are too frequent, the subordinate will feel like they&amp;rsquo;re being micro-managed while the manager will feel like the subordinate can&amp;rsquo;t solve problems on their own.</description>
+    </item>
+    
+    <item>
+      <title>Static Sites in 2016</title>
+      <link>https://www.chrislockard.net/posts/static-sites-in-2016/</link>
+      <pubDate>Fri, 25 Mar 2016 12:00:00 -0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/static-sites-in-2016/</guid>
+      <description>It&amp;rsquo;s early 2016, and there are a multitude of content management systems and blog platforms out there:
+ Wikipedia&amp;rsquo;s List of Content Management Systems  The security blog I contribute to, Penetrate.IO runs on the venerable Wordpress and requires constant updates to stay one step ahead of attackers. This becomes tiresome after a while, especially since the only thing I&amp;rsquo;m interested in hosting is a series of articles. These don&amp;rsquo;t require server-side computation, simply hosting.</description>
+    </item>
+    
+    <item>
+      <title>Professional Organization Habits</title>
+      <link>https://www.chrislockard.net/posts/professional-organization-habits/</link>
+      <pubDate>Fri, 06 Dec 2013 12:00:00 -0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/professional-organization-habits/</guid>
+      <description>This is a topic I&amp;rsquo;ve had a love/hate relationship with my entire life. I was once forced to go to a time management workshop on Saturdays in high school. My friend and I spent more time talking to the girls in front of us than actually listening to what the lecturer was saying, so I wonder if I missed out on something there&amp;hellip; I still struggle with time management and focusing on one task at a time until completion.</description>
+    </item>
+    
+  </channel>
+</rss>

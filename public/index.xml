@@ -1,0 +1,740 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Unl0ckd</title>
+    <link>https://www.chrislockard.net/</link>
+    <description>Recent content on Unl0ckd</description>
+    <image>
+      <url>https://www.chrislockard.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://www.chrislockard.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 21 Feb 2022 21:00:00 -0400</lastBuildDate><atom:link href="https://www.chrislockard.net/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Life Management System Comparison</title>
+      <link>https://www.chrislockard.net/posts/life-management-system-comparison-ppv-vs-para-notion-vs-evernote/</link>
+      <pubDate>Mon, 21 Feb 2022 21:00:00 -0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/life-management-system-comparison-ppv-vs-para-notion-vs-evernote/</guid>
+      <description>I describe how Pillars, Pipelines, and Vaults is the best Life Management system I&amp;rsquo;ve found</description>
+    </item>
+    
+    <item>
+      <title>Add MFA to Fedora with Yubikey</title>
+      <link>https://www.chrislockard.net/posts/yubikey-mfa-fedora/</link>
+      <pubDate>Mon, 03 May 2021 20:14:35 -0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/yubikey-mfa-fedora/</guid>
+      <description>Add MFA to sudo and gnome in Fedora using a Yubikey and authselect</description>
+    </item>
+    
+    <item>
+      <title>Grabbag</title>
+      <link>https://www.chrislockard.net/posts/grabbag/</link>
+      <pubDate>Sat, 01 May 2021 19:31:41 -0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/grabbag/</guid>
+      <description>RMS, Dan Kaminsky, FLoCS, Fedora</description>
+    </item>
+    
+    <item>
+      <title>Use AWS Config To Hunt Public S3 Buckets</title>
+      <link>https://www.chrislockard.net/posts/use-aws-config-to-hunt-public-s3-buckets/</link>
+      <pubDate>Mon, 02 Nov 2020 13:53:04 -0500</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/use-aws-config-to-hunt-public-s3-buckets/</guid>
+      <description>This post covers using AWS Config as a starting point to find public s3 buckets in your organization.</description>
+    </item>
+    
+    <item>
+      <title>Christianity Resources</title>
+      <link>https://www.chrislockard.net/project/resources-christianity/</link>
+      <pubDate>Tue, 27 Oct 2020 15:00:00 +0000</pubDate>
+      
+      <guid>https://www.chrislockard.net/project/resources-christianity/</guid>
+      <description>These resources have been valuable as I explore my faith</description>
+    </item>
+    
+    <item>
+      <title>Set Security Headers using Cloudflare Workers</title>
+      <link>https://www.chrislockard.net/posts/set-security-headers-using-cloudflare-workers/</link>
+      <pubDate>Fri, 09 Oct 2020 10:26:18 -0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/set-security-headers-using-cloudflare-workers/</guid>
+      <description>This article covers previous work and introduces a warning</description>
+    </item>
+    
+    <item>
+      <title>Blacklight Privacy Tool</title>
+      <link>https://www.chrislockard.net/posts/blacklight-privacy-tool/</link>
+      <pubDate>Tue, 22 Sep 2020 16:45:00 -0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/blacklight-privacy-tool/</guid>
+      <description>Today on my Mastodon feed, several folks were discussing a new tool by TheMarkup called Blacklight. This tool is billed as a &amp;ldquo;real-time website privacy inspector&amp;rdquo; that showcases the ad and tracking tech deployed by a website.
+I shared this tool with several colleagues and it engendered a stimulating conversation surrounding company commitment to privacy. I argued during this conversation that it would be worse for a company to claim to value customer privacy and then have Blacklight reveal otherwise, than to have made no such claim in the first place.</description>
+    </item>
+    
+    <item>
+      <title>Using Local Fonts - Hugo Academic Theme</title>
+      <link>https://www.chrislockard.net/posts/using-local-fonts-hugo-academic-theme/</link>
+      <pubDate>Thu, 03 Sep 2020 10:40:11 -0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/using-local-fonts-hugo-academic-theme/</guid>
+      <description>The fresh new look of this site is provided by the Academic Hugo Theme. Because I value your privacy just as I value my own, I needed to modify this theme to not make use of Google Web Fonts because use of this service enables Google to further track users.
+In this guide, I&amp;rsquo;ll add the Montserrat font by Julieta Ulanovsky as the heading font for this blog:
+TL;DR - Recap</description>
+    </item>
+    
+    <item>
+      <title>Thoughtful Birthday Present</title>
+      <link>https://www.chrislockard.net/posts/thoughtful-birthday-present/</link>
+      <pubDate>Wed, 02 Sep 2020 10:18:14 -0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/thoughtful-birthday-present/</guid>
+      <description>When my Dad turned 70, I couldn&amp;rsquo;t decide what to get him. He claimed to not want anything leaving me in a bind. I thought for days about what to get him and the idea I finally settled on seemed inadequate to me, but it wound up being a hit:
+I presented him with a hand-written book containing 70 memories of him throughout my life. He got emotional over this gift, and for a man as stoic as he is, this was a surprise.</description>
+    </item>
+    
+    <item>
+      <title>A Fresh Look</title>
+      <link>https://www.chrislockard.net/posts/a-fresh-look/</link>
+      <pubDate>Mon, 31 Aug 2020 14:50:25 -0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/a-fresh-look/</guid>
+      <description>I&amp;rsquo;ve updated this site&amp;rsquo;s appearance with a new hugo blog theme</description>
+    </item>
+    
+    <item>
+      <title>Privacy Policy</title>
+      <link>https://www.chrislockard.net/privacy/</link>
+      <pubDate>Sun, 30 Aug 2020 00:00:00 +0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/privacy/</guid>
+      <description>TL;DR - I respect your privacy I strive for this site to respect your privacy to the fullest extent possible.
+More Info I do not make any money from this website. I do not have any reason to track any users of this website. I used to (see below) participate in Google Analytics to understand how many users this site received but have since abandoned that.
+The notes below outline the extent of the cookies used on this site.</description>
+    </item>
+    
+    <item>
+      <title>Fingerprinting Privacy: Brave vs Firefox</title>
+      <link>https://www.chrislockard.net/posts/fingerprinting-privacy-brave-vs-firefox/</link>
+      <pubDate>Thu, 20 Aug 2020 17:00:00 -0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/fingerprinting-privacy-brave-vs-firefox/</guid>
+      <description>Brave and Firefox bill themselves as privacy champions. How do they fare at fingerprinting protection?</description>
+    </item>
+    
+    <item>
+      <title>Find Resources With AWS Config</title>
+      <link>https://www.chrislockard.net/posts/find-resources-with-aws-config/</link>
+      <pubDate>Wed, 12 Aug 2020 10:00:00 -0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/find-resources-with-aws-config/</guid>
+      <description>Use AWS Config to locate AWS resources</description>
+    </item>
+    
+    <item>
+      <title>AWS SecOps</title>
+      <link>https://www.chrislockard.net/project/aws-secops/</link>
+      <pubDate>Mon, 10 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.chrislockard.net/project/aws-secops/</guid>
+      <description>My toolkit for performing Security Operations in AWS</description>
+    </item>
+    
+    <item>
+      <title>Joining the FSF</title>
+      <link>https://www.chrislockard.net/posts/joining-the-fsf/</link>
+      <pubDate>Wed, 17 Jun 2020 13:13:00 -0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/joining-the-fsf/</guid>
+      <description>I&amp;rsquo;ve joined the Free Software Foundation and so should you!</description>
+    </item>
+    
+    <item>
+      <title>One Month With Mastodon</title>
+      <link>https://www.chrislockard.net/posts/one-month-with-mastodon/</link>
+      <pubDate>Thu, 11 Jun 2020 13:52:12 -0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/one-month-with-mastodon/</guid>
+      <description>I&amp;rsquo;ve switched to Mastodon and so should you.</description>
+    </item>
+    
+    <item>
+      <title>Moving From Macos to Linux</title>
+      <link>https://www.chrislockard.net/posts/moving-from-macos-to-linux/</link>
+      <pubDate>Tue, 26 May 2020 00:00:00 -0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/moving-from-macos-to-linux/</guid>
+      <description>I&amp;rsquo;ve adopted Linux on the desktop. Here&amp;rsquo;s how I adapted my macOS workflow&amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>Compiling Emacs 27 on macOS</title>
+      <link>https://www.chrislockard.net/posts/compiling-emacs-27-macos/</link>
+      <pubDate>Fri, 15 May 2020 08:30:00 -0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/compiling-emacs-27-macos/</guid>
+      <description>The easy way to compile Emacs 27 on macOS using Homebrew</description>
+    </item>
+    
+    <item>
+      <title>How to Securely Configure CloudFlare with S3</title>
+      <link>https://www.chrislockard.net/posts/secure-cloudflare-s3/</link>
+      <pubDate>Fri, 17 Apr 2020 00:01:00 -0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/secure-cloudflare-s3/</guid>
+      <description>This post covers how to secure an S3 bucket serving content through Cloudflare</description>
+    </item>
+    
+    <item>
+      <title>Site Update: Cloudflare</title>
+      <link>https://www.chrislockard.net/posts/site-update-cloudflare/</link>
+      <pubDate>Thu, 16 Apr 2020 08:30:00 -0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/site-update-cloudflare/</guid>
+      <description>This site now uses CloudFlare</description>
+    </item>
+    
+    <item>
+      <title>AWS Cloudwatch</title>
+      <link>https://www.chrislockard.net/posts/aws-cloudwatch/</link>
+      <pubDate>Fri, 03 Apr 2020 09:30:00 -0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/aws-cloudwatch/</guid>
+      <description>AWS CloudWatch enables monitoring and alerting on cloud events.</description>
+    </item>
+    
+    <item>
+      <title>AWS Security Hub</title>
+      <link>https://www.chrislockard.net/posts/aws-securityhub/</link>
+      <pubDate>Fri, 21 Feb 2020 00:00:00 -0500</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/aws-securityhub/</guid>
+      <description>AWS Security Hub eases the pain of cloud monitoring</description>
+    </item>
+    
+    <item>
+      <title>Protect AWS API Gateway with AWS WAF</title>
+      <link>https://www.chrislockard.net/posts/aws-waf-and-apigw/</link>
+      <pubDate>Fri, 31 Jan 2020 17:00:00 -0500</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/aws-waf-and-apigw/</guid>
+      <description>Help protect APIGW from attackers with AWS WAF</description>
+    </item>
+    
+    <item>
+      <title>AWS CloudTrail</title>
+      <link>https://www.chrislockard.net/posts/aws-cloudtrail/</link>
+      <pubDate>Thu, 30 Jan 2020 14:15:06 -0500</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/aws-cloudtrail/</guid>
+      <description>AWS CloudTrail is the cornerstone of cloud SECOPS</description>
+    </item>
+    
+    <item>
+      <title>No more Google Analytics</title>
+      <link>https://www.chrislockard.net/posts/no-more-google-analytics/</link>
+      <pubDate>Wed, 22 Jan 2020 11:09:12 -0500</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/no-more-google-analytics/</guid>
+      <description>No more contributing to the Evil Empire</description>
+    </item>
+    
+    <item>
+      <title>Changing Direction</title>
+      <link>https://www.chrislockard.net/posts/changing-direction/</link>
+      <pubDate>Fri, 17 Jan 2020 14:41:12 -0500</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/changing-direction/</guid>
+      <description>How my career is changing.</description>
+    </item>
+    
+    <item>
+      <title>Manage o365 mail with emacs, mbsync, and mu4e</title>
+      <link>https://www.chrislockard.net/posts/o365-mail-emacs-mbsync-mu4e/</link>
+      <pubDate>Thu, 14 Nov 2019 14:45:28 -0500</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/o365-mail-emacs-mbsync-mu4e/</guid>
+      <description>Access Office 365 email from (Doom) Emacs with mbsync and mu4e!</description>
+    </item>
+    
+    <item>
+      <title>More Notes on Compiling Emacs for macOS</title>
+      <link>https://www.chrislockard.net/posts/more-notes-compiling-emacs-macos/</link>
+      <pubDate>Tue, 12 Nov 2019 15:13:21 -0500</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/more-notes-compiling-emacs-macos/</guid>
+      <description>Compiling emacs on macOS using Homebrew</description>
+    </item>
+    
+    <item>
+      <title>Notes on Compiling Emacs for macOS</title>
+      <link>https://www.chrislockard.net/posts/notes-on-compiling-emacs-for-macos/</link>
+      <pubDate>Tue, 17 Sep 2019 08:02:29 -0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/notes-on-compiling-emacs-for-macos/</guid>
+      <description>My notes on compiling emacs for macOS</description>
+    </item>
+    
+    <item>
+      <title>Spacemacs Cheatsheet</title>
+      <link>https://www.chrislockard.net/posts/spacemacs-cheatsheet/</link>
+      <pubDate>Tue, 16 Apr 2019 15:54:22 -0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/spacemacs-cheatsheet/</guid>
+      <description>My personal spacemacs cheatsheet for daily use.</description>
+    </item>
+    
+    <item>
+      <title>Public Bug Bounty Rules of Engagement</title>
+      <link>https://www.chrislockard.net/posts/public-bug-bounty-rules-of-engagement/</link>
+      <pubDate>Tue, 09 Apr 2019 16:28:38 -0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/public-bug-bounty-rules-of-engagement/</guid>
+      <description>I share my experience and lessons learned from operating a public bug bounty.</description>
+    </item>
+    
+    <item>
+      <title>JavaScript: Methods for sending and receiving network data</title>
+      <link>https://www.chrislockard.net/posts/javascript-network-data/</link>
+      <pubDate>Fri, 15 Feb 2019 10:00:00 -0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/javascript-network-data/</guid>
+      <description>Methods for sending and receiving data across a network with JavaScript</description>
+    </item>
+    
+    <item>
+      <title>Extract files from network capture</title>
+      <link>https://www.chrislockard.net/posts/extract-files-from-network-capture/</link>
+      <pubDate>Thu, 24 Jan 2019 10:00:25 -0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/extract-files-from-network-capture/</guid>
+      <description>Extract files from tcpdump or wireshark captures</description>
+    </item>
+    
+    <item>
+      <title>Decrypting Java TLS to View in Wireshark</title>
+      <link>https://www.chrislockard.net/posts/decrypt-java-tls-view-wireshark/</link>
+      <pubDate>Fri, 26 Oct 2018 10:00:25 -0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/decrypt-java-tls-view-wireshark/</guid>
+      <description>Use this to recover TLS session keys for a java program.</description>
+    </item>
+    
+    <item>
+      <title>Mallory in the Mobile</title>
+      <link>https://www.chrislockard.net/posts/mallory-in-the-mobile/</link>
+      <pubDate>Mon, 15 Oct 2018 12:00:00 -0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/mallory-in-the-mobile/</guid>
+      <description>Use mallory proxy to view non-https encrypted mobile traffic</description>
+    </item>
+    
+    <item>
+      <title>The new face of the security team DoS</title>
+      <link>https://www.chrislockard.net/posts/new-face-of-security-team-dos/</link>
+      <pubDate>Fri, 14 Sep 2018 14:00:42 -0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/new-face-of-security-team-dos/</guid>
+      <description>Nearly a year ago, I wrote about an emerging trend I observed with some of the bounty researchers I was interacting with. This screed can be considered an extension of that article.
+There an emerging trend I&amp;rsquo;m noticing - I&amp;rsquo;ve been receiving more messages like the following:
+ Hey , I found Security Vulnerability in your web application ,which can damage site as well as users too.For security purpose can we report vulnerability here,then will i get bounty bounty reward in PayPal or Bitcoin for Security bug ?</description>
+    </item>
+    
+    <item>
+      <title>Spacemacs Go Layer and Environment Variables on macOS</title>
+      <link>https://www.chrislockard.net/posts/spacemacs-env-go-layer/</link>
+      <pubDate>Mon, 13 Aug 2018 20:53:59 -0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/spacemacs-env-go-layer/</guid>
+      <description>Configuring Spacemacs Go layer and environment variables on macOS</description>
+    </item>
+    
+    <item>
+      <title>Spacemacs Org Mode Introduction</title>
+      <link>https://www.chrislockard.net/posts/spacemacs-org-mode-intro/</link>
+      <pubDate>Mon, 06 Aug 2018 15:32:42 -0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/spacemacs-org-mode-intro/</guid>
+      <description>Update: 2018-08-10 Shortly after writing this post, I switched to Spacemacs develop branch - cd ~/.spacemacs &amp;amp;&amp;amp; git checkout develop This upgraded my Spacemacs to version 0.300@26.1. This had the unexpected side effect of changing several of the key bindings below.
+ Settinm schedules and deadlines - now require a prefix of SPC m d before entering your selection (d for deadlines, s for scheduling) Sparse trees - keybind moved to SPC m s s Archive tree - keybind moved to SPC m s A (I didn&amp;rsquo;t cover this in my original article, but this is how I archive DONE tasks) Show all TODO and deadlines - keybind moved to SPC m s s t and SPC m s s d  Introduction This is a basic overview of org-mode inside of Spacemacs.</description>
+    </item>
+    
+    <item>
+      <title>My Security 101 - 2018 update</title>
+      <link>https://www.chrislockard.net/posts/my-security-101-updated/</link>
+      <pubDate>Thu, 02 Aug 2018 12:00:00 -0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/my-security-101-updated/</guid>
+      <description>In a post from 2015,, I write about some of the &amp;ldquo;Security 101&amp;rdquo; issues I considered to be fundamental.
+Since 2015, I&amp;rsquo;ve been exposed to several environments where I have seen the same basic security fails. In addition to my previous Security 101 items (2FA, avoiding password reuse, using a password manager, being mindful of what gets posted on social media, and inspecting email links) I would like to add the following new items to my &amp;ldquo;Security 101&amp;rdquo;:</description>
+    </item>
+    
+    <item>
+      <title>DevTube</title>
+      <link>https://www.chrislockard.net/posts/devtube/</link>
+      <pubDate>Tue, 10 Jul 2018 12:00:00 -0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/devtube/</guid>
+      <description>I found this DevTube on HackerNews the other day and I want to save it for later.</description>
+    </item>
+    
+    <item>
+      <title>Lisp on MacOS</title>
+      <link>https://www.chrislockard.net/posts/lisp-on-macos/</link>
+      <pubDate>Fri, 06 Jul 2018 12:00:00 -0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/lisp-on-macos/</guid>
+      <description>Towards a working LISP environment on macOS</description>
+    </item>
+    
+    <item>
+      <title>MacOS open source apps</title>
+      <link>https://www.chrislockard.net/posts/macos-open-source-bookmark/</link>
+      <pubDate>Tue, 03 Jul 2018 12:00:00 -0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/macos-open-source-bookmark/</guid>
+      <description>I found this MacOS Open Source apps list on HackerNews the other day and I want to save it for later.</description>
+    </item>
+    
+    <item>
+      <title>Static Analysis with Burp Suite</title>
+      <link>https://www.chrislockard.net/posts/burp-static-analysis/</link>
+      <pubDate>Tue, 10 Apr 2018 12:00:00 -0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/burp-static-analysis/</guid>
+      <description>I&amp;rsquo;m so far behind the times, it&amp;rsquo;s sad. Burp Suite gained the ability to perform static analysis on JavaScript libraries back in 2014. Some sites and authors have already blogged about what their approach is for implementing this.I&amp;rsquo;d like to echo Lukas&amp;rsquo;s method, but with an easier setup.
+Simply navigate to the local directory containing the app and serve it using Python&amp;rsquo;s built-in HTTP server.
+ python2 syntax: python -m SimpleHTTPServer &amp;lt;port&amp;gt; python3 syntax: python3 -m http.</description>
+    </item>
+    
+    <item>
+      <title>Cross-Account file access on AWS S3</title>
+      <link>https://www.chrislockard.net/posts/s3-cross-account-file-access/</link>
+      <pubDate>Fri, 30 Mar 2018 12:00:00 -0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/s3-cross-account-file-access/</guid>
+      <description>The Problem Secure file sharing using AWS S3:
+ I upload a file to an S3 bucket with restricted permissions The client downloads the file and processes it The client uploads the results to the S3 bucket I download the processed file and the transaction is complete  I thought setting the permissions on the bucket would be enough. I was wrong.
+The Setup I use a federated login to AWS and assume a role under a corporate account.</description>
+    </item>
+    
+    <item>
+      <title>Hands on with Brave Browser</title>
+      <link>https://www.chrislockard.net/posts/brave-browser/</link>
+      <pubDate>Tue, 06 Mar 2018 12:00:00 -0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/brave-browser/</guid>
+      <description>Brave, the new Firefox? I&amp;rsquo;ve been using the Brave browser as my full-time web browser for two weeks now, primarily version 0.21.18. It&amp;rsquo;s easy to tell the software is not yet at version 1.0, and although I&amp;rsquo;m not ready for this to replace Vivaldi, I really want it to.
+Brave is fast. Really fast. It has built-in adblocking and anti-fingerprinting technology. Previously, I&amp;rsquo;ve relied on uBlock Origin and Privacy Badger for adblocking and anti-fingerprinting.</description>
+    </item>
+    
+    <item>
+      <title>A Lesson for Bug Bounty Researchers</title>
+      <link>https://www.chrislockard.net/posts/bug-bounty-researchers-doing-it-wrong/</link>
+      <pubDate>Fri, 20 Oct 2017 12:00:00 -0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/bug-bounty-researchers-doing-it-wrong/</guid>
+      <description>I&amp;rsquo;m managing a bug bounty program that has shown tremendous benefit so far. Several findings have been extremely clever, and I&amp;rsquo;ve been fortunate enough to have good interactions with the vulnerability researchers. However, I&amp;rsquo;ve also had a few unsatisfactory interactions with researchers. This post is directed at Bug Bounty researchers that do not have much experience in corporate environments. I think a list of do&amp;rsquo;s and don&amp;rsquo;ts is appropriate for this breakdown.</description>
+    </item>
+    
+    <item>
+      <title>iOS and Android Native Code Protections</title>
+      <link>https://www.chrislockard.net/posts/ios-android-code-protections/</link>
+      <pubDate>Mon, 19 Jun 2017 12:00:00 -0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/ios-android-code-protections/</guid>
+      <description>iOS Secure Boot Chain Each step of the startup process contains components that are cryptographically signed by Apple to ensure integrity and that proceed only after verifying the chain of trust. This includes the bootloaders, kernel, kernel extensions, and baseband firmware. This secure boot chain helps ensure that the lowest levels of software aren’t tampered with.
+When an iOS device is turned on, its application processor immediately executes code from read-only memory known as the Boot ROM.</description>
+    </item>
+    
+    <item>
+      <title>Self Evaluation</title>
+      <link>https://www.chrislockard.net/posts/self-evaluation/</link>
+      <pubDate>Thu, 15 Jun 2017 12:00:00 -0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/self-evaluation/</guid>
+      <description>Recently, work hosted an event designed to bring my team closer together. Using the Surepeople PRISM, we spent the morning discussing our dominant psychological traits and how we can use them to better interact as a team. I thought the exercise was brilliant, and it led me to seek out other tools to broaden my self awareness.
+The first such tool I uncovered was the Johari Window.
+  Johari Window   My ultimate self awareness goal is to shrink the &amp;ldquo;Blind Spot&amp;rdquo; window as much as possible.</description>
+    </item>
+    
+    <item>
+      <title>Metaworking</title>
+      <link>https://www.chrislockard.net/posts/metaworking/</link>
+      <pubDate>Mon, 15 May 2017 12:00:00 -0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/metaworking/</guid>
+      <description>Trello fascinated me upon its release in 2011. I&amp;rsquo;ve written before about my time management (lack of) skills, and Trello appeared to be my solution - it offered a sleek view of all of my outstanding tasks. Try as I might, I could not make Trello work for me. Over and over again, I would fail to use it. I just could not make myself stick with it. There was a captivating quality about Trello, however, because it was constantly mentioned in tweets, blogs, and articles.</description>
+    </item>
+    
+    <item>
+      <title>Password Manager Advice</title>
+      <link>https://www.chrislockard.net/posts/password-manager-advice/</link>
+      <pubDate>Mon, 17 Apr 2017 12:00:00 -0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/password-manager-advice/</guid>
+      <description>A developer at work asked a general question to the group: &amp;ldquo;I&amp;rsquo;m thinking about using either LastPass or 1Password, anything I should know?&amp;rdquo; As the team&amp;rsquo;s newest &amp;ldquo;Security Guy&amp;rdquo;, I answered with this brief response:
+ LastPass is easier to get started with as someone who&amp;rsquo;s never used a password manager before. Their product is seamlessly &amp;gt;integrated into browsers and mobile devices, although it&amp;rsquo;s not the prettiest. LastPass stores your encrypted password vault on their servers.</description>
+    </item>
+    
+    <item>
+      <title>Developing an Application Security Program</title>
+      <link>https://www.chrislockard.net/posts/application-security-program/</link>
+      <pubDate>Tue, 21 Mar 2017 12:00:00 -0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/application-security-program/</guid>
+      <description>Since my last post, I&amp;rsquo;ve left my position with the consultancy. I&amp;rsquo;m now working for a medium-sized corporation in a senior application security role. One of my many tasks is to contribute to the development of an Application Security program. This post will serve as my thoughts on setting up an AppSec Program.
+Measuring current performance The Building Security In Maturity Model (BSIMM) is a study of existing software security initiatives used by 95 companies of varying size across six verticals.</description>
+    </item>
+    
+    <item>
+      <title>Fix AWS SSL Certificate error in Burpsuite</title>
+      <link>https://www.chrislockard.net/posts/fix-aws-ssl-certificate-error-burpsuite/</link>
+      <pubDate>Wed, 11 Jan 2017 12:00:00 -0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/fix-aws-ssl-certificate-error-burpsuite/</guid>
+      <description>This morning, while I was trying to proxy traffic to this site in Burpsuite, I ran across an SSL handshake error. Googling the issue returned this helpful article that got me started on the right path. The crux of the problem was that the JRE didn&amp;rsquo;t have the Java Cryptography Extension (JCE) Unlimited Strength Jurisdiction Policy files installed. However, since this article was published, Portswigger began bundling the JRE with Burpsuite itself.</description>
+    </item>
+    
+    <item>
+      <title>Birthday - Asteroids</title>
+      <link>https://www.chrislockard.net/posts/birthday-asteroids/</link>
+      <pubDate>Wed, 05 Oct 2016 12:00:00 -0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/birthday-asteroids/</guid>
+      <description>Recently, I celebrated a birthday. Typically, this is a joyous time, and I have many things to be grateful for. However, this birthday comes during a difficult year. As my wife and I were discussing this the other day, I realized that life can be a lot like the Atari game &amp;lsquo;Asteroids&amp;rsquo;.
+   Atari Asteroids
+You, as the ship, must be able to re-orient and overcome challenges (blast asteroids) frequently and rapidly.</description>
+    </item>
+    
+    <item>
+      <title>Static Sites in 2016 - Updated</title>
+      <link>https://www.chrislockard.net/posts/static-sites-in-2016-update/</link>
+      <pubDate>Mon, 03 Oct 2016 12:00:00 -0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/static-sites-in-2016-update/</guid>
+      <description>In a previous post I discussed the complicated process of configuring S3 to use Letsencrypt to obtain a TLS certificate. That post served as a reference for me to re-implement Letsencrypt every 90 days. Since then, my 90-day Letsencrypt certificate expired, and I was at a loss for how to re-instate it. Using my own post as a reference didn&amp;rsquo;t help me with the arcane letsencrypt errors I was encountering.</description>
+    </item>
+    
+    <item>
+      <title>API Wordlist</title>
+      <link>https://www.chrislockard.net/project/api-wordlist/</link>
+      <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.chrislockard.net/project/api-wordlist/</guid>
+      <description>Useful for penetration testers to uncover API endpoints</description>
+    </item>
+    
+    <item>
+      <title>The Management Feedback Cycle</title>
+      <link>https://www.chrislockard.net/posts/manager-feedback-cycle/</link>
+      <pubDate>Fri, 15 Apr 2016 12:00:00 -0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/manager-feedback-cycle/</guid>
+      <description>I planned a post covering the Manager Feedback Cycle, but this blog post at Effective Managers covers most of what I was going to communicate.
+One thing I would add to this resource, is that both managers and subordinates should strike a balance in communications frequency:
+ If communications are infrequent, important details can get overlooked, and it becomes harder to resolve conflicts. If communications are too frequent, the subordinate will feel like they&amp;rsquo;re being micro-managed while the manager will feel like the subordinate can&amp;rsquo;t solve problems on their own.</description>
+    </item>
+    
+    <item>
+      <title>Apple VS FBI</title>
+      <link>https://www.chrislockard.net/posts/apple-vs-fbi/</link>
+      <pubDate>Mon, 28 Mar 2016 12:00:00 -0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/apple-vs-fbi/</guid>
+      <description>Apple gets a lot of flak in the InfoSec community, even though it&amp;rsquo;s an open secret that much of the InfoSec community has begun to use Apple products. I myself have been using a Mac laptop for the past ten years because they produced the first laptop I thought was worth spending money on. A lot of money.
+I&amp;rsquo;m a fan of Apple for more than just their products, however. I admire their stance on social issues that I care about.</description>
+    </item>
+    
+    <item>
+      <title>Static Sites in 2016</title>
+      <link>https://www.chrislockard.net/posts/static-sites-in-2016/</link>
+      <pubDate>Fri, 25 Mar 2016 12:00:00 -0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/static-sites-in-2016/</guid>
+      <description>It&amp;rsquo;s early 2016, and there are a multitude of content management systems and blog platforms out there:
+ Wikipedia&amp;rsquo;s List of Content Management Systems  The security blog I contribute to, Penetrate.IO runs on the venerable Wordpress and requires constant updates to stay one step ahead of attackers. This becomes tiresome after a while, especially since the only thing I&amp;rsquo;m interested in hosting is a series of articles. These don&amp;rsquo;t require server-side computation, simply hosting.</description>
+    </item>
+    
+    <item>
+      <title>Configure an Upstream Proxy for Burpsuite</title>
+      <link>https://www.chrislockard.net/posts/configure-upstream-proxy-burpsuite/</link>
+      <pubDate>Thu, 05 Nov 2015 12:00:00 -0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/configure-upstream-proxy-burpsuite/</guid>
+      <description>I had the need to proxy traffic from Burpsuite to another proxy during web app testing this week. There are a few ways to do this, but this method was the easiest since I already had Burpsuite&amp;rsquo;s TLS certificate installed. For more information on this, see the Burpsuite help. To configure an upstream proxy for Burpsuite, such as OWASP ZAP, follow these steps:
+First, configure your upstream proxy that will sit between Burpsuite and the web application to listen on a different port since they both bind TCP 8080 by default.</description>
+    </item>
+    
+    <item>
+      <title>Make a connection</title>
+      <link>https://www.chrislockard.net/posts/make-a-connection/</link>
+      <pubDate>Fri, 18 Sep 2015 12:00:00 -0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/make-a-connection/</guid>
+      <description>This post was inspired by a client who came to me and said &amp;ldquo;I do not understand all of these findings, can you explain them to me?&amp;rdquo;, referring to my web application penetration test deliverable. We spoke for an hour, as I described the findings to him. I corrected him when his understanding was shaky, and I confirmed where his understanding was solid. He had a development background, and was studying for a security certification, but he was managing a large security project for a well-known company and I was surprised to learn he was a security newbie.</description>
+    </item>
+    
+    <item>
+      <title>My Security 101</title>
+      <link>https://www.chrislockard.net/posts/my-security-101/</link>
+      <pubDate>Tue, 20 Jan 2015 12:00:00 -0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/my-security-101/</guid>
+      <description>What I hope are some reasonable basic security practice recommendations</description>
+    </item>
+    
+    <item>
+      <title>RubberDucky Powershell Payload</title>
+      <link>https://www.chrislockard.net/posts/rubber-ducky-powershell-payload/</link>
+      <pubDate>Mon, 22 Dec 2014 12:00:00 -0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/rubber-ducky-powershell-payload/</guid>
+      <description>On a recent engagement I supported the lead by developing a PowerShell payload for a RubberDucky. The gist is that it will run a handful of standard Windows commands and then e-mail the results to a specified address. It proved to be very helpful and I&amp;rsquo;ve included it below with comments:
+	# Set execution policy to allow unrestricted script scope Set-ExecutionPolicy &#39;Unrestricted&#39; -Scope CurrentUser -Confirm:$false #Create results file in current user&#39;s temp directory $results = $env:temp + &#39;\results.</description>
+    </item>
+    
+    <item>
+      <title>PHP, MySql, and Injection</title>
+      <link>https://www.chrislockard.net/posts/php-mysql-injection/</link>
+      <pubDate>Wed, 26 Nov 2014 12:00:00 -0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/php-mysql-injection/</guid>
+      <description>Inspired by Jack Daniel&amp;rsquo;s &amp;ldquo;Shoulders of InfoSec Project&amp;rdquo;, this post will be focused on the people and technologies behind one of the most prevalent attacks on web sites: SQL injection.
+According to OWASP, injection is the number one attack vector for web applications. Injection attacks can target many different contexts in a web application: HTML, PHP, ASP, Javascript, SQL, etc. Any context in which an interpreter parses input to execute instructions is potentially vulnerable to an injection attack.</description>
+    </item>
+    
+    <item>
+      <title>URL Encoding</title>
+      <link>https://www.chrislockard.net/posts/url-encoding/</link>
+      <pubDate>Mon, 06 Oct 2014 12:00:00 -0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/url-encoding/</guid>
+      <description>URL Syntax https://admin:pass123@www.example.com:80/bio.txt;pp=1&amp;amp;qp=2#Three
+   URL Part URL Data     Scheme https   User admin   Password pass123   Subdomain www   Domain example.com   Port 80   Path /bio.txt   Path Parameter pp=1   Query Parameter qp=2   Fragment Three    Safe Characters RFC1738 section 2.2 outlines the safe characters to use in an HTTP URL Scheme:</description>
+    </item>
+    
+    <item>
+      <title>DerbyCon 4.0</title>
+      <link>https://www.chrislockard.net/posts/derbycon-4/</link>
+      <pubDate>Wed, 01 Oct 2014 12:00:00 -0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/derbycon-4/</guid>
+      <description>Unfortunately, I didn&amp;rsquo;t arrive at the ballroom early enough to get seats, or even standing room, to see this talk in-person:
+Ed Skoudis: How To Give The Best Pen Test Of Your Life
+If you&amp;rsquo;re a Pen Tester, this talk is a must-see. Once you&amp;rsquo;ve finished that talk, check out John Strand&amp;rsquo;s excellent follow-up talk!
+After competing for Friday night, most of Saturday, and Sunday morning, I emerged as the 30th position (solo) out of the 120 teams competing in the CTF.</description>
+    </item>
+    
+    <item>
+      <title>Local File Inclusion Mini-list</title>
+      <link>https://www.chrislockard.net/posts/local-file-inclusion-mini-list/</link>
+      <pubDate>Thu, 25 Sep 2014 12:00:00 -0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/local-file-inclusion-mini-list/</guid>
+      <description>A mini-list reference for interesting LFI targets</description>
+    </item>
+    
+    <item>
+      <title>NetBIOS Name Spoofing and SMB</title>
+      <link>https://www.chrislockard.net/posts/netbios-name-spoofing-and-smb/</link>
+      <pubDate>Thu, 05 Jun 2014 12:00:00 -0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/netbios-name-spoofing-and-smb/</guid>
+      <description>NBNS still works!</description>
+    </item>
+    
+    <item>
+      <title>How to create a Metasploit module</title>
+      <link>https://www.chrislockard.net/posts/how-to-create-a-metasploit-module/</link>
+      <pubDate>Fri, 13 Dec 2013 12:00:00 -0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/how-to-create-a-metasploit-module/</guid>
+      <description>Learn how to create a metasploit module</description>
+    </item>
+    
+    <item>
+      <title>Professional Organization Habits</title>
+      <link>https://www.chrislockard.net/posts/professional-organization-habits/</link>
+      <pubDate>Fri, 06 Dec 2013 12:00:00 -0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/professional-organization-habits/</guid>
+      <description>This is a topic I&amp;rsquo;ve had a love/hate relationship with my entire life. I was once forced to go to a time management workshop on Saturdays in high school. My friend and I spent more time talking to the girls in front of us than actually listening to what the lecturer was saying, so I wonder if I missed out on something there&amp;hellip; I still struggle with time management and focusing on one task at a time until completion.</description>
+    </item>
+    
+    <item>
+      <title>DNS Recon</title>
+      <link>https://www.chrislockard.net/posts/dns-recon/</link>
+      <pubDate>Fri, 22 Nov 2013 12:00:00 -0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/dns-recon/</guid>
+      <description>Introductory methods for DNS reconnaissance.</description>
+    </item>
+    
+    <item>
+      <title>BSides DC 2013</title>
+      <link>https://www.chrislockard.net/posts/bsides-dc-2013/</link>
+      <pubDate>Mon, 21 Oct 2013 12:00:00 -0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/bsides-dc-2013/</guid>
+      <description>Notes from BSides DC 2013</description>
+    </item>
+    
+    <item>
+      <title>Subdomain Enumeration</title>
+      <link>https://www.chrislockard.net/posts/subdomain-enumeration/</link>
+      <pubDate>Mon, 07 Oct 2013 12:00:00 -0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/subdomain-enumeration/</guid>
+      <description>Techniques for performing subdomain enumeration information gathering.</description>
+    </item>
+    
+    <item>
+      <title>Configure Your Environment</title>
+      <link>https://www.chrislockard.net/posts/configure-your-environment/</link>
+      <pubDate>Tue, 01 Oct 2013 12:00:00 -0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/configure-your-environment/</guid>
+      <description>Customize your working environment to your liking</description>
+    </item>
+    
+    <item>
+      <title>Reverse shell methods</title>
+      <link>https://www.chrislockard.net/posts/reverse-shell-methods/</link>
+      <pubDate>Mon, 30 Sep 2013 12:00:00 -0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/reverse-shell-methods/</guid>
+      <description>Methods for obtaining reverse shells</description>
+    </item>
+    
+    <item>
+      <title>OSX Terminal - List Processes</title>
+      <link>https://www.chrislockard.net/posts/osx-terminal-list-processes/</link>
+      <pubDate>Sat, 23 Jun 2012 12:00:00 -0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/osx-terminal-list-processes/</guid>
+      <description>An exploration of the ps command</description>
+    </item>
+    
+    <item>
+      <title>Federal conference takeaways</title>
+      <link>https://www.chrislockard.net/posts/federal-conference-takeaways/</link>
+      <pubDate>Tue, 12 Jun 2012 12:00:00 -0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/federal-conference-takeaways/</guid>
+      <description>Tips picked up from a red/blue infosec conference</description>
+    </item>
+    
+    <item>
+      <title>Powershell Environment Variables</title>
+      <link>https://www.chrislockard.net/posts/powershell-environment-variables/</link>
+      <pubDate>Tue, 13 Mar 2012 12:00:00 -0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/powershell-environment-variables/</guid>
+      <description>How to determine Powershell environment variables</description>
+    </item>
+    
+  </channel>
+</rss>

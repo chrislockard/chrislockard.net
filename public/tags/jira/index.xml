@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>jira on Unl0ckd</title>
+    <link>https://www.chrislockard.net/tags/jira/</link>
+    <description>Recent content in jira on Unl0ckd</description>
+    <image>
+      <url>https://www.chrislockard.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://www.chrislockard.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 15 May 2017 12:00:00 -0400</lastBuildDate><atom:link href="https://www.chrislockard.net/tags/jira/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Metaworking</title>
+      <link>https://www.chrislockard.net/posts/metaworking/</link>
+      <pubDate>Mon, 15 May 2017 12:00:00 -0400</pubDate>
+      
+      <guid>https://www.chrislockard.net/posts/metaworking/</guid>
+      <description>Trello fascinated me upon its release in 2011. I&amp;rsquo;ve written before about my time management (lack of) skills, and Trello appeared to be my solution - it offered a sleek view of all of my outstanding tasks. Try as I might, I could not make Trello work for me. Over and over again, I would fail to use it. I just could not make myself stick with it. There was a captivating quality about Trello, however, because it was constantly mentioned in tweets, blogs, and articles.</description>
+    </item>
+    
+  </channel>
+</rss>
