@@ -68,6 +68,8 @@ params:
           url: "https://github.com/chrislockard"
         - name: matrix
           url: "https://matrix.to/#/@unl0ckd:matrix.org"
+        - name: email
+          url: "mailto:blog@chrislockard.net"
 
     cover:
         hidden: true # hide everywhere but not in structured data
