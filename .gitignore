@@ -1,5 +1,6 @@
 .vscode
 deploy.sh
+deploy.ps1
 .hugo_build
 .hugo_build.lock
 public/
