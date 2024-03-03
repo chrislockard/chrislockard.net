@@ -14,8 +14,8 @@ tags:
 summary: "Compiling emacs on macOS using Homebrew"
 ---
 
-My [last post]({{< relref
- "/content/post/2019/09/17/notes-on-compiling-emacs-for-macos.md">}}) covered how to manually
+My [last post]({{ relref
+ "/content/2019-09-17-notes-on-compiling-emacs-for-macos.md"}}) covered how to manually
 compile Emacs on macOS. This process has worked well for me, except that
 I lacked the capability to automatically update my Emacs distribution.
 

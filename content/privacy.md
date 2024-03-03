@@ -29,8 +29,8 @@ this isn't the case, please contact me and let me know!
 
 **cloudflare.com**  
 **2020-04-16 Update** 
-See [Site Update: CloudFlare]({{< relref
-"/content/post/2020/04/16/update-cloudflare-s3.md">}}) This site's theme loads a syntax
+See [Site Update: CloudFlare]({{ relref
+"/content/2020-04-16-update-cloudflare-s3.md"}}) This site's theme loads a syntax
 highlighting javascript library, highlight.js,
 from cloudflare's CDN.
 

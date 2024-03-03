@@ -33,9 +33,9 @@ image:
 projects: []
 ---
 
-The [fresh new look]({{< relref "/content/post/2020/08/31/a-fresh-look.md" >}})
+The [fresh new look]({{ relref "/content/2020-08-31-a-fresh-look.md" }})
 of this site is provided by the [Academic Hugo Theme][theme]. [Because I value
-your privacy]({{< relref "/content/privacy.md" >}}) just as I value my own, I
+your privacy]({{ relref "/content/privacy.md" }}) just as I value my own, I
 needed to modify this theme to not make use of [Google Web Fonts][gwf] because
 use of this [service enables][gwf-tracking] Google to further [track
 users][gwf-tracking2].

@@ -10,7 +10,7 @@ tags:
 summary: "I share my experience and lessons learned from operating a public bug bounty."
 ---
 
-[I wrote some time ago,]({{< relref "/content/post/2017/10/20/lesson-for-bug-bounty-researchers.md" >}}) about my thoughts on
+[I wrote some time ago,]({{ relref "/content/2017-10-20-lesson-for-bug-bounty-researchers.md" }}) about my thoughts on
 managing a bug bounty program. It's been nearly two years, and I've gone through
 the pain of taking a bug bounty public, so I wanted to jot down some thoughts on
 what maturing the bug bounty program looks like and some notes for security

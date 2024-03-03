@@ -15,7 +15,7 @@ tags:
 summary: "Help protect APIGW from attackers with AWS WAF"
 ---
 
-Unlike my [last post]({{< relref "/content/post/2020/01/30/aws-cloudtrail.md" >}}), this post will be a discussion of a design
+Unlike my [last post]({{ relref "/content/2020-01-30-aws-cloudtrail.md" }}), this post will be a discussion of a design
 pattern and a reference implementation of
 sorts for protecting AWS [API Gateway](https://aws.amazon.com/api-gateway/) with
 [AWS WAF](https://aws.amazon.com/waf/) using AWS managed [Web

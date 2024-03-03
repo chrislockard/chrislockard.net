@@ -9,7 +9,7 @@ tags:
 - static site
 ---
 
-In a [previous post]({{< relref "/content/post/2016/03/25/static-sites-2016.md" >}}) I
+In a [previous post]({{ relref "/content/2016-03-25-static-sites-2016.md" }}) I
 discussed the complicated process of configuring S3 to use Letsencrypt to obtain
 a TLS certificate. That post served as a reference for me to re-implement
 Letsencrypt every 90 days. Since then, my 90-day Letsencrypt certificate

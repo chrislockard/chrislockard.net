@@ -34,8 +34,8 @@ image:
 projects: ["aws-secops"]
 ---
 
-[A while back]({{< relref
-"/content/post/2020/04/17/til-cloudflare-s3-security.md">}}) I described how I
+[A while back]({{ relref
+"/content/2020-04-17-til-cloudflare-s3-security.md"}}) I described how I
 secured the origin (AWS S3) of this website via bucket access policy and how
 this mitigated the four threats I was concerned with. It's bothering me that I
 don't have the content encrypted between AWS and Cloudflare, so this post sets
@@ -64,7 +64,7 @@ CloudFlare).
 
 # Enter CloudFront
 
-[Back in 2016]({{< relref "/content/post/2016/10/03/static-sites-2016-update.md" >}})
+[Back in 2016]({{ relref "/content/2016-10-03-static-sites-2016-update.md"}})
 I wrote about deploying this blog via CloudFront. I had just discovered the
 awesome [AWS Certificate Manager][awsacm] and today this will
 be making a return along with CloudFront to ensure that this blog is delivered

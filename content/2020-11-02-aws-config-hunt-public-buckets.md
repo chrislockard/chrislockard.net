@@ -38,8 +38,8 @@ projects: []
 In this post, I want to cover an approach for using Config to rapidly identify
 world-readable S3 Buckets.
 
-[Some time ago]({{< relref
-"/content/post/2020/08/12/find-resources-with-aws-config.md">}}), I wrote about
+[Some time ago]({{ relref
+"/content/2020-08-12-find-resources-with-aws-config.md"}}), I wrote about
 using [AWS Config][config] to find resources across a large environment. Config's greatest
 strength, in my experience, is rapidly identifying the account owning an
 offending resource. In an organization containing over 200 accounts, it's not
@@ -76,8 +76,8 @@ As of the initial writing (2020-11-02), there is no bucket property that defines
 whether a bucket is public. Until such a property is available, this is a good
 start.
 
-This query, along with others I regularly use, can be found in my [aws-secops]({{< ref
-"/content/project/aws-secops/index.md">}}) collection. If you find it useful or
+This query, along with others I regularly use, can be found in my [aws-secops]({{ ref
+"/content/project/aws-secops/index.md" }}) collection. If you find it useful or
 have suggestions, please drop me a line!
 
 # Bonus for Security Hub Users

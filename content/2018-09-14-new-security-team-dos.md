@@ -11,8 +11,8 @@ tags:
 - dos
 ---
 
-[Nearly a year ago,]({{< relref
-"/content/post/2017/10/20/lesson-for-bug-bounty-researchers.md" >}}) I wrote about an
+[Nearly a year ago,]({{ relref
+"/content/2017-10-20-lesson-for-bug-bounty-researchers.md" }}) I wrote about an
 emerging trend I observed with some of the bounty researchers I was interacting
 with. This screed can be considered an extension of that article.
 

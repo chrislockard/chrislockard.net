@@ -11,7 +11,7 @@ tags:
 ---
 
 [Trello][Trello] fascinated me upon its release in 2011. I've [written
-before]({{< relref "/content/post/2013/12/06/professional-organization-habits.md" >}}) about
+before]({{ relref "/content/2013-12-06-professional-organization-habits.md" }}) about
 my time management (lack of) skills, and Trello appeared to be my solution - it
 offered a sleek view of all of my outstanding tasks. Try as I might, I could not
 make Trello work for me. Over and over again, I would fail to use it. I just

@@ -14,7 +14,7 @@ tags:
 summary: "AWS CloudWatch enables monitoring and alerting on cloud events."
 ---
 
-In [my post]({{< relref "/content/post/2020/01/30/aws-cloudtrail.md">}}) on CloudTrail, I
+In [my post]({{ relref "/content/2020-01-30-aws-cloudtrail.md" }}) on CloudTrail, I
 described how that service underpins other AWS security offerings. Although not
 explicitly marketed as a security service, [AWS
 CloudWatch](https://docs.aws.amazon.com/cloudwatch/?id=docs_gateway) is a
