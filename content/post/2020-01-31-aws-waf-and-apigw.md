@@ -15,10 +15,11 @@ tags:
 summary: "Help protect APIGW from attackers with AWS WAF"
 ---
 
-Unlike my [last post]({{ relref "/content/2020-01-30-aws-cloudtrail.md" }}), this post will be a discussion of a design
-pattern and a reference implementation of
-sorts for protecting AWS [API Gateway](https://aws.amazon.com/api-gateway/) with
-[AWS WAF](https://aws.amazon.com/waf/) using AWS managed [Web
+Unlike my [last post]({{% relref "/post/2020-01-30-aws-cloudtrail.md" %}})
+, this post will be a discussion of a design pattern and a reference
+implementation of sorts for protecting AWS [API
+Gateway](https://aws.amazon.com/api-gateway/) with [AWS
+WAF](https://aws.amazon.com/waf/) using AWS managed [Web
 ACLs](https://docs.aws.amazon.com/waf/latest/developerguide/web-acl.html).
 
 > Does it seem like I just threw a word salad at you? It seems like that to me,

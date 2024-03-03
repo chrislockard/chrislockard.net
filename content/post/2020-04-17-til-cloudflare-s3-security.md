@@ -15,7 +15,7 @@ summary: "This post covers how to secure an S3 bucket serving content through Cl
 
 # The Setup
 
-[In my last post]({{ relref "/content/2020-04-16-update-cloudflare-s3.md" }}), I
+[In my last post]({{% relref "/post/2020-04-16-update-cloudflare-s3.md" %}}), I
 detailed my move to [CloudFlare](https://www.cloudflare.com/). CloudFlare took
 the place of CloudFront and Route53 in my previous configuration:
 

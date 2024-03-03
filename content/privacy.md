@@ -29,8 +29,8 @@ this isn't the case, please contact me and let me know!
 
 **cloudflare.com**  
 **2020-04-16 Update** 
-See [Site Update: CloudFlare]({{ relref
-"/content/2020-04-16-update-cloudflare-s3.md"}}) This site's theme loads a syntax
+See [Site Update: CloudFlare]({{ ref
+"/content/post/2020-04-16-update-cloudflare-s3.md" }}) This site's theme loads a syntax
 highlighting javascript library, highlight.js,
 from cloudflare's CDN.
 
@@ -53,7 +53,7 @@ sorry that I contributed to their data hoovering, even if it was for a small
 number of users.
 
 If you find this site useful, I'd really appreciate a message on
-[Mastodon!](https://fosstodon.org/@unl0ckd) If you're feeling extra generous, I'm a
+[X (nee Twitter)](https://twitter.com/unl0ckd) If you're feeling extra generous, I'm a
 [Brave Verified Creator](https://creators.brave.com/) and users of the excellent
 [Brave Browser](https://creators.brave.com/) can send a small tip via the URL
 bar.

@@ -38,8 +38,8 @@ projects: []
 In this post, I want to cover an approach for using Config to rapidly identify
 world-readable S3 Buckets.
 
-[Some time ago]({{ relref
-"/content/2020-08-12-find-resources-with-aws-config.md"}}), I wrote about
+[Some time ago]({{% relref
+"/post/2020-08-12-find-resources-with-aws-config.md" %}}), I wrote about
 using [AWS Config][config] to find resources across a large environment. Config's greatest
 strength, in my experience, is rapidly identifying the account owning an
 offending resource. In an organization containing over 200 accounts, it's not

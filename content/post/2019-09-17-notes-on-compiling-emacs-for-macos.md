@@ -14,10 +14,10 @@ summary: "My notes on compiling emacs for macOS"
 
 # Background
 
-[*Skip to the notes on compiling Emacs*]({{ relref "#compiling-emacs" }})
+[*Skip to the notes on compiling Emacs*]({{% relref "#compiling-emacs" %}})
 
-Since my [last post]({{ relref
- "/content/2019-04-16-spacemacs-cheatsheet.md" }}),
+Since my [last post]({{% relref
+ "/post/2019-04-16-spacemacs-cheatsheet.md" %}}),
 I've abandoned spacemacs in favor of building my own Emacs
 environment. I've done this so that I can better learn how Emacs works
 and to, hopefully, become passably proficient with [emacs

@@ -8,7 +8,7 @@ tags:
 - infosec
 ---
 
-In a [post from 2015,]({{ relref "/content/2015-01-20-my-security-101.md" }}), I write
+In a [post from 2015,]({{% relref "/post/2015-01-20-my-security-101.md" %}}), I write
 about some of the "Security 101" issues I considered to be fundamental.
 
 Since 2015, I've been exposed to several environments where I have seen the same

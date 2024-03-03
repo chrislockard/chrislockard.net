@@ -14,8 +14,8 @@ tags:
 summary: "AWS CloudTrail is the cornerstone of cloud SECOPS"
 ---
 
-Previously, [I alluded to]({{ relref
-"/content/2020-01-17-changing-direction.md"}}) a change in my professional
+Previously, [I alluded to]({{% relref
+"/post/2020-01-17-changing-direction.md" %}}) a change in my professional
 direction.  I'm now focused on managing security operations in the cloud. To
 that end, I'm
 going to write a series of posts on the atomic pieces of what a cloud security

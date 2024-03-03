@@ -4,52 +4,40 @@
     <title>Coding on Unl0ckd</title>
     <link>http://localhost:1313/categories/coding/</link>
     <description>Recent content in Coding on Unl0ckd</description>
-    <image>
-      <title>Unl0ckd</title>
-      <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
-    </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 15 Feb 2019 10:00:00 -0400</lastBuildDate><atom:link href="http://localhost:1313/categories/coding/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 15 Feb 2019 10:00:00 -0400</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/coding/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>JavaScript: Methods for sending and receiving network data</title>
       <link>http://localhost:1313/posts/javascript-network-data/</link>
       <pubDate>Fri, 15 Feb 2019 10:00:00 -0400</pubDate>
-      
       <guid>http://localhost:1313/posts/javascript-network-data/</guid>
       <description>Methods for sending and receiving data across a network with JavaScript</description>
     </item>
-    
     <item>
       <title>DevTube</title>
       <link>http://localhost:1313/posts/devtube/</link>
       <pubDate>Tue, 10 Jul 2018 12:00:00 -0400</pubDate>
-      
       <guid>http://localhost:1313/posts/devtube/</guid>
       <description>I found this DevTube on HackerNews the other day and I want to save it for later.</description>
     </item>
-    
     <item>
       <title>Lisp on MacOS</title>
       <link>http://localhost:1313/posts/lisp-on-macos/</link>
       <pubDate>Fri, 06 Jul 2018 12:00:00 -0400</pubDate>
-      
       <guid>http://localhost:1313/posts/lisp-on-macos/</guid>
       <description>Towards a working LISP environment on macOS</description>
     </item>
-    
     <item>
       <title>URL Encoding</title>
       <link>http://localhost:1313/posts/url-encoding/</link>
       <pubDate>Mon, 06 Oct 2014 12:00:00 -0400</pubDate>
-      
       <guid>http://localhost:1313/posts/url-encoding/</guid>
       <description>URL Syntax https://admin:pass123@www.example.com:80/bio.txt;pp=1&amp;amp;qp=2#Three
 URL Part URL Data Scheme https User admin Password pass123 Subdomain www Domain example.com Port 80 Path /bio.txt Path Parameter pp=1 Query Parameter qp=2 Fragment Three Safe Characters RFC1738 section 2.2 outlines the safe characters to use in an HTTP URL Scheme:
 abcdefghijklmnopqrstuvwxyz0123456789$-_.+!*&#39;(),
 Safe characters can be used in URLs without any form of encoding as they aren&amp;rsquo;t reserved for special use in the construction of the URL.</description>
     </item>
-    
   </channel>
 </rss>
