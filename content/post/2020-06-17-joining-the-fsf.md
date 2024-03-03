@@ -24,8 +24,10 @@ today I finally decided to uphold financially as well.
 If you are in the financial position to do so, I recommend you join the FSF as
 an associate and support them in their mission as well!
 
+{{< rawhtml >}}
 	<div align="center">
 		<a href="https://my.fsf.org/join?referrer=4933437">
 			<img src="/images/fsf.png" alt="Join the FSF today!" />
 		</a>
 	</div>
+{{< /rawhtml >}}
