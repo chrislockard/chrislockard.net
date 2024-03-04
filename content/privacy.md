@@ -29,8 +29,8 @@ this isn't the case, please contact me and let me know!
 
 **cloudflare.com**  
 **2020-04-16 Update** 
-See [Site Update: CloudFlare]({{ ref
-"/content/post/2020-04-16-update-cloudflare-s3.md" }}) This site's theme loads a syntax
+See [Site Update: CloudFlare]({{% relref
+"/post/2020-04-16-update-cloudflare-s3.md" %}}) This site's theme loads a syntax
 highlighting javascript library, highlight.js,
 from cloudflare's CDN.
 
@@ -52,15 +52,8 @@ I have removed Google Analytics from this site. This was a long time coming. I'm
 sorry that I contributed to their data hoovering, even if it was for a small
 number of users.
 
-If you find this site useful, I'd really appreciate a message on
-[X (nee Twitter)](https://twitter.com/unl0ckd) If you're feeling extra generous, I'm a
-[Brave Verified Creator](https://creators.brave.com/) and users of the excellent
-[Brave Browser](https://creators.brave.com/) can send a small tip via the URL
-bar.
+Being hosted at Cloudflare, this site now uses [Cloudflare's
+Analytics](https://www.cloudflare.com/web-analytics/). 
 
-**use.fontawesome.com**
-The theme this site uses calls out to use.fontawesome.com to provide glyphs. I
-do not know what tracking this site performs, so configure
-[uMatrix](https://github.com/gorhill/uMatrix) or [uBlock
-Origin](https://github.com/gorhill/uBlock) to block requests to this domain. The
-usability of this site shouldn't significantly impacted.
+If you find this site useful, I'd really appreciate a message on
+[X (Twitter)](https://twitter.com/unl0ckd) 

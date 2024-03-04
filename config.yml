@@ -1,8 +1,7 @@
 baseURL: "https://www.chrislockard.net/"
 title: Unl0ckd
-paginate: 15
+paginate: 20
 theme: PaperMod
-
 enableRobotsTXT: true
 buildDrafts: false
 buildFuture: false
@@ -15,15 +14,16 @@ minify:
 params:
     env: production # to enable google analytics, opengraph, twitter-cards and schema.
     title: Unl0ckd
-    description: "Fighting Totalitarianism"
-    keywords: [Blog, Portfolio, PaperMod, Privacy, InfoSec, Liberty]
-    author: Me
+    description: "The intersection of Faith, Liberty, Security, Privacy, Technology, and Family"
+    keywords: [Blog, Portfolio, Faith, Privacy, Security, Cyber, CyberSecurity, Family, Liberty]
+    author: Chris
     # author: ["Me", "You"] # multiple authors
-    images: ["<link or path of image for opengraph, twitter-cards>"]
+    # images: ["<link or path of image for opengraph, twitter-cards>"]
     DateFormat: "January 2, 2006"
-    defaultTheme: auto # dark, light
+    defaultTheme: dark # dark, light
     disableThemeToggle: false
-
+    #relativeURLs: true
+    #canonifyURLs: true
     ShowReadingTime: true
     ShowShareButtons: true
     ShowPostNavLinks: true
@@ -48,14 +48,14 @@ params:
         safari_pinned_tab: "favicon-32x32.png"
 
     label:
-        text: "Home"
+        text: "Unl0ckd"
         icon: /apple-touch-icon.png
         iconHeight: 35
 
     # home-info mode
     homeInfoParams:
-        Title: "Hi there \U0001F44B"
-        Content: Welcome to my blog
+        Title: "Unl0ckd \U0001F44B"
+        Content: "The intersection of Faith, Liberty, Security, Privacy, Technology, and Family"
 
     socialIcons:
         - name: twitter
@@ -79,7 +79,7 @@ params:
     editPost:
         URL: "https://github.com/chrislockard/chrislockard.net"
         Text: "Suggest Changes" # edit text
-        appendFilePath: false # to append file path to Edit link
+        appendFilePath: true # to append file path to Edit link
 
     # for search
     # https://fusejs.io/api/options.html
@@ -105,6 +105,10 @@ menu:
           name: posts
           url: /post/
           weight: 30
+        - identifier: privacy
+          name: privacy
+          url: /privacy
+          weight: 40
 # Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
 # pygmentsUseClasses: true
 # markup:
