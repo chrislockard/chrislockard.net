@@ -1,6 +1,7 @@
 ---
 title: "On Software Predictability"
 date: 2024-03-03T18:00:00-05:00
+url: "/posts/on-software-predictability"
 # weight: 1
 # aliases: ["/first"]
 categories:
