@@ -34,6 +34,6 @@ No: `[Nearly a year ago,]({{< relref
 "/content/post/2017-10-20-lesson-for-bug-bounty-researchers.md" >}})`
 
 Yes: `[Nearly a year ago,]({{% relref
-"/content/post/2017-10-20-lesson-for-bug-bounty-researchers.md" %}})`
+"/post/2017-10-20-lesson-for-bug-bounty-researchers.md" %}})`
 
 For more, see [the Hugo shortcode reference](https://gohugo.io/content-management/shortcodes/)

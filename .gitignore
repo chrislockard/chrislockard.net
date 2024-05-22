@@ -6,3 +6,4 @@ deploy.ps1
 public/*
 .gitmodules
 public/
+themes/PaperMod
