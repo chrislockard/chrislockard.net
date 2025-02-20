@@ -60,30 +60,13 @@ params:
     favicon32x32: "favicon-32x32.png"
     apple_touch_icon: "apple-touch-icon.png"
     safari_pinned_tab: "favicon-32x32.png"
-
-  label:
-    text: "Unl0ckd"
-    icon: /apple-touch-icon.png
-    iconHeight: 35
-
-  # home-info mode
-  homeInfoParams:
-    Title: "Unl0ckd \U0001F44B"
-    Content: "The intersection of Faith, Liberty, Security, Privacy, Technology, and Family"
-
-  socialIcons:
-    - name: twitter
-      url: "https://twitter.com/unl0ckd"
-    - name: mastodon
-      url: "https://fosstodon.org/web/@unl0ckd"
-    - name: stackoverflow
-      url: "https://stackoverflow.com/users/15501625/unl0ckd"
-    - name: github
-      url: "https://github.com/chrislockard"
-    - name: matrix
-      url: "https://matrix.to/#/@unl0ckd:matrix.org"
-    - name: email
-      url: "mailto:blog@chrislockard.net"
+  social:
+    twitter: "https://twitter.com/unl0ckd"
+    mastodon: "https://fosstodon.org/web/@unl0ckd"
+    stackoverflow: "https://stackoverflow.com/users/15501625/unl0ckd"
+    github: "https://github.com/chrislockard"
+    matrix: "https://matrix.to/#/@unl0ckd:matrix.org"
+    email: "mailto:blog@chrislockard.net"
 
   cover:
     hidden: true # hide everywhere but not in structured data
