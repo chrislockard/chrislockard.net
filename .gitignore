@@ -3,7 +3,7 @@ deploy.sh
 deploy.ps1
 .hugo_build
 .hugo_build.lock
-public/*
 .gitmodules
 public/
+resources/
 themes/PaperMod

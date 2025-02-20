@@ -49,7 +49,7 @@ params:
   showtoc: true
   tocopen: true
   editPost:
-    URL: "https://github.com/chrislockard/chrislockard.net/tree/master/content"
+    URL: "https://github.com/chrislockard/chrislockard.net"
     Text: "Suggest Changes" # edit text
     appendFilePath: true # to append file path to Edit link
   assets:
