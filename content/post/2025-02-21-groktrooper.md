@@ -54,8 +54,6 @@ You can play it at the bottom of the post, the controls are as follows:
 
 Yes, the game is a little rough around the edges, but it's still fun to play and the whole experience took around three minutes.
 
-This idea came to me through the following X post:
-
-{{< x user="AlexFinnX" id="1892324611175424077" >}}
+This idea came to me through [this X post](https://x.com/AlexFinnX/status/1892324611175424077)
 
 The future is arriving fast, and it's exciting to see how technology will continue to shape our world. It's also important to remember that technology can be used for good or evil, and it's up to us to ensure that it's used in a responsible and ethical manner.
