@@ -17,7 +17,7 @@ TocOpen: false
 draft: false
 hidemeta: false
 comments: false
-description: "Grok3 is here and it's amazing. I used it to recreate a favorite game of mine from the 1980s, \"Paratrooper\"."
+description: "Grok3 is here and it's amazing."
 #canonicalURL: "https://canonical.url/to/page"
 disableHLJS: true # to disable highlightjs
 disableShare: false
@@ -41,8 +41,8 @@ editPost:
     Text: "Suggest Changes" # edit text
     appendFilePath: true # to append file path to Edit link
 ---
-</style>
-Grok3 is here and it's amazing. I used it to recreate a favorite game of mine from the 1980s, "Paratrooper".
+Grok3 is here and it's amazing. I used it to recreate a favorite game of mine
+from the 1980s, "Paratrooper".
 
 You can play it at the bottom of the post, the controls are as follows:
 - Left arrow key: Move left
@@ -52,8 +52,27 @@ You can play it at the bottom of the post, the controls are as follows:
 
 {{< paragame >}}
 
-Yes, the game is a little rough around the edges, but it's still fun to play and the whole experience took around three minutes.
+Yes, the game is a little rough around the edges, but it's still fun to play and
+the whole experience took around three minutes.
 
-This idea came to me through [this X post](https://x.com/AlexFinnX/status/1892324611175424077)
+My first prompt was to Grok3 DeepSearch:
 
-The future is arriving fast, and it's exciting to see how technology will continue to shape our world. It's also important to remember that technology can be used for good or evil, and it's up to us to ensure that it's used in a responsible and ethical manner.
+```
+Write a p5js implementation of the BASIC game Paratrooper (sometimes called
+paratrooper.bas or para.bas). It must be extremely polished, and I want you to
+build all the sprites and assets yourself. I don't want to import any assets
+```
+
+I followed this prompt up with a Think Prompt:
+
+```
+Now create a code block with the entire correct code please
+```
+
+[This X
+post](https://x.com/AlexFinnX/status/1892324611175424077) inspired me to try this for myself.
+
+The future is arriving fast, and it's exciting to see how technology will
+continue to shape our world. It's also important to remember that technology can
+be used for good or evil, and it's up to us to ensure that it's used in a
+responsible and ethical manner.
