@@ -72,6 +72,8 @@ Now create a code block with the entire correct code please
 [This X
 post](https://x.com/AlexFinnX/status/1892324611175424077) inspired me to try this for myself.
 
+{{< x user="AlexFinnX" id="1892324611175424077" >}}
+
 The future is arriving fast, and it's exciting to see how technology will
 continue to shape our world. It's also important to remember that technology can
 be used for good or evil, and it's up to us to ensure that it's used in a
