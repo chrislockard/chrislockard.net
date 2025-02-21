@@ -1,6 +1,7 @@
 ---
 title: "Set Cloudflare HTTP Headers in Hugo"
 date: 2025-02-19T12:00:00-05:00
+url: "/posts/set-cloudflare-http-headers-in-hugo"
 # weight: 1
 # aliases: ["/first"]
 categories:

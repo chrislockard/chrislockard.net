@@ -1,6 +1,7 @@
 ---
 title: "Goodbye, Evernote"
 date: 2025-02-14T12:00:00-05:00
+url: "/posts/goodbye-evernote"
 # weight: 1
 # aliases: ["/first"]
 categories:
