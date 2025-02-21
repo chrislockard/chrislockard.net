@@ -31,8 +31,8 @@ params:
   # author: ["Me", "You"] # multiple authors
   # images: ["<link or path of image for opengraph, twitter-cards>"]
   DateFormat: "January 2, 2006"
-  defaultTheme: dark # dark, light, auto
-  disableThemeToggle: true
+  defaultTheme: auto # dark, light, auto
+  disableThemeToggle: false
   #relativeURLs: true
   #canonifyURLs: true
   ShowReadingTime: true
@@ -48,10 +48,10 @@ params:
   hideSummary: false
   showtoc: true
   tocopen: true
-  editPost:
-    URL: "https://github.com/chrislockard/chrislockard.net"
-    Text: "Suggest Changes" # edit text
-    appendFilePath: true # to append file path to Edit link
+  #editPost:
+  #  URL: "https://github.com/chrislockard/chrislockard.net"
+  #  Text: "Suggest Changes" # edit text
+  #  appendFilePath: true # to append file path to Edit link
   assets:
     # disableHLJS: true # to disable highlight.js
     # disableFingerprinting: true
