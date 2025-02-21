@@ -48,6 +48,7 @@ You can play it at the bottom of the post, the controls are as follows:
 - Left arrow key: Move left
 - Right arrow key: Move right
 - "z" key: shoot
+- "r" key: restart
 
 {{< paragame >}}
 
