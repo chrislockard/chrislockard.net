@@ -36,10 +36,6 @@ cover:
     caption: "<text>" # display caption under cover
     relative: false # when using page bundles set this to true
     hidden: true # only hide on current single page
-editPost:
-    URL: "https://github.com/chrislockard/chrislockard.net"
-    Text: "Suggest Changes" # edit text
-    appendFilePath: true # to append file path to Edit link
 ---
 In a [previous post]({{% relref "/post/2020-10-09-security-headers-cloudflare-workers.md" %}}) I wrote about how to set Cloudflare HTTP headers using Cloudflare Workers. In this post, I'll show you how to do the same thing using Hugo.
 

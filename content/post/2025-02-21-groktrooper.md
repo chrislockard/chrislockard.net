@@ -36,10 +36,6 @@ cover:
     caption: "<text>" # display caption under cover
     relative: false # when using page bundles set this to true
     hidden: true # only hide on current single page
-editPost:
-    URL: "https://github.com/chrislockard/chrislockard.net"
-    Text: "Suggest Changes" # edit text
-    appendFilePath: true # to append file path to Edit link
 ---
 Grok3 is here and it's amazing. I used it to recreate a favorite game of mine
 from the 1980s, "Paratrooper".
