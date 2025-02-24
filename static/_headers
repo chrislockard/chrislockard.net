@@ -3,6 +3,6 @@
   X-Frame-Options: deny
   Referrer-Policy: no-referrer
   Permissions-Policy: geolocation=(), microphone=(), payment=(), midi=(), sync-xhr=(), camera=(), magnetometer=(), gyroscope=()
-  Content-Security-Policy: default-src 'none'; manifest-src 'self'; font-src 'self'; img-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; form-action 'none'; frame-ancestors 'none'; base-uri 'none'; connect-src 'self'
+  Content-Security-Policy: default-src 'none'; font-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; form-action 'self'; frame-ancestors 'none'; base-uri 'none'; connect-src 'self'
   X-XSS-Protection: 1; mode=block
   Strict-Transport-Security: max-age=300
