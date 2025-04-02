@@ -35,8 +35,14 @@ cover:
     relative: false # when using page bundles set this to true
     hidden: true # only hide on current single page
 ---
-After 13 years, I deleted my Evernote account. I wish them well in rebuilding their business, because the company I work for is treading similar ground.
+After 13 years, I deleted my Evernote account. I wish them well in rebuilding
+their business, because the company I work for is treading similar ground.
 
-It's funny because I think our companies suffered from the same decline: market creation, overlong self-congratulation, lag in response to competition pivoting to novel and compelling features.
+It's funny because I think our companies suffered from the same decline: market
+creation, overlong self-congratulation, lag in response to competition pivoting
+to novel and compelling features.
 
-The difference between Evernote and the company I work for is they seem keen to raise prices on existing consumers instead of chasing growth with a lower barrier to entry. I'm not sure how well that's going to work for them, but I'll be cheering them on from the sidelines.
+The difference between Evernote and the company I work for is they seem keen to
+raise prices on existing consumers instead of chasing growth with a lower
+barrier to entry. I'm not sure how well that's going to work for them, but I'll
+be cheering them on from the sidelines.
