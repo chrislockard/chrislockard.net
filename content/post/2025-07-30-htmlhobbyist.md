@@ -1,6 +1,6 @@
 ---
 title: "HTML Hobbyist"
-date: 2025-07-30T15:00:00-05:00
+date: 2025-07-30T12:00:00-05:00
 categories:
 - technology
 tags:
