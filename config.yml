@@ -92,24 +92,28 @@ params:
     keys: ["title", "permalink", "summary", "content"]
 menu:
   main:
+    - identifier: about
+      name: About
+      url: /about
+      weight: 05
     - identifier: categories
-      name: categories
-      url: /categories/
+      name: Categories
+      url: /categories
       weight: 10
     - identifier: tags
-      name: tags
-      url: /tags/
+      name: Tags
+      url: /tags
       weight: 20
     - identifier: posts
-      name: posts
-      url: /post/
+      name: Posts
+      url: /post
       weight: 30
     - identifier: privacy
-      name: privacy
+      name: Privacy
       url: /privacy
       weight: 40
     - identifier: search
-      name: search
+      name: Search
       url: /search
       weight: 50
 # Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
