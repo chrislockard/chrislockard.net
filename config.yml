@@ -51,10 +51,6 @@ params:
   tocopen: true
   ignoreLogs:
     - warning-goldmark-raw-html
-  #editPost:
-  #  URL: "https://github.com/chrislockard/chrislockard.net"
-  #  Text: "Suggest Changes"
-  #  appendFilePath: true
   assets:
     favicon: "/favicon.ico"
     favicon16x16: "favicon-16x16.png"
@@ -112,13 +108,3 @@ markup:
   goldmark:
     renderer:
       unsafe: true
-# Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
-# pygmentsUseClasses: true
-# markup:
-#     highlight:
-#         # anchorLineNos: true
-#         codeFences: true
-#         guessSyntax: true
-#         lineNos: true
-#         style: monokai
-

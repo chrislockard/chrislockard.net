@@ -1,0 +1,27 @@
+<div id="buttonbox">
+  <a href="https://brainmade.org/" target="_blank" rel="noopener noreferrer">
+    <img src="/images/logos/brainmade-dark.png" alt="Brainmade: Made by a human" loading="lazy"/>
+  </a>
+  <a href="https://www.fsf.org" target="_blank" rel="noopener noreferrer">
+    <img src="/images/logos/fsf.png" alt="Free Software Foundation" style="max-width:88px; height: 31px;" loading="lazy"/>
+  </a>
+</div>
+<style>
+  #buttonbox {
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    line-height: 0;
+    font-size: 0;
+    background: transparent;
+  }
+  #buttonbox > * {
+    margin: 0;
+    padding:10px;
+  }
+  #buttonbox a {
+    box-shadow: none !important; /* Use !important to ensure override */
+  }
+</style>
