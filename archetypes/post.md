@@ -1,6 +1,6 @@
 ---
-title: "My 1st post"
-date: 2024-01-01T12:00:00-05:00
+title: '{{ replace .File.ContentBaseName `-` ` ` | title }}'
+date: '{{ .Date }}'
 # weight: 1
 # aliases: ["/first"]
 categories:
