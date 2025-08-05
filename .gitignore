@@ -7,3 +7,4 @@ deploy.ps1
 public/
 resources/
 themes/PaperMod
+.DS_Store
