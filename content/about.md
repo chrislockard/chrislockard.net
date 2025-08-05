@@ -1,5 +1,6 @@
 ---
 title: About
+url: "/about"
 ShowReadingTime: false
 ShowBreadCrumbs: false
 hidemeta: true
