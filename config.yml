@@ -13,6 +13,13 @@ outputs:
     - HTML
     - JSON
     - RSS
+    - humanstxt
+
+outputFormats:
+  humanstxt:
+    baseName: humans
+    isPlainText: true
+    mediaType: text/plain
 
 minify:
   disableXML: true

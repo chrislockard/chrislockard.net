@@ -1,0 +1,26 @@
+{{ site.BaseURL }}
+/* TEAM */
+
+  Creator: Chris Lockard
+  Site: chrislockard.net
+  Xitter: https://x.com/unl0ckd
+  Fediverse: https://defcon.social/@unl0ckd
+  From: Northern VA, USA
+
+/* THANKS */
+
+  Inspiration: https://indieweb.org/
+  Inspiration: https://shellsharks.com
+  Inspiration: https://humanstxt.org
+  Inspiration: https://backlit.neocities.org/
+  Inspiration: https://aboutideasnow.com/
+
+/* SITE */
+
+  Started: June, 2010
+  Last update: {{ now.Format "2006/01/02" }}
+  Language: en-US
+  Doctype: HTML5
+  Standards: HTML5, CSS3,
+  Hosting: CloudFlare Pages
+  Components: Hugo, PaperMod Theme
