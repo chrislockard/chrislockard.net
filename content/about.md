@@ -24,4 +24,9 @@ Today, this site serves as a marker to show that I existed and that occasionally
 I had something to say. I hope my kids find this useful one day. I hope you find
 it useful, too.
 
+## See Also
+
+* [Ideas](/ideas)
+* [Now](/now)
+
 {{< logo-table >}}
