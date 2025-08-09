@@ -11,7 +11,7 @@ commentable: false
 editable: false
 ---
 {{< figure
-  src="/images/2025-site-logo.png"
+  src="/images/site-logo.png"
   alt="Unl0ckd logo"
   width="200"
   height="200"
