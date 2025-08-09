@@ -10,6 +10,14 @@ showtoc: false
 commentable: false
 editable: false
 ---
+{{< figure
+  src="/images/2025-site-logo.png"
+  alt="Unl0ckd logo"
+  width="200"
+  height="200"
+  caption="I lay open locked hearts"
+>}}
+
 This site is a personal project of mine. I've always enjoyed writing and
 sharing.
 
@@ -30,5 +38,4 @@ it useful, too.
 
 * [Ideas](/ideas)
 * [Now](/now)
-
-{{< logo-table >}}
+* [Links](/links)

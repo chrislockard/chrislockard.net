@@ -1,0 +1,13 @@
+{{ $src := .Get "src" }}
+{{ $alt := .Get "alt" }}
+
+<style>
+.center {
+  text-align: center;
+}
+</style>
+
+<div class="center">
+  <img src="{{ $src }}" alt="{{ $alt }}" style="max-width: 100%; height: auto;
+    display: inline-block;" />
+</div>
