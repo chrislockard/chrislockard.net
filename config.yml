@@ -59,11 +59,11 @@ params:
   ignoreLogs:
     - warning-goldmark-raw-html
   assets:
-    favicon: "/favicon.ico"
-    favicon16x16: "favicon-16x16.png"
-    favicon32x32: "favicon-32x32.png"
-    apple_touch_icon: "apple-touch-icon.png"
-    safari_pinned_tab: "favicon-32x32.png"
+    favicon: "/images/icons/favicon.ico"
+    favicon16x16: "/images/icons/favicon-16x16.png"
+    favicon32x32: "/images/icons/favicon-32x32.png"
+    apple_touch_icon: "/images/icons/apple-touch-icon.png"
+    safari_pinned_tab: "/images/icons/favicon-32x32.png"
   social:
     twitter: "https://twitter.com/unl0ckd"
     mastodon: "https://fosstodon.org/web/@unl0ckd"
@@ -94,18 +94,22 @@ menu:
       name: Categories
       url: /categories
       weight: 10
+    - identifier: links
+      name: Links
+      url: /links
+      weight: 20
     - identifier: archive
       name: Archive
       url: /archive
-      weight: 20
+      weight: 30
     - identifier: privacy
       name: Privacy
       url: /privacy
-      weight: 30
+      weight: 40
     - identifier: search
       name: Search
       url: /search
-      weight: 40
+      weight: 50
 
 markup:
   goldmark:
