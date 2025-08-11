@@ -11,10 +11,11 @@ commentable: false
 editable: false
 ---
 {{< figure
-  src="/images/site-logo.png"
+  src="/images/site-icon.png"
   alt="Unl0ckd logo"
-  width="200"
-  height="200"
+  align=center
+  width="512"
+  height="512"
   caption="I lay open locked hearts"
 >}}
 
