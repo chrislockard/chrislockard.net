@@ -22,5 +22,5 @@
   Language: en-US
   Doctype: HTML5
   Standards: HTML5, CSS3,
-  Hosting: CloudFlare Pages
-  Components: Hugo, PaperMod Theme
+  Hosting: Cloudflare Pages
+  Components: Hugo, PaperMod Theme, Ghostty, neovim, lazyvim
