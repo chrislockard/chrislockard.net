@@ -85,18 +85,18 @@ visit are](https://www.chrislockard.net/posts/blacklight-privacy-tool/). And so
 I think about how to share my thoughts and ideas online in a way that doesn't
 harm the people consuming them.
 
-For instance, since this site is hosted on [CloudFlare
+For instance, since this site is hosted on [Cloudflare
 Pages](https://pages.cloudflare.com/), I know that a sizeable portion of any
 privacy-minded audience I have will be upset by this.  However, the ease of use
 and protection this service provides me drives how often I
 produce content here. My workflow is simple: I write and edit a post in
 Markdown, commit it to [this site's GitHub
-repository](https://github.com/chrislockard/chrislockard.net), and CloudFlare
+repository](https://github.com/chrislockard/chrislockard.net), and Cloudflare
 Pages builds and deploys it automatically. This is a great balance of simplicity
 and efficiency that allows me to focus on my writing and not infrastructure.
 
-Additionally, CloudFlare provides security for my readers and this site.
-CloudFlare encrypts all communications between the reader's browser and the
+Additionally, Cloudflare provides security for my readers and this site.
+Cloudflare encrypts all communications between the reader's browser and the
 Pages server hosting this content. Increasingly important, CloudFlare also
 provides gratis [AI Bot Scraping
 protection](https://developers.cloudflare.com/bots/concepts/bot/#ai-bots). I
@@ -111,7 +111,7 @@ users would still be vulnerable to traffic snooping my hosting provider might
 do. Or, *if I was malicious*, I could directly track my readers' behavior myself
 with server-side logging they were oblivious to.
 
-What is scarier: the prospect of trusting CloudFlare not to to snoop on you or
+What is scarier: the prospect of trusting Cloudflare not to to snoop on you or
 the prospect of trusting a small-time content producer not to snoop on you?  
 
 ## A Conclusion? I'm not sure
