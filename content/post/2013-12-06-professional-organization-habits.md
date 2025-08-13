@@ -3,7 +3,7 @@ title: "Professional Organization Habits"
 date: "2013-12-06T12:00:00-04:00"
 url: "/posts/professional-organization-habits"
 categories:
-- efficiency-organization
+- Content
 tags:
 - notes
 - organization
@@ -39,7 +39,7 @@ This makes it simple to back up or copy a notebook to another system as you can
 use a one-liner similar to
 
 ```bash
-$ rsync -av --progress ~/[notebook]/ backup@offsite:/backups/
+rsync -av --progress ~/[notebook]/ backup@offsite:/backups/
 ```
 
 By default, KeepNote will auto-save your notebook every ten seconds, which has

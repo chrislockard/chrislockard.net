@@ -3,7 +3,7 @@ title: "Spacemacs Org Mode Introduction"
 date: 2018-08-06T15:32:42-04:00
 url: "/posts/spacemacs-org-mode-intro"
 categories:
-- efficiency-organization
+- Content
 tags:
 - organization
 ---
@@ -43,7 +43,7 @@ keychord in muscle memory after minimal exposure. I decided I liked using
 vim-style keybindings more than Emacs, so I quickly discovered
 [Spacemacs](http://spacemacs.org/). Now, not only do I need to understand how
 Emacs works, I need to learn the discrepancies introduced by the extensive
-customization added by Spacemacs. 
+customization added by Spacemacs.
 
 One thing Spacemacs does extremely well is offer discoverability of features
 using the Spacebar leader key. This allows me to easily explore major modes of
@@ -51,7 +51,7 @@ Emacs effectively. Which leads me to the reason for this post:
 [org-mode](https://orgmode.org/) in Spacemacs!
 
 Org-mode can use any number of nested tasks, and you can break a task down into
-smaller and smaller tasks however you prefer using this method. 
+smaller and smaller tasks however you prefer using this method.
 
 ```org
 * This is a top-level task, such as a project
@@ -74,7 +74,7 @@ org-mode found at [A Baby Steps Guide to Managing Your Tasks with
 Org](http://emacslife.com/baby-steps-org.html). [There are also quality guides
 on org-mode's website.](https://orgmode.org/#docs). Particularly [this
 introductory tutorial](https://orgmode.org/worg/org-tutorials/org4beginners.html
-"org-mode introduction") I *highly* recommend reviewing these guides!
+"org-mode introduction") I _highly_ recommend reviewing these guides!
 
 However, these guides are _org-mode_ specific, not _org-mode-in-spacemacs_
 specific, so I'd like to address some of the common functionality I've embraced

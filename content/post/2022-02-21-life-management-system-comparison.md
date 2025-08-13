@@ -5,7 +5,7 @@ summary: "I describe how Pillars, Pipelines, and Vaults is the best Life Managem
 url: "/posts/life-management-system-comparison-ppv-vs-para-notion-vs-evernote"
 authors: []
 categories:
-- efficiency-organization
+- Content
 tags:
 - notion
 - ppv
@@ -27,17 +27,17 @@ nearly 10 years ago, I’ve tried many workflows and tools that promised increas
 efficiency, organization, motivation, time management, knowledge management, or
 some combination of the above. A non-exhaustive list includes:
 
-- [Evernote](https://evernote.com) 
-- [Trello](https://trello.com) 
+- [Evernote](https://evernote.com)
+- [Trello](https://trello.com)
 - [Org-mode](https://orgmode.org/)
-- [Org-roam](https://www.orgroam.com/) 
-- [Obsidian](https://obsidian.md/) 
+- [Org-roam](https://www.orgroam.com/)
+- [Obsidian](https://obsidian.md/)
 - [Zettelkasten](https://zettelkasten.de/posts/overview/)
 - [PARA](https://fortelabs.co/blog/para/)
 
 Disheartened, I resigned myself to the fate of cobbling together one or more of
 these tools into a workable system, never fully trusting that it was serving me
-the way I needed it to. 
+the way I needed it to.
 
 But then something amazing happened! I discovered [August
 Bradley](https://www.youtube.com/channel/UCfqj2oq6LVmR3ybC2nfjqKg) and his
@@ -118,7 +118,7 @@ effort I’ve put into it. The systems I previously tried increased their value
 over time, but not as quickly as I was happy with. In some cases, the rate of
 return was abysmal: my experience with Org-roam was that I spent days of my life
 configuring and using this system only to fight with it constantly for little
-tangible return. 
+tangible return.
 
 # PPV - A Life Management Quantum Leap
 
@@ -169,20 +169,20 @@ super power during weekly team meetings, project stand-ups, and one-on-ones.
 The true value of August Bradley’s PPV is that it’s a component of a larger
 system. In fact, Bradley discusses Systems Thinking extensively, with the [third
 video in the PPV series](https://www.youtube.com/watch?v=3AKHjwvEufg) being
-dedicated to this concept. 
+dedicated to this concept.
 
 Perhaps the most significant property of the PPV system is that it fosters
 emergence - the quality of systems becoming greater than the sum of their parts.
 Emergence is what Zettelkasten is known for and aspires to. My experience with
 Zettelkasten is that emergence is the only killer feature of the system. In PPV,
-it’s one of many features. 
+it’s one of many features.
 
 ## Comprehensiveness and Adaptability
 
 I stated above that I wanted one solution for several problem domains: life
 management and organization, task tracking, knowledge management, goal setting,
 motivation assistance, mind expansion, learning assistance, and others not yet
-identified. 
+identified.
 
 PPV not only meets this criteria, but it exceeds. In fact, due to the way Notion
 databases inter-relate, I’m not sure it’s technically possible for any other
@@ -214,7 +214,7 @@ is the best method I’ve ever seen for goal setting and motivation assistance.
 Even if this was the only feature of PPV, I would still prefer this system over
 others. It is simply that powerful. The Alignment Zone is the crux of all your
 aspirations, goals, projects, and tasks. It is the alignment of all of these
-features that is so essential to PPV. 
+features that is so essential to PPV.
 
 ## Maintenance & Upkeep
 
@@ -254,7 +254,7 @@ page](https://www.notion.so/help/security-and-privacy) that even outlines how to
 opt-out of Notion telemetry. [They’re even SOC2
 compliant](https://www.notion.so/blog/notion-soc-2-compliant).
 
-# Notion isn’t perfect...
+# Notion isn’t perfect
 
 By this point, I’m sure I sound like a shill. Although PPV is the closest to
 perfection in any life management system I’ve ever come, Notion is not without
@@ -279,9 +279,10 @@ clarity of mind I have at the end of each day. My mind can settle down
 and I trust that I’ve captured everything needed to maintain and operate my
 Life.
 
-No other system out there can do that. 
+No other system out there can do that.
 
 # Call to Action
 
 Give August Bradley’s PPV series a go! Watch as he describes Systems Thinking
 concepts and how Notion can apply them.
+

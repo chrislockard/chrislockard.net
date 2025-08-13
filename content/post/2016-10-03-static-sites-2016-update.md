@@ -3,7 +3,7 @@ title: "Static Sites in 2016 - Updated"
 date: "2016-10-03T12:00:00-04:00"
 url: "/posts/static-sites-in-2016-update"
 categories:
-- efficiency-organization
+- Content
 tags:
 - aws
 - static site
@@ -90,6 +90,6 @@ Oh, did I mention it [automatically renews itself][ACM Renewal]? AWSome!
 [ACM User guide][ACM User guide]
 
 [GeekWire]: http://www.geekwire.com/2016/amazon-launches-certificate-manager-offering-free-ssltls-certificates-for-aws-resources/
-[ACM]: https://aws.amazon.com/certificate-manager/ 
-[ACM Renewal]: http://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html 
+[ACM]: https://aws.amazon.com/certificate-manager/
+[ACM Renewal]: http://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html
 [ACM User guide]: http://docs.aws.amazon.com/acm/latest/userguide/acm-overview.html

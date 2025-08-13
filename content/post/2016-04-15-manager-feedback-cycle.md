@@ -3,7 +3,7 @@ title: "The Management Feedback Cycle"
 date: "2016-04-15T12:00:00-04:00"
 url: "/posts/manager-feedback-cycle"
 categories:
-- efficiency-organization
+- Content
 tags:
 - career
 ---

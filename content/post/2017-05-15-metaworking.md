@@ -3,7 +3,7 @@ title: "Metaworking"
 date: "2017-05-15T12:00:00-04:00"
 url: "/posts/metaworking"
 categories:
-- efficiency-organization
+- Content
 tags:
 - kanban
 - trello
@@ -21,7 +21,7 @@ articles. I wanted to make it work for me but it seemed that I just could not.
 
 Fast forward six years, and I'm in a similar situation. This time, instead of
 Trello, I'm using JIRA. Instead of tracking my personal tasks, I'm tracking work
-tasks. 
+tasks.
 
 I've been successfully tracking tasks this way for over a month - far longer
 than any Trello expedition. Upon reflection, this metaworking scheme works for
@@ -38,12 +38,11 @@ Here's the "no shit" realization I had with this new method:
 > large tasks into their constituent parts, making each sub-task appear more
 > easily attainable.
 
-
 Task management 101, right? I was never able to previously grasp and implement
 these two key task management components because I either did not spend enough
 time thinking about the problem (work pays me for time, ergo I am motivated to
 spend the time thinking about this problem), or I did not frame the problem
-properly. 
+properly.
 
 Two simple things: make time to identify the task and break the task down into
 individual units of work.
