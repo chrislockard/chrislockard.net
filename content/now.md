@@ -1,15 +1,16 @@
 ---
 title: "Now"
 url: "/now"
+draft: false
 ShowReadingTime: false
 ShowBreadCrumbs: false
 hidemeta: true
-draft: false
 share: false
 showtoc: false
 commentable: false
 editable: false
 ---
+
 Inspired by [AboutIdeasNow](https://aboutideasnow.com/), and
 [NowNowNow](https://nownownow.com/about), this page lists what I'm working on
 now:
@@ -23,8 +24,13 @@ half
 * Learning more about, and contributing to the [IndieWeb](https://indieweb.org/)
 * Learning [SwiftUI](https://developer.apple.com/swiftui/) from [100 Days of
 SwiftUI](https://www.hackingwithswift.com/100/swiftui/)
+* Continuing to observe and orient myself in the AI space.
 
 ## See Also
 
 * [About](/about)
 * [Ideas](/ideas)
+
+## Last Updated
+
+2025-08-13
