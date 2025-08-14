@@ -1,13 +1,13 @@
 ---
-title: '{{ replace .File.ContentBaseName `-` ` ` | title }}'
-date: '{{ .Date }}'
+title: "{{ replace .File.ContentBaseName `-` ` ` | title }}"
+date: "{{ .Date }}"
 # weight: 1
 # aliases: ["/first"]
 categories:
-- PKM
+- Category
 tags:
-- first
-- second
+- tag1
+- tag2
 author: "Chris"
 # author: ["Me", "You"] # multiple authors
 showToc: true
