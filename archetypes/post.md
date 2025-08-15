@@ -1,6 +1,7 @@
 ---
 title: "{{ replace .File.ContentBaseName `-` ` ` | title }}"
 date: "{{ .Date }}"
+url: "posts/post-url"
 # weight: 1
 # aliases: ["/first"]
 categories:
