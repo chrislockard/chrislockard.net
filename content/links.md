@@ -51,10 +51,14 @@ Bob Leggitt's acerbic and prescient privacy and technology blog.
 
 [https://backlit.neocities.org/](https://backlit.neocities.org/)
 
+## Pluralistic
+
+Cory Doctorow occasionally has good things to say.
+
+[https://pluralistic.net/](https://pluralistic.net/)
+
 ## See Also
 
 * [About](/about)
 * [Ideas](/ideas)
 * [Now](/now)
-
-{{< logo-table >}}

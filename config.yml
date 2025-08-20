@@ -95,6 +95,10 @@ menu:
       name: Categories
       url: /categories
       weight: 10
+    - identifier: tags
+      name: Tags
+      url: /tags
+      weight: 15
     - identifier: links
       name: Links
       url: /links
@@ -107,6 +111,10 @@ menu:
       name: Privacy
       url: /privacy
       weight: 40
+    - identifier: now
+      name: Now
+      url: /now
+      weight: 45
     - identifier: search
       name: Search
       url: /search

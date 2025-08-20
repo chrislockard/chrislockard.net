@@ -61,3 +61,5 @@ otherwise not used AI to generate content on this site.
 * [Ideas](/ideas)
 * [Now](/now)
 * [Links](/links)
+
+{{< logo-table >}}
