@@ -80,8 +80,8 @@ On the face of it, this seems like a good idea. MPIC requires CAs to perform DCV
 from two or more global vantage points (RIR regions). This should dramatically
 reduce the risk of mis-issuance via BGP attacks. But I wonder how many
 organizations segment access to their apps based on geography that this will
-impact. I wonder how many organizations have had certificates mis-issued due to
-BGP hijacking.
+impact. I *also* wonder how many organizations have had certificates mis-issued
+due to BGP hijacking.
 
 {{< callout type="info" title="A Note on Timing" emoji="ℹ️" >}}
 A particular annoyance I've encountered is the notification messages for these
@@ -96,19 +96,21 @@ change happening soon. Y'know, for security. Please help me make sure we aren't
 going to break anything when this goes live.*"
 {{< /callout >}}
 
-Yes, this will improve the warm fuzzy security feeling we all get at night, but
-how much actual risk is this requirement mitigating? The email notifications
-telling me I have weeks to implement this change make vague and hand-wavey nods
-toward the risks, almost like they are trying to justify a thought exercise. Or
-an [academic theoretical][princeton] (which itself acknowledges "no study has
-yet to measure the effectiveness of these attacks on real-world certificate
+Yes, this will improve the warm fuzzy security feeling we all want at night, but
+how much *actual* risk is this requirement mitigating? The email notifications
+telling me I have weeks to implement this change make vague assertions of the
+risks, almost like they are trying to justify a thought exercise. Or an
+[academic theoretical][princeton] (which itself acknowledges "no study has yet
+to measure the effectiveness of these attacks on real-world certificate
 authorities")
 
-Although certainly not exhaustive, the Wikipedia page on BGP hijacking lists one
-example of a BGP hijack resulting in a mis-issued certificate, and that was for
-a South Korean cryptocurrency company in 2021. Total loss (according to
-Wikipediate): $1.9m USD. Huh. I wonder if industry is going to lose more than
-$1.9m implementing MPIC? 🤔
+Although certainly not exhaustive, the [Wikipedia page on BGP
+hijacking][wikibgp] lists one example of a BGP hijack resulting in a mis-issued
+certificate, and that was for a South Korean cryptocurrency company in 2021.
+Total loss (according to Wikipediate): $1.9m USD.
+
+Huh. I *wonder* if industry is going to lose more than $1.9m implementing MPIC?
+🤔
 
 But the absolute worst change is coming, incrementally, over the next three
 years.
@@ -117,28 +119,30 @@ years.
 
 The most obnoxious change is the ongoing shortening of the certificate
 validation window. Sure, letting certificates stay valid for 825 days was a bit
-much. Okay. I get that. 10 year validation periods? Maybe a little extreme.
+much. Okay. I get that. 10 year validation periods? Totes extreme.
 
 Today, certificates are valid for 397 days or around 13 months. This is actually
 a decent compromise between security and operational overhead, because it
-ensures rotation without adding much friction. The most significant issue is
-when many certificates are grouped together on a single expiration date, but
-that can be managed easily enough with some planning.
+ensures rotation without being too burdensome to schedules and AOP. The most
+significant issue is when many certificates are grouped together on a single
+expiration date, but that can be managed easily enough with some planning.
 
-But  by March 15, 2029, the maximum lifetime for an SSL certificate will be just
+But by March 15, 2029, the maximum lifetime for an SSL certificate will be just
 **[47 days][digicert47days]**.
 
 47 days. *47 days!*
 
+Maybe AI will have made my job redundant by then and this will all be ChatGPT's
+problem. But I doubt it.
+
 I'm sure in the Ivory Tower or the companies with extremely well-funded and
 over-staffed security teams, this is no big deal. "But of course we should do
 this, it's just a little more work for a team of 50 engineers with dedicated
-developers!" I suppose I should be grateful they didn't decide on 47 hours
-instead.  
+developers!" Should I be grateful they didn't decide on 47 hours instead?
 
-I'm grateful for a multi-year ramp-up to this change. But for the rest of us
+I am grateful for a multi-year ramp-up to this change. But for the rest of us
 treading water and trying to make significant incremental change, this does
-nothing but destroy our roadmap for the next several years.
+nothing but dictate our roadmap for the next three years.
 
 ## Money Changes Hands
 
@@ -151,10 +155,12 @@ certificates without manual DNS record updates".
 For a fee, of course. By reaching out to the sales team, of course.
 
 What I'm not sure the CAs are considering is that we will instead move as much
-of our certificate business off of them as possible. For any platforms that
-offer or include certificate management, we will use those. Even if there's
+of our certificate business off of them as possible.
+
+Any platforms that offer or include certificate management bundled with the
+actual services we pay for will win our business by default. Even if there's
 incremental cost for so doing, we will gladly pay the platform to manage
-certificates on our behalf since that frees up several well-paid engineers from
+certificates on our behalf since that frees up several expensive engineers from
 that responsibility.
 
 ## So What?
@@ -176,15 +182,15 @@ problem-free. [Which client][acmeclients] do we use? Which resource-starved team
 will manage the client and the infrastructure it needs? It will need time to
 undergo code review and/or supplier review if it's sold by a company. There will
 be a requirement for secrets management. There will be a need for monitoring and
-alerting. But, it's not as painless as the certificate approval workflow I have
+alerting. It's not as painless as the certificate approval workflow I have
 now.
 
 Are these changes making the Internet more secure? Maybe. Probably. But it's not
 obvious to me that the trade-off is worth it if the work needed to manage
 certificates prevents project work from getting done.
 
-What is obvious to me is that my stakeholders and I are trying as best we can to
-offload certificate management to our vendors and platforms and not to our CA.
+What is obvious to me is that my stakeholders and I are hurrying to offload
+certificate management to our vendors and platforms and not to our CA.
 
 [digicert2021]: https://knowledge.digicert.com/alerts/domain-validation-policy-changes-in-2021
 [digicert47days]: https://www.digicert.com/blog/tls-certificate-lifetimes-will-officially-reduce-to-47-days
@@ -193,3 +199,4 @@ offload certificate management to our vendors and platforms and not to our CA.
 [princeton]: https://www.princeton.edu/~pmittal/publications/bgp-tls-hotpets17
 [acme]: https://en.wikipedia.org/wiki/Automatic_Certificate_Management_Environment
 [acmeclients]: https://letsencrypt.org/docs/client-options/
+[wikibgp]: https://en.wikipedia.org/wiki/BGP_hijacking
