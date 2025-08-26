@@ -107,7 +107,7 @@ authorities")
 Although certainly not exhaustive, the [Wikipedia page on BGP
 hijacking][wikibgp] lists one example of a BGP hijack resulting in a mis-issued
 certificate, and that was for a South Korean cryptocurrency company in 2021.
-Total loss (according to Wikipediate): $1.9m USD.
+Total loss (according to Wikipedia): $1.9m USD.
 
 Huh. I *wonder* if industry is going to lose more than $1.9m implementing MPIC?
 🤔
