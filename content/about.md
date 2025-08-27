@@ -62,4 +62,4 @@ otherwise not used AI to generate content on this site.
 * [Now](/now)
 * [Links](/links)
 
-{{< logo-table >}}
+{{< badge-table >}}

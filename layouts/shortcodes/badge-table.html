@@ -1,0 +1,102 @@
+<div class="badge-table-container">
+  <div id="badgebox"> 
+    <a href="https://brainmade.org/" target="_blank" rel="noopener noreferrer"> 
+      <img 
+        src="/images/badges/brainmade-dark.png"
+        alt="Brainmade: Made by a human"
+        loading="lazy"
+      />
+    </a>
+    <a href="/humans.txt" rel="noopener noreferrer">
+      <img
+        src="/images/badges/human.svg"
+        alt="Check out my humans.txt file"
+        loading="lazy"
+      />
+    </a>
+    <a href="https://www.fsf.org" target="_blank" rel="noopener noreferrer">
+      <img
+        src="/images/badges/fsf.png"
+        alt="Free Software Foundation"
+        style="max-width: 88px; height: 31px"
+        loading="lazy"
+      />
+    </a>
+    <a href="https://www.apple.com" target="_blank" rel="noopener noreferrer">
+      <img
+        src="/images/badges/macmade.gif"
+        alt="Made with Mac"
+        loading="lazy"
+      />
+    </a>
+    <a href="https://linklane.net/" target="_blank" rel="noopener noreferrer">
+      <img
+        src="/images/badges/linklane.gif"
+        alt="Listed at LinkLane"
+        loading="lazy"
+      />
+    </a>
+    <a href="https://wildwild.directory" target="_blank" rel="noopener noreferrer">
+      <img
+        src="/images/badges/wildwildweb.gif"
+        alt="I made this button myself! I know it sucks, but I'm proud of it anyway."
+        loading="lazy"
+      />
+    </a>
+  </div>
+</div>
+<style>
+  .badge-table-container {
+    --primary: transparent;
+    --secondary: transparent;
+    --content: transparent;
+  }
+  .badge-table-container #badgebox {
+    margin-top: 0;
+    margin-bottom: 0;
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    text-align: center;
+    text-decoration: none !important;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    width: 100%;
+    max-width: 100%;
+    justify-content: center;
+    gap: 5px;
+    line-height: 0;
+    font-size: 0;
+    background: transparent;
+  }
+  .badge-table-container #badgebox > * {
+    margin: 0;
+    padding: 0;
+ }
+  .badge-table-container #badgebox a {
+    /* reset any styling inherited from theme */
+    text-decoration: none !important;
+    border: none; 
+    outline: none;
+    background: none;
+    display: inline-block;
+    padding: 0;
+    transition: box-shadow 0.3s ease;
+  }
+  .badge-table-container #badgebox a:hover {
+    box-shadow: 
+      /* 0 0 10px 2px rgba(0, 128, 128, 0.9), /* Teal inner glow */
+      /* 0 0 5px 5px rgba(255, 215, 0, 0.3); /* Gold outer glow */ 
+      0 0 8px 5px rgba(255, 215, 115, 0.6);
+  }
+  .badge-table-container #badgebox img {
+    /* reset any styling inherited from theme */
+    vertical-align: middle;
+    border: none;
+    outline: none;
+    margin: 0;
+    padding: 0;
+    width: auto;
+    height: auto;
+  }
+</style>
