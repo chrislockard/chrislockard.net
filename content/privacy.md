@@ -18,8 +18,15 @@ hidemeta: true
 
 ## TL;DR - I respect your privacy
 
+I don't want to be tracked as I use the Internet and neither should you.
+
 I strive for this site to respect your privacy to the fullest extent possible. I
-collect no personal information about you. I do not use cookies to track you.
+neither collect, store, or process data about individual visitors to this site.
+This site is hosted on Cloudflare Pages and so please review Cloudflare's
+[Privacy Policy](https://www.cloudflare.com/privacypolicy/), especially where
+[End
+Users](https://www.cloudflare.com/privacypolicy/#:~:text=described%20here.-,End%20Users,-Cloudflare%20processes%20End)
+are discussed.
 
 ## More Info
 
@@ -63,3 +70,12 @@ Analytics](https://www.cloudflare.com/web-analytics/).
 
 If you find this site useful, I'd really appreciate a message on
 [X (Twitter)](https://twitter.com/unl0ckd)
+
+## Links
+
+These are a collection of Privacy-related links that I think you should read:
+
+- [Electronic Privcay Information Center](https://epic.org/)
+- [All effd up - Yasha Levine](https://thebaffler.com/salvos/all-effd-up-levine)
+- [Anything by Bob Leggitt](https://popzazzle.blogspot.com/)
+- [Seriously, anything](https://backlit.neocities.org/)

@@ -51,6 +51,13 @@ Bob Leggitt's acerbic and prescient privacy and technology blog.
 
 [https://backlit.neocities.org/](https://backlit.neocities.org/)
 
+## EPIC
+
+The Electronic Privacy Information Center is what many of us thought the EFF
+was.
+
+[https://epic.org/](https://epic.org/)
+
 ## Pluralistic
 
 Cory Doctorow occasionally has good things to say.
