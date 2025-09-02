@@ -98,13 +98,18 @@ to track the things I needed to do. [I've written]({{% relref
 "2013-12-06-professional-organization-habits.md"%}}) here before.
 
 But these systems all have a fatal flaw: they trick you into thinking that
-planning is doing. And it is not. If you're prone to procrastination like I am,
-it's very easy to convince yourself that adjusting the tags on your Obsidian
+planning is doing. Don't fall for it. If you're prone to procrastination like I
+am, it's very easy to convince yourself that adjusting the tags on your Obsidian
 notes is a productive task. "Life happens" quickly to a procrastinator.
 
 ## A Procrastinator's Plea
 
-Do it. F&@*ing do it. Because once you do, you'll get to enjoy the reward
-forever when you change "I never finished that" to "I did it."
+By all means, develop a system for task tracking. In today's world of
+information overload, I would suggest a personal task tracking system is
+essential. But keep it simple. Don't succumb to the desire to "build out a
+system" in place of doing the work the system is supposed to track.
+
+In brief: Do it. F&@*ing do it. Because once you do, you'll get to enjoy the
+reward forever when you change "I never finished that" to "I did it."
 
 [wikiffix]: https://en.wikipedia.org/wiki/Final_Fantasy_IX
