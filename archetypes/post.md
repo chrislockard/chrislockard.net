@@ -2,22 +2,18 @@
 title: "{{ replace .File.ContentBaseName `-` ` ` | title }}"
 date: "{{ .Date }}"
 url: "posts/post-url"
-# weight: 1
-# aliases: ["/first"]
 categories:
 - Category
 tags:
 - tag1
 - tag2
 author: "Chris"
-# author: ["Me", "You"] # multiple authors
 showToc: true
 TocOpen: false
 draft: false
 hidemeta: false
 comments: false
 description: "Desc Text."
-#canonicalURL: "https://canonical.url/to/page"
 disableHLJS: true # to disable highlightjs
 disableShare: false
 disableHLJS: false
