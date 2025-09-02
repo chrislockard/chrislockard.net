@@ -9,7 +9,7 @@ tags:
 - self-awareness
 - procrastination
 author: "Chris"
-showToc: true
+showToc: false
 TocOpen: false
 draft: false
 hidemeta: false
@@ -44,14 +44,16 @@ good to finish this game is because I started it *25 years ago*.
 25 years is a long time. A *very* long time, actually, when one stops to review
 all of the worldly, and personal, events that transpire in that time. What
 nobody told me when I was younger is that 25 years doesn't *feel* like a long
-time. I distinctly remember when I started playing Final Fantasy IX, because it
-was the first disc I put in my (then) brand-new PlayStation 2 console. I was
-beyond ready to enjoy the experience because I had missed out on Final Fantasy
-VII, widely considered one of the best games of that series, and of all time. I
-wasn't going to make the same mistake (waiting for Nintendo to have popular
-third-party titles, a situation that wouldn't be fixed until 17 years later with
-the release of the Switch) so I hooked the PlayStation 2 up to the TV, popped in
-Disc one of Final Fantasy IX and played.
+time.
+
+I distinctly remember when I started playing Final Fantasy IX, because it was
+the first disc I put in my (then) brand-new PlayStation 2 console. I was beyond
+ready to enjoy the experience because I had missed out on Final Fantasy VII,
+widely considered one of the best games of that series, and of all time. I
+wasn't going to make the same mistake twice - waiting for Nintendo to have
+popular third-party titles, a situation that wouldn't be fixed until 17 years
+later with the release of the Switch - so I hooked the PlayStation 2 up to the
+TV, popped in Disc one of Final Fantasy IX and played.
 
 And played. And then at some point, stopped playing. God knows why, but I
 stopped playing the game part-way through, and then disengaged. For a few days
