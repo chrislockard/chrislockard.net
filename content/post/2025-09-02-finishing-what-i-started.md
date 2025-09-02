@@ -53,7 +53,7 @@ widely considered one of the best games of that series, and of all time. I
 wasn't going to make the same mistake twice - waiting for Nintendo to have
 popular third-party titles, a situation that wouldn't be fixed until 17 years
 later with the release of the Switch - so I hooked the PlayStation 2 up to the
-TV, popped in Disc one of Final Fantasy IX and played.
+TV, popped in disc one of Final Fantasy IX and played.
 
 And played. And then at some point, stopped playing. God knows why, but I
 stopped playing the game part-way through, and then disengaged. For a few days
