@@ -25,6 +25,8 @@ half
 * Learning [SwiftUI](https://developer.apple.com/swiftui/) from [100 Days of
 SwiftUI](https://www.hackingwithswift.com/100/swiftui/)
 * Continuing to observe and orient myself in the AI space.
+* Starting a new project at [Get Unlockd](https://getunlockd.org/) to explore
+faith and self-improvement topics.
 
 ## See Also
 
@@ -33,4 +35,4 @@ SwiftUI](https://www.hackingwithswift.com/100/swiftui/)
 
 ## Last Updated
 
-2025-08-13
+2025-09-08
