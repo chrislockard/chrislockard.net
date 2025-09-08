@@ -11,6 +11,13 @@ commentable: false
 editable: false
 ---
 
+## Unlockd
+
+This is a project of mine (taking over the name from this blog) that focuses on
+self-improvement and faith.
+
+[https://getunlockd.org/](https://getunlockd.org/)
+
 ## DHH
 
 David Heinemeier Hansson is the creator of Ruby on Rails and a leading figure in
