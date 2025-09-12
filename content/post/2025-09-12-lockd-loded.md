@@ -41,6 +41,11 @@ when I feel guilty about not reading more.
 Thought**][11]: Great discussion (from 2018!) about overcoming division from
 Georgetown University.
 
+## InfoSec & Privacy
+
+- [**Memory Integrity Enforcement**][12]: Great writeup of a new memory
+protection mechanism coming to iPhone 17.
+
 ## Tech
 
 - [**RSL Standard Licensing for AI-Generated Content**][3]: This is a big deal. I
@@ -82,3 +87,4 @@ never forget the morning of September 11, 2001.
 [9]: https://www.wordonfire.org/articles/read-great-books-but-ditch-the-guilt-trip/#site-content
 [10]: https://www.wired.com/story/perplexity-is-a-bullshit-machine/
 [11]: https://catholicsocialthought.georgetown.edu/events/overcoming-polarization-in-a-divided-nation-through-catholic-social-thought
+[12]: https://security.apple.com/blog/memory-integrity-enforcement/
