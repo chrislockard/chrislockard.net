@@ -6,7 +6,8 @@ categories:
 - Content
 tags:
 - culture
-- tag2
+- faith
+- tech
 author: "Chris"
 showToc: true
 TocOpen: false
