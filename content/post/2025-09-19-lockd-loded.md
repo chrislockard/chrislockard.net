@@ -3,7 +3,7 @@ title: "Lockd & Loded Sept 19 2025"
 date: "2025-09-19T09:23:33-04:00"
 url: "posts/lockd-loded-2025-09-19"
 categories:
-- Category
+- Content
 tags:
 - faith
 - tech
