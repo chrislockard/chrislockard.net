@@ -1,7 +1,7 @@
 ---
 title: "Lockd & Loded (Oct 03 2025)"
 date: "2025-10-03T13:32:18-04:00"
-url: "posts/posts/lockd-loded-2025-10-03"
+url: "posts/lockd-loded-2025-10-03"
 categories:
 - Content
 tags:
