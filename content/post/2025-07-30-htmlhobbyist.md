@@ -16,7 +16,6 @@ comments: false
 description: "Finding HTML Hobbyist on HackerNews today struck a nerve."
 disableHLJS: true # to disable highlightjs
 disableShare: false
-disableHLJS: false
 hideSummary: false
 searchHidden: true
 ShowReadingTime: true

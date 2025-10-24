@@ -17,7 +17,6 @@ comments: false
 description: "On a Mac, these each have their own strengths and weaknesses."
 disableHLJS: true # to disable highlightjs
 disableShare: false
-disableHLJS: false
 hideSummary: false
 searchHidden: false
 ShowReadingTime: true

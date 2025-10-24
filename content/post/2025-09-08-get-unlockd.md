@@ -16,7 +16,6 @@ description: "I've started a new project called 'Get Unlockd' to explore focused
 interests"
 disableHLJS: true # to disable highlightjs
 disableShare: false
-disableHLJS: false
 hideSummary: false
 searchHidden: false
 ShowReadingTime: true

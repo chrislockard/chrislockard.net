@@ -17,7 +17,6 @@ comments: false
 #description: "Link roundup 2025-09-26"
 disableHLJS: true # to disable highlightjs
 disableShare: false
-disableHLJS: false
 hideSummary: false
 searchHidden: false
 ShowReadingTime: true

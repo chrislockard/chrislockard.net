@@ -16,7 +16,6 @@ comments: false
 description: "Balancing user privacy with content creator experience on the modern web is a worthy challenge."
 disableHLJS: true 
 disableShare: false
-disableHLJS: false
 hideSummary: false
 searchHidden: true
 ShowReadingTime: true

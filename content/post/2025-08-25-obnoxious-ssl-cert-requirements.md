@@ -16,7 +16,6 @@ comments: false
 description: "SSL requirements are quickly becoming obnoxious."
 disableHLJS: true # to disable highlightjs
 disableShare: false
-disableHLJS: false
 hideSummary: false
 searchHidden: false
 ShowReadingTime: true

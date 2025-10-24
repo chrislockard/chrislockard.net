@@ -17,7 +17,6 @@ description: "Using LM Studio in Lazyvim isn't as straightforward as Ollama but 
 done!"
 disableHLJS: true # to disable highlightjs
 disableShare: false
-disableHLJS: false
 hideSummary: false
 searchHidden: false
 ShowReadingTime: true

@@ -3,7 +3,6 @@ title: "Joining the FSF"
 date: 2020-06-17T13:13:00-04:00
 draft: false
 url: "posts/joining-the-fsf"
-draft: false
 categories:
 - foss
 tags: 

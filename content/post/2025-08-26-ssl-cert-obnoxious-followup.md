@@ -13,11 +13,8 @@ TocOpen: false
 draft: false
 hidemeta: false
 comments: false
-description: "Followup to my post about SSL certificate requirements becoming
-obnoxious."
-disableHLJS: true # to disable highlightjs
+description: "Followup to my post about SSL certificate requirements becoming obnoxious."
 disableShare: false
-disableHLJS: false
 hideSummary: false
 searchHidden: false
 ShowReadingTime: true
