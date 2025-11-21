@@ -31,6 +31,8 @@ UseHugoToc: true
 - [Why doesn't a jet engine melt?][4] - Super cool (ba-dum-tss) explanation of
 the material science behind jet engines.
 - [The Little Book of C][5] - A great introduction to C programming.
+- [Pointers, visually explained][8] - One of the best explanations of pointers
+I've ever seen.
 - [2025-11-18 CloudFlare Outage Post-Mortem][6] - Interesting read on a recent
 CloudFlare outage. There's been a lot of these recently.
 - [Google Are Killing XSLT][7] - In another blow to web standards, Google is
@@ -50,3 +52,4 @@ tribes and civilizations I've read about.
 [5]: https://github.com/little-book-of/c/blob/main/releases/book.pdf
 [6]: https://blog.cloudflare.com/18-november-2025-outage/
 [7]: https://xslt.rip/
+[8]: https://www.youtube.com/watch?v=ZNjg_7nxsz4&t=112s
