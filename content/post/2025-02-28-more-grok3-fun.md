@@ -5,6 +5,7 @@ url: "/posts/more-grok3-fun"
 categories:
 - ai
 tags:
+- ai
 - grok
 author: "Chris"
 # author: ["Me", "You"] # multiple authors
@@ -104,4 +105,4 @@ and humans interact?
 # Conclusion
 "Digital sidekick vibes" is spot-on. I remain skeptical of generative AI's
 impact on human society, but I've never been more excited to see to what good this
-technology can lead. 
+technology can lead.

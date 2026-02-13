@@ -9,6 +9,7 @@ categories:
 - gaming
 tags:
 - grok
+- ai
 - nostalgia
 author: "Chris"
 # author: ["Me", "You"] # multiple authors
