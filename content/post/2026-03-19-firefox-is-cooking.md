@@ -1,5 +1,5 @@
 ---
-title: "2026 03 19 Firefox Is Cooking"
+title: "Firefox Is Cooking"
 date: "2026-03-19T20:41:41-04:00"
 url: "posts/firefox-is-cooking"
 categories:
