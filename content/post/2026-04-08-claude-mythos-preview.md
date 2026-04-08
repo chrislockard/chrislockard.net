@@ -12,7 +12,7 @@ tags:
 author: "Chris"
 showToc: false
 TocOpen: false
-draft: true
+draft: false
 hidemeta: false
 comments: false
 description: "A preview of Claude Mythos reveals massively increased cyber capabilities."
