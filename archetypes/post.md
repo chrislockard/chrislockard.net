@@ -7,8 +7,8 @@ categories:
 tags:
 - tag1
 - tag2
-author: "Chris"
-showToc: true
+author: ""
+showToc: false
 TocOpen: false
 draft: false
 hidemeta: false
@@ -18,10 +18,10 @@ disableHLJS: true # to disable highlightjs
 disableShare: false
 hideSummary: false
 searchHidden: false
-ShowReadingTime: true
+ShowReadingTime: false
 ShowBreadCrumbs: true
 ShowPostNavLinks: true
-ShowWordCount: true
+ShowWordCount: false
 ShowRssButtonInSectionTermList: true
 UseHugoToc: true
 cover:

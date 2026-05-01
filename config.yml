@@ -39,7 +39,7 @@ params:
     - CyberSecurity
     - Family
     - Liberty
-  author: Chris
+  author:
   DateFormat: "January 2, 2006"
   defaultTheme: auto
   disableThemeToggle: false
