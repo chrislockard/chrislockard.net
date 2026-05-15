@@ -12,7 +12,7 @@ TocOpen: false
 draft: false
 hidemeta: false
 comments: false
-description: "Desc Text."
+description: "Lockd & Loaded 2026-04-24"
 disableHLJS: true # to disable highlightjs
 disableShare: false
 hideSummary: false
