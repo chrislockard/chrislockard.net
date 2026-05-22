@@ -32,6 +32,10 @@ cover:
     hidden: true # only hide on current single page
 ---
 
+**Update:** [My PR][pr] was merged last week! You can now install the theme from within Zed by opening the Extensions and searching for it!
+
+---
+
 Instead of my usual news roundup, today I'd like to share the theme I've been
 working on for a little while.
 
@@ -74,3 +78,4 @@ I hope you enjoy the theme! PRs and comments welcome!
 [Atom]: https://github.com/jesseleite/an-old-hope-syntax-atom
 [Zed]: https://zed.dev
 [Theme]: https://github.com/chrislockard/a-distant-hope-theme
+[pr]: https://github.com/zed-industries/extensions/pull/6147
