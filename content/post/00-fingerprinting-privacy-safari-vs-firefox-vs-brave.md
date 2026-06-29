@@ -46,7 +46,9 @@ maintains a strong [Privacy Policy][Apple Privacy Policy]. As an Apple customer,
 I wanted to apply rigour to these claims instead of blindly trusting
 them.
 
-My last review was focused on "what fingerprinting resistance do Firefox and Brave offer?" This review is focused on "which browsers can reliably prevent me from being re-identified via fingerprinting as I browse the web?"
+My last review was focused on "what fingerprinting resistance do Firefox and
+Brave offer?" This review is focused on "which browsers can reliably prevent me
+from being re-identified via fingerprinting as I browse the web?"
 
 ***Spoiler*: Safari was the only browser able to defeat fingerprint.com's
 re-identification in my everyday browsing configuration!**
@@ -200,14 +202,17 @@ align=center >}}
 
 ## Observations
 
-My testing data is available here. It is from this data that I drew the
-following observations.
+My testing data is available [here][TestData]. It is from this data that I drew
+the following observations.
 
 ### DeviceInfo.me
 
 The same tool I used in my previous post, [DeviceInfo.me][DeviceInfo.me]
 continues to provide robust browser privacy tooling because it identifies
-browser parameters that trackers can use to create a fingerprint. 
+browser parameters that trackers can use to create a fingerprint. In this test,
+I assigned a value of '0' for any accurate browser parameter and '1' for a
+spoofed, blocked, or otherwise unaccurate value. The browsers that score the
+highest will be those that do the best job of spoofing their parameters.
 
 Firefox had the strongest showing in this test because it provided the widest
 range of generic parameters about my computer, edging Brave out over device
@@ -215,30 +220,119 @@ battery status and Safari out over device camera and microphone details.
 
 Brave did the best job at hiding my actual screen size. This fingerprinting
 parameter was more impactful than I expected as we'll see in the CoverYourTracks
-section.
+section next.
 
 ### CoverYourTracks
 
-The CoverYourTracks tool provided by the EFF is one of the most-referenced
-privacy tools online.
+The CoverYourTracks (CYT) tool provided by the EFF is one of the most-referenced
+privacy tools online. CoverYourTracks assigns "entropy bits" based on how
+similar your browser parameters are to the other browsers in their data set. The
+crucial metric in CYT is the "One in *x* browsers" score because it's how
+similar your browser parameter is to *x* other browsers. A lower "One in *x*
+browsers" score represents better Herd Immunity.
 
-### Safari's Screen Size Reporting
-Safari fares well on some tests like CoverYourTracks, but it doesn't seem to
-reliably spoof the screen size. Mine was the only browser in their corpus with a
-screen size of 1246x1500x24. If I remove that outlier, the average "One in *x*
-browsers has this value" score for all of Safari is 10.314. Herd Immunity in
-action!
+I assigned points for each browser parameter based on how small the *x* in "One
+in *x* browsers" score was for each parameter: 3 points if x <= 11, 2 points if
+11 > x < 100, 1 point if 101 > x < 1000, and 0 points if x > 1001.
+
+Brave has a good showing in CYT with the exception of the amount of information
+disclosed about the WebGL renderer & version: it was very precise about the make
+and model of my laptop versus the more generic parameters presented by Firefox
+and Safari.
+
+**Brave's Average Identifying Bits (lower is better):** 3.51
+**Brave's Average "One in *x* Browsers" (lower is better):** 84.53
+**Brave's Average "One in *x* Browsers" without outlier (lower is better):** 43
+
+Firefox has a good showing in CYT as well, with two notable exceptions:
+
+1. The actual size and color depth of my external monitor was reported. I use an
+   ultra-wide Dell with a resolution and depth of 3840x1600x30. I was surprised
+   that Firefox didn't report a generic screen size, as Brave did (Brave rounded
+   my screen size up to 4K - a common size).
+2. My audio context fingerprint was oddly specific. Perhaps this is randomized
+   on a per-session or other periodic basis, but if that were the case, I would
+   expect CYT to detect and report that as it does with Brave and Safari's audio
+   context fingerprints.
+
+**Firefox's Average Identifying Bits (lower is better):** 2.64
+**Firefox's Average "One in *x* Browsers" (lower is better):** 1536.76
+**Firefox's Average "One in *x* Browsers" without outlier (lower is better):** 12.53
+
+Safari has a good showing in CYT and (surprisingly to me) reported that my
+browser was randomized by first-party similar to Brave. However, I had to make a
+very specific change to accomplish this.
+
+{{< callout type="info" title="Safari's Screen Size Reporting" emoji="⚠️" >}}
+
+Using CYT revealed that Safari doesn't spoof my screen size; it reports the
+actual *window* size instead. As I mentioned, I use an ultra-wide with an
+uncommon screen size and color depth. As a result, I configure my windows
+usually in a three-column layout. The middle window is my browser, and since
+Safari reports screen size based on its window size parameter, my Safari window
+was showing up as the only browser in the entire CYT corpus with the unusual
+size of 1246x1500x24.
+
+SO many fingerprinting parameters are defeated by this one crucial outlier!
+
+I removed that outlier by setting Safari's window size manually to 1920x1080. My
+"One in *x* browsers has this value" score went from 1 in ~350k to **1 in
+10.81!** Herd Immunity in action!
+
+You can check Safari's reported window size by pasting this JavaScript snippet
+in Safari's console (right-click > Inspect Element > Console)
+
+```javascript
+console.log(`${window.outerWidth} x ${window.outerHeight}`)
+```
+
+{{< /callout >}}
+
+**Safari's Average Identifying Bits (lower is better):** 2.78
+**Safari's Average "One in *x* Browsers" (lower is better):** 16065.20
+**Safari's Average "One in *x* Browsers" without outlier (lower is better):** 10.31
+
+### Am I Unique?
+
+This tool works similarly to CYT by applying a "similarity ratio" of your
+browser's parameters with those of all browsers that have visited
+amiunique.org/fingerprint. A higher similarity ratio is better for privacy
+because it means you blend in with the herd more.
+
+I assigned points for each browser parameter based on how similar they were to the Am I Unique corpus: 2 points if the similarity ratio was 41% or better, 1 point if the similarity ratio was 11-40%, and 0 points for 0-10%.
+
+### Fingerprint.com
+
+The last test I ran is one I wasn't aware of (or didn't exist) the last time I
+compared browsers - fingerprint.com/demo. This is the only commercial
+fingerprinter I'm aware of with a public demonstration. This is crucial, because
+it is the only real-world test of browser privacy that I know of: the other
+sites included in these tests reveal a lot of information about my browsers'
+parameters, but only fingerprint.com shows me whether these can be combined to
+track me. Fingerprint.com best represents my threat model adversary and shows me how my browsers fare at keeping my browsing private.
+
+I do not want to be re-identified when visiting fingerprint.com/demo on separate occasions. If my fingerprint value is the same across all browsing sessions, that means I have successfully been re-identified!
+
+
 
 ### On Simplicity
-I've been a computer nerd for almost 40 years. I live and breathe obscure configuration settings. But I get it: most people don't. 
+I've been a computer nerd for almost 40 years. I live and breathe obscure
+configuration settings. But I get it: most people don't. 
 
-Therefore, it's important to point out that while all three browsers offer strong privacy protection out-of-the-box, Safari and Brave are better than Firefox from the jump, though Firefox catches up and in many ways surpasses the others when `about:config` tweaks are applied.
+Therefore, it's important to point out that while all three browsers offer
+strong privacy protection out-of-the-box, Safari and Brave are better than
+Firefox from the jump, though Firefox catches up and in many ways surpasses the
+others when `about:config` tweaks are applied.
 
 ## Conclusion
 
-Safari won on my tests that most directly map to the real-world threat of fingerprinting re-identification. That doesn't make it the best browser — that depends on your specific threat model and feature preferences.
+Safari won on my tests that most directly map to the real-world threat of
+fingerprinting re-identification. That doesn't make it the best browser — that
+depends on your specific threat model and feature preferences.
 
-I was surprised by this. I thought Firefox and Brave would have been able to defeat fingerprinting re-identification, but fingerprint.com was able to successfully re-identify them.  
+I was surprised by this. I thought Firefox and Brave would have been able to
+defeat fingerprinting re-identification, but fingerprint.com was able to
+successfully re-identify them. 
 
 In any case, I'm glad there are three great privacy-focused browsers for users. 
 
@@ -299,3 +393,4 @@ In any case, I'm glad there are three great privacy-focused browsers for users.
 [WebKit]: https://github.com/WebKit/WebKit
 [Brave]: https://github.com/brave/brave-core
 [Firefox]: https://github.com/mozilla-firefox/firefox
+[TestData]: https://github.com/chrislockard/
