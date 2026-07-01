@@ -490,8 +490,7 @@ promote it to my daily driver. All three are great choices for the
 privacy-conscious. If Safari isn't an option for you, Firefox and Brave both
 remain excellent. 
 
-I'm glad there are three great privacy-focused browsers available to users.
- [In early 2025, Google – the company behind both the most-used web browser and Earth's largest advertiser network – reversed its ethical stance on fingerprinting.][GoogleTracks]
+I'm glad there are three great privacy-focused browsers available to users, and I hope you are, too.
 
 [^1]: There's quite a few:
 | Property | Value |
