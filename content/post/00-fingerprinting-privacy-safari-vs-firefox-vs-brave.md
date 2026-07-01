@@ -116,14 +116,22 @@ Firefox commands 7.8% of global desktop browser share, Safari 7.2%, and Brave
 Chrome/Chromium and this number is not accurate. These numbers place Firefox and
 Safari users in a much larger "herd" in which they can blend.
 
+### Farbling
+
+Brave introduced (as far as I'm aware) the technique of ["farbling"][Farbling]
+browser parameters to thwart fingerprinters and trackers. Farbling is the name
+the Brave developers gave to their implementation of small, random adjustments
+to Brave browser parameters to confuse fingerprinters. (Side quest: [This is an
+interesting read][Defeat Farbling] on how farbling can be defeated in practice)
+
 ## Test Methodology
 
 Since this isn't an out-of-box test, your results may vary from mine. That's
 fine! I hypothesize the gap between browsers isn't overly affected by my
 personal configurations, because to the best of my knowledge, none of my
-personal configurations disable a meaningful privacy control such as ITP
-(Safari) or Enhanced Tracking Protection (Firefox) that might otherwise be
-enabled.
+personal configurations disable a meaningful privacy control such as Intelligent
+Tracking Protection (ITP, Safari) or Enhanced Tracking Protection (ETP, Firefox)
+that might otherwise be enabled.
 
 **I'm using my three primary web browsers and my daily-browsing configuration for each. As such, Private/Private with Tor Browsing mode is not tested.**
 
@@ -313,11 +321,29 @@ track me. Fingerprint.com best represents my threat model adversary and shows me
 
 I do not want to be re-identified when visiting fingerprint.com/demo on separate occasions. If my fingerprint value is the same across all browsing sessions, that means I have successfully been re-identified!
 
+I tested each browser by performing an initial visit, then clearing history and storage (cookies, etc) and visiting again roughly five minutes later, then clearing history and storage and using private/incognito browsing and visiting roughly ten minutes later. In Safari (because I saw a re-identified session after seeing no re-identificatiaon) I performed a fourth visit after clearing history/storage, restarting the browser, opening a private browsing tab, changing the window size and then waiting 15 minutes.
 
+|Browser|Visit 1|Visit 2 (cleared + restarted)|Visit 3 (cleared + restarted)|Visit 4 (cleared + restarted + private + resized)|
+|-------|---------|---------|---------|---------|
+|Brave|`06EO7vuas...`|`06EO7vuas...`❌|`06EO7vuas...`❌|-|
+|Firefox|`5A002hl0ui...`|`5A002hl0ui...`❌|`5A002hl0ui...`❌|-|
+|Safari|`cFoMGdadm0...`|`7gHhSD3jPK...`✅|`7gHhSD3jPK...`❌|`5pruBi5Nnp...`✅|
+
+Brave and Firefox returned the same Visitor ID across every test after clearing
+history, restarting the browser, and even switching to Firefox's new built-in
+VPN. The tracker's confidence score stayed at 0.98–1.0 throughout. I was
+re-identified every time, regardless of what I did. 
+
+Safari was the only browser where clearing data and restarting produced a new
+Visitor ID. Interestingly, Visits 2 and 3 shared an ID suggesting Safari's
+protection re-randomizes once per browser launch, not on every single page load.
+The cleared history/storage + browser restart + private window + resize in Visit
+4 produced a third, distinct ID. I was only re-identified once by the tracker.
 
 ### On Simplicity
-I've been a computer nerd for almost 40 years. I live and breathe obscure
-configuration settings. But I get it: most people don't. 
+Stepping back from the test data... I've been a computer nerd for almost 40
+years. I live and breathe obscure configuration settings. But I get it: most
+people don't. 
 
 Therefore, it's important to point out that while all three browsers offer
 strong privacy protection out-of-the-box, Safari and Brave are better than
@@ -333,6 +359,27 @@ depends on your specific threat model and feature preferences.
 I was surprised by this. I thought Firefox and Brave would have been able to
 defeat fingerprinting re-identification, but fingerprint.com was able to
 successfully re-identify them. 
+
+What likely drove this is Safari's combination of Herd Immunity with Farbling in
+a kind of "best of both worlds" scenario. Safari's Advanced Fingerprinting
+Protection (AFP) injects noise into canvas, WebGL, and audio APIs specifically
+for scripts Apple has classified as fingerprinters. Fingerprint.com is almost
+certainly on that list. ITP also blocks fingerprint.com from writing persistent
+storage as a fallback. 
+
+Firefox's failure was specific: CoverYourTracks showed my AudioContext
+fingerprint as a stable, unrandomized value, not the "randomized by first-party
+domain" result Brave and Safari showed. uBO blocks known tracking requests, but
+fingerprint.com runs as first-party JavaScript on its own domain — there's no
+request to block.
+
+However, it seems that some of Safari's protections rely upon Apple knowing of,
+and classifying trackers. [This webkit.org announcement][WebKit 26 Privacy]
+discusses Advanced Fingerprinting Protection (AFP) – separate from Advanced
+Tracking and Fingerprinting Protection (ATFP). I don't know how many trackers
+might exist that Apple doesn't know about, or classify as trackers. In these
+situations, Firefox + uBO will offer better privacy protection by not loading
+the tracking domain in the first place!
 
 In any case, I'm glad there are three great privacy-focused browsers for users. 
 
@@ -386,6 +433,7 @@ In any case, I'm glad there are three great privacy-focused browsers for users.
 [Apple Privacy Policy]: https://www.apple.com/legal/privacy/en-ww/
 [DeviceInfo.me]: https://www.deviceinfo.me
 [Farbling]: https://brave.com/privacy-updates/4-fingerprinting-defenses-2.0/
+[Defeat Farbling]: https://dl.acm.org/doi/epdf/10.1145/3696410.3714713
 [Shields]: https://brave.com/shields/
 [ETP]: https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop 
 [uBO]: https://github.com/gorhill/uBlock
@@ -394,3 +442,5 @@ In any case, I'm glad there are three great privacy-focused browsers for users.
 [Brave]: https://github.com/brave/brave-core
 [Firefox]: https://github.com/mozilla-firefox/firefox
 [TestData]: https://github.com/chrislockard/
+[WebKit 26 Privacy]: https://webkit.org/blog/17333/webkit-features-in-safari-26-0/#privacy
+[BillyGrace AFP ATFP]: https://medium.com/billy-grace/safari-on-macos-ios-26-tracking-changes-whats-really-changing-31e2d26cb727
