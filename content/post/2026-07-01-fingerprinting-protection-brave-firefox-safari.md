@@ -82,6 +82,31 @@ Sounds evil, and I generally believe that it is! In fairness, [here's an
 article](https://fingerprint.com/blog/what-is-browser-fingerprinting/) from
 fingerprint.com (an enterprise browser fingerprinting solution used in this
 test) that explains some legitimate uses for websites to fingerprint users.
+
+**Why should I care about being tracked? I'm not doing anything wrong...**
+
+Why does this matter if you're not doing anything wrong? Because as of February
+2025, Google — the company that runs the largest ad network on the internet and
+maintains the most-used web browser (Chrome) — [reversed its own 2019 position
+that fingerprinting "subverts user choice and is wrong," and now permits
+advertisers to use it](https://www.malwarebytes.com/blog/news/2025/02/google-now-allows-digital-fingerprinting-of-its-users). 
+
+Fingerprint tracking is becoming more prevalent as cookie use declines. Unlike
+cookies, browser fingerprints are difficult or impossible to for a user to
+change. The browser you use is one of the only remaining controls you have over
+whether this happens to you.
+
+**But why care about privacy at all?**
+
+I'll quote Shoshana Zuboff's 2020 piece [You Are Now Remotely
+Controlled](https://www.nytimes.com/2020/01/24/opinion/sunday/surveillance-capitalism.html)
+to help answer this:
+
+> The lesson is that *privacy is public* — it is a collective good that is 
+  logically and morally inseparable from the values of human autonomy and
+  self-determination upon which privacy depends and without which a democratic
+  society is unimaginable.
+
 {{< /callout >}}
 
 Specifically, I'm testing whether I can be re-identified across sessions. 
@@ -463,9 +488,10 @@ I started this expecting the ranking to run Firefox > Brave > Safari. Safari's
 showing and ability to defeat a known commercial fingerprinter was enough to
 promote it to my daily driver. All three are great choices for the
 privacy-conscious. If Safari isn't an option for you, Firefox and Brave both
-remain excellent. I'm glad there are three great privacy-focused browsers
-available to users.
+remain excellent. 
 
+I'm glad there are three great privacy-focused browsers available to users.
+ [In early 2025, Google – the company behind both the most-used web browser and Earth's largest advertiser network – reversed its ethical stance on fingerprinting.][GoogleTracks]
 
 [^1]: There's quite a few:
 | Property | Value |
