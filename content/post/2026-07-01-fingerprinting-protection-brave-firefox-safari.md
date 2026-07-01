@@ -1,7 +1,7 @@
 ---
-title: "Fingerprinting Privacy: Brave vs Firefox vs Safari"
-date: "9999-01-01T00:00:01-00:00"
-url: "posts/fingerprinting-privacy-brave-vs-firefox-vs-safari"
+title: "Fingerprinting Protection: Brave vs Firefox vs Safari"
+date: "2026-07-01T12:00:00-04:00"
+url: "posts/fingerprinting-protection-brave-firefox-safari"
 categories:
 - Privacy
 tags:
@@ -11,10 +11,10 @@ tags:
 author: "Chris"
 showToc: false
 TocOpen: false
-draft: true
+draft: false
 hidemeta: false
 comments: false
-description: "How do Brave, Firefox, and Safari fare against fingerprinting?"
+description: "This post explores how Brave, Firefox, and Safari protect users from fingerprinting."
 disableHLJS: true
 disableShare: false
 hideSummary: false
@@ -26,9 +26,9 @@ ShowWordCount: true
 ShowRssButtonInSectionTermList: true
 UseHugoToc: true
 cover:
-    image: "<image path/url>"
-    alt: "<alt text>"
-    caption: "<text>"
+    image: "/images/2026/7-1-banner.jpg"
+    alt: "Oil painting of Brave, Firefox, and Safari browser icons"
+    caption: ""
     relative: false
     hidden: true
 ---
@@ -86,7 +86,7 @@ test) that explains some legitimate uses for websites to fingerprint users.
 
 Specifically, I'm testing whether I can be re-identified across sessions. 
 
-This re-identification is my primary threat model: **I don't want trackers and
+This re-identification is what I threat model: **I don't want trackers and
 fingerprinters to know who I am as I browse the web.** I'm less concerned about
 how sensitive sites like my bank or mortgage lender identify me. In fact, I
 would *prefer* they know that they're serving me and not an impostor. Instead,
@@ -95,14 +95,13 @@ advertisers, data brokers, or other faceless miscreants.
 
 ### Herd Immunity
 
-An important privacy property of a web browser is how well your specific
-instance blends in with the corpus of global users. Trackers and fingerprinters
-want to ID *your* browser as specifically as possible, so the more your
-browser blends in by matching others, the more difficult it is for them to do this.
+An important privacy property when browsing the web is *how well your web browser blends in with every other web browser*. Trackers and fingerprinters
+want to ID *your* browser as specifically as possible, so the more your browser
+blends in by matching others, the more difficult it is for them to do this.
 
 |Blending In|Standing Out|
 |-------|---------|
-|{{< figure src="/images/2026/yes.jpg" align=center >}}|{{< figure src="/images/2026/no.jpg" align=center >}}|
+|{{< figure src="/images/2026/7-1-in.jpg" align=center >}}|{{< figure src="/images/2026/7-1-out.jpg" align=center >}}|
 
 This is why, paradoxically, if you spend too much effort on customization for
 privacy you could make yourself **more** fingerprint-able. 
@@ -133,7 +132,8 @@ personal configurations disable a meaningful privacy control such as Intelligent
 Tracking Protection (ITP, Safari) or Enhanced Tracking Protection (ETP, Firefox)
 that might otherwise be enabled.
 
-**I'm using my three primary web browsers and my daily-browsing configuration for each. As such, Private/Private with Tor Browsing mode is not tested.**
+**I'm using *my* three primary web browsers and my daily-browsing configuration
+for each as described below.**
 
 {{< callout type="info" title="On Open Source" emoji="❓" >}}
 Online privacy discussions typically point to Open Source as a defining privacy
@@ -166,9 +166,9 @@ be saying one thing and doing another?
 
 **Privacy and Advanced Settings:**
 
-{{< figure src="/images/2026/6-9-2.png" caption="Brave Privacy & Security Settings" align=center >}}
+{{< figure src="/images/2026/7-1-2.png" caption="Brave Privacy & Security Settings" align=center >}}
 
-{{< figure src="/images/2026/6-9-2-1.png" caption="Brave Shields Settings" align=center >}}
+{{< figure src="/images/2026/7-1-2-1.png" caption="Brave Shields Settings" align=center >}}
 
 ### Firefox
 
@@ -202,16 +202,17 @@ be saying one thing and doing another?
 
 **Privacy and Advanced Settings:**
 
-{{< figure src="/images/2026/6-9-3.png" caption="Safari Privacy Settings"
+{{< figure src="/images/2026/7-1-3.png" caption="Safari Privacy Settings"
 align=center >}}
 
-{{< figure src="/images/2026/6-9-4.png" caption="Safari Advanced Settings"
+{{< figure src="/images/2026/7-1-4.png" caption="Safari Advanced Settings"
 align=center >}}
 
 ## Observations
 
-My testing data is available [here][TestData]. It is from this data that I drew
-the following observations.
+My testing data is available
+[here](/files/2026-Fingerprinting-Protection-Brave-Firefox-Safari.pdf). It is
+from this data that I drew the following observations.
 
 ### DeviceInfo.me
 
@@ -219,16 +220,24 @@ The same tool I used in my previous post, [DeviceInfo.me][DeviceInfo.me]
 continues to provide robust browser privacy tooling because it identifies
 browser parameters that trackers can use to create a fingerprint. In this test,
 I assigned a value of '0' for any accurate browser parameter and '1' for a
-spoofed, blocked, or otherwise unaccurate value. The browsers that score the
+spoofed, blocked, or otherwise inaccurate value. The browsers that score the
 highest will be those that do the best job of spoofing their parameters.
 
 Firefox had the strongest showing in this test because it provided the widest
 range of generic parameters about my computer, edging Brave out over device
 battery status and Safari out over device camera and microphone details.
 
-Brave did the best job at hiding my actual screen size. This fingerprinting
-parameter was more impactful than I expected as we'll see in the CoverYourTracks
-section next.
+Brave and Safari did the best job at hiding my actual screen size. This
+fingerprinting parameter was more impactful than I expected as we'll see in the
+CoverYourTracks section next.
+
+#### DeviceInfo.me Scores
+
+|Browser|Score (higher is better)|
+|-------|--------|
+|Brave| 31|
+|Firefox| 53|
+|Safari| 49|
 
 ### CoverYourTracks
 
@@ -248,10 +257,6 @@ disclosed about the WebGL renderer & version: it was very precise about the make
 and model of my laptop versus the more generic parameters presented by Firefox
 and Safari.
 
-**Brave's Average Identifying Bits (lower is better):** 3.51
-**Brave's Average "One in *x* Browsers" (lower is better):** 84.53
-**Brave's Average "One in *x* Browsers" without outlier (lower is better):** 43
-
 Firefox has a good showing in CYT as well, with two notable exceptions:
 
 1. The actual size and color depth of my external monitor was reported. I use an
@@ -262,10 +267,6 @@ Firefox has a good showing in CYT as well, with two notable exceptions:
    on a per-session or other periodic basis, but if that were the case, I would
    expect CYT to detect and report that as it does with Brave and Safari's audio
    context fingerprints.
-
-**Firefox's Average Identifying Bits (lower is better):** 2.64
-**Firefox's Average "One in *x* Browsers" (lower is better):** 1536.76
-**Firefox's Average "One in *x* Browsers" without outlier (lower is better):** 12.53
 
 Safari has a good showing in CYT and (surprisingly to me) reported that my
 browser was randomized by first-party similar to Brave. However, I had to make a
@@ -296,9 +297,15 @@ console.log(`${window.outerWidth} x ${window.outerHeight}`)
 
 {{< /callout >}}
 
-**Safari's Average Identifying Bits (lower is better):** 2.78
-**Safari's Average "One in *x* Browsers" (lower is better):** 16065.20
-**Safari's Average "One in *x* Browsers" without outlier (lower is better):** 10.31
+#### CoverYourTracks Scores
+
+For each, lower is better, except for Score:
+
+|Browser|Score|Avg identifying bits|Avg 1/x |Avg 1/x no outlier|
+|-------|--------|--------|--------|--------|
+|Brave| 59| 3.51| 84.53| 43|
+|Firefox| 56| 2.64| 1536.76| 12.53|
+|Safari| 61| 2.74| 16065.2| 10.31|
 
 ### Am I Unique?
 
@@ -309,6 +316,29 @@ because it means you blend in with the herd more.
 
 I assigned points for each browser parameter based on how similar they were to the Am I Unique corpus: 2 points if the similarity ratio was 41% or better, 1 point if the similarity ratio was 11-40%, and 0 points for 0-10%.
 
+All three browsers fared about equally in this test, with some interesting notes:
+
+- Brave (and possibly other Chromium browsers) discloses use of a gyroscope and
+  battery charging status. Brave was found to expose 69 Navigator (browser)
+  properties versus Firefox's 47 and Safari's 40.
+- Firefox reveals the actual screen dimensions and depth for my (somewhat
+  unique) widescreen monitor - this is a stable fingerprinting metric.
+- Safari's reporting of window size as screen size means I can control this
+  fingerprinting metric. 
+- Safari revealed 332 fonts versus Brave's 187 and Firefox's 167, but achieved a
+  higher similarity ratio (0.93%). I suspect this is another case of Herd
+  Immunity: Safari reports more fonts, but those fonts are shared across more
+  Safari users. More-but-standard beats fewer-but-unusual because
+  fewer-but-unusual *stands out*.
+
+#### Am I Unique? Scores
+
+|Browser|Score (higher is better)|Average Similarity Ratio (higher is better)|
+|-------|--------|--------|
+|Brave| 70| 47.67%|
+|Firefox| 76| 47.72%|
+|Safari| 81| 50.04%|
+
 ### Fingerprint.com
 
 The last test I ran is one I wasn't aware of (or didn't exist) the last time I
@@ -317,16 +347,42 @@ fingerprinter I'm aware of with a public demonstration. This is crucial, because
 it is the only real-world test of browser privacy that I know of: the other
 sites included in these tests reveal a lot of information about my browsers'
 parameters, but only fingerprint.com shows me whether these can be combined to
-track me. Fingerprint.com best represents my threat model adversary and shows me how my browsers fare at keeping my browsing private.
+track me. Fingerprint.com best represents my threat model adversary and shows me
+how my browsers fare at keeping my browsing private.
 
-I do not want to be re-identified when visiting fingerprint.com/demo on separate occasions. If my fingerprint value is the same across all browsing sessions, that means I have successfully been re-identified!
+I do not want to be re-identified when visiting fingerprint.com/demo on separate
+occasions. If my fingerprint value is the same across all browsing sessions,
+that means I have successfully been re-identified!
 
-I tested each browser by performing an initial visit, then clearing history and storage (cookies, etc) and visiting again roughly five minutes later, then clearing history and storage and using private/incognito browsing and visiting roughly ten minutes later. In Safari (because I saw a re-identified session after seeing no re-identificatiaon) I performed a fourth visit after clearing history/storage, restarting the browser, opening a private browsing tab, changing the window size and then waiting 15 minutes.
+I tested each browser by:
+- Performing an initial visit to record the fingerprint ID and supporting
+  details
+- Visit 2 - Clearing history and storage (cookies, etc), restarting the browser,
+  and visiting again roughly five minutes later
+- Visit 3 - Clearing history and storage, using private/incognito browsing,
+  changing window size, and visiting roughly ten minutes later. 
+ 
+Brave required no additional configuration, as shields and farbling were active.
+Safari didn't require any additional configuration for this test. In Firefox,
+however, I needed to allow both the scripts and frames active on fingerprint.com
+in uBlock Origin before the site would load.
 
-|Browser|Visit 1|Visit 2 (cleared + restarted)|Visit 3 (cleared + restarted)|Visit 4 (cleared + restarted + private + resized)|
+In Safari, I saw no re-identification between visits 1 and 2, and in my
+eagerness, forgot to apply private mode or resize my window for my third visit,
+so I performed a fourth visit after clearing history/storage, restarting the
+browser, opening a private browsing tab, and changing the window size.
+
+#### Fingerprint.com Scores
+
+The only scoring that matters is whether a browser's fingerprint ID was re-identified across sessions (❌) or not (✅).
+
+|Browser|Initial Visit|Visit 2 (cleared + restarted)|Visit 3 (cleared + restarted + private + resized)|
+|-------|---------|---------|---------|
+|Brave|`06EO7vuas...`|`06EO7vuas...`❌|`06EO7vuas...`❌|
+|Firefox|`5A002hl0ui...`|`5A002hl0ui...`❌|`5A002hl0ui...`❌|
+
+|Browser|Initial Visit|Visit 2 (cleared + restarted)|Visit 3 (cleared + restarted)|Visit 4 (cleared + restarted + private + resized)|
 |-------|---------|---------|---------|---------|
-|Brave|`06EO7vuas...`|`06EO7vuas...`❌|`06EO7vuas...`❌|-|
-|Firefox|`5A002hl0ui...`|`5A002hl0ui...`❌|`5A002hl0ui...`❌|-|
 |Safari|`cFoMGdadm0...`|`7gHhSD3jPK...`✅|`7gHhSD3jPK...`❌|`5pruBi5Nnp...`✅|
 
 Brave and Firefox returned the same Visitor ID across every test after clearing
@@ -340,6 +396,20 @@ protection re-randomizes once per browser launch, not on every single page load.
 The cleared history/storage + browser restart + private window + resize in Visit
 4 produced a third, distinct ID. I was only re-identified once by the tracker.
 
+#### Update
+As I was preparing this post to publish, I opened all three browsers
+again to test. 
+
+Brave was found to have the same fingerprint ID on this 4th visit:`06EO7vuas...`
+❌ with a confidence score of `0.98`.
+
+Firefox, too, had the same fingerprint ID on this 4th visit: `5A002hl0ui...` ❌ 
+though with a confidence score of `0.84`. I again had to allow fingerprint.com
+through uBO, same as when I originally tested.
+
+Safari defeated re-identification again! It had a new fingerprint ID on my 5th
+visit `0chM3tjvo1...` ✅ with a confidence score of `1`.
+
 ### On Simplicity
 Stepping back from the test data... I've been a computer nerd for almost 40
 years. I live and breathe obscure configuration settings. But I get it: most
@@ -350,40 +420,54 @@ strong privacy protection out-of-the-box, Safari and Brave are better than
 Firefox from the jump, though Firefox catches up and in many ways surpasses the
 others when `about:config` tweaks are applied.
 
-## Conclusion
+## Wrapping Up
+Safari repeatedly defeated commercial fingerprinting re-identification better
+than Firefox or Brave. I expected Firefox + uBO to provide the best
+fingerprinting protection in this assessment, and I was both surprised and
+creeped out that fingerprint.com re-identified both Brave and Firefox on every
+visit.
 
-Safari won on my tests that most directly map to the real-world threat of
-fingerprinting re-identification. That doesn't make it the best browser — that
-depends on your specific threat model and feature preferences.
-
-I was surprised by this. I thought Firefox and Brave would have been able to
-defeat fingerprinting re-identification, but fingerprint.com was able to
-successfully re-identify them. 
-
-What likely drove this is Safari's combination of Herd Immunity with Farbling in
-a kind of "best of both worlds" scenario. Safari's Advanced Fingerprinting
-Protection (AFP) injects noise into canvas, WebGL, and audio APIs specifically
-for scripts Apple has classified as fingerprinters. Fingerprint.com is almost
-certainly on that list. ITP also blocks fingerprint.com from writing persistent
-storage as a fallback. 
+What likely drove this is Safari combining two tactics: normalizing browser
+properties to a common value, and injecting noise into canvas, WebGL, and audio
+APIs (similar in spirit to Brave's Farbling, though implemented differently).
+Safari's Advanced Fingerprinting Protection (AFP) does the noise injection
+specifically for scripts Apple has classified as fingerprinters and
+fingerprint.com is almost certainly on that list. ITP also blocks it from
+falling back on persistent storage.
 
 Firefox's failure was specific: CoverYourTracks showed my AudioContext
 fingerprint as a stable, unrandomized value, not the "randomized by first-party
-domain" result Brave and Safari showed. uBO blocks known tracking requests, but
-fingerprint.com runs as first-party JavaScript on its own domain — there's no
-request to block.
+domain" result Brave and Safari showed. And notably, I had to manually allow
+fingerprint.com through uBO to even run this test — uBO blocks it by default as
+a known tracker. But that block only works because it's a network request. Once
+allowed through, fingerprint.com runs as first-party JavaScript, and uBO has no
+answer for that. Request blocking doesn't help once the request is permitted.
 
-However, it seems that some of Safari's protections rely upon Apple knowing of,
-and classifying trackers. [This webkit.org announcement][WebKit 26 Privacy]
-discusses Advanced Fingerprinting Protection (AFP) – separate from Advanced
-Tracking and Fingerprinting Protection (ATFP). I don't know how many trackers
-might exist that Apple doesn't know about, or classify as trackers. In these
-situations, Firefox + uBO will offer better privacy protection by not loading
-the tracking domain in the first place!
+I want to point out that part of Safari's protection depends entirely on Apple
+knowing a script is a fingerprinter. [This webkit.org announcement][WebKit 26
+Privacy] describes Advanced Fingerprinting Protection — separate from Advanced
+Tracking and Fingerprinting Protection (ATFP), confusingly enough. (Side quest:
+[this article][BillyGrace AFP ATFP] sorts the two out). 
 
-In any case, I'm glad there are three great privacy-focused browsers for users. 
+I have no way of knowing how many fingerprinters exist that Apple hasn't
+classified. Against those, Safari's AFP provides minimal value, while Firefox +
+uBO would still block the request outright – as long as the fingerprinter is
+loaded from an external domain. I'm choosing to accept that trade-off, because
+of Safari's other privacy protections like ATFP, ITP, and Herd Immunity.
 
-[^1]: They're quite long:
+**Real-world commercial fingerprinting re-identification is the threat I
+actually care about, and Safari is the only browser of these three that beat
+it.**
+
+I started this expecting the ranking to run Firefox > Brave > Safari. Safari's
+showing and ability to defeat a known commercial fingerprinter was enough to
+promote it to my daily driver. All three are great choices for the
+privacy-conscious. If Safari isn't an option for you, Firefox and Brave both
+remain excellent. I'm glad there are three great privacy-focused browsers
+available to users.
+
+
+[^1]: There's quite a few:
 | Property | Value |
 |--------- | ------|
 |pref.privacy.disable_button.cookie_exceptions	|false		|
@@ -437,10 +521,9 @@ In any case, I'm glad there are three great privacy-focused browsers for users.
 [Shields]: https://brave.com/shields/
 [ETP]: https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop 
 [uBO]: https://github.com/gorhill/uBlock
-[SafariProtections]: https://webkit.org/blog/category/privacy//apple-announces-powerful-new-privacy-and-security-features/
+[SafariProtections]: https://webkit.org/blog/category/privacy/apple-announces-powerful-new-privacy-and-security-features/
 [WebKit]: https://github.com/WebKit/WebKit
 [Brave]: https://github.com/brave/brave-core
 [Firefox]: https://github.com/mozilla-firefox/firefox
-[TestData]: https://github.com/chrislockard/
 [WebKit 26 Privacy]: https://webkit.org/blog/17333/webkit-features-in-safari-26-0/#privacy
 [BillyGrace AFP ATFP]: https://medium.com/billy-grace/safari-on-macos-ios-26-tracking-changes-whats-really-changing-31e2d26cb727

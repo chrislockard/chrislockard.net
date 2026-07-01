@@ -26,16 +26,6 @@ ShowPostNavLinks: true
 ShowWordCount: true
 ShowRssButtonInSectionTermList: true
 UseHugoToc: true
-cover:
-    image: "<image path/url>"
-    alt: "<alt text>"
-    caption: "<text>"
-    relative: false
-    hidden: true
-editPost:
-    URL: "https://github.com/chrislockard/chrislockard.net"
-    Text: "Suggest Changes"
-    appendFilePath: true
 ---
 
 ## Introduction
