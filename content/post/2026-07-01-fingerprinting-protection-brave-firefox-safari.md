@@ -55,10 +55,11 @@ re-identification in my everyday browsing configuration!**
 
 *I know*, I'm as surprised as you are. 
 
-I expected privacy parity between these three browsers, with Firefox and uBO
-edging out the competition, but fingerprint.com re-identified Brave and Firefox
-across every condition tested. Safari was the only browser able to defeat
-re-identification from a known commercial fingerprinter.
+I expected privacy parity between these three browsers, with Firefox and its
+best privacy extension, [uBlock Origin (uBO)][uBO], edging out the
+competition, but fingerprint.com re-identified Brave and Firefox across every
+condition tested. Safari was the only browser able to defeat re-identification
+from a known commercial fingerprinter.
 
 ## Background 
 
@@ -92,7 +93,7 @@ that fingerprinting "subverts user choice and is wrong," and now permits
 advertisers to use it](https://www.malwarebytes.com/blog/news/2025/02/google-now-allows-digital-fingerprinting-of-its-users). 
 
 Fingerprint tracking is becoming more prevalent as cookie use declines. Unlike
-cookies, browser fingerprints are difficult or impossible to for a user to
+cookies, browser fingerprints are difficult or impossible for a user to
 change. The browser you use is one of the only remaining controls you have over
 whether this happens to you.
 
@@ -111,11 +112,11 @@ to help answer this:
 
 Specifically, I'm testing whether I can be re-identified across sessions. 
 
-This re-identification is what I threat model: **I don't want trackers and
-fingerprinters to know who I am as I browse the web.** I'm less concerned about
-how sensitive sites like my bank or mortgage lender identify me. In fact, I
-would *prefer* they know that they're serving me and not an impostor. Instead,
-I'm greatly concerned by my browsing habits being tracked and mined by
+This re-identification is the threat I model my defense around: **I don't want
+trackers and fingerprinters to know who I am as I browse the web.** I'm less
+concerned about how sensitive sites like my bank or mortgage lender identify me.
+In fact, I would *prefer* they know that they're serving me and not an impostor.
+Instead, I'm greatly concerned by my browsing habits being tracked and mined by
 advertisers, data brokers, or other faceless miscreants.
 
 ### Herd Immunity
