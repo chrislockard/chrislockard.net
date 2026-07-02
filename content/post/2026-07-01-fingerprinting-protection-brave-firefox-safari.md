@@ -179,52 +179,37 @@ be saying one thing and doing another?
 
 ### Brave
 
-**Open Source?**: [Yes][Brave]
-
-**Version:** Brave Browser 1.91.168 (Chromium 149.0.7827.54) 
-
-**Extensions:** 
-- 1Password – Password Manager 8.12.22.17
-- Obsidian Web Clipper 1.6.1
-- The Marvellous Suspender 8.1.3
-
-**Primary Privacy Protection:** [Farbling][Farbling], [Shields][Shields]
+|Property|Value|
+|---|---|
+|**Open Source?**|[Yes][Brave]|
+|**Version:**| Brave Browser 1.91.168 (Chromium 149.0.7827.54)| 
+|**Extensions:**|<ul><li>1Password – Password Manager 8.12.22.17</li><li> Obsidian Web Clipper 1.6.1</li><li>The Marvellous Suspender 8.1.3</li></ul>|
+|**Primary Privacy Protection:**| [Farbling][Farbling], [Shields][Shields]|
 
 **Privacy and Advanced Settings:**
-
 {{< figure src="/images/2026/7-1-2.png" caption="Brave Privacy & Security Settings" align=center >}}
 
 {{< figure src="/images/2026/7-1-2-1.png" caption="Brave Shields Settings" align=center >}}
 
 ### Firefox
 
-**Open Source?**: [Yes][Firefox]
+|Property|Value|
+|---|---|
+|**Open Source?**|[Yes][Firefox]|
+|**Version:**| Firefox 150.0.4 w/ Firefox VPN| 
+|**Extensions:**|<ul><li>1Password – Password Manager 8.12.22.17</li><li> Reading List 2.4.10</li><li>SleepyTabs 1.9.9</li><li>uBlock Origin 1.71.0</li></ul>|
+|**Primary Privacy Protection:**|[Enhanced Tracking Protection (ETP)][ETP], [uBlock Origin request blocking][uBO]|
 
-**Version:** Firefox 150.0.4 w/ Firefox VPN
-
-**Extensions:**
-- 1Password – Password Manager 8.12.22.17
-- Reading List 2.4.10
-- SleepyTabs 1.9.9
-- uBlock Origin 1.71.0
-
-**Primary Privacy Protection:** [Enhanced Tracking Protection (ETP)][ETP], [uBlock Origin request blocking][uBO]
-
-**Privacy and Advanced Settings:** The modified privacy settings in about:config[^1]
+**Privacy and Advanced Settings:** The modified privacy settings in `about:config`[^1]
 
 ### Safari
 
-**Open Source?** Partial. [WebKit][WebKit], the browser engine, is, but Safari the application is closed source.
-
-**Version:** Safari 26.5 (21624.2.5.11.4) 
-
-**Extensions:**
-- NetNewsWire 7.0.6
-- 1password 8.12.12.44 on STABLE channel
-- StopTheMadness Pro 26.3
-- wBlock 2.1.0 
-
-**Primary Privacy Protection:** [Advanced Tracking and Fingerprinting Protections, Intelligent Tracking Prevention, Private Relay][SafariProtections]
+|Property|Value|
+|---|---|
+|**Open Source?**|Partial. [WebKit][WebKit], the browser engine, is, but Safari the application is closed source.|
+|**Version:**| Safari 26.5 (21624.2.5.11.4)| 
+|**Extensions:**|<ul><li>1Password 8.12.12.44</li><li> NetNewsWire 7.0.6</li><li>StopTheMadness Pro 26.3</li><li>wBlock 2.1.0</li></ul>|
+|**Primary Privacy Protection:**|[Advanced Tracking and Fingerprinting Protections, Intelligent Tracking Prevention, Private Relay][SafariProtections]|
 
 **Privacy and Advanced Settings:**
 
