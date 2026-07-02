@@ -454,7 +454,7 @@ a known tracker. But that block only works because it's a network request. Once
 allowed through, fingerprint.com runs as first-party JavaScript, and uBO has no
 answer for that. Request blocking doesn't help once the request is permitted.
 
-I want to point out that part of Safari's protection depends entirely on Apple
+I want to underscore that part of Safari's protection depends entirely on Apple
 knowing a script is a fingerprinter. [This webkit.org announcement][WebKit 26
 Privacy] describes Advanced Fingerprinting Protection — separate from Advanced
 Tracking and Fingerprinting Protection (ATFP), confusingly enough. (Side quest:
@@ -470,7 +470,7 @@ of Safari's other privacy protections like ATFP, ITP, and Herd Immunity.
 actually care about, and Safari is the only browser of these three that beat
 it.**
 
-I started this expecting the ranking to run Firefox > Brave > Safari. Safari's
+I started this expecting the ranking to be Firefox > Brave > Safari. Safari's
 showing and ability to defeat a known commercial fingerprinter was enough to
 promote it to my daily driver. All three are great choices for the
 privacy-conscious. If Safari isn't an option for you, Firefox and Brave both
