@@ -54,8 +54,8 @@ conceptually equivalent, so IP didn't occur to me as the differentiator.
 
 **Safari didn't beat fingerprinting without Private Relay: Private Relay was
 rotating my IP address, and fingerprint.com's demo weights IP heavily enough
-that a new IP generated a new Visitor ID regardless of the browser's actual
-fingerprinting defenses.**
+that a new IP generated a new Visitor ID. IP was the variable I didn't control,
+so my test measured it instead of the thing I thought I was measuring.**
 
 ## How to assemble a Fingerprint
 
@@ -78,8 +78,10 @@ to stay logged into). This will at least prevent cross-session tracking via
 these cookies.
 
 My testing was not nearly as rigorous as the paper's authors', but it does
-support their findings insofar as changing my IP address via iCloud Private
-Relay was what broke re-identification.
+support their findings: the change that broke re-identification was rotating my
+IP address via Private Relay, working together with the browser's fingerprinting
+protections. Neither Luo et al. nor my own testing supports IP as the sole
+factor.
 
 Combining my observations with the information in Luo et al., WWW26, my
 understanding is that Fingerprint Pro assembles a visitor ID, aka fingerprint,
@@ -166,8 +168,11 @@ Two things I thought interesting:
 I can't fully rule out that Safari's Advanced Fingerprinting Protection
 contributed *something*, but my testing couldn't isolate it, so attributing the
 result to AFP was unsupported. I simply came to the wrong conclusion previously,
-and it seems that **the dominant, uncontrolled variable was IP, and it alone
-explains the ranking. This is consistent with Luo et al.**
+and it seems that **the dominant, uncontrolled variable was my IP address, and
+this threw off my original comparison. However, the browsers' fingerprinting
+protections matter too, as Luo et al.'s stable-IP results show. My IP address is
+what differed across my three browsers, so it's what skewed the ranking, not
+their fingerprinting defenses alone.**
 
 ## What might actually break a fingerprint: JShelter
 
@@ -232,11 +237,10 @@ per-eTLD+1, so repeated reads return the *same* fake value.
   are re-identifiable. Luo et al. indicate that against Fingerprint Pro at a
   stable IP, Brave, Firefox ETP, and farbling extensions all fail to prevent
   re-identification. Only Firefox's `privacy.resistFingerprinting` and Tor
-  defend against this. "Server + VPN" is where the others' defense is adequate,
-  because a changing IP is what forces Pro to mint a new ID. So the thing
-  equalizing my three browsers isn't their fingerprinting defenses, it's IP
-  rotation. That's why the built-in VPN (below) is more effective in my setup
-  than JShelter alone is.
+  defend against this. So the farbling defenses (JShelter, Brave) require IP
+  rotation as well to defeat fingerprinting re-identification. RFP and Tor are
+  the exception: they hold up even at a stable IP. That's why the built-in VPN
+  (below) is more effective in my setup than JShelter alone is.
 - **fingerprint.com/demo is not a clean test of fingerprint resistance.** It's a
   composite test dominated by IP and stored state, such as the cookies
   identified by Luo et al. The most significant browser properties impacting
