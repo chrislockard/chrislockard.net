@@ -22,11 +22,13 @@ now:
 * Weekly: Continuing to observe and orient myself in the AI space, and share my
   findings. 
 * Weekly: Writing more!
-* Distancing myself from social media by cutting my Xitter/Mastodon usage in
-  half (Update 2026-05-01 Success! I spend minutes a week on socials and continue to search for improvements)
+* Social media fasting continues
+* Web browser privacy research
+* Blog customization
 * Learning more about, and contributing to the [IndieWeb](https://indieweb.org/)
-* Starting a new project at [Get Unlockd](https://getunlockd.org/) to explore
-  faith and self-improvement topics.
+* Hanging out in IRC! Libera.chat and ergo.chat
+* Considering [Get Unlockd](https://getunlockd.org/) deprecated: I'll fold these
+  topics into this blog instead of maintaining two separate blogs.
 
 ## See Also
 
@@ -35,4 +37,4 @@ now:
 
 ## Last Updated
 
-2026-05-01
+2026-07-24
