@@ -1,0 +1,129 @@
+/*
+Floating glass header + reading progress bar.
+
+Update-safe by design: PaperMod's head.html bundles every file matching
+`css/extended/*.css` from BOTH the theme and this project, so this file is
+picked up automatically and loaded after the theme's own CSS. Nothing here
+copies or patches a theme file — it only restyles markup the theme already
+emits (.header / .header-nav). A theme update can only break this if PaperMod
+renames those two classes.
+
+Tunables live in the `.header` rule below.
+*/
+
+.header {
+    /* Vertical breathing room between the viewport edge and the pill. */
+    --hdr-pad-y: 6px;
+    /* Pill edges line up with the nav's own max-width box; 10px on narrow screens. */
+    --hdr-inset: max(10px, calc((100% - var(--nav-width) - var(--gap) * 2) / 2));
+    --hdr-radius: 18px;
+    --hdr-blur: 12px;
+    /* Higher = more opaque. Drop toward 60% for more glass, raise for more solid. */
+    --hdr-opacity: 72%;
+
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+/* Keep nav content painting above the glass panel. */
+.header-nav {
+    position: relative;
+}
+
+/*
+The glass panel is its own layer so that scrolling only animates `opacity`,
+which the compositor handles on the GPU — no repaint of the nav, no layout.
+`backdrop-filter` is applied ONLY in the stuck state, so a page sitting at the
+top costs nothing at all.
+*/
+.header::before {
+    content: "";
+    position: absolute;
+    inset: var(--hdr-pad-y) var(--hdr-inset);
+    z-index: -1;
+    border-radius: var(--hdr-radius);
+    background: color-mix(in srgb, var(--theme) var(--hdr-opacity), transparent);
+    border: 1px solid color-mix(in srgb, var(--border) 70%, transparent);
+    box-shadow: 0 4px 18px -6px rgb(0 0 0 / 18%);
+    opacity: 0;
+    transition: opacity .22s ease-out;
+    pointer-events: none;
+}
+
+.header.is-stuck::before {
+    opacity: 1;
+    -webkit-backdrop-filter: blur(var(--hdr-blur)) saturate(150%);
+    backdrop-filter: blur(var(--hdr-blur)) saturate(150%);
+}
+
+/* Anchor/TOC jumps must clear the sticky header. */
+html {
+    scroll-padding-top: calc(var(--header-height) + 14px);
+}
+
+/*
+Reading progress: a hairline along the bottom inside edge of the pill.
+Inset by the corner radius so it never pokes out of the rounded corners.
+`--reading-progress-display` is set to `block` only on post pages, by
+layouts/_partials/extend_head.html.
+*/
+.header::after {
+    content: "";
+    display: var(--reading-progress-display, none);
+    position: absolute;
+    left: calc(var(--hdr-inset) + var(--hdr-radius));
+    right: calc(var(--hdr-inset) + var(--hdr-radius));
+    bottom: calc(var(--hdr-pad-y) + 2px);
+    height: 2px;
+    border-radius: 2px;
+    background: var(--primary);
+    opacity: .5;
+    transform: scaleX(var(--reading-progress, 0));
+    transform-origin: 0 50%;
+    pointer-events: none;
+}
+
+/*
+Preferred path: a scroll-driven animation. This runs entirely on the
+compositor — zero JavaScript, zero main-thread work, nothing per scroll event.
+Browsers without it fall back to the `--reading-progress` variable above,
+which floating-header.js updates only when this @supports test fails.
+*/
+@supports (animation-timeline: scroll()) {
+    .header::after {
+        animation: unl0ckd-reading-progress linear both;
+        animation-timeline: scroll(root block);
+    }
+}
+
+@keyframes unl0ckd-reading-progress {
+    from {
+        transform: scaleX(0);
+    }
+
+    to {
+        transform: scaleX(1);
+    }
+}
+
+/* No backdrop-filter support: fall back to a solid pill rather than muddy text. */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    .header.is-stuck::before {
+        background: var(--theme);
+    }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+    .header.is-stuck::before {
+        -webkit-backdrop-filter: none;
+        backdrop-filter: none;
+        background: var(--theme);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .header::before {
+        transition: none;
+    }
+}

@@ -1,0 +1,5 @@
+{{- /* Sticky-header state, reading progress fallback, scroll-to-top button. */ -}}
+{{- with resources.Get "js/scroll-ui.js" }}
+{{- $js := . | resources.Minify | fingerprint }}
+<script defer crossorigin="anonymous" src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}"></script>
+{{- end }}

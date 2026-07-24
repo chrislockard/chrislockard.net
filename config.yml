@@ -59,6 +59,8 @@ params:
   tocopen: true
   ignoreLogs:
     - warning-goldmark-raw-html
+  footer:
+    text: "Built in the open · [Privacy](/privacy) · [RSS](/index.xml)"
   assets:
     favicon: "/images/icons/favicon.ico"
     favicon16x16: "/images/icons/favicon-16x16.png"
@@ -91,26 +93,14 @@ menu:
       name: About
       url: /about
       weight: 01
-    - identifier: categories
-      name: Categories
-      url: /categories
+    - identifier: topics
+      name: Topics
+      url: /topics
       weight: 10
-    - identifier: tags
-      name: Tags
-      url: /tags
-      weight: 15
-    - identifier: links
-      name: Links
-      url: /links
-      weight: 20
     - identifier: archive
       name: Archive
       url: /archive
       weight: 30
-    - identifier: privacy
-      name: Privacy
-      url: /privacy
-      weight: 40
     - identifier: now
       name: Now
       url: /now

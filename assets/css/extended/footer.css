@@ -1,0 +1,19 @@
+/*
+Footer tweaks that used to live in a full copy of the theme's footer.html.
+Doing them here means the partial is no longer shadowed, so upstream fixes to
+the footer markup and its scripts arrive automatically.
+
+The credit line is matched via :has() on the Hugo link rather than by position,
+so the rule can only ever hit the credit span and never the copyright — even if
+PaperMod reorders the footer. PaperMod and Hugo are both credited on /about.
+*/
+
+.footer > span:has(a[href*="gohugo.io"]) {
+    display: none;
+}
+
+/* Leading separator, matching how the footer read before. */
+.footer::before {
+    content: "·";
+    margin-inline-end: 1px;
+}

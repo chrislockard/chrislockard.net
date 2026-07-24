@@ -1,0 +1,42 @@
+{{- /* Combined categories + tags listing, used by content/topics.md.
+
+     This is a new layout, not an override of a theme template, so a PaperMod
+     update can't collide with it. The individual /categories and /tags pages
+     still render through layouts/_default/terms.html as before. */ -}}
+
+{{- define "main" }}
+
+{{- if .Title }}
+<header class="page-header">
+    <h1>{{ .Title }}</h1>
+    {{- if .Description }}
+    <div class="post-description">
+        {{ .Description }}
+    </div>
+    {{- end }}
+</header>
+{{- end }}
+
+{{- with .Content }}
+<div class="post-content">
+    {{ . }}
+</div>
+{{- end }}
+
+{{- range slice "categories" "tags" }}
+{{- $name := . }}
+{{- with index site.Taxonomies $name }}
+<h2 class="topics-heading">{{ $name | title }}</h2>
+<ul class="terms-tags">
+    {{- range .ByCount }}
+    <li>
+        {{- /* .Name, not .Title, to match layouts/_default/terms.html — Title
+               would re-case terms like "foss" that are written lowercase. */ -}}
+        <a href="{{ .Page.Permalink }}">{{ .Page.Name }} <sup><strong><sup>{{ .Count }}</sup></strong></sup> </a>
+    </li>
+    {{- end }}
+</ul>
+{{- end }}
+{{- end }}
+
+{{- end }}{{/* end main */ -}}
