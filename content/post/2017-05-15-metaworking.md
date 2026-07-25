@@ -5,9 +5,9 @@ url: "/posts/metaworking"
 categories:
 - Content
 tags:
-- kanban
-- trello
-- jira
+- Kanban
+- Trello
+- Jira
 ---
 
 [Trello][Trello] fascinated me upon its release in 2011. I've [written

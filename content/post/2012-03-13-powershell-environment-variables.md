@@ -5,7 +5,7 @@ url: "/posts/powershell-environment-variables"
 categories:
 - InfoSec
 tags:
-- powershell
+- PowerShell
 summary: "How to determine Powershell environment variables"
 showtoc: true
 ---

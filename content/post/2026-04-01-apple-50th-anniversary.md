@@ -5,7 +5,7 @@ url: "posts/apple-50th-anniversary"
 categories:
 - Technology
 tags:
-- apple
+- Apple
 author: "Chris"
 showToc: false
 TocOpen: false

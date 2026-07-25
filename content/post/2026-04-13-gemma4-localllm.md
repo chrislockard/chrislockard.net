@@ -5,9 +5,9 @@ url: "posts/gemma4-localllm-resource-usage"
 categories:
 - AI
 tags:
-  - ai
-  - localllm
-  - gemma
+  - AI
+  - LocalLLM
+  - Gemma
 author: "Chris"
 showToc: false
 TocOpen: false

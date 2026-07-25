@@ -5,8 +5,8 @@ url: "/posts/more-grok3-fun"
 categories:
 - AI
 tags:
-- ai
-- grok
+- AI
+- Grok
 author: "Chris"
 # author: ["Me", "You"] # multiple authors
 showToc: false

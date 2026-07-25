@@ -5,8 +5,8 @@ url: "/posts/static-sites-in-2016-update"
 categories:
 - Content
 tags:
-- aws
-- static site
+- AWS
+- Static Site
 ---
 
 In a [previous post]({{% relref "/post/2016-03-25-static-sites-2016.md" %}}) I

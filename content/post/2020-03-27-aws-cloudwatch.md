@@ -6,11 +6,11 @@ draft: false
 categories:
 - InfoSec
 tags:
-- cloud
-- aws
-- monitoring
-- secops
-- cloudwatch
+- Cloud
+- AWS
+- Monitoring
+- SecOps
+- CloudWatch
 summary: "AWS CloudWatch enables monitoring and alerting on cloud events."
 ---
 

@@ -5,9 +5,9 @@ url: "/posts/spacemacs-env-go-layer"
 categories:
 - FOSS
 tags:
-- coding
-- foss
-- efficiency
+- Coding
+- FOSS
+- Efficiency
 summary: "Configuring Spacemacs Go layer and environment variables on macOS"
 ---
 

@@ -5,10 +5,10 @@ url: "posts/lockd-loded-2025-10-24"
 categories:
 - Content
 tags:
-- tech
-- culture
-- faith
-- infosec
+- Tech
+- Culture
+- Faith
+- InfoSec
 author: "Chris"
 showToc: false
 TocOpen: false

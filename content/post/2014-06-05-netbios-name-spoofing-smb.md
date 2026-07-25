@@ -5,10 +5,10 @@ url: "/posts/netbios-name-spoofing-and-smb"
 categories:
 - InfoSec
 tags:
-- pentesting
-- netbios
-- smb
-- authentication
+- Pentesting
+- NetBIOS
+- SMB
+- Authentication
 summary: "NBNS still works!"
 ---
 

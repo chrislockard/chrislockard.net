@@ -5,8 +5,8 @@ url: "/posts/osx-terminal-list-processes"
 categories:
 - InfoSec
 tags:
-- unix
-- terminal
+- Unix
+- Terminal
 - macOS
 summary: "An exploration of the ps command"
 showtoc: true

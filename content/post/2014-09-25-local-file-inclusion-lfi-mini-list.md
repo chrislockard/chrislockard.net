@@ -5,11 +5,11 @@ url: "/posts/local-file-inclusion-mini-list"
 categories:
 - InfoSec
 tags:
-- appsec
-- lfi
-- windows
-- unix
-- linux
+- AppSec
+- LFI
+- Windows
+- Unix
+- Linux
 summary: "A mini-list reference for interesting LFI targets"
 ---
 

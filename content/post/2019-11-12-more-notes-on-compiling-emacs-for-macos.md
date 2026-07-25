@@ -6,11 +6,11 @@ draft: false
 categories:
 - FOSS
 tags: 
-- emacs
+- Emacs
 - macOS
-- foss
-- gnu
-- liberated
+- FOSS
+- GNU
+- Liberated
 summary: "Compiling emacs on macOS using Homebrew"
 ---
 

@@ -5,11 +5,11 @@ url: "/posts/php-mysql-injection"
 categories:
 - InfoSec
 tags:
-- appsec
-- php
-- mysql
-- injection
-- coding
+- AppSec
+- PHP
+- MySQL
+- Injection
+- Coding
 ---
 Inspired by Jack Daniel's ["Shoulders of InfoSec Project"][Shoulders], this post
 will be focused on the people and technologies behind one of the most prevalent

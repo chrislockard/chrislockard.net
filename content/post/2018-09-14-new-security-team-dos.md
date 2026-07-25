@@ -5,10 +5,10 @@ url: "/posts/new-face-of-security-team-dos"
 categories:
 - InfoSec
 tags:
-- bug bounty
-- responsible disclosure
-- spam
-- dos
+- Bug Bounty
+- Responsible Disclosure
+- Spam
+- DoS
 ---
 
 [Nearly a year ago,]({{% relref "/post/2017-10-20-lesson-for-bug-bounty-researchers.md" %}}) I wrote about an

@@ -5,7 +5,7 @@ url: "posts/lockd-loaded-2026-05-08"
 categories:
 - Content
 tags:
-- zed
+- Zed
 author: "Chris"
 showToc: false
 TocOpen: false

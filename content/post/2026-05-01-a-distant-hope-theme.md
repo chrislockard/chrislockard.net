@@ -5,8 +5,8 @@ url: "posts/a-distant-hope-theme"
 categories:
 - Dev
 tags:
-- zed
-- theme
+- Zed
+- Theme
 author: ""
 showToc: false
 TocOpen: false

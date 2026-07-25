@@ -5,8 +5,8 @@ url: "posts/ssl-cert-obnoxious-followup"
 categories:
 - InfoSec
 tags:
-- crypto
-- certs
+- Crypto
+- Certs
 author: "Chris"
 showToc: false
 TocOpen: false

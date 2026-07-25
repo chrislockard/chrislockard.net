@@ -5,8 +5,8 @@ url: "posts/firefox-is-cooking"
 categories:
 - Technology
 tags:
-- firefox
-- infosec
+- Firefox
+- InfoSec
 author: "Chris"
 showToc: false
 TocOpen: false

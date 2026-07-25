@@ -5,7 +5,7 @@ url: "posts/lockd-loaded-2026-02-27"
 categories:
 - Content
 tags:
-  - ai
+  - AI
   
 author: "Chris"
 showToc: false

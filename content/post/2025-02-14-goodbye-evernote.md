@@ -7,7 +7,7 @@ url: "/posts/goodbye-evernote"
 categories:
 - PKM
 tags:
-- evernote
+- Evernote
 author: "Chris"
 # author: ["Me", "You"] # multiple authors
 showToc: true

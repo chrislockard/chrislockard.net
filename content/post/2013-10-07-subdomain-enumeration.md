@@ -5,9 +5,9 @@ url: "/posts/subdomain-enumeration"
 categories:
 - InfoSec
 tags:
-- pentesting
-- dns
-- recon
+- Pentesting
+- DNS
+- Recon
 summary: "Techniques for performing subdomain enumeration information gathering."
 showtoc: true
 ---

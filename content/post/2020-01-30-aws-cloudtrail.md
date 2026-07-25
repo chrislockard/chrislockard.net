@@ -6,11 +6,11 @@ draft: false
 categories:
 - InfoSec
 tags:
-- cloud
-- aws
-- monitoring
-- secops
-- cloudtrail
+- Cloud
+- AWS
+- Monitoring
+- SecOps
+- CloudTrail
 summary: "AWS CloudTrail is the cornerstone of cloud SECOPS"
 ---
 

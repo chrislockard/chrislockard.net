@@ -6,8 +6,8 @@ url: "posts/one-month-with-mastodon"
 categories:
 - FOSS
 tags: 
-- foss
-- liberated
+- FOSS
+- Liberated
 summary: "I've switched to Mastodon and so should you."
 ---
 

@@ -5,9 +5,9 @@ url: "posts/lockd-loaded-2026-01-09"
 categories:
 - Content
 tags:
-- selfimprovement
-- finance
-- tech
+- SelfImprovement
+- Finance
+- Tech
 author: "Chris"
 showToc: false
 TocOpen: false

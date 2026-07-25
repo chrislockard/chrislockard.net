@@ -1,0 +1,20 @@
+# slug<TAB>canonical display name. Applied 2026-07-25.
+# Current terms.
+ai	AI
+career	Career
+content	Content
+dev	Dev
+family	Family
+foss	FOSS
+gaming	Gaming
+infosec	InfoSec
+pkm	PKM
+privacy	Privacy
+reflection	Reflection
+technology	Technology
+# Merged terms, kept so a re-run is idempotent. Unlike every other entry in
+# these files, these three changed the URL; static/_redirects covers them.
+# No post carries them any more, so they are inert unless old content returns.
+coding	Dev
+programming	Dev
+introspection-meditation	Reflection

@@ -5,10 +5,10 @@ url: "/posts/brave-browser"
 categories:
 - Privacy
 tags:
-- brave
-- web browser
-- firefox
-- vivaldi
+- Brave
+- Web Browser
+- Firefox
+- Vivaldi
 ---
 # Brave, the new Firefox?
 

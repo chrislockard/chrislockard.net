@@ -5,8 +5,8 @@ url: "posts/lmstudio-neovim-codecompanion"
 categories:
 - AI
 tags:
-- lmstudio
-- neovim
+- LMStudio
+- Neovim
 author: "Chris"
 showToc: true
 TocOpen: false

@@ -9,9 +9,9 @@ authors: []
 categories: 
 - Privacy
 tags: 
-- blog
-- hugo
-- academic
+- Blog
+- Hugo
+- Academic
 date: 2020-09-03T10:40:11-04:00
 lastmod: 2020-09-03T10:40:11-04:00
 featured: false

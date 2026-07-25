@@ -6,10 +6,10 @@ draft: false
 categories:
 - Reflection
 tags:
-- career
-- infosec
-- secops
-- pentesting
+- Career
+- InfoSec
+- SecOps
+- Pentesting
 summary: "How my career is changing."
 ---
 

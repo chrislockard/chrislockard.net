@@ -8,9 +8,9 @@ categories:
 - AI
 - Gaming
 tags:
-- grok
-- ai
-- nostalgia
+- Grok
+- AI
+- Nostalgia
 author: "Chris"
 # author: ["Me", "You"] # multiple authors
 showToc: true

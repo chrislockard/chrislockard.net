@@ -9,11 +9,11 @@ authors: []
 categories:
 - InfoSec
 tags:
-- fedora
-- yubikey
-- yubico
-- mfa
-- u2f
+- Fedora
+- YubiKey
+- Yubico
+- MFA
+- U2F
 date: 2021-05-03T20:14:35-04:00
 lastmod: 2021-05-03T20:14:35-04:00
 featured: false

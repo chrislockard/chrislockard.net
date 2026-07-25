@@ -5,8 +5,8 @@ url: "posts/ollama-vs-lmstudio-macos"
 categories:
 - AI
 tags:
-- ollama
-- lmstudio
+- Ollama
+- LMStudio
 - macOS
 author: "Chris"
 showToc: true

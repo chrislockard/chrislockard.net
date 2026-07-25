@@ -5,8 +5,8 @@ url: "/posts/html-hobbyist"
 categories:
 - Technology
 tags:
-- web 
-- blog
+- Web
+- Blog
 author: "Chris"
 showToc: true
 TocOpen: false

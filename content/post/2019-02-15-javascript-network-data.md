@@ -6,9 +6,9 @@ draft: false
 categories:
 - Dev
 tags:
-- javascript
-- development
-- monitoring
+- JavaScript
+- Development
+- Monitoring
 summary: "Methods for sending and receiving data across a network with JavaScript"
 ---
 

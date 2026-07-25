@@ -8,8 +8,8 @@ categories:
 - Privacy
 - InfoSec
 tags:
-- hugo
-- cloudflare
+- Hugo
+- Cloudflare
 author: "Chris"
 # author: ["Me", "You"] # multiple authors
 showToc: true

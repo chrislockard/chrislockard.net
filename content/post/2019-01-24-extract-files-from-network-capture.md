@@ -6,7 +6,7 @@ draft: false
 categories:
 - InfoSec
 tags:
-- wireshark
+- Wireshark
 summary: "Extract files from tcpdump or wireshark captures"
 ---
 

@@ -6,11 +6,11 @@ draft: false
 categories:
 - FOSS
 tags: 
-- linux
+- Linux
 - macOS
-- foss
-- gnu
-- liberty
+- FOSS
+- GNU
+- Liberty
 summary: "Access Office 365 email from (Doom) Emacs with mbsync and mu4e!"
 ---
 

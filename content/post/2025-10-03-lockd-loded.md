@@ -5,9 +5,9 @@ url: "posts/lockd-loded-2025-10-03"
 categories:
 - Content
 tags:
-- tech
-- culture
-- nostr
+- Tech
+- Culture
+- Nostr
 author: "Chris"
 showToc: false
 TocOpen: false

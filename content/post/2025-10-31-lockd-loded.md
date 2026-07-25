@@ -5,7 +5,7 @@ url: "posts/lockd-loded-neovim-edition"
 categories:
 - Content
 tags:
-- neovim
+- Neovim
 author: "Chris"
 showToc: false
 TocOpen: false

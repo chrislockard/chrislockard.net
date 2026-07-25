@@ -5,8 +5,8 @@ url: "posts/preparing-to-leave-a-cherished-workplace"
 categories:
 - Career
 tags:
-- secops
-- psychology
+- SecOps
+- Psychology
 author: "Chris"
 showToc: false
 TocOpen: false

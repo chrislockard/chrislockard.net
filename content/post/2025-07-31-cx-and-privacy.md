@@ -5,8 +5,8 @@ url: "/posts/cx-and-privacy"
 categories:
 - Privacy
 tags:
-- blog
-- workflow
+- Blog
+- Workflow
 author: "Chris"
 showToc: true
 TocOpen: false

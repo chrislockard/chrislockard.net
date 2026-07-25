@@ -7,11 +7,11 @@ authors: []
 categories:
 - Content
 tags:
-- notion
-- ppv
-- evernote
-- para
-- orgmode
+- Notion
+- PPV
+- Evernote
+- PARA
+- OrgMode
 date: 2022-02-21T21:00:00-04:00
 lastmod: 2022-02-21T21:00:00-04:00
 featured: false

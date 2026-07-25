@@ -6,10 +6,10 @@ draft: false
 categories:
 - InfoSec
 tags:
-- cloud
-- aws
-- serverless
-- cloudflare
+- Cloud
+- AWS
+- Serverless
+- Cloudflare
 summary: "This post covers how to secure an S3 bucket serving content through Cloudflare"
 ---
 

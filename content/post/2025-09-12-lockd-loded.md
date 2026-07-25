@@ -5,9 +5,9 @@ url: "posts/lockd-loded-2025-09-12"
 categories:
 - Content
 tags:
-- culture
-- faith
-- tech
+- Culture
+- Faith
+- Tech
 author: "Chris"
 showToc: true
 TocOpen: false

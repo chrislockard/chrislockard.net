@@ -5,7 +5,7 @@ url: "/posts/spacemacs-org-mode-intro"
 categories:
 - Content
 tags:
-- organization
+- Organization
 ---
 # Update: 2018-08-10
 

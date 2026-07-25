@@ -5,8 +5,8 @@ url: "posts/public-bug-bounty-rules-of-engagement"
 categories:
 - InfoSec
 tags:
-- bug bounty
-- pentesting
+- Bug Bounty
+- Pentesting
 summary: "I share my experience and lessons learned from operating a public bug bounty."
 ---
 

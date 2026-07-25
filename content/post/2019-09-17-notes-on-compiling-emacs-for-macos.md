@@ -5,10 +5,10 @@ url: "posts/notes-on-compiling-emacs-for-macos"
 categories:
 - FOSS
 tags:
-- emacs
-- macos
-- foss
-- gnu
+- Emacs
+- macOS
+- FOSS
+- GNU
 summary: "My notes on compiling emacs for macOS"
 ---
 

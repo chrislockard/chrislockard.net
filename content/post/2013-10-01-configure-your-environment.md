@@ -5,10 +5,10 @@ url: "/posts/configure-your-environment"
 categories: 
 - InfoSec
 tags:
-- pentesting
-- shell
-- configuration
-- customization
+- Pentesting
+- Shell
+- Configuration
+- Customization
 summary: "Customize your working environment to your liking"
 showtoc: true
 ---

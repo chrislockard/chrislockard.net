@@ -5,8 +5,8 @@ url: "posts/lockd-loded-2025-11-07"
 categories:
 - Content
 tags:
-- tech
-- culture
+- Tech
+- Culture
 author: "Chris"
 showToc: false
 TocOpen: false

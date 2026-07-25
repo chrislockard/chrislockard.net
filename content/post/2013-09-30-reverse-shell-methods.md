@@ -5,8 +5,8 @@ url: "/posts/reverse-shell-methods"
 categories:
 - InfoSec
 tags:
-- shells
-- pentesting
+- Shells
+- Pentesting
 summary: "Methods for obtaining reverse shells"
 showtoc: true
 ---

@@ -6,10 +6,10 @@ url: "posts/find-resources-with-aws-config"
 categories:
 - InfoSec
 tags: 
-- cloud
-- aws
-- monitoring
-- secops
+- Cloud
+- AWS
+- Monitoring
+- SecOps
 summary: "Use AWS Config to locate AWS resources"
 ---
 

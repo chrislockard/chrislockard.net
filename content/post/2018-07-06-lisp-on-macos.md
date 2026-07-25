@@ -5,8 +5,8 @@ url: "/posts/lisp-on-macos"
 categories:
 - Dev
 tags:
-- lisp
-- macos
+- Lisp
+- macOS
 summary: "Towards a working LISP environment on macOS"
 ---
 

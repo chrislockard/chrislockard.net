@@ -6,8 +6,8 @@ categories:
 - InfoSec
 tags:
 - BSIMM
-- analysis
-- appsec
+- Analysis
+- AppSec
 ---
 
 Since my last post, I've left my position with the consultancy. I'm now working

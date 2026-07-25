@@ -5,7 +5,7 @@ url: "/posts/manager-feedback-cycle"
 categories:
 - Content
 tags:
-- career
+- Career
 ---
 
 I planned a post covering the Manager Feedback Cycle, but this blog post at

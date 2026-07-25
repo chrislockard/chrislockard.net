@@ -5,8 +5,8 @@ url: "/posts/rubber-ducky-powershell-payload"
 categories:
 - InfoSec
 tags:
-- powershell
-- pentesting
+- PowerShell
+- Pentesting
 ---
 
 On a recent engagement I supported the lead by developing a PowerShell payload

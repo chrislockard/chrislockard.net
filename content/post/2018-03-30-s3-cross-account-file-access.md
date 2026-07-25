@@ -5,9 +5,9 @@ url: "/posts/s3-cross-account-file-access"
 categories:
 - InfoSec
 tags:
-- aws
-- cloud
-- s3
+- AWS
+- Cloud
+- S3
 ---
 # The Problem
 

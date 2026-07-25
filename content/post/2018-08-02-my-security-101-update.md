@@ -5,7 +5,7 @@ url: "/posts/my-security-101-updated"
 categories:
 - InfoSec
 tags:
-- infosec
+- InfoSec
 ---
 
 In a [post from 2015,]({{% relref "/post/2015-01-20-my-security-101.md" %}}), I write

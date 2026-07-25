@@ -5,8 +5,8 @@ url: "posts/lockd-loaded-2026-03-06"
 categories:
 - Content
 tags:
-- ai
-- infosec
+- AI
+- InfoSec
 author: "Chris"
 showToc: false
 TocOpen: false

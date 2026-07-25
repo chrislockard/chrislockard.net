@@ -6,8 +6,8 @@ draft: false
 categories:
 - Privacy
 tags:
-- privacy
-- liberated
+- Privacy
+- Liberated
 summary: "No more contributing to the Evil Empire"
 ---
 

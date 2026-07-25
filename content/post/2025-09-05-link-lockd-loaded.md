@@ -5,8 +5,8 @@ url: "posts/link-lockd-loaded-2025-09-05"
 categories:
 - Content
 tags:
-- faith
-- tech
+- Faith
+- Tech
 author: "Chris"
 showToc: false
 TocOpen: false

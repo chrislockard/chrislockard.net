@@ -9,8 +9,8 @@ authors: []
 categories:
 - Family
 tags:
-- blog
-- legacy
+- Blog
+- Legacy
 date: 2020-08-31T14:50:25-04:00
 lastmod: 2020-08-31T14:50:25-04:00
 featured: false

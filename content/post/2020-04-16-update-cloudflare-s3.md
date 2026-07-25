@@ -6,11 +6,11 @@ draft: false
 categories:
 - InfoSec
 tags:
-- cloud
-- serverless
-- cloudflare
-- aws
-- s3
+- Cloud
+- Serverless
+- Cloudflare
+- AWS
+- S3
 summary: "This site now uses CloudFlare"
 ---
 

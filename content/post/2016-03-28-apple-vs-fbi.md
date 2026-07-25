@@ -5,8 +5,8 @@ url: "/posts/apple-vs-fbi"
 categories:
 - Privacy
 tags:
-- apple
-- law enforcement
+- Apple
+- Law Enforcement
 ---
 
 Apple gets a lot of flak in the InfoSec community, even though it's an open

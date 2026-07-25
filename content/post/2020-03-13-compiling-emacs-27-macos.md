@@ -6,11 +6,11 @@ draft: false
 categories:
 - FOSS
 tags:
-- emacs
-- macos
-- foss
-- gnu
-- liberated
+- Emacs
+- macOS
+- FOSS
+- GNU
+- Liberated
 summary: "The easy way to compile Emacs 27 on macOS using Homebrew"
 ---
 

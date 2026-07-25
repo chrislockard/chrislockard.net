@@ -5,7 +5,7 @@ url: "/posts/please-vote-firefox-rss-idea"
 categories:
 - FOSS
 tags:
-- firefox
+- Firefox
 author: "Chris"
 showToc: false
 TocOpen: false

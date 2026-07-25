@@ -5,8 +5,8 @@ url: "posts/on-doctorows-memex-method"
 categories:
 - Content
 tags:
-- writing
-- blogging
+- Writing
+- Blogging
 author: "Chris"
 showToc: true
 TocOpen: false

@@ -5,9 +5,9 @@ url: "/posts/burp-static-analysis"
 categories:
 - InfoSec
 tags:
-- burpsuite
-- static analysis
-- appsec
+- BurpSuite
+- Static Analysis
+- AppSec
 ---
 
 I'm so far behind the times, it's sad. Burp Suite [gained the ability to perform

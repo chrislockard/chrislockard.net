@@ -5,8 +5,8 @@ url: "/posts/bug-bounty-researchers-doing-it-wrong"
 categories:
 - InfoSec
 tags:
-- bug bounty
-- pentesting
+- Bug Bounty
+- Pentesting
 ---
 
 I'm managing a bug bounty program that has shown tremendous benefit so far.

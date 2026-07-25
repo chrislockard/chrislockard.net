@@ -5,7 +5,7 @@ url: "posts/notes-openwebui-ollama"
 categories:
 - AI
 tags:
-- ollama
+- Ollama
 - macOS
 author: "Chris"
 showToc: true

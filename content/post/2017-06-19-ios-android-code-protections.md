@@ -5,9 +5,9 @@ url: "/posts/ios-android-code-protections"
 categories:
 - InfoSec
 tags:
-- appsec
-- mobile
-- android
+- AppSec
+- Mobile
+- Android
 - iOS
 ---
 

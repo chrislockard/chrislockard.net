@@ -6,10 +6,10 @@ draft: false
 categories:
 - FOSS
 tags: 
-- linux
+- Linux
 - macOS
-- foss
-- liberty
+- FOSS
+- Liberty
 summary: "I've adopted Linux on the desktop. Here's how I adapted my macOS workflow..."
 ---
 

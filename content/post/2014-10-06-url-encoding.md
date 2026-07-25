@@ -5,9 +5,9 @@ url: "/posts/url-encoding"
 categories:
 - Dev
 tags:
-- appsec
-- syntax
-- url
+- AppSec
+- Syntax
+- URL
 ---
 
 # URL Syntax

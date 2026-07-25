@@ -5,8 +5,8 @@ url: "/posts/growth-in-chaos"
 categories:
 - Reflection
 tags:
-- growth
-- chaos
+- Growth
+- Chaos
 draft: false
 ---
 

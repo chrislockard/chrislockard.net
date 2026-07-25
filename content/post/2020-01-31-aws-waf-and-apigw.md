@@ -6,12 +6,12 @@ draft: false
 categories:
 - InfoSec
 tags:
-- cloud
-- aws
-- monitoring
-- secops
-- waf
-- api gateway
+- Cloud
+- AWS
+- Monitoring
+- SecOps
+- WAF
+- API Gateway
 summary: "Help protect APIGW from attackers with AWS WAF"
 ---
 

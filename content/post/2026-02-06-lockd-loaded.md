@@ -5,8 +5,8 @@ url: "posts/lockd-loaded-2026-02-06"
 categories:
 - Content
 tags:
-  - pentesting
-  - infosec
+  - Pentesting
+  - InfoSec
 author: "Chris"
 showToc: false
 TocOpen: false

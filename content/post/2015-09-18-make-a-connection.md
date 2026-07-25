@@ -5,10 +5,10 @@ url: "/posts/make-a-connection"
 categories:
 - Reflection
 tags:
-- collaboration
-- analysis
-- l0pht
-- complexity
+- Collaboration
+- Analysis
+- L0pht
+- Complexity
 ---
 
 This post was inspired by a client who came to me and said "I do not understand

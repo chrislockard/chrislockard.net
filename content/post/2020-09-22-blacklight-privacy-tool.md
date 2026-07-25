@@ -9,9 +9,9 @@ authors: []
 categories: 
 - Privacy
 tags: 
-- blog
-- blacklight
-- surveillance capitalism
+- Blog
+- Blacklight
+- Surveillance Capitalism
 date: 2020-09-22T16:45:00-04:00
 lastmod: 2020-09-22T16:45:00-04:00
 featured: false

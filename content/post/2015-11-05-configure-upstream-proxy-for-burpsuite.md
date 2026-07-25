@@ -5,8 +5,8 @@ url: "/posts/configure-upstream-proxy-burpsuite"
 categories:
 - InfoSec
 tags:
-- appsec
-- burpsuite
+- AppSec
+- BurpSuite
 ---
 
 I had the need to proxy traffic from Burpsuite to another proxy during web app

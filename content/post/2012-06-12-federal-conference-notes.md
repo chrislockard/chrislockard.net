@@ -5,8 +5,8 @@ url: "/posts/federal-conference-takeaways"
 categories:
 - InfoSec
 tags:
-- defense
-- collaboration
+- Defense
+- Collaboration
 summary: "Tips picked up from a red/blue infosec conference"
 showtoc: true
 ---

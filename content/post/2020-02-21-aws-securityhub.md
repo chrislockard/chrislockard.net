@@ -6,11 +6,11 @@ draft: false
 categories:
 - InfoSec
 tags:
-- cloud
-- aws
-- monitoring
-- secops
-- securityhub
+- Cloud
+- AWS
+- Monitoring
+- SecOps
+- SecurityHub
 summary: "AWS Security Hub eases the pain of cloud monitoring"
 ---
 

@@ -5,8 +5,8 @@ url: "/posts/self-evaluation"
 categories:
 - Reflection
 tags:
-- johari window
-- analysis
+- Johari Window
+- Analysis
 ---
 
 Recently, work hosted an event designed to bring my team closer together. Using

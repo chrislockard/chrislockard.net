@@ -5,8 +5,8 @@ url: "/posts/macos-open-source-bookmark"
 categories:
 - FOSS
 tags:
-- foss
-- macos
+- FOSS
+- macOS
 ---
 
 I found this [MacOS Open

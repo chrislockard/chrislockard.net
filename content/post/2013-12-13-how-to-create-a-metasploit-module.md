@@ -5,9 +5,9 @@ url: "/posts/how-to-create-a-metasploit-module"
 categories: 
 - InfoSec
 tags:
-- metasploit
-- pentesting
-- coding
+- Metasploit
+- Pentesting
+- Coding
 summary: "Learn how to create a metasploit module"
 ---
 

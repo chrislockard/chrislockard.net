@@ -5,9 +5,9 @@ url: "/posts/password-manager-advice"
 categories:
 - InfoSec
 tags:
-- passwords
-- 1password
-- lastpass
+- Passwords
+- 1Password
+- LastPass
 ---
 
 A developer at work asked a general question to the group: "I'm thinking about

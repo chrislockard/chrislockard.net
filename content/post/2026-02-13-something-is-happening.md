@@ -6,11 +6,11 @@ categories:
 - Reflection
 - AI
 tags:
-- ai
-- claude
-- chatgpt
-- psychology
-- saaspocalypse
+- AI
+- Claude
+- ChatGPT
+- Psychology
+- SaaSpocalypse
 author: "Chris"
 showToc: false
 TocOpen: false

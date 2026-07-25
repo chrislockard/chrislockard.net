@@ -5,9 +5,9 @@ url: "/posts/mallory-in-the-mobile"
 categories:
 - InfoSec
 tags:
-- appsec
-- mobilesec
-- mitm
+- AppSec
+- MobileSec
+- MITM
 summary: "Use mallory proxy to view non-https encrypted mobile traffic"
 ---
 
