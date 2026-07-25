@@ -3,7 +3,7 @@ title: "Local File Inclusion Mini-list"
 date: "2014-09-25T12:00:00-04:00"
 url: "/posts/local-file-inclusion-mini-list"
 categories:
-- infosec
+- InfoSec
 tags:
 - appsec
 - lfi

@@ -7,7 +7,7 @@ summary: ""
 url: "/posts/using-local-fonts-hugo-academic-theme"
 authors: []
 categories: 
-- privacy
+- Privacy
 tags: 
 - blog
 - hugo

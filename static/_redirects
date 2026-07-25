@@ -1,0 +1,14 @@
+# Cloudflare Pages redirects.
+#
+# Category merges, 2026-07: "coding" and "programming" folded into "Dev",
+# "introspection-meditation" folded into "Reflection". These term pages were
+# live before the merge, so the old URLs are kept pointing at their successors.
+# Casing changes (infosec -> InfoSec, etc.) needed no redirects — Hugo slugifies
+# terms, so those URLs never changed.
+
+/categories/coding                      /categories/dev/          301
+/categories/coding/*                    /categories/dev/          301
+/categories/programming                 /categories/dev/          301
+/categories/programming/*               /categories/dev/          301
+/categories/introspection-meditation    /categories/reflection/   301
+/categories/introspection-meditation/*  /categories/reflection/   301

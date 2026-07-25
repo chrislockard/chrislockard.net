@@ -7,7 +7,7 @@ summary: "This post covers increasing security for a static site hosted on s3 us
 url: "/posts/aws-s3-cloudfront-cloudflare-https"
 authors: []
 categories:
-- infosec
+- InfoSec
 tags:
 - aws
 - s3

@@ -3,7 +3,7 @@ title: "RubberDucky Powershell Payload"
 date: "2014-12-22T12:00:00-04:00"
 url: "/posts/rubber-ducky-powershell-payload"
 categories:
-- infosec
+- InfoSec
 tags:
 - powershell
 - pentesting

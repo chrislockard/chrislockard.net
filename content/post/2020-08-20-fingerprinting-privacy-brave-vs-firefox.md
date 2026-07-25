@@ -4,7 +4,7 @@ date: 2020-08-20T17:00:00-04:00
 draft: false
 url: "posts/fingerprinting-privacy-brave-vs-firefox"
 categories:
-- privacy
+- Privacy
 tags: 
 - web browser
 - foss

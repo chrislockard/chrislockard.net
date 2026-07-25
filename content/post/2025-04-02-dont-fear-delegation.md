@@ -3,7 +3,7 @@ title: "Don't fear delegation"
 date: 2025-04-02T00:00:00-05:00
 url: "/posts/dont-fear-delegation"
 categories:
-- career
+- Career
 tags:
 -
 author: "Chris"

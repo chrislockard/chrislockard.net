@@ -4,7 +4,7 @@ date: "2018-10-26T10:00:25-04:00"
 url: "posts/decrypt-java-tls-view-wireshark"
 draft: false
 categories:
-- infosec
+- InfoSec
 tags:
 - java
 - keylogging

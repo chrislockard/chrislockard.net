@@ -3,7 +3,7 @@ title: "PHP, MySql, and Injection"
 date: "2014-11-26T12:00:00-04:00"
 url: "/posts/php-mysql-injection"
 categories:
-- infosec
+- InfoSec
 tags:
 - appsec
 - php

@@ -7,7 +7,7 @@ summary: ""
 url: "/posts/blacklight-privacy-tool"
 authors: []
 categories: 
-- privacy
+- Privacy
 tags: 
 - blog
 - blacklight

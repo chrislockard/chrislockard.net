@@ -4,7 +4,7 @@ date: 2020-06-11T13:52:12-04:00
 draft: false
 url: "posts/one-month-with-mastodon"
 categories:
-- foss
+- FOSS
 tags: 
 - foss
 - liberated

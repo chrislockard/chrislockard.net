@@ -3,7 +3,7 @@ title: "HTML Hobbyist"
 date: 2025-07-30T12:00:00-05:00
 url: "/posts/html-hobbyist"
 categories:
-- technology
+- Technology
 tags:
 - web 
 - blog

@@ -3,7 +3,7 @@ title: "Password Manager Advice"
 date: "2017-04-17T12:00:00-04:00"
 url: "/posts/password-manager-advice"
 categories:
-- infosec
+- InfoSec
 tags:
 - passwords
 - 1password

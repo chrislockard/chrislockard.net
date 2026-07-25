@@ -3,7 +3,7 @@ title: "Gemma4 LocalLLM Resource Usage"
 date: "2026-04-13T18:00:00-05:00"
 url: "posts/gemma4-localllm-resource-usage"
 categories:
-- ai
+- AI
 tags:
   - ai
   - localllm

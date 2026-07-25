@@ -3,7 +3,7 @@ title: "Hands on with Brave Browser"
 date: "2018-03-06T12:00:00-04:00"
 url: "/posts/brave-browser"
 categories:
-- privacy
+- Privacy
 tags:
 - brave
 - web browser

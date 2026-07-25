@@ -3,7 +3,7 @@ title: "Developing an Application Security Program"
 date: "2017-03-21T12:00:00-04:00"
 url: "/posts/application-security-program"
 categories:
-- infosec
+- InfoSec
 tags:
 - BSIMM
 - analysis

@@ -7,7 +7,7 @@ summary: ""
 url: "/posts/thoughtful-birthday-present"
 authors: []
 categories:
-- family
+- Family
 tags:
 - birthday
 - present

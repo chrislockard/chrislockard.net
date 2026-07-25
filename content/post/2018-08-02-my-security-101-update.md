@@ -3,7 +3,7 @@ title: "My Security 101 - 2018 update"
 date: 2018-08-02T12:00:00-04:00
 url: "/posts/my-security-101-updated"
 categories:
-- infosec
+- InfoSec
 tags:
 - infosec
 ---

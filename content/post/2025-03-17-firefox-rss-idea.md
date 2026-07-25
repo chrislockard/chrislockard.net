@@ -3,7 +3,7 @@ title: "Please vote for this Firefox Idea"
 date: 2025-03-17T00:00:00-05:00
 url: "/posts/please-vote-firefox-rss-idea"
 categories:
-- foss
+- FOSS
 tags:
 - firefox
 author: "Chris"

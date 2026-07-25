@@ -7,7 +7,7 @@ summary: "This post covers using AWS Config as a starting point to find public s
 url: "/posts/use-aws-config-to-hunt-public-s3-buckets"
 authors: []
 categories:
-- infosec
+- InfoSec
 tags:
 - cloud
 - aws

@@ -4,7 +4,7 @@ date: "2020-01-31T17:00:00-05:00"
 url: "/posts/aws-waf-and-apigw"
 draft: false
 categories:
-- infosec
+- InfoSec
 tags:
 - cloud
 - aws

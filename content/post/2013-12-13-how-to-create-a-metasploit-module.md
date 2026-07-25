@@ -3,7 +3,7 @@ title: "How to create a Metasploit module"
 date: "2013-12-13T12:00:00-04:00"
 url: "/posts/how-to-create-a-metasploit-module"
 categories: 
-- infosec
+- InfoSec
 tags:
 - metasploit
 - pentesting

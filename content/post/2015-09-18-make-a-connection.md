@@ -3,7 +3,7 @@ title: "Make a connection"
 date: "2015-09-18T12:00:00-04:00"
 url: "/posts/make-a-connection"
 categories:
-- introspection-meditation
+- Reflection
 tags:
 - collaboration
 - analysis

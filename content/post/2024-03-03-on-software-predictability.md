@@ -5,7 +5,7 @@ url: "/posts/on-software-predictability"
 # weight: 1
 # aliases: ["/first"]
 categories:
-- technology
+- Technology
 tags:
 - compatibility
 - software

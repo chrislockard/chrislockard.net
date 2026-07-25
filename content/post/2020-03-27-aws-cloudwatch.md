@@ -4,7 +4,7 @@ date: "2020-04-03T09:30:00-04:00"
 url: "/posts/aws-cloudwatch"
 draft: false
 categories:
-- infosec
+- InfoSec
 tags:
 - cloud
 - aws

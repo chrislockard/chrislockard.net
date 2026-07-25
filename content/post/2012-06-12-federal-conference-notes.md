@@ -3,7 +3,7 @@ title: "Federal conference takeaways"
 date: 2012-06-12T12:00:00-04:00
 url: "/posts/federal-conference-takeaways"
 categories:
-- infosec
+- InfoSec
 tags:
 - defense
 - collaboration

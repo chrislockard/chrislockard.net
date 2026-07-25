@@ -4,7 +4,7 @@ date: "2020-04-17T00:01:00-04:00"
 url: "/posts/secure-cloudflare-s3"
 draft: false
 categories:
-- infosec
+- InfoSec
 tags:
 - cloud
 - aws

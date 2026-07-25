@@ -4,7 +4,7 @@ date: "2019-11-12T15:13:21-05:00"
 url: "posts/more-notes-compiling-emacs-macos"
 draft: false
 categories:
-- foss
+- FOSS
 tags: 
 - emacs
 - macOS

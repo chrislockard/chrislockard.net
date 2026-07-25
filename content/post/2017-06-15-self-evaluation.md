@@ -3,7 +3,7 @@ title: "Self Evaluation"
 date: "2017-06-15T12:00:00-04:00"
 url: "/posts/self-evaluation"
 categories:
-- introspection-meditation
+- Reflection
 tags:
 - johari window
 - analysis

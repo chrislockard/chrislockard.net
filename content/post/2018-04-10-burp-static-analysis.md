@@ -3,7 +3,7 @@ title: "Static Analysis with Burp Suite"
 date: "2018-04-10T12:00:00-04:00"
 url: "/posts/burp-static-analysis"
 categories:
-- infosec
+- InfoSec
 tags:
 - burpsuite
 - static analysis

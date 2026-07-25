@@ -3,7 +3,7 @@ title: "Lisp on MacOS"
 date: 2018-07-06T12:00:00-04:00
 url: "/posts/lisp-on-macos"
 categories:
-- coding
+- Dev
 tags:
 - lisp
 - macos

@@ -3,7 +3,7 @@ title: "Growth in Chaos"
 date: 2018-08-12T12:00:00-04:00
 url: "/posts/growth-in-chaos"
 categories:
-- introspection-meditation
+- Reflection
 tags:
 - growth
 - chaos

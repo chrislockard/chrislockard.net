@@ -4,7 +4,7 @@ date: "2019-01-24T10:00:25-04:00"
 url: "posts/extract-files-from-network-capture"
 draft: false
 categories:
-- infosec
+- InfoSec
 tags:
 - wireshark
 summary: "Extract files from tcpdump or wireshark captures"

@@ -4,7 +4,7 @@ date: "2020-05-15T08:30:00-04:00"
 url: "/posts/compiling-emacs-27-macos"
 draft: false
 categories:
-- foss
+- FOSS
 tags:
 - emacs
 - macos

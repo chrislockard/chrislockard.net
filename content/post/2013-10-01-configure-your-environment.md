@@ -3,7 +3,7 @@ title: "Configure Your Environment"
 date: "2013-10-01T12:00:00-04:00"
 url: "/posts/configure-your-environment"
 categories: 
-- infosec
+- InfoSec
 tags:
 - pentesting
 - shell

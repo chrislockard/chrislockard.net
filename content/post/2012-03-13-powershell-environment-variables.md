@@ -3,7 +3,7 @@ title: "Powershell Environment Variables"
 date: 2012-03-13T12:00:00-04:00
 url: "/posts/powershell-environment-variables"
 categories:
-- infosec
+- InfoSec
 tags:
 - powershell
 summary: "How to determine Powershell environment variables"

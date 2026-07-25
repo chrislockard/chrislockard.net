@@ -5,8 +5,8 @@ url: "/posts/set-cloudflare-http-headers-in-hugo"
 # weight: 1
 # aliases: ["/first"]
 categories:
-- privacy
-- infosec
+- Privacy
+- InfoSec
 tags:
 - hugo
 - cloudflare

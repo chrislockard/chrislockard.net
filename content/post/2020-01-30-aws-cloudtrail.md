@@ -4,7 +4,7 @@ date: "2020-01-30T14:15:06-05:00"
 url: "/posts/aws-cloudtrail"
 draft: false
 categories:
-- infosec
+- InfoSec
 tags:
 - cloud
 - aws

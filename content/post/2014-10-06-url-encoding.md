@@ -3,7 +3,7 @@ title: "URL Encoding"
 date: "2014-10-06T12:00:00-04:00"
 url: "/posts/url-encoding"
 categories:
-- coding
+- Dev
 tags:
 - appsec
 - syntax

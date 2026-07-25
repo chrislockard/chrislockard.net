@@ -3,7 +3,7 @@ title: "Birthday - Asteroids"
 date: "2016-10-05T12:00:00-04:00"
 url: "/posts/birthday-asteroids"
 categories:
-- introspection-meditation
+- Reflection
 tags:
 - self-awareness
 - exercise

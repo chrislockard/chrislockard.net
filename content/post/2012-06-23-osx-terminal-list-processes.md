@@ -3,7 +3,7 @@ title: "OSX Terminal - List Processes"
 date: "2012-06-23T12:00:00-04:00"
 url: "/posts/osx-terminal-list-processes"
 categories:
-- infosec
+- InfoSec
 tags:
 - unix
 - terminal

@@ -3,7 +3,7 @@ title: "Mallory in the Mobile"
 date: "2018-10-15T12:00:00-04:00"
 url: "/posts/mallory-in-the-mobile"
 categories:
-- infosec
+- InfoSec
 tags:
 - appsec
 - mobilesec

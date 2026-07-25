@@ -4,7 +4,7 @@ date: "2020-01-17T14:41:12-05:00"
 url: "/posts/changing-direction"
 draft: false
 categories:
-- introspection-meditation
+- Reflection
 tags:
 - career
 - infosec
