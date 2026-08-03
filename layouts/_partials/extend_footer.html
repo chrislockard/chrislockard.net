@@ -1,3 +1,17 @@
+{{- /* Scroll-to-top button. PaperMod's own copy is switched off via */ -}}
+{{- /* disableScrollToTop in config.yml, because the theme gates both the markup */ -}}
+{{- /* and its window.onscroll handler behind that one flag and we only want the */ -}}
+{{- /* handler gone. Owning the markup here means scroll-ui.js never has to */ -}}
+{{- /* displace a theme listener. Classes are the theme's, so .top-link styling */ -}}
+{{- /* still applies. */ -}}
+<a href="#top" id="top-link" class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up">
+        <polyline points="17 11 12 6 7 11"></polyline>
+        <polyline points="17 18 12 13 7 18"></polyline>
+    </svg>
+</a>
+
 {{- /* Sticky-header state, reading progress fallback, scroll-to-top button. */ -}}
 {{- with resources.Get "js/scroll-ui.js" }}
 {{- $js := . | resources.Minify | fingerprint }}

@@ -2,4 +2,9 @@
 {{- /* Consumed by assets/css/extended/floating-header.css */ -}}
 {{- if and (eq .Kind "page") (eq .Section "post") }}
 <style>:root{--reading-progress-display:block}</style>
+{{- /* Per-post accent, resolved from data/postthemes.yaml. */ -}}
+{{- /* Consumed by assets/css/extended/post-themes.css */ -}}
+{{- with index hugo.Data.postthemes.palettes (partial "pt-resolve.html" .) }}
+<style>:root{--pt-accent-light:{{ .light }};--pt-accent-dark:{{ .dark }}}</style>
+{{- end }}
 {{- end }}

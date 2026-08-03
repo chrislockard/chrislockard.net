@@ -1,0 +1,24 @@
+{{- /* Resolve a post's accent palette name from data/postthemes.yaml. */ -}}
+{{- /* Returns "" when nothing matches, which callers treat as unthemed. */ -}}
+{{- /* The pt- prefix (post theme, as in the --pt-* CSS vars) keeps this out */ -}}
+{{- /* of PaperMod's partial namespace, so a theme update can never collide. */ -}}
+{{- $data := hugo.Data.postthemes }}
+{{- $name := "" }}
+
+{{- with .Params.postTheme }}
+  {{- if index $data.palettes . }}
+    {{- $name = . }}
+  {{- else }}
+    {{- warnf "post-theme: unknown postTheme %q in %s, falling back to categories" . $.File.Path }}
+  {{- end }}
+{{- end }}
+
+{{- if not $name }}
+  {{- range .Params.categories }}
+    {{- if not $name }}
+      {{- $name = index $data.map (lower .) | default "" }}
+    {{- end }}
+  {{- end }}
+{{- end }}
+
+{{- return $name }}

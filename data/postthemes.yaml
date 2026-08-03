@@ -1,0 +1,42 @@
+# Per-post accent palettes.
+#
+# Consumed by layouts/_partials/pt-resolve.html, injected by
+# layouts/_partials/extend_head.html, applied by
+# assets/css/extended/post-themes.css.
+#
+# A post picks up a palette from the first of its `categories` that appears in
+# `map` below. Set `postTheme: <palette>` in frontmatter to override.
+
+# Lowercased category -> palette name.
+map:
+  reflection: reflection
+  infosec: security
+  privacy: security
+  ai: security
+  dev: build
+  foss: build
+  technology: build
+  pkm: build
+  content: roundup
+  family: personal
+  career: personal
+  gaming: personal
+
+# `light` is used against --theme rgb(255,255,255), `dark` against
+# rgb(29,30,32). Both are used as link colors, so keep them at 4.5:1 or better.
+palettes:
+  reflection:
+    light: "#8a6a12" # gold
+    dark: "#e0b64a"
+  security:
+    light: "#5b4bcf" # blue-purple
+    dark: "#a99bff"
+  build:
+    light: "#0f766e" # teal
+    dark: "#5eead4"
+  roundup:
+    light: "#8a5a3c" # warm neutral
+    dark: "#d9a17a"
+  personal:
+    light: "#a03d5f" # muted rose
+    dark: "#f0a0bd"

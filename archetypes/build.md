@@ -3,13 +3,13 @@ title: "{{ replace .File.ContentBaseName `-` ` ` | title }}"
 date: "{{ .Date }}"
 url: "posts/post-url"
 categories:
-- Category
+- Dev
 tags:
 - tag1
 - tag2
 author: ""
-postTheme: "" # optional accent override: reflection, security, build, roundup, personal
-showToc: false
+postTheme: "" # accent comes from the category; set to override
+showToc: true
 TocOpen: false
 draft: false
 hidemeta: false
@@ -19,10 +19,10 @@ disableHLJS: true # to disable highlightjs
 disableShare: false
 hideSummary: false
 searchHidden: false
-ShowReadingTime: false
+ShowReadingTime: true
 ShowBreadCrumbs: true
 ShowPostNavLinks: true
-ShowWordCount: false
+ShowWordCount: true
 ShowRssButtonInSectionTermList: true
 UseHugoToc: true
 cover:
