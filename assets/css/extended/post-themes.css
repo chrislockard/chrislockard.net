@@ -1,0 +1,85 @@
+/* Per-post accent theming.
+ *
+ * --pt-accent-light / --pt-accent-dark are injected into <head> by
+ * layouts/_partials/extend_head.html on post pages only, resolved by
+ * layouts/_partials/pt-resolve.html from data/postthemes.yaml.
+ *
+ * Every rule below reads --pt-accent through a var() fallback whose value is
+ * the neutral the theme already uses, so pages without an injected accent
+ * render byte-for-byte as they did before. No body class, no data attribute,
+ * no shadowed theme templates.
+ *
+ * Alphabetically last in css/extended/, so it wins over floating-header.css
+ * where the two overlap (the reading progress bar).
+ */
+
+:root {
+    --pt-accent: var(--pt-accent-light);
+}
+
+:root[data-theme="dark"] {
+    --pt-accent: var(--pt-accent-dark);
+}
+
+/* With JS off the theme leaves data-theme="auto" and swaps its palette in a
+ * <noscript> block. Mirror that here so the accent follows. */
+@media (prefers-color-scheme: dark) {
+    :root[data-theme="auto"] {
+        --pt-accent: var(--pt-accent-dark);
+    }
+}
+
+/* The wash.
+ *
+ * core/reset.css sets `body { background: var(--theme) }` as a shorthand; this
+ * longhand layers an image over it without disturbing the color. A body::before
+ * would not work — at z-index -1 it sits behind the background propagated to
+ * the canvas and never paints. */
+body {
+    background-image:
+        radial-gradient(60rem 40rem at 50% -10%,
+            color-mix(in srgb, var(--pt-accent, transparent) 12%, transparent),
+            transparent 70%);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+/* Links. */
+.post-content a:not(.anchor) {
+    color: var(--pt-accent, inherit);
+}
+
+/* Standfirst under the title. */
+.post-description {
+    color: var(--pt-accent, inherit);
+}
+
+/* Section headings get a hairline. box-shadow rather than border-bottom so an
+ * unthemed page gains no layout, only a transparent shadow. */
+.post-content h2,
+.post-content h3 {
+    box-shadow: 0 1px 0 color-mix(in srgb, var(--pt-accent, transparent) 30%, transparent);
+}
+
+.post-content blockquote {
+    border-inline-start-color: var(--pt-accent, var(--content));
+}
+
+.post-content hr {
+    background: color-mix(in srgb, var(--pt-accent, var(--tertiary)) 55%, var(--tertiary));
+}
+
+/* Tag pills in the post footer. */
+.post-tags a {
+    color: var(--pt-accent, var(--secondary));
+    border-color: color-mix(in srgb, var(--pt-accent, var(--border)) 40%, var(--border));
+}
+
+.post-tags a:hover {
+    background: color-mix(in srgb, var(--pt-accent, var(--border)) 15%, var(--border));
+}
+
+/* Reading progress hairline, from assets/css/extended/floating-header.css. */
+.header::after {
+    background: var(--pt-accent, var(--primary));
+}

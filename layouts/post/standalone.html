@@ -1,0 +1,58 @@
+{{- /* Standalone post layout — a complete document with no theme chrome.
+
+     Opt in per post with `layout: "standalone"` in frontmatter. Because this
+     template has no {{ define }} block, Hugo skips baseof.html entirely: no
+     header, footer, menu, or theme stylesheet. You own the whole page.
+
+     Update-safe: this is a new template path with no PaperMod equivalent, so a
+     theme update cannot collide with it. (Naming it post/single.html instead
+     WOULD shadow the theme for every post — don't.)
+
+     Optional frontmatter:
+       customCSS:    "css/posts/<name>.css"  relative to assets/
+       customJS:     "js/posts/<name>.js"    relative to assets/
+       hideBackLink: true                    drop the default link home
+
+     Write the body as raw HTML in the post itself. Cross-post links still work
+     with {{"{{< relref \"/post/foo.md\" >}}"}} — use the angle-bracket form
+     inside an HTML attribute, not the {{"{{% %}}"}} form used in prose. */ -}}
+<!DOCTYPE html>
+<html lang="{{ site.Language.Lang }}">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ .Title }} · {{ site.Title }}</title>
+    {{- with .Description }}
+    <meta name="description" content="{{ . | plainify }}">
+    {{- end }}
+    <link rel="canonical" href="{{ .Permalink }}">
+    {{- with site.Params.assets.favicon }}
+    <link rel="icon" href="{{ . | absURL }}">
+    {{- end }}
+    {{- partial "templates/opengraph.html" . }}
+    {{- with .Params.customCSS }}
+    {{- with resources.Get . }}
+    {{- $css := . | resources.Minify | fingerprint }}
+    <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}"
+        crossorigin="anonymous">
+    {{- end }}
+    {{- end }}
+</head>
+
+<body>
+    {{ .Content }}
+
+    {{- if not .Params.hideBackLink }}
+    <a class="standalone-back" href="{{ site.Home.RelPermalink }}">&larr; {{ site.Title }}</a>
+    {{- end }}
+
+    {{- with .Params.customJS }}
+    {{- with resources.Get . }}
+    {{- $js := . | resources.Minify | fingerprint }}
+    <script defer src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" crossorigin="anonymous"></script>
+    {{- end }}
+    {{- end }}
+</body>
+
+</html>

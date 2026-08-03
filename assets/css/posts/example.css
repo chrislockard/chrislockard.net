@@ -1,0 +1,175 @@
+/*
+Per-post stylesheet for a standalone post. Loaded only by the post that names it
+in `customCSS`, and fingerprinted with SRI by layouts/post/standalone.html.
+
+Note the directory: the theme auto-bundles assets/css/extended/*.css into the
+site-wide stylesheet, but assets/css/posts/*.css is NOT matched by that glob, so
+nothing here leaks onto other pages.
+
+A standalone page loads no theme CSS at all, so everything below — including the
+reset, the code block styling and the table borders — has to be declared here.
+This is a starting point; replace it wholesale.
+*/
+
+:root {
+    --ink: #f2f0ea;
+    --paper: #12110f;
+    --accent: #d9a441;
+    --dim: rgb(242 240 234 / 62%);
+    --rule: rgb(242 240 234 / 14%);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font: 1.0625rem/1.7 ui-serif, Georgia, serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Hero */
+
+.hero {
+    min-height: 60vh;
+    display: grid;
+    place-content: center;
+    text-align: center;
+    padding: 4rem 1.5rem;
+    background: radial-gradient(ellipse at 50% 0%, rgb(217 164 65 / 18%), transparent 60%);
+}
+
+.hero h1 {
+    margin: 0;
+    font-size: clamp(2.5rem, 9vw, 6rem);
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    font-weight: 700;
+}
+
+.hero p {
+    margin: 1.5rem auto 0;
+    max-width: 34ch;
+    color: var(--dim);
+    font-size: 1.05rem;
+}
+
+/* Prose */
+
+.prose {
+    max-width: 68ch;
+    margin: 0 auto;
+    padding: 0 1.5rem 5rem;
+}
+
+.prose h2 {
+    margin: 3rem 0 1rem;
+    font-size: 1.5rem;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+}
+
+.prose a {
+    color: var(--accent);
+    text-underline-offset: 0.2em;
+}
+
+.prose strong {
+    color: #fff;
+}
+
+.pull {
+    margin: 3rem 0;
+    padding-left: 1.25rem;
+    border-left: 3px solid var(--accent);
+    font-size: 1.35rem;
+    line-height: 1.4;
+    color: rgb(242 240 234 / 85%);
+}
+
+/* Code.
+   A fenced block WITH a language (```html) is syntax-highlighted by chroma,
+   which emits inline styles because markup.highlight.noClasses defaults to
+   true. Those carry their own colours onto a standalone page, so highlighting
+   works here with no theme stylesheet — but the inline background overrides
+   the one below. A fence with no language uses these rules in full. Padding,
+   border and radius apply to both. */
+
+code {
+    font: 0.875rem/1.6 ui-monospace, SFMono-Regular, Menlo, monospace;
+    background: rgb(242 240 234 / 9%);
+    padding: 0.15em 0.4em;
+    border-radius: 4px;
+}
+
+pre {
+    margin: 1.5rem 0;
+    padding: 1rem 1.15rem;
+    overflow-x: auto;
+    background: #0b0a09;
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+}
+
+pre code {
+    background: none;
+    padding: 0;
+    color: rgb(242 240 234 / 88%);
+}
+
+/* Tables */
+
+table {
+    width: 100%;
+    margin: 1.5rem 0;
+    border-collapse: collapse;
+    font-size: 0.9375rem;
+}
+
+th,
+td {
+    text-align: left;
+    padding: 0.55rem 0.7rem;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+}
+
+th {
+    color: var(--dim);
+    font-weight: 600;
+    font-size: 0.8125rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+/* Back link */
+
+.standalone-back {
+    display: block;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    color: var(--dim);
+    font: 0.9rem/1 ui-sans-serif, system-ui, sans-serif;
+    text-decoration: none;
+    border-top: 1px solid var(--rule);
+}
+
+.standalone-back:hover {
+    color: var(--accent);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .hero h1 {
+        animation: rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+    }
+}
+
+@keyframes rise {
+    from {
+        opacity: 0;
+        transform: translateY(0.4em);
+    }
+}
