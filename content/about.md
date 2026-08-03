@@ -54,18 +54,11 @@ Posts are written from [Ghostty](https://ghostty.org/) in
 [Neovim](https://neovim.io/) (with [LazyVim](https://www.lazyvim.org/)), and
 sometimes [Zed](https://zed.dev/).
 
-I used [Grok](https://grok.com/) to riff on ideas for [this post about
-delegation]({{% relref "2025-04-02-dont-fear-delegation.md" %}}), but have
-otherwise not used AI to generate content on this site.
+I use AI to help me update the technical aspects of this site (e.g., post
+theming, reading indicator) and as a proof-reader. All published words are my
+own unless otherwise cited.
 
 ## Links
-
-### Unlockd
-
-This is a project of mine (taking over the name from this blog) that focuses on
-self-improvement and faith.
-
-[https://getunlockd.org/](https://getunlockd.org/)
 
 ### DHH
 
