@@ -48,7 +48,8 @@ clean locally can fail in production with no warning.
 
 ### Creating posts
 
->New posts used to be created in a year/month/day folder hierarchy. Now, they are
+>New posts used to be created in a year/month/day folder hierarchy. Now, they
+ are
 >all contained under /content/post/<yyyy-mm-dd-postname.md>
 
 These can be created using
@@ -67,7 +68,8 @@ No: `[Nearly a year ago,]({{< relref
 Yes: `[Nearly a year ago,]({{% relref
 "/post/2017-10-20-lesson-for-bug-bounty-researchers.md" %}})`
 
-For more, see [the Hugo shortcode reference](https://gohugo.io/content-management/shortcodes/)
+For more, see [the Hugo shortcode
+reference](https://gohugo.io/content-management/shortcodes/)
 
 ## Post theming
 
@@ -140,8 +142,8 @@ files the post under `content/reflection/`, which creates a whole new section
 with its own listing page, RSS feed and sitemap entry. It also means the post
 is not in section `post`, so it gets no accent and no reading-progress bar.
 
-Valid kinds: `reflection`, `security`, `build`, `roundup`, `personal`. The `roundup`
-kind sets up a Lockd & Loaded post, title and URL included.
+Valid kinds: `reflection`, `security`, `build`, `roundup`, `personal`. The
+`roundup` kind sets up a Lockd & Loaded post, title and URL included.
 
 ### Why it is built this way
 
