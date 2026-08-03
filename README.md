@@ -30,6 +30,22 @@ rather than `.LinkTitle` so `FOSS` is not re-cased. It will not pick up
 upstream changes to that template. After a theme update, compare the two if
 `/tags/` or `/categories/` looks wrong.
 
+### Cloudflare build environment
+
+`HUGO_VERSION` must be set to **0.164.0** (or anything 0.156+) in the Cloudflare
+Pages dashboard under Settings → Environment variables, for both Production and
+Preview. Hugo cannot be pinned from a file in the repo the way Node and Ruby
+can, so this setting is invisible here.
+
+Pages defaults to Hugo 0.147.7, which is new enough for PaperMod but too old for
+`hugo.Data` in `layouts/_partials/pt-resolve.html` — that needs 0.156+. On the
+default the build *fails*, and Pages responds by continuing to serve the last
+successful deploy, so the site looks fine while new changes silently never
+appear. Check the build log under Deployments if that ever happens again.
+
+Keep the pinned version matched to local Hugo. When they drift, a build that is
+clean locally can fail in production with no warning.
+
 ### Creating posts
 
 >New posts used to be created in a year/month/day folder hierarchy. Now, they are
@@ -117,6 +133,12 @@ Alongside `post.md` there are five per-type archetypes that pre-fill the right
 category and frontmatter:
 
 `hugo new content --kind reflection post/yyyy-mm-dd-postname.md`
+
+Use `--kind`, and keep `post/` as the path. Hugo also picks archetypes by
+section name, so `hugo new reflection/postname.md` finds the same archetype but
+files the post under `content/reflection/`, which creates a whole new section
+with its own listing page, RSS feed and sitemap entry. It also means the post
+is not in section `post`, so it gets no accent and no reading-progress bar.
 
 Valid kinds: `reflection`, `security`, `build`, `roundup`, `personal`. The `roundup`
 kind sets up a Lockd & Loaded post, title and URL included.
