@@ -7,6 +7,7 @@ categories:
 tags:
 - tag1
 - tag2
+type: post
 author: ""
 postTheme: "" # optional accent override: reflection, security, build, roundup, personal
 showToc: false

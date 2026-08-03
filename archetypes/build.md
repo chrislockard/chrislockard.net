@@ -7,6 +7,7 @@ categories:
 tags:
 - tag1
 - tag2
+type: post
 author: ""
 postTheme: "" # accent comes from the category; set to override
 showToc: true

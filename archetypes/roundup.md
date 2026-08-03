@@ -6,6 +6,7 @@ categories:
 - Content
 tags:
 - Links
+type: post
 author: "Chris"
 postTheme: "" # accent comes from the category; set to override
 showToc: false
