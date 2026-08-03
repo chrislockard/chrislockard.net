@@ -13,7 +13,7 @@ commentable: false
 editable: false
 ---
 {{< figure
-  src="/images/site-icon.png"
+  src="/images/site-icon.jpg"
   alt="Unl0ckd logo"
   align=center
   width="512"
