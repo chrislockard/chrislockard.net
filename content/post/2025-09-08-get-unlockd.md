@@ -25,8 +25,11 @@ ShowWordCount: true
 ShowRssButtonInSectionTermList: true
 UseHugoToc: true
 ---
-I'm happy to showcase my new project, [**Get Unlockd**](https://getunlockd.org/)
-that will be focused on exploring many of my faith-based interests.
+
+**Update 2026-08-03:** This project has been canceled, see [update]({{% relref "/post/2026-08-03-merging-get-unlockd.md" %}}).
+
+~I'm happy to showcase my new project, **Get Unlockd**
+that will be focused on exploring many of my faith-based interests.~
 
 Chrislockard.net has been a potpourri of ideas since I started it in 2012. I
 wonder if a focused topic would be better. If nothing else, it's a way to
