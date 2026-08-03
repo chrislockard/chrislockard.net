@@ -51,7 +51,11 @@ params:
   ShowCodeCopyButtons: true
   ShowFullTextinRSS: false
   disableSpecial1stPost: false
-  disableScrollToTop: false
+  # The scroll-to-top button is rendered by layouts/_partials/extend_footer.html
+  # and driven by assets/js/scroll-ui.js instead of by the theme. Leaving this
+  # true stops PaperMod emitting its own button and its window.onscroll handler,
+  # so nothing here depends on how the theme wires up scroll events.
+  disableScrollToTop: true
   comments: false
   hidemeta: false
   hideSummary: false

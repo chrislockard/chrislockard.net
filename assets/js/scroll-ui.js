@@ -7,12 +7,13 @@ Scroll-driven UI, kept deliberately cheap.
 2. Reading progress — only runs on browsers without CSS scroll-driven
    animations. Everywhere else the bar is pure CSS on the compositor and this
    does nothing.
-3. Scroll-to-top button — replaces PaperMod's `window.onscroll` handler with a
-   passive, rAF-coalesced listener. Behaviour matches upstream exactly:
-   the `hidden` class toggles at a one-viewport threshold.
+3. Scroll-to-top button — a passive, rAF-coalesced listener. Behaviour matches
+   upstream exactly: the `hidden` class toggles at a one-viewport threshold.
 
-Loaded with `defer`, so it runs after the theme's inline footer scripts have
-executed and can safely take over `window.onscroll`.
+The button itself is rendered by layouts/_partials/extend_footer.html, with
+`disableScrollToTop: true` in config.yml stopping PaperMod emitting its own
+button and its non-passive `window.onscroll` handler. That flag gates both, so
+we own both. Nothing below depends on how the theme wires up scroll events.
 */
 (function () {
     var root = document.documentElement;
@@ -28,9 +29,6 @@ executed and can safely take over `window.onscroll`.
             header.classList.toggle('is-stuck', !entries[0].isIntersecting);
         }).observe(sentinel);
     }
-
-    // Drop the theme's non-passive per-event handler; re-implemented below.
-    window.onscroll = null;
 
     var toplink = document.getElementById('top-link');
     var needsProgress = header && !CSS.supports('animation-timeline', 'scroll()');
