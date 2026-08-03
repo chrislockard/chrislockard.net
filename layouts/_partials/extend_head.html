@@ -1,6 +1,9 @@
 {{- /* Turn on the reading progress bar for posts only. */ -}}
 {{- /* Consumed by assets/css/extended/floating-header.css */ -}}
-{{- if and (eq .Kind "page") (eq .Section "post") }}
+{{- /* .Type, not .Section: Type falls back to Section when frontmatter omits */ -}}
+{{- /* it, so this still matches everything in content/post/, while also */ -}}
+{{- /* honouring an explicit `type: post` on a page filed under another section. */ -}}
+{{- if and (eq .Kind "page") (eq .Type "post") }}
 <style>:root{--reading-progress-display:block}</style>
 {{- /* Per-post accent, resolved from data/postthemes.yaml. */ -}}
 {{- /* Consumed by assets/css/extended/post-themes.css */ -}}
