@@ -73,8 +73,7 @@ params:
     safari_pinned_tab: "/images/icons/favicon-32x32.png"
   social:
     twitter: "https://twitter.com/unl0ckd"
-    mastodon: "https://fosstodon.org/web/@unl0ckd"
-    stackoverflow: "https://stackoverflow.com/users/15501625/unl0ckd"
+    mastodon: "https://defcon.social/@unl0ckd"
     github: "https://github.com/chrislockard"
     matrix: "https://matrix.to/#/@unl0ckd:matrix.org"
     email: "mailto:blog@chrislockard.net"
