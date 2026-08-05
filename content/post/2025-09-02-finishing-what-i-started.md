@@ -5,9 +5,7 @@ url: "posts/finishing-what-I-started"
 categories:
 - Reflection
 tags:
-- Fundamentals
 - Self Awareness
-- Procrastination
 author: "Chris"
 showToc: false
 TocOpen: false

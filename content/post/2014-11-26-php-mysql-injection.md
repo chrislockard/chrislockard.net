@@ -6,9 +6,6 @@ categories:
 - Cyber
 tags:
 - AppSec
-- PHP
-- MySQL
-- Injection
 - Coding
 ---
 Inspired by Jack Daniel's ["Shoulders of InfoSec Project"][Shoulders], this post

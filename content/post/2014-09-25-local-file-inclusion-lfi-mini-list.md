@@ -6,9 +6,6 @@ categories:
 - Cyber
 tags:
 - AppSec
-- LFI
-- Windows
-- Unix
 - Linux
 summary: "A mini-list reference for interesting LFI targets"
 ---

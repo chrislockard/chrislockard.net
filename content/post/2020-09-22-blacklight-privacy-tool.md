@@ -9,9 +9,7 @@ authors: []
 categories:
 - Cyber
 tags:
-- Blog
-- Blacklight
-- Surveillance Capitalism
+- Blogging
 - Privacy
 date: 2020-09-22T16:45:00-04:00
 lastmod: 2020-09-22T16:45:00-04:00

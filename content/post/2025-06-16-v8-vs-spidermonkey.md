@@ -5,8 +5,7 @@ url: "/posts/v8-vs-spidermonkey-infographic"
 categories:
 - Technology
 tags:
-- Gemini
-- Google
+- AI
 author: "Chris"
 showToc: false
 TocOpen: false

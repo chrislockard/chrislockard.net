@@ -6,7 +6,7 @@ categories:
 - Technology
 tags:
 - AWS
-- Static Site
+- Blogging
 ---
 
 In a [previous post]({{% relref "/post/2016-03-25-static-sites-2016.md" %}}) I

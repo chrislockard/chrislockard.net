@@ -5,9 +5,7 @@ url: "posts/I-did-a-thing-wesplit"
 categories:
 - Technology
 tags:
-- iOS
-- Swift
-- SwiftUI
+- Mobile
 author: "Chris"
 showToc: true
 TocOpen: false

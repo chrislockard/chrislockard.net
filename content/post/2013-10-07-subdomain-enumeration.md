@@ -6,8 +6,6 @@ categories:
 - Cyber
 tags:
 - Pentesting
-- DNS
-- Recon
 summary: "Techniques for performing subdomain enumeration information gathering."
 showtoc: true
 ---

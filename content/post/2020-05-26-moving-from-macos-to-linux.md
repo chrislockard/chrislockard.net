@@ -5,11 +5,10 @@ url: "posts/moving-from-macos-to-linux"
 draft: false
 categories:
 - Technology
-tags: 
+tags:
+- FOSS
 - Linux
 - macOS
-- FOSS
-- Liberty
 summary: "I've adopted Linux on the desktop. Here's how I adapted my macOS workflow..."
 ---
 

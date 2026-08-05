@@ -6,8 +6,6 @@ categories:
 - Cyber
 tags:
 - AWS
-- Cloud
-- S3
 ---
 # The Problem
 

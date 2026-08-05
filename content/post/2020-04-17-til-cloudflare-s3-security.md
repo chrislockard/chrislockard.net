@@ -6,9 +6,7 @@ draft: false
 categories:
 - Cyber
 tags:
-- Cloud
 - AWS
-- Serverless
 - Cloudflare
 summary: "This post covers how to secure an S3 bucket serving content through Cloudflare"
 ---

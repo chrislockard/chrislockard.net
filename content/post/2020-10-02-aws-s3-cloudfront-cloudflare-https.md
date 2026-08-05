@@ -10,8 +10,6 @@ categories:
 - Cyber
 tags:
 - AWS
-- S3
-- CloudFront
 - Cloudflare
 date: 2020-10-02T10:21:19-04:00
 lastmod: 2020-10-02T10:21:19-04:00

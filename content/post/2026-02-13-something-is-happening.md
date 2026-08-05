@@ -6,10 +6,7 @@ categories:
 - Reflection
 tags:
 - AI
-- Claude
-- ChatGPT
-- Psychology
-- SaaSpocalypse
+- Self Awareness
 author: "Chris"
 showToc: false
 TocOpen: false

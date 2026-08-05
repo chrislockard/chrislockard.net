@@ -6,8 +6,7 @@ categories:
 - Cyber
 tags:
 - AppSec
-- MobileSec
-- MITM
+- Mobile
 summary: "Use mallory proxy to view non-https encrypted mobile traffic"
 ---
 

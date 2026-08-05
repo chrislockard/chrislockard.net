@@ -7,11 +7,7 @@ authors: []
 categories:
 - Technology
 tags:
-- Notion
-- PPV
-- Evernote
-- PARA
-- OrgMode
+- PKM
 date: 2022-02-21T21:00:00-04:00
 lastmod: 2022-02-21T21:00:00-04:00
 featured: false

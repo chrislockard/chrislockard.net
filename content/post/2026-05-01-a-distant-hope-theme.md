@@ -5,8 +5,7 @@ url: "posts/a-distant-hope-theme"
 categories:
 - Technology
 tags:
-- Zed
-- Theme
+- Editors
 author: ""
 showToc: false
 TocOpen: false

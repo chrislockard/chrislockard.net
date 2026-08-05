@@ -5,7 +5,6 @@ url: "/posts/reverse-shell-methods"
 categories:
 - Cyber
 tags:
-- Shells
 - Pentesting
 summary: "Methods for obtaining reverse shells"
 showtoc: true

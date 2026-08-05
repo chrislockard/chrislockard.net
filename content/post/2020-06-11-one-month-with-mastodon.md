@@ -5,9 +5,8 @@ draft: false
 url: "posts/one-month-with-mastodon"
 categories:
 - Technology
-tags: 
+tags:
 - FOSS
-- Liberated
 summary: "I've switched to Mastodon and so should you."
 ---
 

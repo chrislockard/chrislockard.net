@@ -6,10 +6,9 @@ categories:
 - Cyber
 tags:
 - Brave
-- Web Browser
 - Firefox
-- Vivaldi
 - Privacy
+- Web Browser
 ---
 # Brave, the new Firefox?
 

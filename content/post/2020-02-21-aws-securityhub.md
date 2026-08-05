@@ -6,11 +6,8 @@ draft: false
 categories:
 - Cyber
 tags:
-- Cloud
 - AWS
-- Monitoring
 - SecOps
-- SecurityHub
 summary: "AWS Security Hub eases the pain of cloud monitoring"
 ---
 

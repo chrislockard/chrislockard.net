@@ -4,8 +4,6 @@ date: "2026-04-01T08:00:00-05:00"
 url: "posts/apple-50th-anniversary"
 categories:
 - Technology
-tags:
-- Apple
 author: "Chris"
 showToc: false
 TocOpen: false

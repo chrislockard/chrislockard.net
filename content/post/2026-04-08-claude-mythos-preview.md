@@ -6,8 +6,6 @@ categories:
 - Technology
 tags:
 - AI
-- Claude
-- Anthropic
 author: "Chris"
 showToc: false
 TocOpen: false

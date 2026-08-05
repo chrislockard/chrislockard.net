@@ -5,9 +5,7 @@ url: "/posts/professional-organization-habits"
 categories:
 - Technology
 tags:
-- Notes
-- Organization
-- Evernote
+- PKM
 ---
 This is a topic I've had a love/hate relationship with my entire life.  I was
 once forced to go to a time management workshop on Saturdays in high school. My

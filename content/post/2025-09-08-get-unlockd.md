@@ -5,7 +5,7 @@ url: "posts/get-unlockd"
 categories:
 - Reflection
 tags:
-- Blog
+- Blogging
 author: "Chris"
 showToc: true
 TocOpen: false

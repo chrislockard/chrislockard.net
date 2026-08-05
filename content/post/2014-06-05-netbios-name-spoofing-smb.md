@@ -5,10 +5,8 @@ url: "/posts/netbios-name-spoofing-and-smb"
 categories:
 - Cyber
 tags:
-- Pentesting
-- NetBIOS
-- SMB
 - Authentication
+- Pentesting
 summary: "NBNS still works!"
 ---
 

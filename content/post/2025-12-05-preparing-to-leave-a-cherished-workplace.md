@@ -6,7 +6,7 @@ categories:
 - Career
 tags:
 - SecOps
-- Psychology
+- Self Awareness
 author: "Chris"
 showToc: false
 TocOpen: false

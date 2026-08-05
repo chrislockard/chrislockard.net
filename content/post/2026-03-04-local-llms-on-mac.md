@@ -5,7 +5,7 @@ url: "posts/notes-openwebui-ollama"
 categories:
 - Technology
 tags:
-- Ollama
+- LocalLLM
 - macOS
 author: "Chris"
 showToc: true

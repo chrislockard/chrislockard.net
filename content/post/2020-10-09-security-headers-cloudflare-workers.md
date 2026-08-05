@@ -9,8 +9,8 @@ authors: []
 categories:
 - Cyber
 tags:
+- AWS
 - Cloudflare
-- S3
 date: 2020-10-09T10:26:18-04:00
 lastmod: 2020-10-09T10:26:18-04:00
 featured: false

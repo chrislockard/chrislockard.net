@@ -4,8 +4,7 @@ date: 2018-08-02T12:00:00-04:00
 url: "/posts/my-security-101-updated"
 categories:
 - Cyber
-tags:
-- InfoSec
+
 ---
 
 In a [post from 2015,]({{% relref "/post/2015-01-20-my-security-101.md" %}}), I write

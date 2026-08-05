@@ -5,10 +5,9 @@ url: "/posts/make-a-connection"
 categories:
 - Reflection
 tags:
-- Collaboration
-- Analysis
-- L0pht
-- Complexity
+- Career
+- SecOps
+- Self Awareness
 ---
 
 This post was inspired by a client who came to me and said "I do not understand

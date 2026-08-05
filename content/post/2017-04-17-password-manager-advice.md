@@ -5,9 +5,7 @@ url: "/posts/password-manager-advice"
 categories:
 - Cyber
 tags:
-- Passwords
-- 1Password
-- LastPass
+- Authentication
 ---
 
 A developer at work asked a general question to the group: "I'm thinking about

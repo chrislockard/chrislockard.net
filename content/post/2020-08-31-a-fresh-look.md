@@ -9,8 +9,8 @@ authors: []
 categories:
 - Reflection
 tags:
-- Blog
-- Legacy
+- Blogging
+- Family
 date: 2020-08-31T14:50:25-04:00
 lastmod: 2020-08-31T14:50:25-04:00
 featured: false

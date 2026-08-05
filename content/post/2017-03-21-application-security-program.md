@@ -5,9 +5,8 @@ url: "/posts/application-security-program"
 categories:
 - Cyber
 tags:
-- BSIMM
-- Analysis
 - AppSec
+- SecOps
 ---
 
 Since my last post, I've left my position with the consultancy. I'm now working

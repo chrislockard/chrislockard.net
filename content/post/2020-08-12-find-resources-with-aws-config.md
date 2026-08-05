@@ -5,10 +5,8 @@ draft: false
 url: "posts/find-resources-with-aws-config"
 categories:
 - Cyber
-tags: 
-- Cloud
+tags:
 - AWS
-- Monitoring
 - SecOps
 summary: "Use AWS Config to locate AWS resources"
 ---

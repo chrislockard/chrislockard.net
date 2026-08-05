@@ -5,8 +5,7 @@ url: "/posts/growth-in-chaos"
 categories:
 - Reflection
 tags:
-- Growth
-- Chaos
+- Self Awareness
 draft: false
 ---
 

@@ -5,7 +5,7 @@ url: "/posts/lisp-on-macos"
 categories:
 - Technology
 tags:
-- Lisp
+- Editors
 - macOS
 summary: "Towards a working LISP environment on macOS"
 ---

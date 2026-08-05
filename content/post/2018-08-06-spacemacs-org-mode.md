@@ -5,7 +5,7 @@ url: "/posts/spacemacs-org-mode-intro"
 categories:
 - Technology
 tags:
-- Organization
+- PKM
 ---
 # Update: 2018-08-10
 

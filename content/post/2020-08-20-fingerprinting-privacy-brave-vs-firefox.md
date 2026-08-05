@@ -6,12 +6,12 @@ url: "posts/fingerprinting-privacy-brave-vs-firefox"
 categories:
 - Cyber
 tags:
-- Web Browser
-- FOSS
-- Firefox
 - Brave
-- Privacy
+- FOSS
 - Fingerprinting
+- Firefox
+- Privacy
+- Web Browser
 summary: "Brave and Firefox bill themselves as privacy champions. How do they fare at fingerprinting protection?"
 ---
 

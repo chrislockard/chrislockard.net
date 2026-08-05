@@ -7,8 +7,7 @@ url: "/posts/on-software-predictability"
 categories:
 - Technology
 tags:
-- Compatibility
-- Software
+- Coding
 author: "Chris"
 # author: ["Me", "You"] # multiple authors
 showToc: true

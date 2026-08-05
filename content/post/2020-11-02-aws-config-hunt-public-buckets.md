@@ -9,11 +9,8 @@ authors: []
 categories:
 - Cyber
 tags:
-- Cloud
 - AWS
-- Monitoring
 - SecOps
-- Config
 date: 2020-11-02T13:53:04-05:00
 lastmod: 2020-11-02T13:53:04-05:00
 featured: false

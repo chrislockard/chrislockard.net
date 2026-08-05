@@ -7,7 +7,7 @@ categories:
 tags:
 - Coding
 - FOSS
-- Efficiency
+- Workflow
 summary: "Configuring Spacemacs Go layer and environment variables on macOS"
 ---
 

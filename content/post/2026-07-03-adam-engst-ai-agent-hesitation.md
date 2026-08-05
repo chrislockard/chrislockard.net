@@ -5,7 +5,7 @@ url: "posts/AI-agents-also-fill-me-with-dread"
 categories:
 - Cyber
 tags:
-- Agents
+- AI
 author: "Chris"
 showToc: false
 TocOpen: false

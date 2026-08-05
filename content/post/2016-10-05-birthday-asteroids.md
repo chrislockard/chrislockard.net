@@ -5,8 +5,8 @@ url: "/posts/birthday-asteroids"
 categories:
 - Reflection
 tags:
+- Family
 - Self Awareness
-- Exercise
 ---
 
 Recently, I celebrated a birthday. Typically, this is a joyous time, and I have

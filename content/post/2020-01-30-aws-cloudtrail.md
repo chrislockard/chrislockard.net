@@ -6,11 +6,8 @@ draft: false
 categories:
 - Cyber
 tags:
-- Cloud
 - AWS
-- Monitoring
 - SecOps
-- CloudTrail
 summary: "AWS CloudTrail is the cornerstone of cloud SECOPS"
 ---
 

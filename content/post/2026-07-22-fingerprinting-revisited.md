@@ -6,10 +6,10 @@ categories:
 - Cyber
 tags:
 - Brave
-- Firefox
-- Safari
-- Privacy
 - Fingerprinting
+- Firefox
+- Privacy
+- Web Browser
 author: "Chris"
 showToc: false
 TocOpen: false

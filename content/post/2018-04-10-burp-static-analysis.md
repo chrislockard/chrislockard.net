@@ -5,9 +5,8 @@ url: "/posts/burp-static-analysis"
 categories:
 - Cyber
 tags:
-- BurpSuite
-- Static Analysis
 - AppSec
+- BurpSuite
 ---
 
 I'm so far behind the times, it's sad. Burp Suite [gained the ability to perform

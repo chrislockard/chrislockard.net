@@ -6,7 +6,6 @@ categories:
 - Technology
 tags:
 - Firefox
-- InfoSec
 author: "Chris"
 showToc: false
 TocOpen: false

@@ -5,7 +5,7 @@ url: "/posts/powershell-environment-variables"
 categories:
 - Cyber
 tags:
-- PowerShell
+- Shell
 summary: "How to determine Powershell environment variables"
 showtoc: true
 ---

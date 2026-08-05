@@ -6,8 +6,8 @@ draft: false
 categories:
 - Cyber
 tags:
+- FOSS
 - Privacy
-- Liberated
 summary: "No more contributing to the Evil Empire"
 ---
 

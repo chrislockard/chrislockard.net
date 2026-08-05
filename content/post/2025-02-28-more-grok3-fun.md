@@ -6,7 +6,6 @@ categories:
 - Technology
 tags:
 - AI
-- Grok
 author: "Chris"
 # author: ["Me", "You"] # multiple authors
 showToc: false

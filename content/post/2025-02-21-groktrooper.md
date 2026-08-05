@@ -7,9 +7,8 @@ url: "/posts/groktrooper"
 categories:
 - Technology
 tags:
-- Grok
 - AI
-- Nostalgia
+- Family
 author: "Chris"
 # author: ["Me", "You"] # multiple authors
 showToc: true

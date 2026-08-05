@@ -7,8 +7,6 @@ categories:
 tags:
 - Pentesting
 - Shell
-- Configuration
-- Customization
 summary: "Customize your working environment to your liking"
 showtoc: true
 ---

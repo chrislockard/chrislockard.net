@@ -6,11 +6,8 @@ draft: false
 categories:
 - Cyber
 tags:
-- Cloud
-- Serverless
-- Cloudflare
 - AWS
-- S3
+- Cloudflare
 summary: "This site now uses CloudFlare"
 ---
 

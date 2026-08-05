@@ -5,9 +5,9 @@ url: "/posts/fix-aws-ssl-certificate-error-burpsuite"
 categories:
 - Cyber
 tags:
+- AWS
 - AppSec
 - BurpSuite
-- AWS
 ---
 
 This morning, while I was trying to proxy traffic to [this site][chrislockard]

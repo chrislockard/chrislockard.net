@@ -5,7 +5,6 @@ url: "posts/on-doctorows-memex-method"
 categories:
 - Technology
 tags:
-- Writing
 - Blogging
 author: "Chris"
 showToc: true

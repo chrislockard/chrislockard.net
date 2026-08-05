@@ -6,7 +6,6 @@ categories:
 - Cyber
 tags:
 - Crypto
-- Certs
 author: "Chris"
 showToc: false
 TocOpen: false

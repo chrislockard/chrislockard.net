@@ -7,8 +7,6 @@ categories:
 tags:
 - AppSec
 - Mobile
-- Android
-- iOS
 ---
 
 # iOS

@@ -5,9 +5,9 @@ url: "/posts/cx-and-privacy"
 categories:
 - Cyber
 tags:
-- Blog
-- Workflow
+- Blogging
 - Privacy
+- Workflow
 author: "Chris"
 showToc: true
 TocOpen: false

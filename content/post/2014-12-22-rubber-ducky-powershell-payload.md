@@ -5,8 +5,8 @@ url: "/posts/rubber-ducky-powershell-payload"
 categories:
 - Cyber
 tags:
-- PowerShell
 - Pentesting
+- Shell
 ---
 
 On a recent engagement I supported the lead by developing a PowerShell payload

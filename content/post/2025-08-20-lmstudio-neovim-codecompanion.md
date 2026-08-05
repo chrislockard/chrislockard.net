@@ -5,8 +5,8 @@ url: "posts/lmstudio-neovim-codecompanion"
 categories:
 - Technology
 tags:
-- LMStudio
-- Neovim
+- Editors
+- LocalLLM
 author: "Chris"
 showToc: true
 TocOpen: false

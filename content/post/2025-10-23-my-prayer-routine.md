@@ -6,7 +6,6 @@ categories:
 - Reflection
 tags:
 - Faith
-- Prayer
 type: post
 author: ""
 postTheme: "" # accent comes from the category; set to override

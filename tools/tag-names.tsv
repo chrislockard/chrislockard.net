@@ -1,167 +1,166 @@
-# slug<TAB>canonical display name. Generated 2026-07-25, hand-reviewed.
-# Acronyms, product names and Unix commands deviate from plain Title Case.
-1password	1Password
-academic	Academic
-agents	Agents
+# slug<TAB>canonical display name.
+# Applied 2026-07-25, consolidated 159 -> 30 terms on 2026-08-05.
+# A tag must carry >=3 posts to justify a page: tags do not feed the Fuse.js
+# search index (see fuseOpts.keys in config.yml), so a tag's only value is its
+# own term page, and a one-post page is a dead end.
+# Current terms.
 ai	AI
-analysis	Analysis
-android	Android
-anthropic	Anthropic
-api-gateway	API Gateway
-apple	Apple
+aws	AWS
 appsec	AppSec
 authentication	Authentication
-aws	AWS
-birthday	Birthday
-blacklight	Blacklight
-blog	Blog
 blogging	Blogging
 brave	Brave
-bsimm	BSIMM
 bug-bounty	Bug Bounty
 burpsuite	BurpSuite
 career	Career
-celebrate	Celebrate
-certs	Certs
-chaos	Chaos
-chatgpt	ChatGPT
-claude	Claude
-cloud	Cloud
 cloudflare	Cloudflare
-cloudfront	CloudFront
-cloudtrail	CloudTrail
-cloudwatch	CloudWatch
 coding	Coding
-collaboration	Collaboration
-compatibility	Compatibility
-complexity	Complexity
-config	Config
-configuration	Configuration
 crypto	Crypto
-ctf	CTF
-culture	Culture
-customization	Customization
-defense	Defense
-derbycon	DerbyCon
-development	Development
-dig	dig
-dns	DNS
-dos	DoS
-efficiency	Efficiency
-emacs	Emacs
-evernote	Evernote
-exercise	Exercise
+editors	Editors
+foss	FOSS
 faith	Faith
-fedora	Fedora
-finance	Finance
+family	Family
 fingerprinting	Fingerprinting
 firefox	Firefox
-floc	FLoC
-foss	FOSS
-fundamentals	Fundamentals
-gemini	Gemini
-gemma	Gemma
-gnu	GNU
-google	Google
-grok	Grok
-growth	Growth
-habit	Habit
-hackernews	HackerNews
-hackers	Hackers
-host	host
-hugo	Hugo
-infosec	InfoSec
-injection	Injection
-ios	iOS
-java	Java
-javascript	JavaScript
-jira	Jira
-johari-window	Johari Window
-kaminsky	Kaminsky
-kanban	Kanban
-keylogging	Keylogging
-l0pht	L0pht
-lastpass	LastPass
-law-enforcement	Law Enforcement
-legacy	Legacy
-lfi	LFI
-liberated	Liberated
-liberty	Liberty
-links	Links
 linux	Linux
-lisp	Lisp
-lmstudio	LMStudio
 localllm	LocalLLM
-macos	macOS
-metasploit	Metasploit
-mfa	MFA
-mitm	MITM
 mobile	Mobile
-mobilesec	MobileSec
-monitoring	Monitoring
-mysql	MySQL
-neovim	Neovim
-netbios	NetBIOS
-nostalgia	Nostalgia
-nostr	Nostr
-notes	Notes
-notion	Notion
-nslookup	nslookup
-ollama	Ollama
-organization	Organization
-orgmode	OrgMode
-para	PARA
-passwords	Passwords
+pkm	PKM
 pentesting	Pentesting
-php	PHP
-powershell	PowerShell
-ppv	PPV
-prayer	Prayer
-present	Present
 privacy	Privacy
-procrastination	Procrastination
-psychology	Psychology
-recon	Recon
-responsible-disclosure	Responsible Disclosure
-rms	RMS
-s3	S3
-saaspocalypse	SaaSpocalypse
-safari	Safari
 secops	SecOps
-securityhub	SecurityHub
 self-awareness	Self Awareness
-selfimprovement	SelfImprovement
-serverless	Serverless
 shell	Shell
-shells	Shells
-smb	SMB
-social-media	Social Media
-software	Software
-spacemacs	Spacemacs
-spam	Spam
-static-analysis	Static Analysis
-static-site	Static Site
-surveillance-capitalism	Surveillance Capitalism
-swift	Swift
-swiftui	SwiftUI
-syntax	Syntax
-tech	Tech
-terminal	Terminal
-theme	Theme
-trello	Trello
-u2f	U2F
-unix	Unix
-url	URL
-video	Video
-vivaldi	Vivaldi
-vulnerability	Vulnerability
-waf	WAF
-web	Web
 web-browser	Web Browser
-windows	Windows
-wireshark	Wireshark
 workflow	Workflow
-writing	Writing
-yubico	Yubico
-yubikey	YubiKey
-zed	Zed
+macos	macOS
+# Retired terms, mapped to their successor so a re-run is idempotent and so
+# content returning from git history normalizes forward rather than reviving a
+# dead tag. static/_redirects covers every URL below.
+1password	Authentication
+academic	Blogging
+agents	AI
+analysis	SecOps
+android	Mobile
+anthropic	AI
+api-gateway	AWS
+birthday	Family
+blacklight	Privacy
+blog	Blogging
+bsimm	AppSec
+celebrate	Family
+certs	Crypto
+chaos	Self Awareness
+chatgpt	AI
+claude	AI
+cloud	AWS
+cloudfront	AWS
+cloudtrail	AWS
+cloudwatch	AWS
+collaboration	Career
+compatibility	Coding
+complexity	Self Awareness
+config	AWS
+configuration	Shell
+ctf	Pentesting
+customization	Shell
+defense	SecOps
+derbycon	Pentesting
+development	Coding
+dig	Pentesting
+dns	Pentesting
+dos	Bug Bounty
+efficiency	Workflow
+emacs	Editors
+evernote	PKM
+exercise	Family
+fedora	Linux
+floc	Privacy
+fundamentals	Self Awareness
+gemini	AI
+gemma	LocalLLM
+gnu	FOSS
+google	AI
+grok	AI
+growth	Self Awareness
+habit	Blogging
+host	Pentesting
+hugo	Blogging
+injection	AppSec
+ios	Mobile
+java	SecOps
+javascript	Coding
+jira	Workflow
+johari-window	Self Awareness
+kanban	Workflow
+keylogging	SecOps
+lastpass	Authentication
+law-enforcement	Privacy
+legacy	Family
+lfi	AppSec
+liberated	FOSS
+liberty	FOSS
+lisp	Editors
+lmstudio	LocalLLM
+metasploit	Pentesting
+mfa	Authentication
+mitm	Mobile
+mobilesec	Mobile
+monitoring	SecOps
+mysql	AppSec
+neovim	Editors
+netbios	Pentesting
+nostalgia	Family
+notes	PKM
+notion	PKM
+nslookup	Pentesting
+ollama	LocalLLM
+organization	PKM
+orgmode	PKM
+para	PKM
+passwords	Authentication
+php	AppSec
+powershell	Shell
+ppv	PKM
+prayer	Faith
+present	Family
+procrastination	Self Awareness
+psychology	Self Awareness
+recon	Pentesting
+responsible-disclosure	Bug Bounty
+rms	FOSS
+s3	AWS
+saaspocalypse	AI
+safari	Web Browser
+securityhub	AWS
+serverless	AWS
+shells	Pentesting
+smb	Pentesting
+software	Coding
+spacemacs	Editors
+spam	Bug Bounty
+static-analysis	AppSec
+static-site	Blogging
+surveillance-capitalism	Privacy
+swift	Mobile
+swiftui	Mobile
+syntax	AppSec
+terminal	Shell
+theme	Editors
+trello	Workflow
+u2f	Authentication
+unix	Linux
+url	AppSec
+vivaldi	Web Browser
+vulnerability	SecOps
+waf	AWS
+web	Blogging
+wireshark	SecOps
+writing	Blogging
+yubico	Authentication
+yubikey	Authentication
+zed	Editors
+# Deliberately absent, so the normalizer reports them as UNMAPPED instead of
+# rewriting them: these were deleted outright, not merged. A blank target here
+# would make normalize-taxonomy.awk emit an empty '- ' list item.
+#   Apple, HackerNews, Hackers, InfoSec, Kaminsky, L0pht, Social Media, Video, Windows

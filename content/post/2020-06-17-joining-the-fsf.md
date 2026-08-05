@@ -5,9 +5,8 @@ draft: false
 url: "posts/joining-the-fsf"
 categories:
 - Technology
-tags: 
+tags:
 - FOSS
-- Liberty
 summary: "I've joined the Free Software Foundation and so should you!"
 showtoc: true
 ---

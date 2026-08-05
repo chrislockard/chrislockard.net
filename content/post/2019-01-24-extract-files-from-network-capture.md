@@ -6,7 +6,7 @@ draft: false
 categories:
 - Cyber
 tags:
-- Wireshark
+- SecOps
 summary: "Extract files from tcpdump or wireshark captures"
 ---
 

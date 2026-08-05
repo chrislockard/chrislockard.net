@@ -5,8 +5,8 @@ url: "/posts/osx-terminal-list-processes"
 categories:
 - Cyber
 tags:
-- Unix
-- Terminal
+- Linux
+- Shell
 - macOS
 summary: "An exploration of the ps command"
 showtoc: true

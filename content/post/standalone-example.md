@@ -10,7 +10,7 @@ draft: true
 categories:
 - Technology
 tags:
-- Blog
+- Blogging
 ---
 
 <section class="hero">

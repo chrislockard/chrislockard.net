@@ -5,8 +5,7 @@ url: "posts/ollama-vs-lmstudio-macos"
 categories:
 - Technology
 tags:
-- Ollama
-- LMStudio
+- LocalLLM
 - macOS
 author: "Chris"
 showToc: true

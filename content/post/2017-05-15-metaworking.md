@@ -5,9 +5,7 @@ url: "/posts/metaworking"
 categories:
 - Career
 tags:
-- Kanban
-- Trello
-- Jira
+- Workflow
 ---
 
 [Trello][Trello] fascinated me upon its release in 2011. I've [written

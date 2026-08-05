@@ -7,9 +7,8 @@ categories:
 - Career
 tags:
 - Career
-- InfoSec
-- SecOps
 - Pentesting
+- SecOps
 summary: "How my career is changing."
 ---
 

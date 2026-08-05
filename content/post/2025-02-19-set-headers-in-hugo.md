@@ -7,7 +7,7 @@ url: "/posts/set-cloudflare-http-headers-in-hugo"
 categories:
 - Cyber
 tags:
-- Hugo
+- Blogging
 - Cloudflare
 - Privacy
 author: "Chris"

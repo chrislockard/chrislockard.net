@@ -5,10 +5,9 @@ url: "posts/notes-on-compiling-emacs-for-macos"
 categories:
 - Technology
 tags:
-- Emacs
-- macOS
+- Editors
 - FOSS
-- GNU
+- macOS
 summary: "My notes on compiling emacs for macOS"
 ---
 

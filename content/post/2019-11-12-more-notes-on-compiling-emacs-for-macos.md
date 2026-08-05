@@ -5,12 +5,10 @@ url: "posts/more-notes-compiling-emacs-macos"
 draft: false
 categories:
 - Technology
-tags: 
-- Emacs
-- macOS
+tags:
+- Editors
 - FOSS
-- GNU
-- Liberated
+- macOS
 summary: "Compiling emacs on macOS using Homebrew"
 ---
 

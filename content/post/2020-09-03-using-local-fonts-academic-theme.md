@@ -9,9 +9,7 @@ authors: []
 categories:
 - Cyber
 tags:
-- Blog
-- Hugo
-- Academic
+- Blogging
 - Privacy
 date: 2020-09-03T10:40:11-04:00
 lastmod: 2020-09-03T10:40:11-04:00

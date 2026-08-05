@@ -5,12 +5,10 @@ url: "posts/o365-mail-emacs-mbsync-mu4e"
 draft: false
 categories:
 - Technology
-tags: 
+tags:
+- FOSS
 - Linux
 - macOS
-- FOSS
-- GNU
-- Liberty
 summary: "Access Office 365 email from (Doom) Emacs with mbsync and mu4e!"
 ---
 

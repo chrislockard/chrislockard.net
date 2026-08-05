@@ -5,12 +5,10 @@ url: "/posts/spacemacs-cheatsheet"
 categories:
 - Technology
 tags:
-- FOSS
 - Coding
+- Editors
+- FOSS
 - Workflow
-- Efficiency
-- Emacs
-- Spacemacs
 summary: "My personal spacemacs cheatsheet for daily use."
 ---
 

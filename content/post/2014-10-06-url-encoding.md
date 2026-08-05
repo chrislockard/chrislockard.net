@@ -6,8 +6,6 @@ categories:
 - Technology
 tags:
 - AppSec
-- Syntax
-- URL
 ---
 
 # URL Syntax

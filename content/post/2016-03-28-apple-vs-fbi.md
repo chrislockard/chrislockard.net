@@ -5,8 +5,6 @@ url: "/posts/apple-vs-fbi"
 categories:
 - Cyber
 tags:
-- Apple
-- Law Enforcement
 - Privacy
 ---
 
