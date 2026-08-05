@@ -41,3 +41,9 @@ stack.
 After nearly a year this experiment didn't end up like I'd envisioned, and I
 prefer the workflow I use on this site. Therefore, my handful of articles from
 "GetUnlockd" are merging here and I am sunsetting that site.
+
+- [New Year's 2026]({{% relref "post/2026-01-06-new-years-2026.md" %}})
+- [My Prayer Routine]({{% relref "post/2025-10-23-my-prayer-routine.md" %}})
+- [Prayer]({{% relref "post/2025-10-20-prayer.md" %}})
+- [Rediscovering My Faith]({{% relref "post/2025-10-16-rediscovering-my-faith.md" %}})
+- [Welcome, All]({{% relref "post/2025-09-09-welcome-all.md" %}})
