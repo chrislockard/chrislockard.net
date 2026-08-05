@@ -3,7 +3,7 @@ title: "Cross-Account file access on AWS S3"
 date: "2018-03-30T12:00:00-04:00"
 url: "/posts/s3-cross-account-file-access"
 categories:
-- InfoSec
+- Cyber
 tags:
 - AWS
 - Cloud

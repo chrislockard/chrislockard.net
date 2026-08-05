@@ -4,7 +4,7 @@ date: "2020-02-21T00:00:00-05:00"
 url: "/posts/aws-securityhub"
 draft: false
 categories:
-- InfoSec
+- Cyber
 tags:
 - Cloud
 - AWS

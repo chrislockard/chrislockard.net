@@ -3,7 +3,7 @@ title: "Spacemacs Go Layer and Environment Variables on macOS"
 date: 2018-08-13T20:53:59-04:00
 url: "/posts/spacemacs-env-go-layer"
 categories:
-- FOSS
+- Technology
 tags:
 - Coding
 - FOSS

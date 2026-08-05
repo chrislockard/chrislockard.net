@@ -5,8 +5,7 @@ url: "/posts/groktrooper"
 # weight: 1
 # aliases: ["/first"]
 categories:
-- AI
-- Gaming
+- Technology
 tags:
 - Grok
 - AI

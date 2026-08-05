@@ -5,7 +5,7 @@ summary: "I describe how Pillars, Pipelines, and Vaults is the best Life Managem
 url: "/posts/life-management-system-comparison-ppv-vs-para-notion-vs-evernote"
 authors: []
 categories:
-- Content
+- Technology
 tags:
 - Notion
 - PPV

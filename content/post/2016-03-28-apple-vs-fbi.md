@@ -3,10 +3,11 @@ title: "Apple VS FBI"
 date: "2016-03-28T12:00:00-04:00"
 url: "/posts/apple-vs-fbi"
 categories:
-- Privacy
+- Cyber
 tags:
 - Apple
 - Law Enforcement
+- Privacy
 ---
 
 Apple gets a lot of flak in the InfoSec community, even though it's an open

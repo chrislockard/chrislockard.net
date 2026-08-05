@@ -3,11 +3,13 @@ title: "Fingerprinting Protection: Brave vs Firefox vs Safari"
 date: "2026-07-01T12:00:00-04:00"
 url: "posts/fingerprinting-protection-brave-firefox-safari"
 categories:
-- Privacy
+- Cyber
 tags:
 - Brave
 - Firefox
 - Safari
+- Privacy
+- Fingerprinting
 author: "Chris"
 showToc: false
 TocOpen: false

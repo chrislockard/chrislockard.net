@@ -3,7 +3,7 @@ title: "Spacemacs Org Mode Introduction"
 date: 2018-08-06T15:32:42-04:00
 url: "/posts/spacemacs-org-mode-intro"
 categories:
-- Content
+- Technology
 tags:
 - Organization
 ---

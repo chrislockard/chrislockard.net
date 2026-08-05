@@ -3,7 +3,7 @@ title: "Spacemacs Cheatsheet"
 date: "2019-04-16T15:54:22-04:00"
 url: "/posts/spacemacs-cheatsheet"
 categories:
-- FOSS
+- Technology
 tags:
 - FOSS
 - Coding

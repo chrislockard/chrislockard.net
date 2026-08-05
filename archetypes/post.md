@@ -2,8 +2,15 @@
 title: "{{ replace .File.ContentBaseName `-` ` ` | title }}"
 date: "{{ .Date }}"
 url: "posts/post-url"
+# Exactly one of: Cyber, Technology, Reflection, Career, Other.
+# Cyber when the subject is an attack, a defense, or a risk; Technology when it
+# is a tool, a workflow, or a platform. Other is the escape hatch for a topic
+# none of the four reach -- use it rather than forcing a bad fit, but once it
+# holds ~5 posts on one recurring theme, promote that theme to its own category
+# and empty Other back out. The category also picks the post accent via
+# data/postthemes.yaml.
 categories:
-- Category
+- Technology
 tags:
 - tag1
 - tag2

@@ -3,7 +3,6 @@ title: "Claude Mythos Preview"
 date: "2026-04-08"
 url: "posts/claude-mythos-preview"
 categories:
-- AI
 - Technology
 tags:
 - AI

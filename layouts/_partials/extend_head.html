@@ -3,10 +3,17 @@
 {{- /* .Type, not .Section: Type falls back to Section when frontmatter omits */ -}}
 {{- /* it, so this still matches everything in content/post/, while also */ -}}
 {{- /* honouring an explicit `type: post` on a page filed under another section. */ -}}
-{{- if and (eq .Kind "page") (eq .Type "post") }}
+{{- if and (eq .Kind "page") (in (slice "post" "roundup") .Type) }}
 <style>:root{--reading-progress-display:block}</style>
+{{- end }}
+
 {{- /* Per-post accent, resolved from data/postthemes.yaml. */ -}}
 {{- /* Consumed by assets/css/extended/post-themes.css */ -}}
+{{- /* Not gated on .Type: pt-resolve returns "" for anything with no matching */ -}}
+{{- /* category and no postTheme, so the `with` below is the only gate needed. */ -}}
+{{- /* That keeps content/roundup/ accented without giving it Type "post", */ -}}
+{{- /* which would put it back in params.mainSections and onto the homepage. */ -}}
+{{- if eq .Kind "page" }}
 {{- with index hugo.Data.postthemes.palettes (partial "pt-resolve.html" .) }}
 <style>:root{--pt-accent-light:{{ .light }};--pt-accent-dark:{{ .dark }}}</style>
 {{- end }}

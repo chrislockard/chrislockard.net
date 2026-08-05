@@ -3,7 +3,7 @@ title: "Professional Organization Habits"
 date: "2013-12-06T12:00:00-04:00"
 url: "/posts/professional-organization-habits"
 categories:
-- Content
+- Technology
 tags:
 - Notes
 - Organization

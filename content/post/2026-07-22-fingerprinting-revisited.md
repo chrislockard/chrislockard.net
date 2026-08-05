@@ -3,11 +3,13 @@ title: "Fingerprinting Protection Revisited"
 date: "2026-07-22T19:30:00-00:00"
 url: "posts/fingerprinting-protection-revisited"
 categories:
-- Privacy
+- Cyber
 tags:
 - Brave
 - Firefox
 - Safari
+- Privacy
+- Fingerprinting
 author: "Chris"
 showToc: false
 TocOpen: false

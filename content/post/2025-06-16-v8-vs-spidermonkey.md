@@ -3,7 +3,7 @@ title: "The Engine Room - V8 vs SpiderMonkey"
 date: 2025-06-16T18:00:00-05:00
 url: "/posts/v8-vs-spidermonkey-infographic"
 categories:
-- AI
+- Technology
 tags:
 - Gemini
 - Google

@@ -3,7 +3,7 @@ title: "A Distant Hope Theme"
 date: "2026-05-01T12:55:54-04:00"
 url: "posts/a-distant-hope-theme"
 categories:
-- Dev
+- Technology
 tags:
 - Zed
 - Theme

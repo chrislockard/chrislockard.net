@@ -8,19 +8,16 @@
 # `map` below. Set `postTheme: <palette>` in frontmatter to override.
 
 # Lowercased category -> palette name.
+#
+# The site runs four categories; the roundup palette is reached only through the
+# `postTheme: roundup` cascade in content/roundup/_index.md, since those retired
+# posts carry no categories.
 map:
-  reflection: reflection
-  infosec: security
-  privacy: security
-  ai: security
-  dev: build
-  foss: build
+  cyber: security
   technology: build
-  pkm: build
-  content: roundup
-  family: personal
+  reflection: reflection
   career: personal
-  gaming: personal
+  other: other
 
 # `light` is used against --theme rgb(255,255,255), `dark` against
 # rgb(29,30,32). Both are used as link colors, so keep them at 4.5:1 or better.
@@ -40,3 +37,8 @@ palettes:
   personal:
     light: "#a03d5f" # muted rose
     dark: "#f0a0bd"
+  # Deliberately the only desaturated palette here. Every other accent claims a
+  # subject; this one is for the Other category, which by definition doesn't.
+  other:
+    light: "#4a6076" # slate
+    dark: "#9db8cf"

@@ -3,7 +3,7 @@ title: "Wesplit tutorial app"
 date: "2025-07-30T16:07:36-04:00"
 url: "posts/I-did-a-thing-wesplit"
 categories:
-- Dev
+- Technology
 tags:
 - iOS
 - Swift

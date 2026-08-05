@@ -3,8 +3,7 @@ title: "'AI Agents Fill Me with Dread'"
 date: "2026-07-03T12:00:01-04:00"
 url: "posts/AI-agents-also-fill-me-with-dread"
 categories:
-- InfoSec
-- AI
+- Cyber
 tags:
 - Agents
 author: "Chris"

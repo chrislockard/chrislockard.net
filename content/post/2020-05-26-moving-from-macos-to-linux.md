@@ -4,7 +4,7 @@ date: "2020-05-26T00:00:00-04:00"
 url: "posts/moving-from-macos-to-linux"
 draft: false
 categories:
-- FOSS
+- Technology
 tags: 
 - Linux
 - macOS

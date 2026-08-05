@@ -3,7 +3,7 @@ title: "Follow up to SSL Certificate Requirements are Becoming Obnoxious"
 date: "2025-08-26T15:56:27-04:00"
 url: "posts/ssl-cert-obnoxious-followup"
 categories:
-- InfoSec
+- Cyber
 tags:
 - Crypto
 - Certs

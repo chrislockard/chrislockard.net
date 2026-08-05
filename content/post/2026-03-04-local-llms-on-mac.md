@@ -3,7 +3,7 @@ title: "Notes on Setting up Open WebUI with Ollama"
 date: "2026-03-04T12:00:00-04:00"
 url: "posts/notes-openwebui-ollama"
 categories:
-- AI
+- Technology
 tags:
 - Ollama
 - macOS

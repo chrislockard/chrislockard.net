@@ -3,7 +3,7 @@ title: "Configure an Upstream Proxy for Burpsuite"
 date: "2015-11-05T12:00:00-04:00"
 url: "/posts/configure-upstream-proxy-burpsuite"
 categories:
-- InfoSec
+- Cyber
 tags:
 - AppSec
 - BurpSuite

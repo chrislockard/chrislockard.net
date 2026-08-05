@@ -3,7 +3,7 @@ title: "More Grok3 Fun"
 date: 2025-02-28T09:00:00-05:00
 url: "/posts/more-grok3-fun"
 categories:
-- AI
+- Technology
 tags:
 - AI
 - Grok

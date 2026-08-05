@@ -5,7 +5,7 @@ url: "/posts/goodbye-evernote"
 # weight: 1
 # aliases: ["/first"]
 categories:
-- PKM
+- Technology
 tags:
 - Evernote
 author: "Chris"

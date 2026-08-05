@@ -6,12 +6,13 @@ subtitle: "Improve your visitors' privacy"
 summary: ""
 url: "/posts/using-local-fonts-hugo-academic-theme"
 authors: []
-categories: 
-- Privacy
-tags: 
+categories:
+- Cyber
+tags:
 - Blog
 - Hugo
 - Academic
+- Privacy
 date: 2020-09-03T10:40:11-04:00
 lastmod: 2020-09-03T10:40:11-04:00
 featured: false

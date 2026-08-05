@@ -4,7 +4,7 @@ date: "2020-01-22T11:09:12-05:00"
 url: "/posts/no-more-google-analytics"
 draft: false
 categories:
-- Privacy
+- Cyber
 tags:
 - Privacy
 - Liberated

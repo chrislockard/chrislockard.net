@@ -3,7 +3,7 @@ title: "Post Title"
 date: "9999-01-01T00:00:01-00:00"
 url: "posts/post-url"
 categories:
-- Category
+- Technology
 tags:
 - tag1
 - tag2

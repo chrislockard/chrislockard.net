@@ -4,7 +4,7 @@ date: "2020-04-16T08:30:00-04:00"
 url: "/posts/site-update-cloudflare"
 draft: false
 categories:
-- InfoSec
+- Cyber
 tags:
 - Cloud
 - Serverless

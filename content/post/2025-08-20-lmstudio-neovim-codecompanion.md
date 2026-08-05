@@ -3,7 +3,7 @@ title: "Using LM Studio as Neovim CodeCompanion Backend"
 date: "2025-08-20T16:33:13-04:00"
 url: "posts/lmstudio-neovim-codecompanion"
 categories:
-- AI
+- Technology
 tags:
 - LMStudio
 - Neovim

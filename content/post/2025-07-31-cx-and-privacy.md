@@ -3,10 +3,11 @@ title: "Creator Experience and Privacy"
 date: 2025-07-31T05:30:00-05:00
 url: "/posts/cx-and-privacy"
 categories:
-- Privacy
+- Cyber
 tags:
 - Blog
 - Workflow
+- Privacy
 author: "Chris"
 showToc: true
 TocOpen: false

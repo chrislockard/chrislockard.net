@@ -7,7 +7,7 @@ summary: "This article covers previous work and introduces a warning"
 url: "/posts/set-security-headers-using-cloudflare-workers"
 authors: []
 categories:
-- InfoSec
+- Cyber
 tags:
 - Cloudflare
 - S3

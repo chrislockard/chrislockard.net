@@ -3,7 +3,7 @@ title: "The new face of the security team DoS"
 date: 2018-09-14T14:00:42-04:00
 url: "/posts/new-face-of-security-team-dos"
 categories:
-- InfoSec
+- Cyber
 tags:
 - Bug Bounty
 - Responsible Disclosure

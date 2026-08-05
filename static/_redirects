@@ -6,9 +6,40 @@
 # Casing changes (infosec -> InfoSec, etc.) needed no redirects — Hugo slugifies
 # terms, so those URLs never changed.
 
-/categories/coding                      /categories/dev/          301
-/categories/coding/*                    /categories/dev/          301
-/categories/programming                 /categories/dev/          301
-/categories/programming/*               /categories/dev/          301
+# Category consolidation, 2026-08: the twelve-term set collapsed to four plus a
+# catch-all (Cyber, Technology, Reflection, Career, Other). Every retired term
+# below was a live page, so each points at whichever category absorbed it. The
+# 2026-07 "coding"/"programming" redirects used to land on /categories/dev/,
+# which no longer exists — they are retargeted here rather than left to chain
+# through a dead page.
+#
+# "content" goes to /roundup/ because 33 of its 44 posts were the retired
+# Lockd & Loaded link roundups; the rest were spread across Technology.
+# Individual posts did NOT move — each pins its own `url` — so only these
+# taxonomy pages ever needed redirecting.
+
+/categories/infosec                     /categories/cyber/        301
+/categories/infosec/*                   /categories/cyber/        301
+/categories/privacy                     /categories/cyber/        301
+/categories/privacy/*                   /categories/cyber/        301
+/categories/foss                        /categories/technology/   301
+/categories/foss/*                      /categories/technology/   301
+/categories/ai                          /categories/technology/   301
+/categories/ai/*                        /categories/technology/   301
+/categories/dev                         /categories/technology/   301
+/categories/dev/*                       /categories/technology/   301
+/categories/pkm                         /categories/technology/   301
+/categories/pkm/*                       /categories/technology/   301
+/categories/gaming                      /categories/technology/   301
+/categories/gaming/*                    /categories/technology/   301
+/categories/family                      /categories/reflection/   301
+/categories/family/*                    /categories/reflection/   301
+/categories/content                     /roundup/                 301
+/categories/content/*                   /roundup/                 301
+
+/categories/coding                      /categories/technology/   301
+/categories/coding/*                    /categories/technology/   301
+/categories/programming                 /categories/technology/   301
+/categories/programming/*               /categories/technology/   301
 /categories/introspection-meditation    /categories/reflection/   301
 /categories/introspection-meditation/*  /categories/reflection/   301

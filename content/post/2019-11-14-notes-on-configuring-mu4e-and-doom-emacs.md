@@ -4,7 +4,7 @@ date: "2019-11-14T14:45:28-05:00"
 url: "posts/o365-mail-emacs-mbsync-mu4e"
 draft: false
 categories:
-- FOSS
+- Technology
 tags: 
 - Linux
 - macOS

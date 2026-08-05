@@ -7,7 +7,7 @@ url: "posts/a-fresh-look"
 summary: "I've updated this site's appearance with a new hugo blog theme"
 authors: []
 categories:
-- Family
+- Reflection
 tags:
 - Blog
 - Legacy

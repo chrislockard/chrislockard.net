@@ -8,7 +8,7 @@ customJS: "js/posts/example.js"
 description: "A post that owns its whole page, and how to make another one."
 draft: true
 categories:
-- Content
+- Technology
 tags:
 - Blog
 ---

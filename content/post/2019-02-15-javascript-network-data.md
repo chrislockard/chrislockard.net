@@ -4,7 +4,7 @@ date: "2019-02-15T10:00:00-04:00"
 url: "posts/javascript-network-data"
 draft: false
 categories:
-- Dev
+- Technology
 tags:
 - JavaScript
 - Development

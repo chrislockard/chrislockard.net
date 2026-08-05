@@ -3,7 +3,7 @@ title: "Subdomain Enumeration"
 date: "2013-10-07T12:00:00-04:00"
 url: "/posts/subdomain-enumeration"
 categories:
-- InfoSec
+- Cyber
 tags:
 - Pentesting
 - DNS

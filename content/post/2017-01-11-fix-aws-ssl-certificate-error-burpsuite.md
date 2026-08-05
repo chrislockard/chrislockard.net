@@ -3,7 +3,7 @@ title: "Fix AWS SSL Certificate error in Burpsuite"
 date: "2017-01-11T12:00:00-04:00"
 url: "/posts/fix-aws-ssl-certificate-error-burpsuite"
 categories:
-- InfoSec
+- Cyber
 tags:
 - AppSec
 - BurpSuite

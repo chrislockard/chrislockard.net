@@ -3,7 +3,7 @@ title: "Public Bug Bounty Rules of Engagement"
 date: "2019-04-09T16:28:38-04:00"
 url: "posts/public-bug-bounty-rules-of-engagement"
 categories:
-- InfoSec
+- Cyber
 tags:
 - Bug Bounty
 - Pentesting

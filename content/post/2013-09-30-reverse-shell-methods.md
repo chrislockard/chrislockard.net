@@ -3,7 +3,7 @@ title: "Reverse shell methods"
 date: "2013-09-30T12:00:00-04:00"
 url: "/posts/reverse-shell-methods"
 categories:
-- InfoSec
+- Cyber
 tags:
 - Shells
 - Pentesting

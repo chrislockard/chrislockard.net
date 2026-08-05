@@ -3,7 +3,7 @@ title: "Static Sites in 2016 - Updated"
 date: "2016-10-03T12:00:00-04:00"
 url: "/posts/static-sites-in-2016-update"
 categories:
-- Content
+- Technology
 tags:
 - AWS
 - Static Site

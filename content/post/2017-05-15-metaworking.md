@@ -3,7 +3,7 @@ title: "Metaworking"
 date: "2017-05-15T12:00:00-04:00"
 url: "/posts/metaworking"
 categories:
-- Content
+- Career
 tags:
 - Kanban
 - Trello

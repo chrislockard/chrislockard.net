@@ -3,7 +3,7 @@ title: "NetBIOS Name Spoofing and SMB"
 date: "2014-06-05T12:00:00-04:00"
 url: "/posts/netbios-name-spoofing-and-smb"
 categories:
-- InfoSec
+- Cyber
 tags:
 - Pentesting
 - NetBIOS

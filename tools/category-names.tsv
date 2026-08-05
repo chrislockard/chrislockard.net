@@ -1,20 +1,23 @@
-# slug<TAB>canonical display name. Applied 2026-07-25.
+# slug<TAB>canonical display name. Applied 2026-07-25, consolidated 2026-08-05.
 # Current terms.
-ai	AI
 career	Career
-content	Content
-dev	Dev
-family	Family
-foss	FOSS
-gaming	Gaming
-infosec	InfoSec
-pkm	PKM
-privacy	Privacy
+cyber	Cyber
+other	Other
 reflection	Reflection
 technology	Technology
-# Merged terms, kept so a re-run is idempotent. Unlike every other entry in
-# these files, these three changed the URL; static/_redirects covers them.
-# No post carries them any more, so they are inert unless old content returns.
-coding	Dev
-programming	Dev
+# Retired terms, kept so a re-run is idempotent and so old content returning
+# from git history normalizes to its successor rather than reviving a dead
+# category. Every one of these changed the URL; static/_redirects covers them.
+ai	Technology
+category	Other
+coding	Technology
+content	Technology
+dev	Technology
+family	Reflection
+foss	Technology
+gaming	Technology
+infosec	Cyber
 introspection-meditation	Reflection
+pkm	Technology
+privacy	Cyber
+programming	Technology

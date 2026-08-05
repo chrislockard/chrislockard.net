@@ -5,11 +5,11 @@ url: "/posts/set-cloudflare-http-headers-in-hugo"
 # weight: 1
 # aliases: ["/first"]
 categories:
-- Privacy
-- InfoSec
+- Cyber
 tags:
 - Hugo
 - Cloudflare
+- Privacy
 author: "Chris"
 # author: ["Me", "You"] # multiple authors
 showToc: true

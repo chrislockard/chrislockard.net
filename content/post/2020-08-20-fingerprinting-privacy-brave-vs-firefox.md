@@ -4,12 +4,14 @@ date: 2020-08-20T17:00:00-04:00
 draft: false
 url: "posts/fingerprinting-privacy-brave-vs-firefox"
 categories:
-- Privacy
-tags: 
+- Cyber
+tags:
 - Web Browser
 - FOSS
 - Firefox
 - Brave
+- Privacy
+- Fingerprinting
 summary: "Brave and Firefox bill themselves as privacy champions. How do they fare at fingerprinting protection?"
 ---
 

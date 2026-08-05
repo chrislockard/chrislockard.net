@@ -3,7 +3,7 @@ title: "MacOS open source apps"
 date: 2018-07-03T12:00:00-04:00
 url: "/posts/macos-open-source-bookmark"
 categories:
-- FOSS
+- Technology
 tags:
 - FOSS
 - macOS

@@ -4,7 +4,7 @@ date: 2020-08-12T10:00:00-04:00
 draft: false
 url: "posts/find-resources-with-aws-config"
 categories:
-- InfoSec
+- Cyber
 tags: 
 - Cloud
 - AWS

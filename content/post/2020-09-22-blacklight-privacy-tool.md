@@ -6,12 +6,13 @@ subtitle: "Shine light on website tracking practices"
 summary: ""
 url: "/posts/blacklight-privacy-tool"
 authors: []
-categories: 
-- Privacy
-tags: 
+categories:
+- Cyber
+tags:
 - Blog
 - Blacklight
 - Surveillance Capitalism
+- Privacy
 date: 2020-09-22T16:45:00-04:00
 lastmod: 2020-09-22T16:45:00-04:00
 featured: false

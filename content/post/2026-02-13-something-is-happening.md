@@ -4,7 +4,6 @@ date: "2026-02-13T09:00:00-05:00"
 url: "posts/response-to-something-big-is-happening"
 categories:
 - Reflection
-- AI
 tags:
 - AI
 - Claude

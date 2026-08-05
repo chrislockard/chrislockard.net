@@ -3,7 +3,7 @@ title: "Notes on Compiling Emacs for macOS"
 date: "2019-09-17T08:02:29-04:00"
 url: "posts/notes-on-compiling-emacs-for-macos"
 categories:
-- FOSS
+- Technology
 tags:
 - Emacs
 - macOS

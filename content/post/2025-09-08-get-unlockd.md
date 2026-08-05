@@ -3,7 +3,7 @@ title: "Get Unlockd"
 date: "2025-09-08T14:41:45-04:00"
 url: "posts/get-unlockd"
 categories:
-- Content
+- Reflection
 tags:
 - Blog
 author: "Chris"

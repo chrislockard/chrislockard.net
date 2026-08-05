@@ -3,7 +3,7 @@ title: "Doctorows Memex Method"
 date: "2025-08-20T10:39:24-04:00"
 url: "posts/on-doctorows-memex-method"
 categories:
-- Content
+- Technology
 tags:
 - Writing
 - Blogging

@@ -3,7 +3,7 @@ title: "iOS and Android Native Code Protections"
 date: "2017-06-19T12:00:00-04:00"
 url: "/posts/ios-android-code-protections"
 categories:
-- InfoSec
+- Cyber
 tags:
 - AppSec
 - Mobile

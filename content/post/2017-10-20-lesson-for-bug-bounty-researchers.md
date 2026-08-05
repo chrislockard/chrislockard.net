@@ -3,7 +3,7 @@ title: "A Lesson for Bug Bounty Researchers"
 date: "2017-10-20T12:00:00-04:00"
 url: "/posts/bug-bounty-researchers-doing-it-wrong"
 categories:
-- InfoSec
+- Cyber
 tags:
 - Bug Bounty
 - Pentesting

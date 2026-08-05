@@ -3,12 +3,13 @@ title: "Hands on with Brave Browser"
 date: "2018-03-06T12:00:00-04:00"
 url: "/posts/brave-browser"
 categories:
-- Privacy
+- Cyber
 tags:
 - Brave
 - Web Browser
 - Firefox
 - Vivaldi
+- Privacy
 ---
 # Brave, the new Firefox?
 

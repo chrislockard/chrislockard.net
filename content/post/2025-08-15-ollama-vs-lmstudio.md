@@ -3,7 +3,7 @@ title: "Ollama vs LM Studio on macOS"
 date: "2025-08-15T11:48:15-04:00"
 url: "posts/ollama-vs-lmstudio-macos"
 categories:
-- AI
+- Technology
 tags:
 - Ollama
 - LMStudio
