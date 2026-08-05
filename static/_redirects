@@ -1,5 +1,26 @@
 # Cloudflare Pages redirects.
 #
+# Cloudflare caps *dynamic* rules — any rule containing a splat or a
+# :placeholder — at 100 per file, and silently drops everything past the cap.
+# Static rules are capped at 2100, which is not a constraint here. So a `/*`
+# companion is written only for a term page that actually had a subpath.
+#
+# For a taxonomy term that subpath is only ever pagination, and a term page
+# paginated only when it carried more than pagerSize posts. Note that pagerSize
+# was 10, not 20, for the whole life of these pages: config.yml carried the
+# setting as the dotted key `pagination.PagerSize`, which YAML reads as a
+# literal key rather than a nested map, so Hugo never saw it and used its own
+# default of 10. Only five retired terms ever cleared that bar, and they are the
+# five splats below.
+#
+# The exception this deliberately gives up on is /page/1/. Hugo emits that
+# alias for every term, paginated or not, so each retired term did technically
+# have one live subpath. It is not worth a rule: nothing links to it (the
+# pagination nav points page 1 at the bare term URL), and it is a meta-refresh
+# stub whose canonical is the term page, which the static rule above it already
+# redirects. Covering them would need one splat per retired term, which is what
+# put this file at 144 dynamic rules and 44 over the cap to begin with.
+#
 # Category merges, 2026-07: "coding" and "programming" folded into "Dev",
 # "introspection-meditation" folded into "Reflection". These term pages were
 # live before the merge, so the old URLs are kept pointing at their successors.
@@ -21,294 +42,173 @@
 /categories/infosec                     /categories/cyber/        301
 /categories/infosec/*                   /categories/cyber/        301
 /categories/privacy                     /categories/cyber/        301
-/categories/privacy/*                   /categories/cyber/        301
 /categories/foss                        /categories/technology/   301
 /categories/foss/*                      /categories/technology/   301
 /categories/ai                          /categories/technology/   301
-/categories/ai/*                        /categories/technology/   301
 /categories/dev                         /categories/technology/   301
-/categories/dev/*                       /categories/technology/   301
 /categories/pkm                         /categories/technology/   301
-/categories/pkm/*                       /categories/technology/   301
 /categories/gaming                      /categories/technology/   301
-/categories/gaming/*                    /categories/technology/   301
 /categories/family                      /categories/reflection/   301
-/categories/family/*                    /categories/reflection/   301
 /categories/content                     /roundup/                 301
 /categories/content/*                   /roundup/                 301
 
 /categories/coding                      /categories/technology/   301
-/categories/coding/*                    /categories/technology/   301
 /categories/programming                 /categories/technology/   301
-/categories/programming/*               /categories/technology/   301
 /categories/introspection-meditation    /categories/reflection/   301
-/categories/introspection-meditation/*  /categories/reflection/   301
 
 # Tag consolidation, 2026-08-05: 159 tags down to 30. Each retired tag page
 # points at whichever tag absorbed it; the handful with no successor (they
 # restated a category, or were one-off proper nouns) go to the tag index.
+#
+# The six below were not part of that pass and had no successor tag to be
+# merged into. They went dead earlier the same day, when the roundup move
+# stripped tags from content/roundup/: every post they held was a Lockd &
+# Loaded roundup, so removing those tags emptied the terms outright and Hugo
+# stopped emitting the pages. They point at /roundup/, the same place
+# /categories/content/ goes, because that is where their posts are.
+#
+# "culture" and "tech" get splats because they were the two largest and did
+# paginate. The other four held one post each.
+
+/tags/culture                            /roundup/                301
+/tags/culture/*                          /roundup/                301
+/tags/tech                               /roundup/                301
+/tags/tech/*                             /roundup/                301
+/tags/finance                            /roundup/                301
+/tags/links                              /roundup/                301
+/tags/nostr                              /roundup/                301
+/tags/selfimprovement                    /roundup/                301
 
 /tags/1password                          /tags/authentication/    301
-/tags/1password/*                        /tags/authentication/    301
 /tags/academic                           /tags/blogging/          301
-/tags/academic/*                         /tags/blogging/          301
 /tags/agents                             /tags/ai/                301
-/tags/agents/*                           /tags/ai/                301
 /tags/analysis                           /tags/secops/            301
-/tags/analysis/*                         /tags/secops/            301
 /tags/android                            /tags/mobile/            301
-/tags/android/*                          /tags/mobile/            301
 /tags/anthropic                          /tags/ai/                301
-/tags/anthropic/*                        /tags/ai/                301
 /tags/api-gateway                        /tags/aws/               301
-/tags/api-gateway/*                      /tags/aws/               301
 /tags/apple                              /tags/                   301
-/tags/apple/*                            /tags/                   301
 /tags/birthday                           /tags/family/            301
-/tags/birthday/*                         /tags/family/            301
 /tags/blacklight                         /tags/privacy/           301
-/tags/blacklight/*                       /tags/privacy/           301
 /tags/blog                               /tags/blogging/          301
-/tags/blog/*                             /tags/blogging/          301
 /tags/bsimm                              /tags/appsec/            301
-/tags/bsimm/*                            /tags/appsec/            301
 /tags/celebrate                          /tags/family/            301
-/tags/celebrate/*                        /tags/family/            301
 /tags/certs                              /tags/crypto/            301
-/tags/certs/*                            /tags/crypto/            301
 /tags/chaos                              /tags/self-awareness/    301
-/tags/chaos/*                            /tags/self-awareness/    301
 /tags/chatgpt                            /tags/ai/                301
-/tags/chatgpt/*                          /tags/ai/                301
 /tags/claude                             /tags/ai/                301
-/tags/claude/*                           /tags/ai/                301
 /tags/cloud                              /tags/aws/               301
-/tags/cloud/*                            /tags/aws/               301
 /tags/cloudfront                         /tags/aws/               301
-/tags/cloudfront/*                       /tags/aws/               301
 /tags/cloudtrail                         /tags/aws/               301
-/tags/cloudtrail/*                       /tags/aws/               301
 /tags/cloudwatch                         /tags/aws/               301
-/tags/cloudwatch/*                       /tags/aws/               301
 /tags/collaboration                      /tags/career/            301
-/tags/collaboration/*                    /tags/career/            301
 /tags/compatibility                      /tags/coding/            301
-/tags/compatibility/*                    /tags/coding/            301
 /tags/complexity                         /tags/self-awareness/    301
-/tags/complexity/*                       /tags/self-awareness/    301
 /tags/config                             /tags/aws/               301
-/tags/config/*                           /tags/aws/               301
 /tags/configuration                      /tags/shell/             301
-/tags/configuration/*                    /tags/shell/             301
 /tags/ctf                                /tags/pentesting/        301
-/tags/ctf/*                              /tags/pentesting/        301
 /tags/customization                      /tags/shell/             301
-/tags/customization/*                    /tags/shell/             301
 /tags/defense                            /tags/secops/            301
-/tags/defense/*                          /tags/secops/            301
 /tags/derbycon                           /tags/pentesting/        301
-/tags/derbycon/*                         /tags/pentesting/        301
 /tags/development                        /tags/coding/            301
-/tags/development/*                      /tags/coding/            301
 /tags/dig                                /tags/pentesting/        301
-/tags/dig/*                              /tags/pentesting/        301
 /tags/dns                                /tags/pentesting/        301
-/tags/dns/*                              /tags/pentesting/        301
 /tags/dos                                /tags/bug-bounty/        301
-/tags/dos/*                              /tags/bug-bounty/        301
 /tags/efficiency                         /tags/workflow/          301
-/tags/efficiency/*                       /tags/workflow/          301
 /tags/emacs                              /tags/editors/           301
-/tags/emacs/*                            /tags/editors/           301
 /tags/evernote                           /tags/pkm/               301
-/tags/evernote/*                         /tags/pkm/               301
 /tags/exercise                           /tags/family/            301
-/tags/exercise/*                         /tags/family/            301
 /tags/fedora                             /tags/linux/             301
-/tags/fedora/*                           /tags/linux/             301
 /tags/floc                               /tags/privacy/           301
-/tags/floc/*                             /tags/privacy/           301
 /tags/fundamentals                       /tags/self-awareness/    301
-/tags/fundamentals/*                     /tags/self-awareness/    301
 /tags/gemini                             /tags/ai/                301
-/tags/gemini/*                           /tags/ai/                301
 /tags/gemma                              /tags/localllm/          301
-/tags/gemma/*                            /tags/localllm/          301
 /tags/gnu                                /tags/foss/              301
-/tags/gnu/*                              /tags/foss/              301
 /tags/google                             /tags/ai/                301
-/tags/google/*                           /tags/ai/                301
 /tags/grok                               /tags/ai/                301
-/tags/grok/*                             /tags/ai/                301
 /tags/growth                             /tags/self-awareness/    301
-/tags/growth/*                           /tags/self-awareness/    301
 /tags/habit                              /tags/blogging/          301
-/tags/habit/*                            /tags/blogging/          301
 /tags/hackernews                         /tags/                   301
-/tags/hackernews/*                       /tags/                   301
 /tags/hackers                            /tags/                   301
-/tags/hackers/*                          /tags/                   301
 /tags/host                               /tags/pentesting/        301
-/tags/host/*                             /tags/pentesting/        301
 /tags/hugo                               /tags/blogging/          301
-/tags/hugo/*                             /tags/blogging/          301
 /tags/infosec                            /tags/                   301
 /tags/infosec/*                          /tags/                   301
 /tags/injection                          /tags/appsec/            301
-/tags/injection/*                        /tags/appsec/            301
 /tags/ios                                /tags/mobile/            301
-/tags/ios/*                              /tags/mobile/            301
 /tags/java                               /tags/secops/            301
-/tags/java/*                             /tags/secops/            301
 /tags/javascript                         /tags/coding/            301
-/tags/javascript/*                       /tags/coding/            301
 /tags/jira                               /tags/workflow/          301
-/tags/jira/*                             /tags/workflow/          301
 /tags/johari-window                      /tags/self-awareness/    301
-/tags/johari-window/*                    /tags/self-awareness/    301
 /tags/kaminsky                           /tags/                   301
-/tags/kaminsky/*                         /tags/                   301
 /tags/kanban                             /tags/workflow/          301
-/tags/kanban/*                           /tags/workflow/          301
 /tags/keylogging                         /tags/secops/            301
-/tags/keylogging/*                       /tags/secops/            301
 /tags/l0pht                              /tags/                   301
-/tags/l0pht/*                            /tags/                   301
 /tags/lastpass                           /tags/authentication/    301
-/tags/lastpass/*                         /tags/authentication/    301
 /tags/law-enforcement                    /tags/privacy/           301
-/tags/law-enforcement/*                  /tags/privacy/           301
 /tags/legacy                             /tags/family/            301
-/tags/legacy/*                           /tags/family/            301
 /tags/lfi                                /tags/appsec/            301
-/tags/lfi/*                              /tags/appsec/            301
 /tags/liberated                          /tags/foss/              301
-/tags/liberated/*                        /tags/foss/              301
 /tags/liberty                            /tags/foss/              301
-/tags/liberty/*                          /tags/foss/              301
 /tags/lisp                               /tags/editors/           301
-/tags/lisp/*                             /tags/editors/           301
 /tags/lmstudio                           /tags/localllm/          301
-/tags/lmstudio/*                         /tags/localllm/          301
 /tags/metasploit                         /tags/pentesting/        301
-/tags/metasploit/*                       /tags/pentesting/        301
 /tags/mfa                                /tags/authentication/    301
-/tags/mfa/*                              /tags/authentication/    301
 /tags/mitm                               /tags/mobile/            301
-/tags/mitm/*                             /tags/mobile/            301
 /tags/mobilesec                          /tags/mobile/            301
-/tags/mobilesec/*                        /tags/mobile/            301
 /tags/monitoring                         /tags/secops/            301
-/tags/monitoring/*                       /tags/secops/            301
 /tags/mysql                              /tags/appsec/            301
-/tags/mysql/*                            /tags/appsec/            301
 /tags/neovim                             /tags/editors/           301
-/tags/neovim/*                           /tags/editors/           301
 /tags/netbios                            /tags/pentesting/        301
-/tags/netbios/*                          /tags/pentesting/        301
 /tags/nostalgia                          /tags/family/            301
-/tags/nostalgia/*                        /tags/family/            301
 /tags/notes                              /tags/pkm/               301
-/tags/notes/*                            /tags/pkm/               301
 /tags/notion                             /tags/pkm/               301
-/tags/notion/*                           /tags/pkm/               301
 /tags/nslookup                           /tags/pentesting/        301
-/tags/nslookup/*                         /tags/pentesting/        301
 /tags/ollama                             /tags/localllm/          301
-/tags/ollama/*                           /tags/localllm/          301
 /tags/organization                       /tags/pkm/               301
-/tags/organization/*                     /tags/pkm/               301
 /tags/orgmode                            /tags/pkm/               301
-/tags/orgmode/*                          /tags/pkm/               301
 /tags/para                               /tags/pkm/               301
-/tags/para/*                             /tags/pkm/               301
 /tags/passwords                          /tags/authentication/    301
-/tags/passwords/*                        /tags/authentication/    301
 /tags/php                                /tags/appsec/            301
-/tags/php/*                              /tags/appsec/            301
 /tags/powershell                         /tags/shell/             301
-/tags/powershell/*                       /tags/shell/             301
 /tags/ppv                                /tags/pkm/               301
-/tags/ppv/*                              /tags/pkm/               301
 /tags/prayer                             /tags/faith/             301
-/tags/prayer/*                           /tags/faith/             301
 /tags/present                            /tags/family/            301
-/tags/present/*                          /tags/family/            301
 /tags/procrastination                    /tags/self-awareness/    301
-/tags/procrastination/*                  /tags/self-awareness/    301
 /tags/psychology                         /tags/self-awareness/    301
-/tags/psychology/*                       /tags/self-awareness/    301
 /tags/recon                              /tags/pentesting/        301
-/tags/recon/*                            /tags/pentesting/        301
 /tags/responsible-disclosure             /tags/bug-bounty/        301
-/tags/responsible-disclosure/*           /tags/bug-bounty/        301
 /tags/rms                                /tags/foss/              301
-/tags/rms/*                              /tags/foss/              301
 /tags/s3                                 /tags/aws/               301
-/tags/s3/*                               /tags/aws/               301
 /tags/saaspocalypse                      /tags/ai/                301
-/tags/saaspocalypse/*                    /tags/ai/                301
 /tags/safari                             /tags/web-browser/       301
-/tags/safari/*                           /tags/web-browser/       301
 /tags/securityhub                        /tags/aws/               301
-/tags/securityhub/*                      /tags/aws/               301
 /tags/serverless                         /tags/aws/               301
-/tags/serverless/*                       /tags/aws/               301
 /tags/shells                             /tags/pentesting/        301
-/tags/shells/*                           /tags/pentesting/        301
 /tags/smb                                /tags/pentesting/        301
-/tags/smb/*                              /tags/pentesting/        301
 /tags/social-media                       /tags/                   301
-/tags/social-media/*                     /tags/                   301
 /tags/software                           /tags/coding/            301
-/tags/software/*                         /tags/coding/            301
 /tags/spacemacs                          /tags/editors/           301
-/tags/spacemacs/*                        /tags/editors/           301
 /tags/spam                               /tags/bug-bounty/        301
-/tags/spam/*                             /tags/bug-bounty/        301
 /tags/static-analysis                    /tags/appsec/            301
-/tags/static-analysis/*                  /tags/appsec/            301
 /tags/static-site                        /tags/blogging/          301
-/tags/static-site/*                      /tags/blogging/          301
 /tags/surveillance-capitalism            /tags/privacy/           301
-/tags/surveillance-capitalism/*          /tags/privacy/           301
 /tags/swift                              /tags/mobile/            301
-/tags/swift/*                            /tags/mobile/            301
 /tags/swiftui                            /tags/mobile/            301
-/tags/swiftui/*                          /tags/mobile/            301
 /tags/syntax                             /tags/appsec/            301
-/tags/syntax/*                           /tags/appsec/            301
 /tags/terminal                           /tags/shell/             301
-/tags/terminal/*                         /tags/shell/             301
 /tags/theme                              /tags/editors/           301
-/tags/theme/*                            /tags/editors/           301
 /tags/trello                             /tags/workflow/          301
-/tags/trello/*                           /tags/workflow/          301
 /tags/u2f                                /tags/authentication/    301
-/tags/u2f/*                              /tags/authentication/    301
 /tags/unix                               /tags/linux/             301
-/tags/unix/*                             /tags/linux/             301
 /tags/url                                /tags/appsec/            301
-/tags/url/*                              /tags/appsec/            301
 /tags/video                              /tags/                   301
-/tags/video/*                            /tags/                   301
 /tags/vivaldi                            /tags/web-browser/       301
-/tags/vivaldi/*                          /tags/web-browser/       301
 /tags/vulnerability                      /tags/secops/            301
-/tags/vulnerability/*                    /tags/secops/            301
 /tags/waf                                /tags/aws/               301
-/tags/waf/*                              /tags/aws/               301
 /tags/web                                /tags/blogging/          301
-/tags/web/*                              /tags/blogging/          301
 /tags/windows                            /tags/                   301
-/tags/windows/*                          /tags/                   301
 /tags/wireshark                          /tags/secops/            301
-/tags/wireshark/*                        /tags/secops/            301
 /tags/writing                            /tags/blogging/          301
-/tags/writing/*                          /tags/blogging/          301
 /tags/yubico                             /tags/authentication/    301
-/tags/yubico/*                           /tags/authentication/    301
 /tags/yubikey                            /tags/authentication/    301
-/tags/yubikey/*                          /tags/authentication/    301
 /tags/zed                                /tags/editors/           301
-/tags/zed/*                              /tags/editors/           301
