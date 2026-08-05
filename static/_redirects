@@ -212,3 +212,40 @@
 /tags/yubico                             /tags/authentication/    301
 /tags/yubikey                            /tags/authentication/    301
 /tags/zed                                /tags/editors/           301
+
+# Pagination orphaned by the pagerSize fix, 2026-08-05. Correcting the dotted
+# `pagination.PagerSize` key took the real page size from Hugo's default of 10
+# to the intended 20, which halved every paginated list and dropped the URLs
+# below. Each points at page 1 of its own list rather than at the site root, so
+# a reader landing on a stale link stays in the list they were reading.
+#
+# Adding posts never costs a pagination URL — the count only grows — so this is
+# a one-time debt from raising pagerSize, not a recurring one. Raising it again
+# would orphan a new tail and want the same treatment.
+#
+# Only URLs that were live before the change are listed. /categories/cyber/,
+# /categories/technology/, /roundup/, and the enlarged /tags/blogging/,
+# /tags/privacy/, /tags/secops/ also lost pages, but every one of those terms
+# was itself created earlier the same day, so their deeper pages existed for a
+# few hours and were never linked or crawled.
+
+/page/7                                  /                        301
+/page/8                                  /                        301
+/page/9                                  /                        301
+/page/10                                 /                        301
+/page/11                                 /                        301
+/page/12                                 /                        301
+/post/page/7                             /post/                   301
+/post/page/8                             /post/                   301
+/post/page/9                             /post/                   301
+/post/page/10                            /post/                   301
+/post/page/11                            /post/                   301
+/post/page/12                            /post/                   301
+/tags/aws/page/2                         /tags/aws/               301
+/tags/foss/page/2                        /tags/foss/              301
+/tags/pentesting/page/2                  /tags/pentesting/        301
+
+# Not a pagerSize casualty: /tags/faith/ paginated until the roundup move
+# stripped tags from content/roundup/, which took it under one page. Same
+# treatment, different cause.
+/tags/faith/page/2                       /tags/faith/             301
