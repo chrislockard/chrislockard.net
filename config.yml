@@ -3,7 +3,11 @@ title: "🔓 Unl0ckd"
 # Without this Hugo falls back to defaultContentLanguage and the feed says
 # just "en". Feed readers and validators prefer the region-qualified form.
 languageCode: "en-us"
-pagination.PagerSize: 20
+# Must stay nested. As a dotted key ("pagination.PagerSize: 20") YAML makes a
+# literal key with a dot in it rather than a nested map, so Hugo never reads it
+# and silently falls back to its default of 10 per page.
+pagination:
+  pagerSize: 20
 copyright: "© Chris Lockard"
 theme: ["PaperMod"]
 enableRobotsTXT: true
@@ -31,6 +35,12 @@ minify:
 params:
   env: production
   title: Unl0ckd
+  # Restricts the homepage, archive, and post-nav lists to content/post/. Set
+  # explicitly so that adding a section can never change what the homepage shows:
+  # left unset, Hugo picks whichever top-level section has the most pages. This
+  # is what keeps the retired content/roundup/ posts out of the main flow.
+  mainSections:
+    - post
   description: "The intersection of Faith, Liberty, Security, Privacy, Technology, and Family"
   # Drives two things: the <image> block in the RSS feed, so readers have an
   # icon and a name to show instead of falling back to the domain, and the
