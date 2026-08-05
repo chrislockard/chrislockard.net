@@ -166,5 +166,17 @@ that links are still colored.
 Two things deliberately left alone: code-block colors, which Chroma writes as
 inline styles that no CSS variable can reach (changing that means setting
 `markup.highlight.noClasses: false` in `config.yml`, which restyles every post
-at once), and the `faith` variant of the `callout` shortcode, which still
-carries its own hardcoded colors.
+at once).
+
+The `callout` shortcode does follow the accent. It has no type variants — one
+kind of box, colored by `--pt-accent`, with optional `emoji` and `title`:
+
+```
+{{< callout emoji="🤔" title="A heading" >}}
+Body text, which may span several paragraphs.
+{{< /callout >}}
+```
+
+Styling is in `assets/css/extended/callout.css`. It needs no dark-mode rules,
+because inheriting `--pt-accent` means `post-themes.css` has already resolved
+the color for the active theme.
