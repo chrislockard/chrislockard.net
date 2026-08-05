@@ -1,5 +1,8 @@
 baseURL: "https://www.chrislockard.net/"
 title: "🔓 Unl0ckd"
+# Without this Hugo falls back to defaultContentLanguage and the feed says
+# just "en". Feed readers and validators prefer the region-qualified form.
+languageCode: "en-us"
 pagination.PagerSize: 20
 copyright: "© Chris Lockard"
 theme: ["PaperMod"]
@@ -29,6 +32,11 @@ params:
   env: production
   title: Unl0ckd
   description: "The intersection of Faith, Liberty, Security, Privacy, Technology, and Family"
+  # Drives two things: the <image> block in the RSS feed, so readers have an
+  # icon and a name to show instead of falling back to the domain, and the
+  # site-wide og:image fallback for any page without its own image.
+  images:
+    - "/images/site-logo.jpg"
   keywords:
     - Blog
     - Portfolio
