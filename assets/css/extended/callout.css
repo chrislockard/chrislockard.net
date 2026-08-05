@@ -1,0 +1,54 @@
+/* Callout boxes, for layouts/shortcodes/callout.html.
+ *
+ * There is one kind of callout. Its colour is the post's accent, so a callout
+ * always agrees with whatever palette data/postthemes.yaml gave the page.
+ *
+ * That inheritance is also why there is no dark-mode block here: --pt-accent
+ * is already resolved per theme in post-themes.css, and the background is
+ * mixed into var(--theme) with the body text left as var(--content), so both
+ * endpoints move with the theme and contrast holds structurally.
+ *
+ * The fallback matters on any page that gets no accent — the callout goes
+ * neutral grey rather than losing its background entirely.
+ */
+
+.callout {
+    --cal: var(--pt-accent, var(--secondary));
+
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
+    padding: 1rem 1.25rem;
+    margin: 1.5rem 0;
+    border-radius: var(--radius);
+    border-inline-start: 4px solid var(--cal);
+    background: color-mix(in srgb, var(--cal) 8%, var(--theme));
+    color: var(--content);
+}
+
+/* Emoji sits inside the box. It used to be pinned at left: -40px, outside the
+ * content column, where it clipped on narrow viewports. */
+.callout-emoji {
+    flex: 0 0 auto;
+    font-size: 1.25rem;
+    line-height: 1.5;
+}
+
+.callout-content {
+    min-width: 0;
+}
+
+.callout-content > strong {
+    display: block;
+    margin-bottom: 0.35rem;
+    color: var(--cal);
+}
+
+/* .Inner is markdownified, so it arrives as one or more block elements. */
+.callout-content > p:first-of-type {
+    margin-top: 0;
+}
+
+.callout-content > :last-child {
+    margin-bottom: 0;
+}

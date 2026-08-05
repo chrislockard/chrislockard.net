@@ -82,7 +82,7 @@ organizations segment access to their apps based on geography that this will
 impact. I *also* wonder how many organizations have had certificates mis-issued
 due to BGP hijacking.
 
-{{< callout type="info" title="A Note on Timing" emoji="ℹ️" >}}
+{{< callout title="A Note on Timing" emoji="ℹ️" >}}
 A particular annoyance I've encountered is the notification messages for these
 potentially breaking changes. In several cases, I've received notification of an
 upcoming major change (like MPIC) just a few weeks before it will take place.

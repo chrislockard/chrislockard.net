@@ -1,63 +1,17 @@
-<div class="callout {{ .Get "type" }}">
-  <span class="callout-emoji">{{ .Get "emoji" | default "" }}</span>
+{{- /* One kind of callout. Colour is inherited from the post's accent via */ -}}
+{{- /* --pt-accent; see assets/css/extended/callout.css. Both params are */ -}}
+{{- /* optional: {{< callout emoji="🤔" title="Heading" >}} ... {{< /callout >}} */ -}}
+<div class="callout">
+  {{- with .Get "emoji" }}
+  <span class="callout-emoji" aria-hidden="true">{{ . }}</span>
+  {{- end }}
   <div class="callout-content">
-    <strong>{{ .Get "title" }}</strong>
-    <p>{{ .Inner | markdownify }}</p>
+    {{- with .Get "title" }}
+    <strong>{{ . }}</strong>
+    {{- end }}
+    {{- /* A <div>, not a <p>: .Inner is markdownified and multi-paragraph */ -}}
+    {{- /* content would otherwise nest <p> inside <p>, which browsers fix */ -}}
+    {{- /* by force-closing the wrapper and letting the text escape the box. */ -}}
+    {{ .Inner | markdownify }}
   </div>
 </div>
-<style>
-  .callout {
-    position: relative;
-    padding: 15px 20px;
-    margin: 20px 0;
-    border-radius: 4px;
-    font-family: Arial, sans-serif;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
-  }
-  .callout-emoji {
-    position: absolute;
-    left: -40px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 24px;
-  }
-  /* Generic Info Callout (Pastel Gray) */
-  .callout.info {
-    background-color: #d3d8e0;
-    border-left: 6px solid #b0b7c1;
-    color: #2c3e50;
-  }
-  /* Warning Callout (Pastel Yellow/Orange) */
-  .callout.warning {
-    background-color: #ffe4b5;
-    border-left: 6px solid #ffb74d;
-    color: #7b4d00;
-  }
-  /* Error/Critical Callout (Pastel Red/Pink) */
-  .callout.error {
-    background-color: #fad2e1;
-    border-left: 6px solid #f06292;
-    color: #880e4f;
-  }
-  /* Success Callout (Pastel Green/Teal) */
-  .callout.success {
-    background-color: #c8e6c9;
-    border-left: 6px solid #81c784;
-    color: #1b5e20;
-  }
-  /* Christianity Callout (Pastel Purple) */
-  .callout.faith {
-    background-color: #e8daf1;
-    border-left: 6px solid #ab47bc;
-    color: #4a148c;
-  }
-  /* Dark Theme Adjustment (Optional) */
-  @media (prefers-color-scheme: dark) {
-    .callout {
-      color: #ffffff;
-    }
-    .callout-emoji {
-      color: #ffffff;
-    }
-  }
-</style>

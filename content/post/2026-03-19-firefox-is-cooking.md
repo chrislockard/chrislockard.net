@@ -80,7 +80,7 @@ At some point in recent history, Brave added split view functionality and I didn
 
 The addition of this feature reduces Brave's pull on me.
 
-{{< callout type="success" title="Available Now" emoji="ℹ️" >}}
+{{< callout title="Available Now" emoji="ℹ️" >}}
 This feature is available now, in 148! Navigate to "about:config", and set "browser.tabs.splitView.enabled" to "true".
 {{< /callout >}}
 

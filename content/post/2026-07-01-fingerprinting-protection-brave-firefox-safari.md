@@ -68,7 +68,7 @@ whether Safari's privacy claims hold up under the same empirical tests I applied
 to Brave and Firefox six years ago and whether any of these browsers can resist
 commercial browser fingerprinting.
 
-{{< callout type="info" title="What is a \"Browser Fingerprint?\"" emoji="❓" >}}
+{{< callout title="What is a \"Browser Fingerprint?\"" emoji="❓" >}}
 A Web Browser reveals information about the person using it via a mixture of
 properties both under and outside of a user's control, such as operating system,
 Internet Service Provider, and, crucially, JavaScript. 
@@ -161,7 +161,7 @@ that might otherwise be enabled.
 **I'm using *my* three primary web browsers and my daily-browsing configuration
 for each as described below.**
 
-{{< callout type="info" title="On Open Source" emoji="❓" >}}
+{{< callout title="On Open Source" emoji="❓" >}}
 Online privacy discussions typically point to Open Source as a defining privacy
 characteristic of web browsers. Open Source web browsers theoretically allow
 anyone to inspect their source code to validate the software doesn't unduly
@@ -283,7 +283,7 @@ Safari has a good showing in CYT and (surprisingly to me) reported that my
 browser was randomized by first-party similar to Brave. However, I had to make a
 very specific change to accomplish this.
 
-{{< callout type="info" title="Safari's Screen Size Reporting" emoji="⚠️" >}}
+{{< callout title="Safari's Screen Size Reporting" emoji="⚠️" >}}
 
 Using CYT revealed that Safari doesn't spoof my screen size; it reports the
 actual *window* size instead. As I mentioned, I use an ultra-wide with an

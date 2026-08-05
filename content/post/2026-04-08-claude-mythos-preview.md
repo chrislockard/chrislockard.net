@@ -62,7 +62,7 @@ offensive security. Mythos was found to solve Cyber Range and Capture the flag
 [Section 3.3 in the Mythos System Card][3] for more details, especially the
 assessment on page 52:
 
-{{< callout type="info" title="Other Mythos External Testing" emoji="ℹ️" >}}
+{{< callout title="Other Mythos External Testing" emoji="ℹ️" >}}
 "Claude Mythos Preview is the first model to solve one of these private cyber
 ranges end-to-end...
 

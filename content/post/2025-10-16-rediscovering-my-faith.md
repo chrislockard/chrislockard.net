@@ -298,7 +298,7 @@ as a desire turned into certainty that she was The One for me. I broke off the
 failing relationship and pursued this woman, convinced God crossed our paths for
 a reason. Many prayers of thanksgiving were offered up to Him.
 
-{{< callout type="info" emoji="😍" >}}
+{{< callout emoji="😍" >}}
   We eventually married and had three children, thank God!
 {{< /callout >}}
 
