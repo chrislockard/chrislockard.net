@@ -9,6 +9,7 @@ tags:
 - FOSS
 - Linux
 - macOS
+- Gaming
 summary: "I've adopted Linux on the desktop. Here's how I adapted my macOS workflow..."
 ---
 

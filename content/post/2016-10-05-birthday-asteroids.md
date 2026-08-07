@@ -7,6 +7,7 @@ categories:
 tags:
 - Family
 - Self Awareness
+- Gaming
 ---
 
 Recently, I celebrated a birthday. Typically, this is a joyous time, and I have

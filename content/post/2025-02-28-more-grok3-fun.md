@@ -6,6 +6,7 @@ categories:
 - Technology
 tags:
 - AI
+- Gaming
 author: "Chris"
 # author: ["Me", "You"] # multiple authors
 showToc: false
