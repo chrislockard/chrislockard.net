@@ -6,6 +6,7 @@ categories:
 - Reflection
 tags:
 - Self Awareness
+- Gaming
 author: "Chris"
 showToc: false
 TocOpen: false
