@@ -10,7 +10,7 @@ pagination:
   pagerSize: 20
 copyright: "© Chris Lockard"
 theme: ["PaperMod"]
-enableRobotsTXT: true
+enableRobotsTXT: false
 buildDrafts: false
 buildFuture: false
 buildExpired: false
