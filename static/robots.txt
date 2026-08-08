@@ -1,0 +1,19 @@
+# Content Signals Policy — https://contentsignals.org/
+User-agent: *
+Content-Signal: search=yes, ai-input=yes, ai-train=no, use=reference
+Allow: /
+
+User-agent: GPTBot
+User-agent: ClaudeBot
+User-agent: anthropic-ai
+User-agent: CCBot
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: Bytespider
+User-agent: Amazonbot
+User-agent: meta-externalagent
+User-agent: Diffbot
+User-agent: Omgilibot
+Disallow: /
+
+Sitemap: https://www.chrislockard.net/sitemap.xml
