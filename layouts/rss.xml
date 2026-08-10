@@ -29,7 +29,17 @@
 {{- $pctx := . }}
 {{- if .IsHome }}{{ $pctx = site }}{{ end }}
 {{- $pages := slice }}
-{{- if or $.IsHome $.IsSection }}
+{{- /* Upstream just took every RegularPage on .IsHome -- standalone leaf */ -}}
+{{- /* pages with no `date` (about, ideas, now, privacy, topics, any */ -}}
+{{- /* content/project/*) rode along with a zero-value pubDate of */ -}}
+{{- /* 0001-01-01, sorting last in every reader. mainSections is the same */ -}}
+{{- /* restriction list.html and archives.html already apply to the */ -}}
+{{- /* homepage and archive, so this makes the home feed match what the */ -}}
+{{- /* home page and archive actually show. Section feeds (.IsSection) */ -}}
+{{- /* are unaffected -- they're inherently scoped by being in that section. */ -}}
+{{- if $.IsHome }}
+{{- $pages = where $pctx.RegularPages "Type" "in" site.Params.mainSections }}
+{{- else if $.IsSection }}
 {{- $pages = $pctx.RegularPages }}
 {{- else }}
 {{- $pages = $pctx.Pages }}
@@ -63,7 +73,6 @@
     {{ printf "<atom:link href=%q rel=\"self\" type=%q />" .Permalink .MediaType | safeHTML }}
     {{- end }}
     {{- range $pages }}
-    {{- if and (ne .Layout `search`) (ne .Layout `archives`) }}
     <item>
       <title>{{ .Title }}</title>
       <link>{{ .Permalink }}</link>
@@ -88,7 +97,6 @@
       <content:encoded>{{ (printf "<![CDATA[%s]]>" .Content) | safeHTML }}</content:encoded>
       {{- end }}
     </item>
-    {{- end }}
     {{- end }}
   </channel>
 </rss>

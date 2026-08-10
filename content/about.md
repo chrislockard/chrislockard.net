@@ -10,7 +10,6 @@ draft: false
 share: false
 showtoc: false
 commentable: false
-editable: false
 ---
 {{< figure
   src="/images/site-logo.jpg"
