@@ -46,7 +46,7 @@ params:
   # icon and a name to show instead of falling back to the domain, and the
   # site-wide og:image fallback for any page without its own image.
   images:
-    - "/images/site-logo.jpg"
+    - "/images/site-logo-2026.jpg"
   keywords:
     - Blog
     - Portfolio
