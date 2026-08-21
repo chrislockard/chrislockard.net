@@ -22,13 +22,12 @@ now:
 * Weekly: Continuing to observe and orient myself in the AI space, and share my
   findings. 
 * Weekly: Writing more!
-* Social media fasting continues
+* Social media fasting continues - I've spent < 1hr/week on social media since
+  April and I feel great about that.
 * Web browser privacy research
 * Blog customization
 * Learning more about, and contributing to the [IndieWeb](https://indieweb.org/)
 * Hanging out in IRC! Libera.chat and ergo.chat
-* Considering [Get Unlockd](https://getunlockd.org/) deprecated: I'll fold these
-  topics into this blog instead of maintaining two separate blogs.
 
 ## See Also
 
@@ -37,4 +36,4 @@ now:
 
 ## Last Updated
 
-2026-07-24
+2026-08-21

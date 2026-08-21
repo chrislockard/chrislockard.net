@@ -9,6 +9,19 @@ languageCode: "en-us"
 pagination:
   pagerSize: 20
 copyright: "© [Chris Lockard](/contact)"
+# Powers the "Related Posts" list in layouts/_partials/extend_post_content.html.
+# Tags are weighted far above categories because categories are a closed set of
+# five (see CLAUDE.md) -- most posts share a category with dozens of others, so
+# it's a weak signal. Tags are the specific, cross-cutting overlap.
+related:
+  threshold: 60
+  includeNewer: true
+  toLower: false
+  indices:
+    - name: tags
+      weight: 100
+    - name: categories
+      weight: 10
 theme: ["PaperMod"]
 enableRobotsTXT: false
 buildDrafts: false

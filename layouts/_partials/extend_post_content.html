@@ -1,0 +1,15 @@
+{{- /* Related Posts, scored by the `related` config block in config.yml. */ -}}
+{{- if eq .Type "post" }}
+{{- $posts := where site.RegularPages "Type" "in" site.Params.mainSections }}
+{{- $related := $posts.Related . | first 3 }}
+{{- with $related }}
+<div class="post-content md-content">
+  <h3>Related Posts</h3>
+  <ul>
+    {{- range . }}
+    <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+    {{- end }}
+  </ul>
+</div>
+{{- end }}
+{{- end }}
