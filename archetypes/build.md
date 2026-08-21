@@ -3,7 +3,7 @@ title: "{{ replace .File.ContentBaseName `-` ` ` | title }}"
 date: "{{ .Date }}"
 url: "posts/post-url"
 categories:
-- Dev
+- Technology
 tags:
 - tag1
 - tag2

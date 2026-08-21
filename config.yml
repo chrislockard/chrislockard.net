@@ -8,7 +8,7 @@ languageCode: "en-us"
 # and silently falls back to its default of 10 per page.
 pagination:
   pagerSize: 20
-copyright: "© Chris Lockard"
+copyright: "© [Chris Lockard](/contact)"
 theme: ["PaperMod"]
 enableRobotsTXT: false
 buildDrafts: false
