@@ -1,3 +1,7 @@
+{{- /* PaperMod's own head.html emits favicon/apple-touch-icon links but never */ -}}
+{{- /* a manifest link, so static/site.webmanifest was previously unreachable. */ -}}
+<link rel="manifest" href="{{ "site.webmanifest" | absURL }}">
+
 {{- /* Turn on the reading progress bar for posts only. */ -}}
 {{- /* Consumed by assets/css/extended/floating-header.css */ -}}
 {{- /* .Type, not .Section: Type falls back to Section when frontmatter omits */ -}}

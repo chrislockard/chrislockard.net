@@ -126,6 +126,11 @@ params:
     favicon32x32: "/images/icons/favicon-32x32.png"
     apple_touch_icon: "/images/icons/apple-touch-icon.png"
     safari_pinned_tab: "/images/icons/favicon-32x32.png"
+    # Also mirrored in static/site.webmanifest's theme_color/background_color,
+    # so the mobile browser-chrome tint and the "Add to Home Screen" splash
+    # screen agree. This was previously just PaperMod's hardcoded template
+    # default (head.html), undocumented anywhere in this repo.
+    theme_color: "#2e2e33"
   social:
     twitter: "https://twitter.com/unl0ckd"
     mastodon: "https://defcon.social/@unl0ckd"
