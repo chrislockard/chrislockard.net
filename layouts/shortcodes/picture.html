@@ -1,0 +1,96 @@
+{{- /*
+The one sanctioned way to insert an image in this site. Do not use PaperMod's
+own {{< figure >}}, the retired flowfigure/center-image shortcodes, or raw
+markdown image syntax -- none of them get the processing below.
+
+Params: src (required), alt, caption, title, attr, attrlink, align (center),
+float (left/right), link, target, rel, class, width, height (explicit display
+size cap; otherwise the source image's own dimensions are the cap), loading
+(default lazy; eager also sets fetchpriority=high).
+
+jpeg/png sources are resized to a capped width ladder and re-encoded to AVIF
+and WebP, emitted as a <picture> with the original format as final <img>
+fallback. Anything resources.Get can't resolve (external URLs) or can't
+process (svg, gif -- animation would be lost by resizing) falls back to a
+plain <img> instead, same as the shortcodes this replaces.
+*/ -}}
+{{- $src := .Get "src" -}}
+{{- $alt := .Get "alt" -}}
+{{- $caption := .Get "caption" -}}
+{{- $title := .Get "title" -}}
+{{- $attr := .Get "attr" -}}
+{{- $attrlink := .Get "attrlink" -}}
+{{- $align := .Get "align" -}}
+{{- $float := .Get "float" -}}
+{{- $link := .Get "link" -}}
+{{- $target := .Get "target" -}}
+{{- $rel := .Get "rel" -}}
+{{- $extraClass := .Get "class" -}}
+{{- $explicitWidth := .Get "width" -}}
+{{- $explicitHeight := .Get "height" -}}
+{{- $loading := .Get "loading" | default "lazy" -}}
+
+{{- $altText := "" -}}
+{{- if $alt }}{{ $altText = $alt }}{{ else if $caption }}{{ $altText = ($caption | markdownify | plainify) }}{{ end -}}
+
+{{- $figClasses := slice -}}
+{{- if eq $align "center" }}{{ $figClasses = $figClasses | append "align-center" }}{{ end -}}
+{{- if eq $float "left" }}{{ $figClasses = $figClasses | append "float-left" }}{{ end -}}
+{{- if eq $float "right" }}{{ $figClasses = $figClasses | append "float-right" }}{{ end -}}
+{{- with $extraClass }}{{ $figClasses = $figClasses | append . }}{{ end -}}
+
+{{- $sizesAttr := "(min-width: 768px) 720px, 100vw" -}}
+{{- if or (eq $float "left") (eq $float "right") }}{{ $sizesAttr = "(min-width: 768px) 50vw, 100vw" }}{{ end -}}
+
+{{- $img := resources.Get (strings.TrimPrefix "/" $src) -}}
+{{- $processable := slice "jpeg" "png" -}}
+
+<figure{{ with $figClasses }} class="{{ delimit . " " }}"{{ end }}>
+  {{- if $link }}<a href="{{ $link }}"{{ with $target }} target="{{ . }}"{{ end }}{{ with $rel }} rel="{{ . }}"{{ end }}>{{ end -}}
+
+  {{- if $img }}
+    {{- if in $processable $img.MediaType.SubType }}
+      {{- $widthLadder := slice 360 480 720 1080 1500 -}}
+      {{- $maxWidth := $img.Width -}}
+      {{- if $explicitWidth }}{{ $maxWidth = int $explicitWidth }}{{ end -}}
+      {{- $widths := slice -}}
+      {{- range $w := $widthLadder }}{{ if lt $w $maxWidth }}{{ $widths = $widths | append $w }}{{ end }}{{ end -}}
+      {{- $widths = $widths | append $maxWidth -}}
+
+      {{- $avifSet := slice -}}
+      {{- $webpSet := slice -}}
+      {{- range $w := $widths -}}
+        {{- $avif := $img.Resize (printf "%dx q75 avif" $w) -}}
+        {{- $webp := $img.Resize (printf "%dx q80 webp" $w) -}}
+        {{- $avifSet = $avifSet | append (printf "%s %dw" $avif.RelPermalink $w) -}}
+        {{- $webpSet = $webpSet | append (printf "%s %dw" $webp.RelPermalink $w) -}}
+      {{- end -}}
+      {{- $fallback := $img.Resize (printf "%dx q85" $maxWidth) -}}
+      <picture>
+        <source type="image/avif" srcset="{{ delimit $avifSet ", " }}" sizes="{{ $sizesAttr }}">
+        <source type="image/webp" srcset="{{ delimit $webpSet ", " }}" sizes="{{ $sizesAttr }}">
+        <img src="{{ $fallback.RelPermalink }}" width="{{ $fallback.Width }}" height="{{ $fallback.Height }}" alt="{{ $altText }}" loading="{{ $loading }}" decoding="async"{{ if eq $loading "eager" }} fetchpriority="high"{{ end }}>
+      </picture>
+    {{- else -}}
+      <img src="{{ $img.RelPermalink }}" alt="{{ $altText }}" loading="{{ $loading }}" decoding="async"{{ with $explicitWidth }} width="{{ . }}"{{ end }}{{ with $explicitHeight }} height="{{ . }}"{{ end }}>
+    {{- end -}}
+  {{- else -}}
+    <img src="{{ $src | absURL }}" alt="{{ $altText }}" loading="{{ $loading }}" decoding="async"{{ with $explicitWidth }} width="{{ . }}"{{ end }}{{ with $explicitHeight }} height="{{ . }}"{{ end }}>
+  {{- end -}}
+
+  {{- if $link }}</a>{{ end -}}
+
+  {{- if or $title $caption $attr }}
+  <figcaption>
+    {{- with $title }}{{ . }}{{ end -}}
+    {{- if or $caption $attr -}}
+    <p>
+      {{- with $caption }}{{ . | markdownify }}{{ end -}}
+      {{- if $attrlink }}<a href="{{ $attrlink }}">{{ end -}}
+      {{- with $attr }}{{ . | markdownify }}{{ end -}}
+      {{- if $attrlink }}</a>{{ end -}}
+    </p>
+    {{- end }}
+  </figcaption>
+  {{- end }}
+</figure>

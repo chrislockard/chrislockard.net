@@ -19,13 +19,13 @@ First, configure your upstream proxy that will sit between Burpsuite and the web
 application to listen on a different port since they both bind TCP 8080 by
 default. Here I've configured ZAP to listen on port 8082 :
 
-{{< figure src="/images/2015/11-05-1.png" caption="ZAP Proxy Port Configuration" >}}
+{{< picture src="/images/2015/11-05-1.png" caption="ZAP Proxy Port Configuration" >}}
 
 Then, edit Burpsuite's configuration to point to the upstream proxy. Here, I set
 a wildcard destination host using '*' and set the proxy host to 'localhost' and
 proxy port to '8082':
 
-{{< figure src="/images/2015/11-05-2.png" caption="Configuring Burpsuite's upstream proxy" >}}
+{{< picture src="/images/2015/11-05-2.png" caption="Configuring Burpsuite's upstream proxy" >}}
 
 Done!
 

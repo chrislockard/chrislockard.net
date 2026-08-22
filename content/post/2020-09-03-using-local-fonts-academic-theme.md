@@ -49,14 +49,14 @@ as the heading font for this blog:
 Search for Montserrat using the [Google Web Fonts Helper][gwf-helper] app and
 select the weights desired:
 
-{{< figure src="/images/2020/09-03-1.png" caption="Montserrat font search" >}}
+{{< picture src="/images/2020/09-03-1.png" caption="Montserrat font search" >}}
 
 # Step 2 - Copy font CSS
 
 Next, scroll down to the bottom of the "Copy CSS" section and enter `/fonts/` in
 the _customize folder prefix_ textbox. 
 
-{{< figure src="/images/2020/09-03-3.png" caption="Custom folder prefix" >}}
+{{< picture src="/images/2020/09-03-3.png" caption="Custom folder prefix" >}}
 
 Then, select "Modern Browsers" (or "Best Support" if you need to support ancient
 web browsers) and copy the CSS generated to the clipboard.
@@ -66,7 +66,7 @@ web browsers) and copy the CSS generated to the clipboard.
 Create `<blogdir>/assets/scss/custom.scss` and paste the CSS you just generated
 with the Google web fonts helper:
 
-{{< figure src="/images/2020/09-03-4.png" caption="Contents of custom.scss" >}}
+{{< picture src="/images/2020/09-03-4.png" caption="Contents of custom.scss" >}}
 
 When your blog is published, fonts will be in the `https://<yoursite>/fonts/`
 path. You need to ensure that the font paths in your CSS statements in `custom.scss`
@@ -139,7 +139,7 @@ fonts! You can easily determine whether the font type is working correctly using
 Firefox by inspecting the text you expected to change the font for and looking
 at the "Fonts" tab:
 
-{{< figure src="/images/2020/09-03-5.png" caption="Font inspection in Firefox" >}}
+{{< picture src="/images/2020/09-03-5.png" caption="Font inspection in Firefox" >}}
 
 <a name="recap"></a>
 # Recap

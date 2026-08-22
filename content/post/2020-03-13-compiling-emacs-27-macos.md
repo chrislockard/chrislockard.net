@@ -52,4 +52,4 @@ Everything is almost ready! The last step is to sync Doom's configuration with
 Once this is finished, you're up and running with Emacs 27 and your existing
 Doom configuration!
 
-![This screen greets me every day](/images/2020/05-15-1.png)
+{{< picture src="/images/2020/05-15-1.png" alt="This screen greets me every day" >}}

@@ -295,13 +295,13 @@ Everything is in place to use Doom Emacs as a mail client!
 
 Start Emacs and run `M-x mu4e`:
 
-![Doom mu4e](/images/2019/11-14-1.png)
+{{< picture src="/images/2019/11-14-1.png" alt="Doom mu4e" >}}
 
 ### Compose a message
 
 Press `C` to bring up the message composition window:
 
-![Compose message](/images/2019/11-14-2.png)
+{{< picture src="/images/2019/11-14-2.png" alt="Compose message" >}}
 
 To send a message, place the cursor in the header section (`gg <ESC>`) and then
 `SPC m s`. You'll be prompted to enter the passphrase for your gpg key

@@ -151,7 +151,7 @@ intercept and tamper with non-HTTP protocol traffic.
 
 My testing setup looked like this:
 
-{{< figure src="/images/2015/12-20-1.png" caption="Mallory setup to MitM IMAP/S traffic" >}}
+{{< picture src="/images/2015/12-20-1.png" caption="Mallory setup to MitM IMAP/S traffic" >}}
 
 I was using a TP-LINK TL-WN722N connected to my kali 2 vm running hostapd to
 simulate the wireless access point.
@@ -183,7 +183,7 @@ interface should be host-only.
 
 Below is a screenshot showing my configuration on VMWare Fusion:
 
-{{< figure src="/images/2015/12-20-2.png" caption="VMWare Fusion Network Editor" >}}
+{{< picture src="/images/2015/12-20-2.png" caption="VMWare Fusion Network Editor" >}}
 
 ## Mallory VM
 
@@ -192,7 +192,7 @@ reach the Internet, and one interface mapped to custom vmnet. Here's my mallory
 vm ifconfig output (eth0 is the bridged interface, eth1 is the custom vmnet
 interface):
 
-{{< figure src="/images/2015/12-20-3.png" caption="Mallory VM ifconfig output" >}}
+{{< picture src="/images/2015/12-20-3.png" caption="Mallory VM ifconfig output" >}}
 
 The Mallory VM should now be able to resolve IP addresses and DNS names on the
 eth0 interface.
@@ -202,21 +202,21 @@ eth0 interface.
 From your attacking VM, set the network interface to use the custom vmnet.  In
 my case, this was vmnet4 as shown here:
 
-{{< figure src="/images/2015/12-20-4.png" caption="Kali/Rogue AP VM network configuration in VMWare Fusion" >}}
+{{< picture src="/images/2015/12-20-4.png" caption="Kali/Rogue AP VM network configuration in VMWare Fusion" >}}
 
 In network-manager (Kali 1.X, 2.X and above), select your wired connection in
 network manager and then select "Add Profile…" Fill in the information as
 requested, similar to:
 
-{{< figure src="/images/2015/12-20-5.png" caption="New network-manager profile for custom vmnet" >}}
+{{< picture src="/images/2015/12-20-5.png" caption="New network-manager profile for custom vmnet" >}}
 
-{{< figure src="/images/2015/12-20-6.png" caption="Wired connection to Mallory VM settings (1/2)" >}}
+{{< picture src="/images/2015/12-20-6.png" caption="Wired connection to Mallory VM settings (1/2)" >}}
 
 Note, you should set the Mallory IP address as another DNS server here as well
 to shorten request times - name resolution will end up taking quite longer than
 usual.
 
-{{< figure src="/images/2015/12-20-7.png" caption="Wired connection to Mallory VM settings (2/2)" >}}
+{{< picture src="/images/2015/12-20-7.png" caption="Wired connection to Mallory VM settings (2/2)" >}}
 
 Note: The routing address here should be set to 192.168.67.0
 
@@ -315,7 +315,7 @@ Passthru: No
 Here's my IMAP/S rules tab:
 ~~~~
 
-{{< figure src="/images/2015/12-20-8.png" caption="Mallory Rules" >}}
+{{< picture src="/images/2015/12-20-8.png" caption="Mallory Rules" >}}
 
 ## Mallory - Streams Tab
 
@@ -325,7 +325,7 @@ everything is working correctly, you'll see bi-directional traffic streams.
 Here's an example of Mallory intercepting traffic between my messaging app and
 its IMAP/S server:
 
-{{< figure src="/images/2015/12-20-9.png" caption="Mallory Streams tab" >}}
+{{< picture src="/images/2015/12-20-9.png" caption="Mallory Streams tab" >}}
 
 ## Startup Order
 

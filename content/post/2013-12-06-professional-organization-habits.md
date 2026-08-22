@@ -25,7 +25,7 @@ media can be copied in, but instead of in-line inclusion, KeepNote will create a
 link to the content.  This is handy, so long as the location of the media or
 file doesn't change.
 
-{{< figure src="/images/2013/12-06-1.png" caption="keepnote screenshot" >}}
+{{< picture src="/images/2013/12-06-1.png" caption="keepnote screenshot" >}}
 
 A caveat I've found with KeepNote is that it doesn't alway do the best with
 pasting text from a PDF.  This hasn't been a deal-breaker for me, but it is
@@ -52,7 +52,7 @@ tool for the job.
 
 # [Evernote](https://evernote.com)
 
-{{< figure src="/images/2013/12-06-2.png" caption="Evernote Logo" >}}
+{{< picture src="/images/2013/12-06-2.png" caption="Evernote Logo" >}}
 
 Evernote took me a while to "get into."  I tested it over a year ago and found
 that I just couldn't figure out how it would benefit my day-to-day work.  I

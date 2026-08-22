@@ -22,6 +22,30 @@ related:
       weight: 100
     - name: categories
       weight: 10
+# Defining any mount drops Hugo's defaults for every component not listed here,
+# so content/static/layouts/data/assets/i18n/archetypes all have to be
+# re-declared alongside the one addition: static/images is mounted a second
+# time under assets/images so resources.Get (used by layouts/shortcodes/picture.html)
+# can see and process the same files that static's passthrough already serves
+# verbatim at /images/... . Nothing moves or is duplicated on disk.
+module:
+  mounts:
+    - source: content
+      target: content
+    - source: static
+      target: static
+    - source: layouts
+      target: layouts
+    - source: data
+      target: data
+    - source: assets
+      target: assets
+    - source: i18n
+      target: i18n
+    - source: archetypes
+      target: archetypes
+    - source: static/images
+      target: assets/images
 theme: ["PaperMod"]
 enableRobotsTXT: false
 buildDrafts: false

@@ -41,14 +41,14 @@ If you have a multi-account multi-region environment, the same S3 bucket must be
 the target delivery method for AWS Config in each account and region. For
 reference, these are my Config Settings:
 
-{{< figure src="/images/2020/08-12-1.png" caption="AWS Config Settings" >}}
+{{< picture src="/images/2020/08-12-1.png" caption="AWS Config Settings" >}}
 
 ## Querying resources
 
 From the [Config Console](https://console.aws.amazon.com/config/ "AWS Config
 Console"), navigate to _Advanced queries_ > _New query_:
 
-{{< figure src="/images/2020/08-12-2.png" caption="AWS Config Query editor" >}}
+{{< picture src="/images/2020/08-12-2.png" caption="AWS Config Query editor" >}}
 
 The _Query scope_ allows you to choose from the current account and region, or
 an aggregated view of all accounts. For most queries, the latter is preferable.

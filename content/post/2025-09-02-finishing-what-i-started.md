@@ -32,7 +32,7 @@ story, music, characters, aesthetic, combat system, and itemization were great,
 but that's not why it was amazing to finish this game. No, the reason it felt so
 good to finish this game is because I started it *25 years ago*.
 
-{{< figure
+{{< picture
   src="/images/2025/9-02-1.jpg"
   alt="Dialogue in Final Fantasy IX"
   align=center
@@ -75,7 +75,7 @@ out to do in my life. My journal lists a couple dozen, but I've only been
 religiously keeping that journal for a bit under four years. I can think of many
 hand-written ideas jotted down in Mead composition notebooks over my time.
 
-{{< flowfigure
+{{< picture
   src="/images/2025/9-02-2.jpg"
   alt="Mead Composition Notebook"
   float=right

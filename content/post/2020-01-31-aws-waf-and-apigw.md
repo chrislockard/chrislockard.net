@@ -73,22 +73,22 @@ Here's a high-level overview of some designs:
 In external API deployments, Web ACLs help guard against attacks originating
 from the Internet.
 
-{{< figure src="/images/2020/01-31-17.png" caption="External application backed by Lambdas" >}}
+{{< picture src="/images/2020/01-31-17.png" caption="External application backed by Lambdas" >}}
 
-{{< figure src="/images/2020/01-31-18.png" caption="External application backed by SQL" >}}
+{{< picture src="/images/2020/01-31-18.png" caption="External application backed by SQL" >}}
 
 ### Internal API Deployments
 
 For internal API deployments, Web ACLs help guard against internal attackers or
 from malicious code or data that has propagated to another internal system.
 
-{{< figure src="/images/2020/01-31-19.png" caption="Internal application backed by Lambda" >}}
+{{< picture src="/images/2020/01-31-19.png" caption="Internal application backed by Lambda" >}}
 
 ## Example Implementation
 
 In this example, we'll look at the following API GW deployment:
 
-{{< figure src="/images/2020/01-31-1.png" caption="External APIGW deployment" >}}
+{{< picture src="/images/2020/01-31-1.png" caption="External APIGW deployment" >}}
 
 ### Deploy API
 
@@ -97,24 +97,24 @@ Before we can apply Web ACLs, we must deploy the API.
 With your API selected, navigate to Resources > Click on the _root resource ( '/'
 ) > Click Actions > Deploy API_:
 
-{{< figure src="/images/2020/01-31-2.png" caption="Actions > Deploy API" >}}
+{{< picture src="/images/2020/01-31-2.png" caption="Actions > Deploy API" >}}
 
 The next modal will pop up. For _Deployment Stage,_ select _[New Stage]_ and fill
 out the rest of the information as needed:
 
-{{< figure src="/images/2020/01-31-3.png" caption="Deploy API > Name Stage" >}}
+{{< picture src="/images/2020/01-31-3.png" caption="Deploy API > Name Stage" >}}
 
 You will be brought to the _Stage Editor._ From here, under _Settings_ (you should
 be here by default), select _Create Web ACL_.
 
-{{< figure src="/images/2020/01-31-4.png" caption="Deploy API > Stage Editor" >}}
+{{< picture src="/images/2020/01-31-4.png" caption="Deploy API > Stage Editor" >}}
 
 ### Create Web ACL
 
 You should now be on the AWS WAF landing page in the same region as your API GW
 deployment. Click _Create Web ACL:_
 
-{{< figure src="/images/2020/01-31-5.png" caption="AWS WAF landing page" >}}
+{{< picture src="/images/2020/01-31-5.png" caption="AWS WAF landing page" >}}
 
 #### Describe the Web ACL
 
@@ -124,7 +124,7 @@ related to the API GW deployment they will guard. Select _Regional Resources_ as
 Resource Type since this Web ACL will be applied to an API GW deployment and
 click _Next:_
 
-{{< figure src="/images/2020/01-31-6.png" caption="Describe the WebACL" >}}
+{{< picture src="/images/2020/01-31-6.png" caption="Describe the WebACL" >}}
 
 #### Apply Rules and Rule Groups to the Web ACL
 
@@ -138,11 +138,11 @@ will not deal with _Unmanaged_ rules.
 In this example, we are selecting AWS managed rule sets to protect this API
 deployment against common web attacks:
 
-{{< figure src="/images/2020/01-31-7.png" caption="Add managed rules" >}}
+{{< picture src="/images/2020/01-31-7.png" caption="Add managed rules" >}}
 
-{{< figure src="/images/2020/01-31-8.png" caption="Add managed rule group" >}}
+{{< picture src="/images/2020/01-31-8.png" caption="Add managed rule group" >}}
 
-{{< figure src="/images/2020/01-31-9.png" caption="Add managed rules" >}}
+{{< picture src="/images/2020/01-31-9.png" caption="Add managed rules" >}}
 
 > Rule selection should be based on the application or service underlying the API.
 > For example, if this API served a SQL database running on Linux, it would be
@@ -153,7 +153,7 @@ Back on the _Add Rules_ and _Rule Groups_ page, consider whether your API should
 permissive or restrictive by default. In most cases, the default action should
 be set to _Allow_.
 
-{{< figure src="/images/2020/01-31-10.png" caption="Change default ACL action" >}}
+{{< picture src="/images/2020/01-31-10.png" caption="Change default ACL action" >}}
 
 #### Set Rule Priority
 
@@ -161,30 +161,30 @@ Generally, the default order of managed rules doesn't matter much. It is
 preferred to have the Amazon IP Reputation List as the highest priority since it
 is the least specific rule group. Click _Next_.
 
-{{< figure src="/images/2020/01-31-11.png" caption="Set rule priority" >}}
+{{< picture src="/images/2020/01-31-11.png" caption="Set rule priority" >}}
 
 #### Configure Metrics
 
 Generally, the automatically-provided metrics names are fine to use for
 CloudWatch metric names.
 
-{{< figure src="/images/2020/01-31-12.png" caption="Change CloudWatch Metric names" >}}
+{{< picture src="/images/2020/01-31-12.png" caption="Change CloudWatch Metric names" >}}
 
 #### Review and Create Web ACL
 
-{{< figure src="/images/2020/01-31-13.png" caption="Review and finalize Web ACL creation" >}}
+{{< picture src="/images/2020/01-31-13.png" caption="Review and finalize Web ACL creation" >}}
 
 Ensure that all settings are desired, and click _Create Web ACL_. You should then
 see the new Web ACL in the WAF Web ACLs list:
 
-{{< figure src="/images/2020/01-31-14.png" caption="Web ACL Selection" >}}
+{{< picture src="/images/2020/01-31-14.png" caption="Web ACL Selection" >}}
 
 ### Apply Web ACL
 
 Back in API GW's Stage Editor, click refresh in your browser and the new Web ACL
 will be selectable:
 
-{{< figure src="/images/2020/01-31-15.png" caption="Select Web ACL to apply to APIGW Stage" >}}
+{{< picture src="/images/2020/01-31-15.png" caption="Select Web ACL to apply to APIGW Stage" >}}
 
 Select it and then _Save Changes_ in this screen.
 
@@ -194,4 +194,4 @@ That's it! The APIGW deployment is now protected by a Web ACL leveraging AWS
 managed rules. Below, you can see it in action from the _AWS WAF > Web ACLs >
 Overview_ page:
 
-{{< figure src="/images/2020/01-31-16.png" caption="Attack traffic blocked by AWS WAF" >}}
+{{< picture src="/images/2020/01-31-16.png" caption="Attack traffic blocked by AWS WAF" >}}

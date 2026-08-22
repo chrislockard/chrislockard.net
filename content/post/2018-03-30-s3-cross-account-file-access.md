@@ -38,7 +38,7 @@ I set the policy on the bucket to allow read, list, and write access based on
 the client's Account ID. This was done in the S3 console by selecting the
 bucket, and opening it's permissions, then selecting bucket policy.
 
-{{< figure src="/images/2018/03-30-1.png" caption="Bucket permissions" >}}
+{{< picture src="/images/2018/03-30-1.png" caption="Bucket permissions" >}}
 
 This bucket policy was crafted to allow the client to list the bucket and
 download/upload objects. The bucket policy JSON looks like this:

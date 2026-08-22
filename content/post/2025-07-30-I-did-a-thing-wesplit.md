@@ -29,7 +29,7 @@ course](https://www.hackingwithswift.com/100/swiftui/) on and off for a while.
 
 Today, I finally did a thing! I created an iOS app that I ran on my own device!
 
-{{< figure
+{{< picture
   src="/images/2025/7-30-1.png"
   alt="Tutorial app I created following Paul Hudson's 100 Days of SwiftUI course"
   width="295"

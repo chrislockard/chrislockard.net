@@ -45,7 +45,7 @@ resource.
 
 As I previously wrote, this is the current setup for this site:
 
-{{< figure src="/images/2020/04-17-4.png" caption="" >}}
+{{< picture src="/images/2020/04-17-4.png" caption="" >}}
 
 ## S3
 

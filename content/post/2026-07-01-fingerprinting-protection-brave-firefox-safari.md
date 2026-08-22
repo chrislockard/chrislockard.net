@@ -129,7 +129,7 @@ blends in by matching others, the more difficult it is for them to do this.
 
 |Blending In|Standing Out|
 |-------|---------|
-|{{< figure src="/images/2026/7-1-in.jpg" align=center >}}|{{< figure src="/images/2026/7-1-out.jpg" align=center >}}|
+|{{< picture src="/images/2026/7-1-in.jpg" align=center >}}|{{< picture src="/images/2026/7-1-out.jpg" align=center >}}|
 
 This is why, paradoxically, if you spend too much effort on customization for
 privacy you could make yourself **more** fingerprint-able. 
@@ -189,9 +189,9 @@ be saying one thing and doing another?
 |**Primary Privacy Protection:**| [Farbling][Farbling], [Shields][Shields]|
 
 **Privacy and Advanced Settings:**
-{{< figure src="/images/2026/7-1-2.png" caption="Brave Privacy & Security Settings" align=center >}}
+{{< picture src="/images/2026/7-1-2.png" caption="Brave Privacy & Security Settings" align=center >}}
 
-{{< figure src="/images/2026/7-1-2-1.png" caption="Brave Shields Settings" align=center >}}
+{{< picture src="/images/2026/7-1-2-1.png" caption="Brave Shields Settings" align=center >}}
 
 ### Firefox
 
@@ -215,10 +215,10 @@ be saying one thing and doing another?
 
 **Privacy and Advanced Settings:**
 
-{{< figure src="/images/2026/7-1-3.png" caption="Safari Privacy Settings"
+{{< picture src="/images/2026/7-1-3.png" caption="Safari Privacy Settings"
 align=center >}}
 
-{{< figure src="/images/2026/7-1-4.png" caption="Safari Advanced Settings"
+{{< picture src="/images/2026/7-1-4.png" caption="Safari Advanced Settings"
 align=center >}}
 
 ## Observations

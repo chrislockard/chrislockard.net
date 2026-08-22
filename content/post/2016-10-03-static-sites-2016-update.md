@@ -39,18 +39,18 @@ Certificate Manager was simple:
 
 First, I edited my Cloudfront distribution settings:
 
-{{< figure src="/images/2016/10-3-1.png" caption="Cloudfront Distribution Settings" >}}
+{{< picture src="/images/2016/10-3-1.png" caption="Cloudfront Distribution Settings" >}}
 
-{{< figure src="/images/2016/10-3-2.png" caption="Edit Cloudfront Distribution Settings" >}}
+{{< picture src="/images/2016/10-3-2.png" caption="Edit Cloudfront Distribution Settings" >}}
 
 Then, I started the "Request ACM Certificate" process.
 
-{{< figure src="/images/2016/10-3-3.png" caption="Request ACM Certificate" >}}
+{{< picture src="/images/2016/10-3-3.png" caption="Request ACM Certificate" >}}
 
 The request process was also easy, I specified the domain name I wanted to add
 to my certificate and continued the process.
 
-{{< figure src="/images/2016/10-3-4.png" caption="Request ACM Certificate" >}}
+{{< picture src="/images/2016/10-3-4.png" caption="Request ACM Certificate" >}}
 
 I ran into the only snare in the whole process at this step - domain
 verification. Amazon will send a confirmation e-mail to the following list of
@@ -75,7 +75,7 @@ Fortunately, __ACM will also send a confirmation e-mail to the WHOIS contact for
 Immediately after requesting the certificate, I received an e-mail, clicked on
 the embedded link, and my certificate was available in my Cloudfront settings.
 
-{{< figure src="/images/2016/10-3-5.png" caption="Select ACM Certificate in CloudFront settings" >}}
+{{< picture src="/images/2016/10-3-5.png" caption="Select ACM Certificate in CloudFront settings" >}}
 
 I had to hit "refresh" once on the Edit Distribution screen and my certificate
 showed up. After selecting it and saving my changes, my CloudFront distribution

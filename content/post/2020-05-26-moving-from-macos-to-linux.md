@@ -111,13 +111,13 @@ definitely check out and contribute to this project. I've only spent a couple of
 hours configuring it, but below you can see the games I've enabled and are fully
 playable:
 
-{{< figure src="/images/2020/05-26-1.png" caption="I love the icon artwork!" >}}
+{{< picture src="/images/2020/05-26-1.png" caption="I love the icon artwork!" >}}
 
 I was __floored__ to discover I could easily get one of my all-time favorite vintage
 games - Diablo - running with a modernizing mod with a one-click installation
 from the lutris website! Brilliant!
 
-{{< figure src="/images/2020/05-26-2.png" caption="Diablo by Blizzard entertainment" >}}
+{{< picture src="/images/2020/05-26-2.png" caption="Diablo by Blizzard entertainment" >}}
 
 In addition to Lutris, the steam client with the [Proton compatibility
 layer](https://github.com/ValveSoftware/Proton/) has allowed me to play all of

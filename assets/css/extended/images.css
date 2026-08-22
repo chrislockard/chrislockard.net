@@ -1,0 +1,29 @@
+/* Float positioning for layouts/shortcodes/picture.html's float=left/right.
+ *
+ * Floats are dropped below 768px so a floated image never fights a narrow
+ * column for space; align-center has no rule here because PaperMod's own
+ * md-content.css already styles .md-content figure.align-center globally.
+ */
+.float-left,
+.float-right {
+  max-width: 50%;
+}
+
+.float-left {
+  float: left;
+  margin: 0.7rem 1rem 0.7rem 0;
+}
+
+.float-right {
+  float: right;
+  margin: 0.7rem 0 0.7rem 1rem;
+}
+
+@media screen and (max-width: 768px) {
+  .float-left,
+  .float-right {
+    float: none;
+    margin: 0.7rem auto;
+    max-width: 100%;
+  }
+}

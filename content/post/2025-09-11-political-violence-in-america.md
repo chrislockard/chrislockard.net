@@ -52,7 +52,7 @@ Yet I also saw heroes, like the first reported casualty of 9/11: Roman Catholic
 Priest and FDNY Chaplain Father Mychal Judge, who offered absolution to those
 who leapt to their deaths. 
 
-{{< figure
+{{< picture
   src="/images/2025/9-11-2.jpg"
   alt="Fr. Mychal Judge"
   align=center

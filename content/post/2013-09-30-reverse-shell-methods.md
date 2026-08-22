@@ -35,7 +35,7 @@ On my attack box (10.25.43.35):
 ```bash
 $ nc -lv 8080
 ```
-{{< figure src="/images/2013/09-30-1.png" caption="netcat listener" >}}
+{{< picture src="/images/2013/09-30-1.png" caption="netcat listener" >}}
 
 Now, netcat (or nc) is listening on port 8080 for incoming connections (-l) and
 will print them verbosely (-v) to standard output.  All of the reverse shell
@@ -72,7 +72,7 @@ This causes my victim's box to execute /bin/sh and connect to my attacker's box
 over port 8080.  As you can see in the screenshot, I'm not getting a lot of
 feedback in the shell (note: no prompt)
 
-{{< figure src="/images/2013/09-30-2.png" caption="connect back netcat" >}}
+{{< picture src="/images/2013/09-30-2.png" caption="connect back netcat" >}}
 
 Using bash:
 
@@ -86,7 +86,7 @@ the syntax gives me a headache (I'm still trying to wrap my head around this
 level of [I/O redirection][IOredir]) and because nearly every Unix box has bash
 installed.
 
-{{< figure src="/images/2013/09-30-3.png" caption="connect back bash" >}}
+{{< picture src="/images/2013/09-30-3.png" caption="connect back bash" >}}
 
 If your victim's host has python, perl, php, or ruby installed - which is very
 likely - you can check out [pentestmonkey's cheat sheet][ptmonkey] for examples

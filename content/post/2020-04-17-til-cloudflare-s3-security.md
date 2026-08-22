@@ -17,7 +17,7 @@ summary: "This post covers how to secure an S3 bucket serving content through Cl
 detailed my move to [CloudFlare](https://www.cloudflare.com/). CloudFlare took
 the place of CloudFront and Route53 in my previous configuration:
 
-{{< figure src="/images/2020/04-17-2.png" caption="This site's architecture just got even simpler! (diagram from https://app.diagrams.net/)" >}}
+{{< picture src="/images/2020/04-17-2.png" caption="This site's architecture just got even simpler! (diagram from https://app.diagrams.net/)" >}}
 
 CloudFlare is a Content Delivery Network (CDN) that caches traffic from an
 origin - in my case [AWS S3](https://aws.amazon.com/s3/). Traffic between the
@@ -32,7 +32,7 @@ CloudFlare](https://support.cloudflare.com/hc/en-us/articles/360037983412-Config
 "CloudFlare guide to using S3 as an origin"). After following that guide, I had
 a setup that resembled this:
 
-{{< figure src="/images/2020/04-17-3.png" caption="CloudFlare only provides in-transit encryption to the browser in my architecture" >}}
+{{< picture src="/images/2020/04-17-3.png" caption="CloudFlare only provides in-transit encryption to the browser in my architecture" >}}
 
 Here, the connection between the user's browser and CloudFlare is encrypted
 with TLS (1.3 for supported browsers - yay CloudFlare!). 
@@ -141,7 +141,7 @@ all users except CloudFlare.
 
 Here's what happens when an object is requested directly:
 
-{{< figure src="/images/2020/04-17-5.png" caption="Intentional 403s are just as satisfying as unintentional 403s are infuriating!" >}}
+{{< picture src="/images/2020/04-17-5.png" caption="Intentional 403s are just as satisfying as unintentional 403s are infuriating!" >}}
 
 Some things to note:
 
@@ -162,7 +162,7 @@ Some things to note:
   
 Here's this site's architecture now:
 
-{{< figure src="/images/2020/04-17-4.png" caption="https://app.diagrams.net/ is really great!" >}}
+{{< picture src="/images/2020/04-17-4.png" caption="https://app.diagrams.net/ is really great!" >}}
 
 The IAM Key is not as shiny as the TLS padlock, but it doesn't need to be. It
 enables me to mitigate four risks to this site so I can be sure my users are

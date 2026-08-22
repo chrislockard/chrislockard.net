@@ -36,7 +36,7 @@ The early World Wide Web served static content. This content was served in the
 form of text and images glued together using [Tim Berners-Lee's][TBL-W3C] Hyper
 Text Markup Language (HTML).
 
-{{< figure src="/images/2014/11-26-1.jpg" caption="Sir Tim Berners-Lee" >}}
+{{< picture src="/images/2014/11-26-1.jpg" caption="Sir Tim Berners-Lee" >}}
 
 He and his friends [Dave Raggett][DR-W3C], [Roy Fielding][RF-W3C], [et.
 al][RFC2616] created the HyperText Transfer Protocol (HTTP) that we all rely
@@ -244,11 +244,11 @@ if(isset($_POST['submit']))
 Everything seems to be working well, as Paul can enter his username and password
 here:
 
-{{< figure src="/images/2014/11-26-2.png" caption="sqli-login" >}}
+{{< picture src="/images/2014/11-26-2.png" caption="sqli-login" >}}
 
 And is successfully logged in here: successful-login
 
-{{< figure src="/images/2014/11-26-3.png" caption="successful login" >}}
+{{< picture src="/images/2014/11-26-3.png" caption="successful login" >}}
 
 PHP's ease of use and widespread popularity has lead to countless websites being
 developed in a similar fashion: slapdash and without much thought with security
@@ -286,13 +286,13 @@ into the login page instead of a username or password, though Paul doesn't
 realize this. We want to bypass the username requirement altogether. The
 application expects us to enter a username and password here:
 
-{{< figure src="/images/2014/11-26-4.png" caption="sqli login" >}}
+{{< picture src="/images/2014/11-26-4.png" caption="sqli login" >}}
 
 Instead, let's enter ' or 1=1; --:
 
-{{< figure src="/images/2014/11-26-5.png" caption="sqli login bypass" >}}
+{{< picture src="/images/2014/11-26-5.png" caption="sqli login bypass" >}}
 
-{{< figure src="/images/2014/11-26-6.png" caption="sqli-login-bypass-success" >}}
+{{< picture src="/images/2014/11-26-6.png" caption="sqli-login-bypass-success" >}}
 
 What we've done is _injected_ a valid SQL command into the MySQL context,
 through the PHP CGI. The PHP CGI sent the MySQL backend our injection through
@@ -333,7 +333,7 @@ $query = mysql_query("SELECT * FROM UserName where userName = . addslashes('$_PO
 Now, when we attempt to enter `' or 1=1; --` as the username, we are greeted
 with the following error:
 
-{{< figure src="/images/2014/11-26-7.png" caption="sqli addslashes" >}}
+{{< picture src="/images/2014/11-26-7.png" caption="sqli addslashes" >}}
 
 The easiest method isn't the most complete, and I've already spent several
 paragraphs pointing this out.

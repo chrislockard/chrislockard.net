@@ -76,7 +76,7 @@ organizational accounts into it.
 This is easily done in the console by navigating to _Settings > Accounts > Add
 accounts_:
 
-{{< figure src="/images/2020/02-21-1.png" caption="Add accounts in Security Hub" >}}
+{{< picture src="/images/2020/02-21-1.png" caption="Add accounts in Security Hub" >}}
 
 Member accounts can be added by creating a CSV with the following format:
 
@@ -91,14 +91,14 @@ Account ID,Email
 These can be then bulk added to Security Hub by navigating to
 _Settings > Accounts > Add accounts > Upload List (.csv)_:
 
-{{< figure src="/images/2020/02-21-2.png" caption="Bulk import accounts" >}}
+{{< picture src="/images/2020/02-21-2.png" caption="Bulk import accounts" >}}
 
 After clicking _Add Accounts_, Security Hub will display the accounts to be
 added. Click _Next_. Now invite these accounts by selecting the "Invitation not
 yet sent" drop-down, select all of the accounts you want to invite, and then
 click _Actions > Invite_:
 
-{{< figure src="/images/2020/02-21-3.png" caption="Invite member accounts" >}}
+{{< picture src="/images/2020/02-21-3.png" caption="Invite member accounts" >}}
 
 You'll be prompted for a message to send to the account owner and then you can
 invite the account. The annoying part now is that you must login to each account

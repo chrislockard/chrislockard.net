@@ -72,7 +72,7 @@ I installed XCode from the App Store and then opened it so that it
 could finish installation. This step was considered done once I was at
 this screen:
 
-![XCode](/images/2019/09-17-1.png)
+{{< picture src="/images/2019/09-17-1.png" alt="XCode" >}}
 
 ## Step 2 - Remove and reinstall XCode command line tools
 
@@ -97,7 +97,7 @@ At this point, the macOS SDK headers installer package was placed at
 Follow the installation to completion and you should now see the
 appropriate headers  in `/usr/include`
 
-![macOS Headers](/images/2019/09-17-2.png)
+{{< picture src="/images/2019/09-17-2.png" alt="macOS Headers" >}}
 
 ## Step 4 - Install libxml2 and set environment variables (?)
 

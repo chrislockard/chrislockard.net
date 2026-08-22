@@ -128,7 +128,7 @@ including the “[My Notion Life Operating System
 Overview](https://www.youtube.com/watch?v=4-TYSah25UM)” before going to sleep at
 an absurdly late hour. I was captivated.
 
-{{< figure src="/images/2022/2-21-1.png" caption="I'm writing this post in Notion :)" >}}
+{{< picture src="/images/2022/2-21-1.png" caption="I'm writing this post in Notion :)" >}}
 
 A word before I extol the virtues of PPV: This system, like any other, will
 require time and effort to stand up. [August offers a course that aids in this

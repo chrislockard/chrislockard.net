@@ -53,7 +53,7 @@ faith to fight demons and the enemies of God. I spent a lot of time playing
 video games, and my favorite character was always the Paladin—a holy knight who
 fought courageously and could invoke the Favor of God to smite his enemies.
 
-{{< figure
+{{< picture
   src="/images/2025/10-16-2.jpg"
   alt="Knight preparing for battle with a demon"
   align=center
@@ -112,7 +112,7 @@ on, but I couldn’t shake this conversation. Little did I know that this
 otherwise normal evening was upending my worldview, and leading me astray, into
 the spiritual desert, for almost two decades.
 
-{{< figure
+{{< picture
   src="/images/2025/10-16-3.jpg"
   alt="A man falls from Heaven"
   align=center
@@ -182,7 +182,7 @@ that foundation.
 
 
 
-{{< figure
+{{< picture
   src="/images/2025/10-16-4.jpg"
   alt="A man distraught because he searched for love in the wrong places"
   align=center
@@ -203,7 +203,7 @@ to manifest; I had never had a medical fear in my life beforehand.
 Even after years of work addressing anxiety, it wouldn’t be until I re-accepted
 my faith and trusted in Jesus Christ that this anxiety would lessen. 
 
-{{< figure
+{{< picture
   src="/images/2025/10-16-5.jpg"
   alt="An anxious man"
   align=center
@@ -228,7 +228,7 @@ Only in retrospect do I appreciate and understand that I chose the pain myself.
 God was always with me, guiding me through situations even (perhaps especially)
 when I was willfully ignorant of His presence. 
 
-{{< figure
+{{< picture
   src="/images/2025/10-16-6.jpg"
   alt="A man angry at at everything"
   align=center
@@ -248,7 +248,7 @@ little, my desire to return to Him grew.
 
 ## The Road Home
 
-{{< figure
+{{< picture
   src="/images/2025/10-16-7.jpg"
   alt="A man walks a long, lonely road"
   align=center
@@ -335,7 +335,7 @@ Shortly thereafter, I returned to regular Mass. I made the best confession of my
 life. And then I changed how I ordered my life by putting God first. The embers
 of faith have fanned into a flame that I will continue to stoke.
 
-{{< figure
+{{< picture
   src="/images/2025/10-16-8.jpg"
   alt="A man prays"
   align=center

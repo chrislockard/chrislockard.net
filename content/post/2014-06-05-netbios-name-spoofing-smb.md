@@ -103,11 +103,11 @@ connection from a Windows 7 VM)
 
 Here's what the client sees:
 
-{{< figure src="/images/2014/06-05-1.png" caption="SMB auth" >}}
+{{< picture src="/images/2014/06-05-1.png" caption="SMB auth" >}}
 
 And here's what we capture on our end: 
 
-{{< figure src="/images/2014/06-05-2.png" caption="SMB capture" >}}
+{{< picture src="/images/2014/06-05-2.png" caption="SMB capture" >}}
 
 Almost there. Now, run `john` against the NTLM hash...
 

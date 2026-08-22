@@ -17,7 +17,7 @@ broaden my self awareness.
 
 The first such tool I uncovered was the [Johari Window][Johari].
 
-{{< figure src="/images/2017/06-15-1.png" title="Johari Window" >}}
+{{< picture src="/images/2017/06-15-1.png" title="Johari Window" >}}
 
 My ultimate self awareness goal is to shrink the "Blind Spot" window as much as
 possible. I'm pretty sure anyone who's met me knows that my "Arena" window is
