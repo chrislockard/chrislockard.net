@@ -11,8 +11,8 @@ share: false
 showtoc: false
 commentable: false
 ---
-{{< figure
-  src="/images/site-logo.jpg"
+{{< picture
+  src="/images/site-logo-2026.jpg"
   alt="Unl0ckd logo"
   align=center
   width="512"
