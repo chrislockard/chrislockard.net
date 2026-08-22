@@ -16,7 +16,7 @@ Email is the most reliable way to reach me:
 
 You can also find me here:
 
-* [Twitter/X](https://twitter.com/unl0ckd)
-* [Mastodon](https://defcon.social/@unl0ckd)
-* [GitHub](https://github.com/chrislockard)
+* <a href="https://twitter.com/unl0ckd" rel="me">Twitter/X</a>
+* <a href="https://defcon.social/@unl0ckd" rel="me">Mastodon</a>
+* <a href="https://github.com/chrislockard" rel="me">GitHub</a>
 * IRC: (Libera.chat, nick: `unl0ckd`)
