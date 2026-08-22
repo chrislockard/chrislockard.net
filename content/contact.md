@@ -19,5 +19,4 @@ You can also find me here:
 * [Twitter/X](https://twitter.com/unl0ckd)
 * [Mastodon](https://defcon.social/@unl0ckd)
 * [GitHub](https://github.com/chrislockard)
-* [Matrix](https://matrix.to/#/@unl0ckd:matrix.org)
 * IRC: (Libera.chat, nick: `unl0ckd`)
