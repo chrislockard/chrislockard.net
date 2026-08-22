@@ -1,0 +1,57 @@
+/*
+Print stylesheet.
+
+Forces light-mode values for every theme variable, regardless of which theme
+is active on screen -- dark backgrounds waste ink and can leave text
+unreadable once color rendering is stripped or muted by the print driver.
+Reuses the theme's own variables (assets/css/core/theme-vars.css) rather than
+hand-coloring individual elements, so anything themed through them (body
+text, borders, code blocks, post accents) is covered automatically.
+
+Also hides chrome that has no meaning on paper: the sticky header (nav, theme
+toggle, reading progress), footer, breadcrumbs, prev/next post links, and
+code-copy buttons. The table of contents is hidden entirely rather than just
+its toggle, since its entries are anchor links with no page numbers to
+resolve to on a printed page.
+*/
+@media print {
+    :root,
+    :root[data-theme="dark"] {
+        --theme: rgb(255, 255, 255);
+        --entry: rgb(255, 255, 255);
+        --primary: rgb(30, 30, 30);
+        --secondary: rgb(108, 108, 108);
+        --tertiary: rgb(214, 214, 214);
+        --content: rgb(31, 31, 31);
+        --code-block-bg: rgb(28, 29, 33);
+        --code-bg: rgb(245, 245, 245);
+        --border: rgb(238, 238, 238);
+        --pt-accent: var(--pt-accent-light);
+    }
+
+    .header,
+    .footer,
+    .breadcrumbs,
+    .toc,
+    #top-link,
+    .paginav,
+    .copy-code {
+        display: none !important;
+    }
+
+    /* The reading column is sized for a monitor at arm's length; a printed
+       page has different proportions and should use what it has. */
+    .main {
+        max-width: 100%;
+    }
+
+    a {
+        color: inherit;
+        text-decoration: underline;
+    }
+
+    /* Keep a caption from being orphaned on the next page from its image. */
+    figure {
+        break-inside: avoid;
+    }
+}
