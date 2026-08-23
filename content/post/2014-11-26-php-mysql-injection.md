@@ -6,7 +6,7 @@ categories:
 - Cyber
 tags:
 - AppSec
-- Coding
+- Development
 ---
 Inspired by Jack Daniel's ["Shoulders of InfoSec Project"][Shoulders], this post
 will be focused on the people and technologies behind one of the most prevalent

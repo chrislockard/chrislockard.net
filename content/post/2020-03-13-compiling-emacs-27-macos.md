@@ -6,7 +6,7 @@ draft: false
 categories:
 - Technology
 tags:
-- Editors
+- Development
 - FOSS
 - macOS
 summary: "The easy way to compile Emacs 27 on macOS using Homebrew"

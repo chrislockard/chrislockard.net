@@ -5,8 +5,7 @@ url: "/posts/spacemacs-cheatsheet"
 categories:
 - Technology
 tags:
-- Coding
-- Editors
+- Development
 - FOSS
 - Workflow
 summary: "My personal spacemacs cheatsheet for daily use."

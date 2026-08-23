@@ -6,7 +6,7 @@ draft: false
 categories:
 - Technology
 tags:
-- Coding
+- Development
 - SecOps
 summary: "Methods for sending and receiving data across a network with JavaScript"
 ---

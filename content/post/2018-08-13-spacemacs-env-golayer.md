@@ -5,7 +5,7 @@ url: "/posts/spacemacs-env-go-layer"
 categories:
 - Technology
 tags:
-- Coding
+- Development
 - FOSS
 - Workflow
 summary: "Configuring Spacemacs Go layer and environment variables on macOS"

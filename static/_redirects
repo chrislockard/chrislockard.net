@@ -101,7 +101,7 @@
 /tags/cloudtrail                         /tags/aws/               301
 /tags/cloudwatch                         /tags/aws/               301
 /tags/collaboration                      /tags/career/            301
-/tags/compatibility                      /tags/coding/            301
+/tags/compatibility                      /tags/development/       301
 /tags/complexity                         /tags/self-awareness/    301
 /tags/config                             /tags/aws/               301
 /tags/configuration                      /tags/shell/             301
@@ -109,12 +109,11 @@
 /tags/customization                      /tags/shell/             301
 /tags/defense                            /tags/secops/            301
 /tags/derbycon                           /tags/pentesting/        301
-/tags/development                        /tags/coding/            301
 /tags/dig                                /tags/pentesting/        301
 /tags/dns                                /tags/pentesting/        301
 /tags/dos                                /tags/bug-bounty/        301
 /tags/efficiency                         /tags/workflow/          301
-/tags/emacs                              /tags/editors/           301
+/tags/emacs                              /tags/development/       301
 /tags/evernote                           /tags/pkm/               301
 /tags/exercise                           /tags/family/            301
 /tags/fedora                             /tags/linux/             301
@@ -136,7 +135,7 @@
 /tags/injection                          /tags/appsec/            301
 /tags/ios                                /tags/mobile/            301
 /tags/java                               /tags/secops/            301
-/tags/javascript                         /tags/coding/            301
+/tags/javascript                         /tags/development/       301
 /tags/jira                               /tags/workflow/          301
 /tags/johari-window                      /tags/self-awareness/    301
 /tags/kaminsky                           /tags/                   301
@@ -149,7 +148,7 @@
 /tags/lfi                                /tags/appsec/            301
 /tags/liberated                          /tags/foss/              301
 /tags/liberty                            /tags/foss/              301
-/tags/lisp                               /tags/editors/           301
+/tags/lisp                               /tags/development/       301
 /tags/lmstudio                           /tags/localllm/          301
 /tags/metasploit                         /tags/pentesting/        301
 /tags/mfa                                /tags/authentication/    301
@@ -157,7 +156,7 @@
 /tags/mobilesec                          /tags/mobile/            301
 /tags/monitoring                         /tags/secops/            301
 /tags/mysql                              /tags/appsec/            301
-/tags/neovim                             /tags/editors/           301
+/tags/neovim                             /tags/development/       301
 /tags/netbios                            /tags/pentesting/        301
 /tags/nostalgia                          /tags/family/            301
 /tags/notes                              /tags/pkm/               301
@@ -186,8 +185,8 @@
 /tags/shells                             /tags/pentesting/        301
 /tags/smb                                /tags/pentesting/        301
 /tags/social-media                       /tags/                   301
-/tags/software                           /tags/coding/            301
-/tags/spacemacs                          /tags/editors/           301
+/tags/software                           /tags/development/       301
+/tags/spacemacs                          /tags/development/       301
 /tags/spam                               /tags/bug-bounty/        301
 /tags/static-analysis                    /tags/appsec/            301
 /tags/static-site                        /tags/blogging/          301
@@ -196,7 +195,7 @@
 /tags/swiftui                            /tags/mobile/            301
 /tags/syntax                             /tags/appsec/            301
 /tags/terminal                           /tags/shell/             301
-/tags/theme                              /tags/editors/           301
+/tags/theme                              /tags/development/       301
 /tags/trello                             /tags/workflow/          301
 /tags/u2f                                /tags/authentication/    301
 /tags/unix                               /tags/linux/             301
@@ -211,7 +210,9 @@
 /tags/writing                            /tags/blogging/          301
 /tags/yubico                             /tags/authentication/    301
 /tags/yubikey                            /tags/authentication/    301
-/tags/zed                                /tags/editors/           301
+/tags/zed                                /tags/development/       301
+/tags/coding                             /tags/development/       301
+/tags/editors                            /tags/development/       301
 
 # Pagination orphaned by the pagerSize fix, 2026-08-05. Correcting the dotted
 # `pagination.PagerSize` key took the real page size from Hugo's default of 10

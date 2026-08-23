@@ -6,7 +6,7 @@ draft: false
 categories:
 - Technology
 tags:
-- Editors
+- Development
 - FOSS
 - macOS
 summary: "Compiling emacs on macOS using Homebrew"

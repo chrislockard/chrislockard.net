@@ -5,7 +5,7 @@ url: "posts/a-distant-hope-theme"
 categories:
 - Technology
 tags:
-- Editors
+- Development
 author: ""
 showToc: false
 TocOpen: false

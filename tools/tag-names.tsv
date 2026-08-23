@@ -14,9 +14,8 @@ bug-bounty	Bug Bounty
 burpsuite	BurpSuite
 career	Career
 cloudflare	Cloudflare
-coding	Coding
 crypto	Crypto
-editors	Editors
+development	Development
 foss	FOSS
 faith	Faith
 family	Family
@@ -58,7 +57,9 @@ cloudfront	AWS
 cloudtrail	AWS
 cloudwatch	AWS
 collaboration	Career
-compatibility	Coding
+coding	Development
+compatibility	Development
+editors	Development
 complexity	Self Awareness
 config	AWS
 configuration	Shell
@@ -66,12 +67,11 @@ ctf	Pentesting
 customization	Shell
 defense	SecOps
 derbycon	Pentesting
-development	Coding
 dig	Pentesting
 dns	Pentesting
 dos	Bug Bounty
 efficiency	Workflow
-emacs	Editors
+emacs	Development
 evernote	PKM
 exercise	Family
 fedora	Linux
@@ -89,7 +89,7 @@ hugo	Blogging
 injection	AppSec
 ios	Mobile
 java	SecOps
-javascript	Coding
+javascript	Development
 jira	Workflow
 johari-window	Self Awareness
 kanban	Workflow
@@ -100,7 +100,7 @@ legacy	Family
 lfi	AppSec
 liberated	FOSS
 liberty	FOSS
-lisp	Editors
+lisp	Development
 lmstudio	LocalLLM
 metasploit	Pentesting
 mfa	Authentication
@@ -108,7 +108,7 @@ mitm	Mobile
 mobilesec	Mobile
 monitoring	SecOps
 mysql	AppSec
-neovim	Editors
+neovim	Development
 netbios	Pentesting
 nostalgia	Family
 notes	PKM
@@ -136,8 +136,8 @@ securityhub	AWS
 serverless	AWS
 shells	Pentesting
 smb	Pentesting
-software	Coding
-spacemacs	Editors
+software	Development
+spacemacs	Development
 spam	Bug Bounty
 static-analysis	AppSec
 static-site	Blogging
@@ -146,7 +146,7 @@ swift	Mobile
 swiftui	Mobile
 syntax	AppSec
 terminal	Shell
-theme	Editors
+theme	Development
 trello	Workflow
 u2f	Authentication
 unix	Linux
@@ -159,7 +159,7 @@ wireshark	SecOps
 writing	Blogging
 yubico	Authentication
 yubikey	Authentication
-zed	Editors
+zed	Development
 # Deliberately absent, so the normalizer reports them as UNMAPPED instead of
 # rewriting them: these were deleted outright, not merged. A blank target here
 # would make normalize-taxonomy.awk emit an empty '- ' list item.

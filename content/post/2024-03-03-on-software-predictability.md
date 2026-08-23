@@ -7,7 +7,7 @@ url: "/posts/on-software-predictability"
 categories:
 - Technology
 tags:
-- Coding
+- Development
 author: "Chris"
 # author: ["Me", "You"] # multiple authors
 showToc: true

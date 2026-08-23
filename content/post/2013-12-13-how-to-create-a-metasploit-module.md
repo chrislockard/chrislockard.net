@@ -5,7 +5,7 @@ url: "/posts/how-to-create-a-metasploit-module"
 categories:
 - Cyber
 tags:
-- Coding
+- Development
 - Pentesting
 summary: "Learn how to create a metasploit module"
 ---
