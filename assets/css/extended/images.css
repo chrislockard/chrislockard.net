@@ -1,9 +1,20 @@
-/* Float positioning for layouts/shortcodes/picture.html's float=left/right.
+/* Positioning for layouts/shortcodes/picture.html's align/float params.
+ *
+ * PaperMod's reset.css sets `img { display: block }` site-wide, so
+ * figure.align-center's own `text-align: center` (md-content.css) has no
+ * effect on the image itself -- it only centers inline content, which is why
+ * a figcaption centers under an image that doesn't. The theme's real
+ * centering mechanism is a `margin: auto` rule keyed to a `#center` URL
+ * fragment its own figure shortcode appends to `src`; picture.html doesn't
+ * use that fragment, so it needs its own margin rule instead.
  *
  * Floats are dropped below 768px so a floated image never fights a narrow
- * column for space; align-center has no rule here because PaperMod's own
- * md-content.css already styles .md-content figure.align-center globally.
+ * column for space.
  */
+.align-center img {
+  margin: 1rem auto;
+}
+
 .float-left,
 .float-right {
   max-width: 50%;
