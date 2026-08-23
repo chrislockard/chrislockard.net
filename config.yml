@@ -2,7 +2,9 @@ baseURL: "https://www.chrislockard.net/"
 title: "🔓 Unl0ckd"
 # Without this Hugo falls back to defaultContentLanguage and the feed says
 # just "en". Feed readers and validators prefer the region-qualified form.
-languageCode: "en-us"
+# (Renamed from languageCode, deprecated in Hugo v0.158.0 -- same key, same
+# value, just the new name.)
+locale: "en-us"
 # Must stay nested. As a dotted key ("pagination.PagerSize: 20") YAML makes a
 # literal key with a dot in it rather than a nested map, so Hugo never reads it
 # and silently falls back to its default of 10 per page.
