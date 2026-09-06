@@ -8,3 +8,8 @@ public/
 resources/
 themes/PaperMod
 .DS_Store
+
+# AI agent scratch
+.claude/
+PLAN.md
+PROGRESS.md
