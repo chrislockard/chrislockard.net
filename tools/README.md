@@ -5,17 +5,17 @@ Maintenance scripts for this site. Nothing here is built or published by Hugo â€
 
 | File | Purpose |
 | --- | --- |
-| `check-url-collisions.py` | Report posts that pin the same `url:` frontmatter |
+| `check-url-collisions.sh` | Report posts that pin the same `url:` frontmatter |
 | `normalize-taxonomy.awk` | Rewrite a frontmatter taxonomy block to canonical display names |
 | `category-names.tsv` | `slug<TAB>display name` mapping for categories |
 | `tag-names.tsv` | `slug<TAB>display name` mapping for tags |
 | `count_topics.py` / `.swift` | Pre-existing: count posts per category |
 | `count_technical.py` / `.swift` | Pre-existing: count posts in technical categories |
 
-## check-url-collisions.py
+## check-url-collisions.sh
 
 ```sh
-tools/check-url-collisions.py [--published-only] [content-dir ...]
+tools/check-url-collisions.sh [--published-only] [content-dir ...]
 ```
 
 Every post pins `url:` (`posts/slug-name`). Two posts pinning the same value is
