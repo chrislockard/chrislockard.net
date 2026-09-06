@@ -5,11 +5,32 @@ Maintenance scripts for this site. Nothing here is built or published by Hugo �
 
 | File | Purpose |
 | --- | --- |
+| `check-url-collisions.py` | Report posts that pin the same `url:` frontmatter |
 | `normalize-taxonomy.awk` | Rewrite a frontmatter taxonomy block to canonical display names |
 | `category-names.tsv` | `slug<TAB>display name` mapping for categories |
 | `tag-names.tsv` | `slug<TAB>display name` mapping for tags |
 | `count_topics.py` / `.swift` | Pre-existing: count posts per category |
 | `count_technical.py` / `.swift` | Pre-existing: count posts in technical categories |
+
+## check-url-collisions.py
+
+```sh
+tools/check-url-collisions.py [--published-only] [content-dir ...]
+```
+
+Every post pins `url:` (`posts/slug-name`). Two posts pinning the same value is
+a silent bug: Hugo builds whichever it renders last and drops the other with no
+error. This walks `content/` (or the dirs you name), normalises each url the way
+Hugo resolves it — leading and trailing slashes don't matter — and reports any
+url claimed by more than one file. It also flags case-only near-collisions,
+which Hugo keeps distinct but Cloudflare Pages serves ambiguously.
+
+Drafts are included by default, so the archetype's placeholder `posts/post-url`
+is caught before two drafts carrying it get published. `--published-only` skips
+`draft: true` files to check just what a production build would emit.
+
+Exit status: `0` all urls unique, `1` a collision was found, `2` bad
+invocation. Suitable as a pre-commit or CI gate.
 
 ## normalize-taxonomy.awk
 
