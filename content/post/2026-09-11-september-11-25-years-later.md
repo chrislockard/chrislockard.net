@@ -11,7 +11,7 @@ author: ""
 postTheme: "" # accent comes from the category; set to override
 showToc: false
 TocOpen: false
-draft: true
+draft: false
 hidemeta: false
 comments: false
 description: ""
