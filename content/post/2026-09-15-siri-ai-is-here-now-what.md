@@ -1,6 +1,6 @@
 ---
 title: "Siri AI Is Here! Now What?"
-date: "2026-09-15T13:46:03-04:00"
+date: "2026-09-15T13:45:00-04:00"
 url: "posts/siri-ai-is-here-now-what"
 categories:
 - Technology
@@ -13,7 +13,7 @@ author: ""
 postTheme: "" # accent comes from the category; set to override
 showToc: false
 TocOpen: false
-draft: true
+draft: false
 hidemeta: false
 comments: false
 description: "My initial experience with Siri AI after eagerly awaiting it."
