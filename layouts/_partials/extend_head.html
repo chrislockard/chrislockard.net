@@ -22,3 +22,10 @@
 <style>:root{--pt-accent-light:{{ .light }};--pt-accent-dark:{{ .dark }}}</style>
 {{- end }}
 {{- end }}
+
+{{- /* Three-state theme toggle: mark system mode before paint so the toggle */ -}}
+{{- /* shows the system icon on first render. Mirrors mode() in */ -}}
+{{- /* assets/js/theme-auto.js; styled by assets/css/extended/theme-toggle.css. */ -}}
+{{- if not site.Params.disableThemeToggle }}
+<script>try{var p=localStorage.getItem("pref-theme");if(p!=="light"&&p!=="dark")document.documentElement.dataset.themeMode="system"}catch(e){document.documentElement.dataset.themeMode="system"}</script>
+{{- end }}

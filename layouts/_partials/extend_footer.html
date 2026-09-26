@@ -17,3 +17,11 @@
 {{- $js := . | resources.Minify | fingerprint }}
 <script defer crossorigin="anonymous" src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}"></script>
 {{- end }}
+
+{{- /* Three-state theme toggle; see the header of theme-auto.js. */ -}}
+{{- if not site.Params.disableThemeToggle }}
+{{- with resources.Get "js/theme-auto.js" }}
+{{- $js := . | resources.Minify | fingerprint }}
+<script defer crossorigin="anonymous" src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}"></script>
+{{- end }}
+{{- end }}
